@@ -1,0 +1,37 @@
+{
+  "batch": 20,
+  "attempt": 1,
+  "input_ids": [
+    "T0286",
+    "T0287",
+    "T0288",
+    "T0289",
+    "T0290",
+    "T0291",
+    "T0292",
+    "T0293",
+    "T0294",
+    "T0295"
+  ],
+  "input_text_sha256": "sha256:88e27a0a0912328660f590d797dfce8cea1fa7ddcfe90f42f4ea9ddcf7d66c01",
+  "raw_response": "{\"translations\":[{\"id\":\"T0286\",\"english\":\"Heating can change state only when the object position and microwave state are suitable; issuing the command does not guarantee success. Without an explicit success observation, subsequent moves and placements will be based on a false premise.\"},{\"id\":\"T0287\",\"english\":\"Before continuing to the next step, first verify the actual observed state (held or in-container). Continue only after an explicit heating success observation appears, such as a prompt that the object has been heated or other reliable confirmation of the hot state. If success is not confirmed, correct the object position or held state, re-execute a valid heating attempt, and verify again before moving the object.\"},{\"id\":\"T0288\",\"english\":\"After heating failure, avoid blindly substituting appliances or accepting an unheated result\"},{\"id\":\"T0289\",\"english\":\"After microwave heating returns Nothing happens, switching to the stove, toaster, or another appliance without evidence may also fail or be blocked; substitution based on assumption only adds failed steps. Accepting placement of an unheated object, or replacing the hot-state goal with ordinary cooling/no-heating actions, also cannot satisfy the task requirement.\"},{\"id\":\"T0290\",\"english\":\"Some appliances may not support heating the target object, some surfaces may be occupied, and the existence of an alternative appliance does not guarantee it supports that object. If placement is accepted without confirming the hot state, the task may still fail even if the action was issued.\"},{\"id\":\"T0291\",\"english\":\"When the target object is not at the first search location, continue systematically checking other possible containers and surfaces, such as cabinets, drawers, countertops, dining tables, stoves, refrigerators, sink basins, coffee machines, side tables, etc. Maintain a record of checked locations, prioritize unchecked and already-open containers and visible surfaces, and avoid repeatedly returning to locations confirmed empty or repeatedly opening already-open containers. Do not declare the task blocked or the object nonexistent merely because the first location is empty. If several consecutive containers are empty, expand to open surfaces and other container types rather than searching drawer by drawer indefinitely; for dish-type objects, prioritize open surfaces such as dining tables, countertops, and side tables while also considering containers. After a broad search of reasonable scope, reassess rather than continuing to open every remaining container.\"},{\"id\":\"T0292\",\"english\":\"After successful held heating, do not mistakenly take the object from the microwave\"},{\"id\":\"T0293\",\"english\":\"When heating succeeds while the object is held, the object remains in the held state. Subsequently attempting to take the object from the microwave may return Nothing happens, because that heating action did not put the object into the microwave; failure to take from the microwave means the object is not in the microwave, not that another take is needed.\"},{\"id\":\"T0294\",\"english\":\"After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually placed into the microwave, do not issue a take-from-microwave action; if take-from-microwave returns Nothing happens, check the held state rather than repeating the take.\"},{\"id\":\"T0295\",\"english\":\"Avoid extra intermediate placements between heating and the destination\"}]}",
+  "finish_reason": "stop",
+  "thinking_mode": "disabled",
+  "usage": {
+    "completion_tokens": 674,
+    "prompt_tokens": 757,
+    "total_tokens": 1431,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 757
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 260, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 256, in main
+    print(json.dumps(run(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 226, in run
+    run_single(args, kind, index)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 195, in run_single
+    subprocess.run(command, cwd=ROOT, stdout=out, stderr=err, check=True)
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.run_global_validation', '--global-bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/global_skillbank2.json', '--generation', '4', '--global-round', '2', '--parallel-clients', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3', '--run-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python']' returned non-zero exit status 1.

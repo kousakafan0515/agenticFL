@@ -1,0 +1,15 @@
+{
+  "bucket": "双物品放置",
+  "input_skill_count": 63,
+  "output_skill_count": 9,
+  "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_06.attempt_01.json",
+  "usage": {
+    "requested_model": "deepseek-flash",
+    "response_model": "deepseek-flash",
+    "finish_reason": "stop",
+    "prompt_tokens": 12715,
+    "completion_tokens": 6686,
+    "total_tokens": 19401,
+    "transport_attempts": 1
+  }
+}

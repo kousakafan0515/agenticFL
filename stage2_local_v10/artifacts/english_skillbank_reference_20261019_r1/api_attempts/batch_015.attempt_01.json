@@ -1,0 +1,42 @@
+{
+  "batch": 15,
+  "attempt": 1,
+  "input_ids": [
+    "T0211",
+    "T0212",
+    "T0213",
+    "T0214",
+    "T0215",
+    "T0216",
+    "T0217",
+    "T0218",
+    "T0219",
+    "T0220",
+    "T0221",
+    "T0222",
+    "T0223",
+    "T0224",
+    "T0225"
+  ],
+  "input_text_sha256": "sha256:67c2cb9ca49c4112adb42770f201508ffa19ca23393c458efb27401d88c31aa8",
+  "raw_response": "{\"translations\":[{\"id\":\"T0211\",\"english\":\"Desklamp observation search strategy: prioritize open surfaces, then systematically check containers.\"},{\"id\":\"T0212\",\"english\":\"When searching for the target object or the desklamp, prioritize checking open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, dresser, sofa, coffeetable, armchair, shelf, etc.; once the desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed, do not continue traversing many drawers or irrelevant containers. If the target object is not on reasonable open surfaces, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine the same location; when there is no new information, turn to other furniture or containers. 'under the desklamp' does not guarantee that the target object or the desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers.\"},{\"id\":\"T0213\",\"english\":\"End-to-end process of heating first, then placing.\"},{\"id\":\"T0214\",\"english\":\"For a target that is heated first and then placed: locate and take the target object, go to the microwave, open it if closed, complete heating in a way confirmed feasible by observation, and continuously track the same object instance; then go to the final destination, open the container if necessary, put the object in, and confirm placement. Heating is only an intermediate milestone; it counts as complete only after the object has been placed at the destination. If the object is already in hand after taking, go directly to the heating stage without unnecessary restarting. After heating, if the object was indeed put into the microwave, take it out; if heating was completed while held in hand, keep holding it and go directly to the destination.\"},{\"id\":\"T0215\",\"english\":\"Any task that requires first heating an object and then placing it at a specified destination.\"},{\"id\":\"T0216\",\"english\":\"Explicit commands for microwave heating and recovery by switching position.\"},{\"id\":\"T0217\",\"english\":\"Open the microwave before using it, and confirm by observation that it is open. Use a heating form that explicitly specifies the object and the microwave, for example heat <object> with microwave <id>; bare generic forms such as use <object> or use microwave may return Nothing happens. Observations show that when heating, the object may be held in hand or may be placed in the open microwave, so the held/placed requirement should be handled according to observed conditions. If heating while held returns Nothing happens, you may put the object into the open microwave and retry; if heating the object inside the microwave fails, take the object out, confirm the microwave is open, and retry while holding it. After the first failure, change the object position or held state; do not repeat the exact same failed command; if there is still no confirmation after switching, switch back to the other state and retry once. Continue to the destination only after an explicit heating success is observed.\"},{\"id\":\"T0218\",\"english\":\"When the target object needs to be heated with the microwave, especially when the first heating attempt fails or the object is inside the microwave.\"},{\"id\":\"T0219\",\"english\":\"The heating command may fail or return Nothing happens; if an unconfirmed attempt is treated as success, this may lead to moving and placing an object that is still cold. Heating success cannot be inferred merely because the object is held in hand or placed in the microwave.\"},{\"id\":\"T0220\",\"english\":\"Heating can change state only when the object position and microwave state are suitable; issuing the command does not guarantee success. Without an explicit success observation, subsequent movement and placement may be based on a false premise.\"},{\"id\":\"T0221\",\"english\":\"Continue only after an explicit heating success observation appears, such as a prompt that the object has been heated, or other reliable confirmation of the hot state. If success is not confirmed, correct the object position or held state, execute a valid heating attempt again, verify again, and then move the object.\"},{\"id\":\"T0222\",\"english\":\"After microwave heating returns Nothing happens, switching without evidence to a stove, toaster, or other appliance may also fail or be blocked; substitutions based on assumptions only add failed steps. Accepting placement of an unheated object, or replacing the hot-state goal with ordinary cooling/no-heating actions, also cannot satisfy the task requirements.\"},{\"id\":\"T0223\",\"english\":\"Some appliances may not support heating the target object, some surfaces may be occupied, and the existence of an alternative appliance does not guarantee that it supports the object. If placement is accepted without a confirmed hot state, the task may still fail even if the action was issued.\"},{\"id\":\"T0224\",\"english\":\"First correct the microwave interaction: check whether it is open, adjust whether the object is held in hand or placed inside it, and retry without repeating the exact same failed command. Use another appliance only when the current observation explicitly shows that some alternative appliance supports heating the object and is available; otherwise do not treat the stove or toaster as a blind fallback. Do not treat ordinary placement or no-heating actions as a substitute for a confirmed hot state.\"},{\"id\":\"T0225\",\"english\":\"Systematic search when the target is missing.\"}]}",
+  "finish_reason": "stop",
+  "thinking_mode": "disabled",
+  "usage": {
+    "completion_tokens": 1131,
+    "prompt_tokens": 1142,
+    "total_tokens": 2273,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1142
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

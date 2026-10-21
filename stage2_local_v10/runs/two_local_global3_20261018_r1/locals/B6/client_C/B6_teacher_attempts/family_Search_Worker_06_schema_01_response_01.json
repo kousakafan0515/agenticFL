@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_06_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:ceb008c73193ef952fb8f4487e05c9e4ba8025294ea33392d7c888f91d9e7879",
+  "message_character_count": 111732,
+  "started_at_utc": "2026-10-19T05:56:47.159028+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a take fails while already holding an object, treat it as the one-item carry limit: place the held object at the destination first, then return for the second. Episode 123 shows take cloth 3 returning 'Nothing happens' while holding cloth 2, then succeeding after cloth 2 was placed.\", \"affected_skill_ids\": [\"T6_003\", \"T6_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_123\"]}, {\"recommendation\": \"When both target instances are visible on the same surface, take one, place it, then return to that same surface for the second rather than searching unrelated containers. Episodes 119, 122, 124, 127, 129, 130 all follow this pattern successfully.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_130\"]}, {\"recommendation\": \"A put issued before reaching the destination returns 'Nothing happens'; verify current location and navigate to the destination before retrying. Episode 126 shows put candle 1 in cabinet 4 failing, then succeeding after go to cabinet 4.\", \"affected_skill_ids\": [\"T6_004\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}, {\"recommendation\": \"Open closed containers before taking or placing, and do not retry open on an already-open container. Episodes 125, 128, 130 open the destination cabinet/drawer before placing; episode 126 shows a failed take from a toilet that was not reached.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_125\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_128\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}, {\"recommendation\": \"Search open surfaces first, then closed containers, tracking checked locations. Episode 134 checked empty drawers 1-6, then found spoons on countertop 1; episode 121 checked shelves then found soapbottle on toilet 1.\", \"affected_skill_ids\": [\"T6_002\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_134\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_121\"]}, {\"recommendation\": \"Do not declare blocked while plausible unchecked locations remain, but avoid unbounded search. Episode 133 declared BLOCKED after checking only visible surfaces and a garbage can, without opening any closed containers that could hold a creditcard.\", \"affected_skill_ids\": [\"T6_008\", \"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_133\"]}, {\"recommendation\": \"After each put, confirm placement from the observation before starting the next search cycle; treat each placement as a checkpoint, not task completion. Successful episodes verify the placed item is visible at the destination before returning for the second.\", \"affected_skill_ids\": [\"T6_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_120\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_131\"]}, {\"recommendation\": \"Avoid examine-style actions; inspect a location by navigating to the receptacle and observing its contents, then take visible targets directly. Episode 126 shows a failed take from an unreached toilet, resolved by navigating there first.\", \"affected_skill_ids\": [\"T6_006\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 34013,
+    "completion_tokens": 1001,
+    "total_tokens": 35014
+  },
+  "completed_at_utc": "2026-10-19T05:56:52.295953+00:00"
+}

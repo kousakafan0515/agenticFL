@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "experiment_id": "stage2-local-v9-v6-no-capacity-control",
+  "status": "a_b_c_b1_complete_b2_plus_capacity_policy_implemented_not_run",
+  "control_question": "What changes when B1 is open-ended and its realized per-role size becomes the fixed capacity for B2 and later generations?",
+  "baseline": {
+    "implementation": "stage2_local_v6",
+    "completed_banks": "B0-B5",
+    "results_are_read_only": true
+  },
+  "models": {
+    "task_execution": {
+      "model": "qwen3.6-flash",
+      "temperature": 0,
+      "seed": 1234,
+      "enable_thinking": false
+    },
+    "teacher": {
+      "model": "deepseek-flash",
+      "provider": "deepseek_official",
+      "endpoint_origin": "https://api.deepseek.com",
+      "applies_to_generations": [1, 2, 3, 4, 5],
+      "temperature": 0,
+      "enable_thinking": false
+    }
+  },
+  "generation": {
+    "initial_bank": "empty_B0",
+    "parent_bank_frozen_during_generation": true,
+    "training_tasks_per_client": 134,
+    "teacher_runs_after_all_training_tasks": true,
+    "maximum_skill_field_characters": 900,
+    "maximum_total_skills_per_role": null,
+    "b1_open_ended_capacity": true,
+    "b2_plus_capacity_policy": "fixed_per_role_from_b1",
+    "b2_plus_add_rule": "ADD is allowed whenever the complete candidate remains at or below the frozen B1 role capacity",
+    "b2_plus_capacity_anchor_does_not_shrink_after_delete": true,
+    "b2_plus_capacity_repair": "teacher_only_without_mechanical_trim",
+    "capacity_repair": false,
+    "deterministic_capacity_trim": false
+  },
+  "clients": {
+    "A": ["Planner", "Executor"],
+    "B": ["Executor", "Critic"],
+    "C": ["Supervisor", "Search Worker", "Operation Worker"]
+  },
+  "validation": {
+    "source_split": "train",
+    "tasks_per_bank": 134,
+    "single_condition_only": true,
+    "admission_gate": false,
+    "rollback": false,
+    "early_stopping": false,
+    "trajectories_enter_teacher": false,
+    "task_cohorts_identical_to_v6": true
+  },
+  "isolation": {
+    "old_results_used_as_results": false,
+    "old_skillbanks_used_as_parent": false,
+    "v6_task_manifest_reused_for_direct_control": true,
+    "output_roots": {
+      "A": "stage2_local_v9/runs/client_a_generation_01_20261013_r1",
+      "B": "stage2_local_v9/runs/client_b_generation_01_20261013_r3",
+      "C": "stage2_local_v9/runs/client_c_generation_01_20261013_r3"
+    },
+    "client_skillbanks_are_independent": true,
+    "validation_evidence_enters_teacher": false
+  },
+  "launch_guard": {
+    "formal_run_authorized": true,
+    "b2_plus_run_authorized": false,
+    "teacher_provider_schedule_frozen": true,
+    "teacher_provider_schedule": "B1-B5: deepseek_official/deepseek-flash",
+    "reason": "D-093 implements the B1-anchored capacity policy in code only; all B2-B5 transitions remain paused pending separate user authorization"
+  }
+}

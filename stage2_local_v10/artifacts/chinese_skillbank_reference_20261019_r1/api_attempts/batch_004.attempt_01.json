@@ -1,0 +1,47 @@
+{
+  "batch": 4,
+  "attempt": 1,
+  "input_ids": [
+    "Z0061",
+    "Z0062",
+    "Z0063",
+    "Z0064",
+    "Z0065",
+    "Z0066",
+    "Z0067",
+    "Z0068",
+    "Z0069",
+    "Z0070",
+    "Z0071",
+    "Z0072",
+    "Z0073",
+    "Z0074",
+    "Z0075",
+    "Z0076",
+    "Z0077",
+    "Z0078",
+    "Z0079",
+    "Z0080"
+  ],
+  "input_text_sha256": "sha256:f44fa8e87111c29a3dfce2e58e505a0ea812330350804c75c0a7ca86c9de4ec6",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0061\",\"chinese\":\"对于清洁并放置目标，先定位并 take 目标物体，然后前往 sinkbasin，用 sinkbasin 清洁手持物体，再前往目标容器并将物体 put 到那里。\"},{\"id\":\"Z0062\",\"chinese\":\"当目标是将清洁后的物体 put 到目标容器中/上，且该物体尚未清洁时。\"},{\"id\":\"Z0063\",\"chinese\":\"放置前先 open 关闭的目标容器\"},{\"id\":\"Z0064\",\"chinese\":\"如果目标容器是关闭的，在尝试将清洁物体 put 进去之前先 open 它。\"},{\"id\":\"Z0065\",\"chinese\":\"当目标目的地是关闭的 cabinet、drawer、fridge、microwave 或类似容器时。\"},{\"id\":\"Z0066\",\"chinese\":\"不要清洁不可清洁的物体，例如毛巾\"},{\"id\":\"Z0067\",\"chinese\":\"某些物体（例如毛巾）无法用 sinkbasin 清洁；反复尝试 clean 会失败并浪费步骤。\"},{\"id\":\"Z0068\",\"chinese\":\"当目标物体是毛巾或其他不支持 clean 动作的物体时。\"},{\"id\":\"Z0069\",\"chinese\":\"不要假设 coffeemachine 接受放置的杯子\"},{\"id\":\"Z0070\",\"chinese\":\"coffeemachine 可能不是清洁杯子的有效放置容器；即使手持正确物体，put 尝试也可能失败。\"},{\"id\":\"Z0071\",\"chinese\":\"当目标目的地是 coffeemachine 且 put 动作没有效果时。\"},{\"id\":\"Z0072\",\"chinese\":\"在许多失败轨迹中，智能体将物体放入 microwave，然后尝试加热它，结果出现 'Nothing happens.'。在成功轨迹中，智能体从 microwave 中 take 物体（或手持它），然后发出 heat 命令，该命令成功。\"},{\"id\":\"Z0073\",\"chinese\":\"ALFWorld 的 heat 动作要求物体由智能体手持，而不仅仅是放在电器内。\"},{\"id\":\"Z0074\",\"chinese\":\"open microwave 后，将物体 take 到物品栏，然后发出 'heat <object> with microwave 1'。\"},{\"id\":\"Z0075\",\"chinese\":\"许多失败轨迹显示智能体反复尝试 'use microwave 1' 和 'heat <object> with microwave 1' 而不改变物体位置，导致计划失败。成功轨迹表明，将物体 take 出来然后再加热是可行的。\"},{\"id\":\"Z0076\",\"chinese\":\"环境不允许加热位于 microwave 内的物体；物体必须被手持。\"},{\"id\":\"Z0077\",\"chinese\":\"加热尝试失败后，从 microwave 中 take 物体，然后在手持它时发出 heat 命令。\"},{\"id\":\"Z0078\",\"chinese\":\"成功的加热与放置序列\"},{\"id\":\"Z0079\",\"chinese\":\"要加热物体并将其放入目标容器：找到并 take 物体，前往 microwave，open 它，take 物体（如有需要），手持它时 heat 它，然后前往目标并将其 put 到那里。\"},{\"id\":\"Z0080\",\"chinese\":\"当目标是加热物体并将其 put 到指定位置时。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 670,
+    "prompt_tokens": 919,
+    "total_tokens": 1589,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 919
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

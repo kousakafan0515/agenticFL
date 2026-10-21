@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Planner_06_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:cfce4639e41b34d9e1b64cde0f6b322ae6491aecd83f368663f7f960655a856f",
+  "message_character_count": 78043,
+  "started_at_utc": "2026-10-19T06:05:38.072736+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the first target is placed but the second is not yet found, keep searching rather than declaring the subtask complete; several successful episodes show the plan must continue to a second search-and-place cycle after the first put. Treat each placement as a checkpoint, not task completion.\", \"affected_skill_ids\": [\"T6_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_122\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_127\"]}, {\"recommendation\": \"When both target instances are visible on the same surface, take one, place it at the destination, then return to that same surface for the second. Successful episodes 119, 122, 127, 130, and 134 follow this pattern; do not wander to unrelated containers while a known second instance remains.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_122\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_130\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_134\"]}, {\"recommendation\": \"Before placing into a closed container, navigate to the container itself and open it; opening from the parent furniture returns no change. Episode 125 shows open drawer 1 failing at the dresser, then succeeding after go to drawer 1. Episode 128/130 show opening cabinet 1 before putting.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_125\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_128\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_130\"]}, {\"recommendation\": \"When a put returns no change, first verify the actor is actually at the destination before concluding the receptacle rejects placement. Episode 123 failed partly because put towel 1 on shelf 1 returned nothing and the plan then tried unrelated receptacles; episode 126 shows a candle placed successfully only after reaching cabinet 1.\", \"affected_skill_ids\": [\"T6_004\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_123\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_126\"]}, {\"recommendation\": \"Do not substitute a different object type for the named target. Episode 123's goal was two cloth, but the plan took a towel and then repeatedly failed to take cloth 2; the mismatch likely contributed to plan failure. Search for the exact named type before substituting.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_123\"]}, {\"recommendation\": \"Track checked locations and avoid revisiting confirmed-empty surfaces. Episode 123 revisited countertop 1 and issued repeated no-change take cloth 2 attempts, and later issued go to bare-name locations that returned nothing. After a no-change result, move to a new unchecked plausible location.\", \"affected_skill_ids\": [\"G_002\", \"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_123\"]}, {\"recommendation\": \"When a navigation target returns nothing (e.g., go to cabinet 4 in episode 118, go to livingroom in episode 133), treat it as unreachable and switch to another candidate rather than retrying. Successful episodes recover by moving to a different reachable location.\", \"affected_skill_ids\": [\"G_006\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_133\"]}, {\"recommendation\": \"Search broadly across open surfaces and containers before concluding a target is absent. Episode 118 found soapbottle 1 in a garbagecan and soapbottle 2 on a toilet after checking countertops, sinkbasin, bathtubbasin, and cabinets; episode 129 found the second creditcard on a tvstand after checking shelves.\", \"affected_skill_ids\": [\"G_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_129\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 24124,
+    "completion_tokens": 1171,
+    "total_tokens": 25295
+  },
+  "completed_at_utc": "2026-10-19T06:05:44.030545+00:00"
+}

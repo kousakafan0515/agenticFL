@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Operation_Worker_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:5bdd6fef0bc2bce64c2f4889e2e53645a09b45740900f40b1d54b9f6c7966531",
+  "message_character_count": 96427,
+  "started_at_utc": "2026-10-19T03:57:31.426198+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a target is not on the first plausible surface, continue checking other open surfaces (sidetables, shelves, beds, dressers) before opening containers; several successes found the item on a later open surface after early empties.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_005\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_022\"]}, {\"recommendation\": \"After taking the target, go directly to the named destination and put it there; do not insert intermediate placements or extra verification once the put observation confirms success.\", \"affected_skill_ids\": [\"G_004\", \"G_007\", \"G_008\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_004\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_016\"]}, {\"recommendation\": \"When the destination is a closed container, navigate to it, open it, then put; if open returns no change treat it as already open or non-openable and proceed rather than retrying.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_023\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_010\"]}, {\"recommendation\": \"Use exact object identifiers including instance numbers when taking; a bare name such as 'take soapbottle' returned Nothing happens while 'take soapbottle 2' succeeded, so match the observed instance id.\", \"affected_skill_ids\": [\"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012\"]}, {\"recommendation\": \"After a no-change navigation to a container or furniture (e.g., go to drawer/dresser returning Nothing happens), stop retrying that target and switch to a different unchecked location; repeated identical go-to failures waste steps.\", \"affected_skill_ids\": [\"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012\"]}, {\"recommendation\": \"Do not issue open on a container from its parent furniture or examine-style actions; these returned Nothing happens. Navigate to the container itself and open it, and inspect contents by arriving rather than examining.\", \"affected_skill_ids\": [\"G_005\", \"G_006\", \"T6_005\", \"T6_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_018\"]}, {\"recommendation\": \"When searching many containers, track checked locations and avoid revisiting confirmed-empty ones; after several likely locations fail, broaden to open surfaces like toilets or dressers where the item may be unusually placed.\", \"affected_skill_ids\": [\"G_002\", \"T3_006\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_010\"]}, {\"recommendation\": \"Confirm the taken object matches the goal type before placing; if the exact named type is unavailable, do not silently substitute a similar item unless the environment explicitly treats it as equivalent.\", \"affected_skill_ids\": [\"G_005\", \"T3_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_015\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 30009,
+    "completion_tokens": 991,
+    "total_tokens": 31000
+  },
+  "completed_at_utc": "2026-10-19T03:57:35.915419+00:00"
+}

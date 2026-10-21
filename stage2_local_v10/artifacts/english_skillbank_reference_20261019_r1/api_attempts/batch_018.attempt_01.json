@@ -1,0 +1,42 @@
+{
+  "batch": 18,
+  "attempt": 1,
+  "input_ids": [
+    "T0256",
+    "T0257",
+    "T0258",
+    "T0259",
+    "T0260",
+    "T0261",
+    "T0262",
+    "T0263",
+    "T0264",
+    "T0265",
+    "T0266",
+    "T0267",
+    "T0268",
+    "T0269",
+    "T0270"
+  ],
+  "input_text_sha256": "sha256:d1515f3ca585a1ffb2f3231358fdf14dc9b6040ae8cc57de6f115d9f9b5d60dd",
+  "raw_response": "{\"translations\":[{\"id\":\"T0256\",\"english\":\"Desklamp observation must use the numbered instance for interaction; invalid syntax and placing alone do not trigger it.\"},{\"id\":\"T0257\",\"english\":\"After use desklamp returns Nothing happens, avoid repeating in place.\"},{\"id\":\"T0258\",\"english\":\"Move or place before confirming heating succeeded.\"},{\"id\":\"T0259\",\"english\":\"After heating fails, blindly switch to another appliance.\"},{\"id\":\"T0260\",\"english\":\"Still take items from the microwave after handheld heating.\"},{\"id\":\"T0261\",\"english\":\"Insert an extra intermediate placement after heating.\"},{\"id\":\"T0262\",\"english\":\"Desklamp observation: at the furniture where the desklamp is located, hold the target object and use the numbered desklamp.\"},{\"id\":\"T0263\",\"english\":\"First locate the target object and the desklamp. The desklamp is usually fixed on a furniture surface and should not be treated as a carryable item or navigation target; after observing the desklamp, go to the furniture where it is located. If the target object is not at the desklamp, first obtain it and carry it to that furniture; if the target object is already at the desklamp, confirm it is in hand before interacting. After arriving, use use desklamp <id> with the instance number to trigger observation; do not use the bare name or compound syntax. Successfully turning on the desklamp is considered meeting the observation condition; do not add use/look/take/go afterward. If the target object has already been obtained at that furniture, do not repeat go to the same furniture. If use returns Nothing happens, first check whether the desklamp is listed in the current furniture observation; if not, go to another furniture where the desklamp is listed instead of retrying in place. If placing the target object repeatedly produces no change, keep holding it and directly use desklamp <id>.\"},{\"id\":\"T0264\",\"english\":\"When the task requires examine/look at something with/under the desklamp, an interactable desklamp exists in the environment, or observation needs to be triggered after arriving at the furniture where the desklamp is located.\"},{\"id\":\"T0265\",\"english\":\"Do not take or navigate to the desklamp.\"},{\"id\":\"T0266\",\"english\":\"In failed trajectories, take desklamp, go to desklamp, or repeatedly go to the desklamp/desk often returns Nothing happens, wasting steps and possibly blocking subsequent observation; the desklamp is an interaction point fixed on furniture.\"},{\"id\":\"T0267\",\"english\":\"The environment models the desklamp as a fixed light source or fixed device; only the furniture carrying the desklamp can be a navigation target, and the desklamp itself cannot be a target of take or go to.\"},{\"id\":\"T0268\",\"english\":\"Do not attempt to take, move, or navigate to the desklamp. First arrive at the furniture carrying the desklamp (such as desk, sidetable, dresser, coffeetable, etc.); after arriving, directly use use desklamp <id> with the number; when already at the desklamp, do not repeat go to the same location.\"},{\"id\":\"T0269\",\"english\":\"Do not use examine or compound syntax as a substitute for desklamp interaction; placing does not equal observation.\"},{\"id\":\"T0270\",\"english\":\"In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, examine furniture, bare-name use desklamp, use desklamp on X, use X on desklamp often return There's nothing special about X or Nothing happens and cannot substitute for the observation condition. Merely placing the target object on the desk or desklamp without triggering desklamp interaction also creates the appearance of completion without achieving the goal; if placing repeatedly produces no change, do not continue trying to place. The valid form is to use the observed numbered desklamp instance, for example use desklamp <id>.\"}]}",
+  "finish_reason": "stop",
+  "thinking_mode": "disabled",
+  "usage": {
+    "completion_tokens": 860,
+    "prompt_tokens": 916,
+    "total_tokens": 1776,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 916
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

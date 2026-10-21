@@ -1,0 +1,157 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "A",
+  "generation": 6,
+  "parent_bank_file_sha256": "sha256:b623beadf1d875cd58ea0fec7a0682380386ff022866fbdd279beb3025794e3f",
+  "per_role": {
+    "Planner": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_028",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_034",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_035"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物并在台灯所在家具处使用带编号台灯",
+            "principle": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。若目标物与台灯在同一家具上，直接取得目标物后立即使用带编号台灯，不要再次 go to 同一家具（重复 go to 常返回 Nothing happens）。若目标物不在台灯处，先取得并携带到该家具；不要先把目标物放到台灯家具上再使用台灯，应在手持目标物状态下交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look/examine。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T2_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_031"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察搜索策略：优先开放表面，再系统检查容器",
+            "principle": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable、扶手椅、架子等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉或无关容器。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器；若台灯实际在 sidetable/dresser 等其他家具上，应前往该家具而非反复检查原假定 desk。",
+            "when_to_apply": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物或台灯不在该处、连续观察无新信息时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T3_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_044",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_063",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_053"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Search should prioritize plausible locations but avoid opening every remaining container indefinitely or declaring blocked prematurely. Track checked locations and avoid revisiting confirmed-empty ones. After a reasonable set of likely locations has been checked—not merely one or two when many plausible ones remain—consider unusual placement or impossibility, then reassess or report blocked. Open surfaces such as stoveburners, countertops, and dining tables must be included, not only cabinets and drawers.",
+            "why_it_happens": "Item locations may follow regularities, but unusual placement or impossible tasks can occur; unbounded search wastes steps and can cause timeout, while stopping too early can miss findable objects. Restricting search to closed containers misses objects placed on open surfaces.",
+            "how_to_avoid": "Prioritize likely locations by object type: food-related items in fridge; dishes or utensils in countertop, cabinet, or drawer; pots/kettles/pans on stoveburners; cleaning supplies near sinkbasin, countertop, or shelf. Keep a record of checked locations. After several likely locations fail, consider unusual placement or impossibility and reassess or report blocked rather than exhaustively opening all containers or stopping after only a couple of empty locations."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T4_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_080",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_094",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_096"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "目标缺失时的系统搜索",
+            "principle": "当目标物体不在首个搜索位置时，继续系统检查其他可能容器和表面，例如橱柜、抽屉、台面、餐桌、炉灶、冰箱、水槽盆、咖啡机、边桌等。维护已检查位置记录，优先转向尚未检查且已打开的容器和可见表面，避免重复回到已确认空的位置或重复打开已打开的容器。不要仅因首个位置为空就宣布任务受阻或物体不存在。若连续几个容器为空，应扩大到开放表面和其他容器类型，而不是无限逐抽屉搜索；对盘碟类物体可优先查看餐桌、台面和边桌等开放表面，同时兼顾容器。经过合理范围的广泛搜索后，应重新评估而不是继续打开每一个剩余容器。",
+            "when_to_apply": "在先加热后放置任务的获取阶段，目标物体未立即出现或不在首个检查位置时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_114",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_101"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Prefer open visible surfaces (countertop, diningtable) before exhaustive closed-container sweeps. Open containers as needed and track visited locations to avoid redundant loops. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T6_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_129",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_133"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic broad search with checked-location tracking",
+            "principle": "When target objects are not immediately visible, search broadly rather than checking only one receptacle type. Inspect visible open surfaces such as counters, tables, shelves, sofas, and similar surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. If both target instances are visible on the same surface, take one, place it, then return to that same surface for the second rather than wandering to unrelated containers. Treat an unreachable or no-change navigation target as unavailable and move to another candidate. Reassess feasibility after likely locations are exhausted, but do not conclude the task is blocked prematurely.",
+            "when_to_apply": "When one or both target objects are not visible and must be located in the environment."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Executor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_106",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_A/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:0ddec71935fbaa0063b2bbc38e08226938a8799b323bac8d0f81d310d80952a1"
+}

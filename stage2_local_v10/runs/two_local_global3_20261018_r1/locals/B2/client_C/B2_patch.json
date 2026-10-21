@@ -1,0 +1,530 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "C",
+  "generation": 2,
+  "parent_bank_file_sha256": "sha256:4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d",
+  "per_role": {
+    "Supervisor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_007",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_012",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_049",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_121"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "If a worker returns HANDOFF without achieving the mission's return condition or reports failure, do not re-dispatch the same mission to the same location; change the search location, object description, or strategy. Treat repeated 'Nothing happens' on open/go/take/use/clean actions as evidence the current approach is exhausted and switch strategy.",
+            "why_it_happens": "The supervisor may repeat the same ASSIGN when the worker's failure is not treated as evidence that the current plan is exhausted, and may re-issue identical open/take/use/clean actions that keep returning 'Nothing happens'.",
+            "how_to_avoid": "After a failed or empty search, dispatch the next candidate location or ask the worker to confirm the location is empty before moving on. After repeated 'Nothing happens' for an action, change strategy by verifying object location, opening the appliance, using the specific instance id (e.g., 'soapbottle 1'), or switching to a different approach; after one or two failed examine/use attempts, stop and change strategy or declare failure."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_018",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_037",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_044",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_103",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_123"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Do not dispatch a search mission bound to one specific receptacle unless that receptacle is known to contain the object; phrase searches as broad multi-location searches over surfaces and openable containers, and if the first location is empty, broaden rather than repeat.",
+            "why_it_happens": "The supervisor may assume the target is in a named container based on the goal template rather than observed environment state, but the environment may place it elsewhere, causing the worker to exhaust the specified location and fail.",
+            "how_to_avoid": "Phrase missions as 'search cabinets, drawers, countertops, shelves, beds, and other reachable receptacles for X' and instruct opening closed containers. If the first search returns empty, immediately reassign a broader multi-location search instead of repeating the same spot; treat an exhaustive empty search as evidence the object may be absent."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_059",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_093",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_126",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_133"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Before dispatching a placement mission, verify the destination is open or can be opened. If the destination is a closed container, prepend an open step. If opening returns 'Nothing happens', treat the receptacle as non-openable and reassign to a valid open destination or surface.",
+            "why_it_happens": "The supervisor assigns an OPERATION MISSION to put an object into a receptacle that is closed or does not support opening (e.g., coffeemachine, armchair). The worker repeatedly attempts 'put' and 'open' with 'Nothing happens' observations, exhausting steps and failing.",
+            "how_to_avoid": "Before dispatching a placement mission, verify the destination is open or can be opened. If the destination is a closed container, prepend an open step and confirm the open succeeded. If opening returns 'Nothing happens', treat the receptacle as non-openable and reassign to a valid open destination; for non-openable fixtures like armchairs, only issue go-then-put."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_007",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_088",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_094",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_118"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After each OPERATION MISSION handoff, inspect the environment observation for the target object's final state. Only declare success when the observation confirms the goal predicate; only declare failure when the observation shows an invalid/blocked action or the object is unreachable. Do not dispatch a verify mission after the placement observation already confirms the goal.",
+            "why_it_happens": "The supervisor sometimes declares FAILED after a worker HANDOFF even when the environment events show the object was successfully placed or cooled, and sometimes issues a redundant verify mission after success, causing handoff loops.",
+            "how_to_avoid": "After each OPERATION MISSION handoff, inspect the environment observation for the target object's final state (e.g., 'You put the X in/on Y', 'You clean the X', 'You cool the X'). Only declare success when the observation confirms the goal predicate; only declare failure when the observation shows an invalid/blocked action or the object is unreachable. Treat the placement observation as terminal and do not dispatch a verify mission afterward."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_009",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_035",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_038",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_040"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use desklamp as a fixed fixture at its observed location",
+            "principle": "In 台灯观察 tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's observed location and use it (turn it on) while holding the target object. Bind the operation to the lamp's observed location, not a guessed one, and if the target object is already visible at the lamp's location, a single combined take-then-use mission suffices.",
+            "when_to_apply": "When the goal requires examining or looking at an object with/under the desklamp and the desklamp is observed on a desk, sidetable, dresser, or other surface."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_010",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_041"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Repeatedly dispatching examine, look, or use missions for the same object after the environment has already returned 'There's nothing special about X' or 'Nothing happens' causes handoff loops and task failure. After one or two failed attempts, change strategy: verify object and lamp location, try a different interaction, or declare failure.",
+            "why_it_happens": "The supervisor may not treat a null observation as evidence that the current examine/use strategy is exhausted, and may re-dispatch the same mission even when the lamp is not present at the current location.",
+            "how_to_avoid": "After one or two failed examine/use attempts, change strategy: verify the object and lamp are at the current location, try a different interaction (take/put/use), or declare failure. Do not re-dispatch the same use/examine desklamp mission after 'Nothing happens'."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_011",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_038",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_040"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "The phrase 'under the desklamp' in 台灯观察 goals does not guarantee the target object is physically under the lamp, nor that the lamp is at the assumed location. If the object or lamp is not visible at the assumed location, search other surfaces and containers before declaring failure.",
+            "why_it_happens": "The supervisor may interpret the goal phrase literally and repeatedly dispatch look/use missions at an assumed desklamp location even when the object or lamp is elsewhere.",
+            "how_to_avoid": "If the object or lamp is not visible at the assumed location, search other surfaces and containers (dressers, sidetables, desks) before declaring failure. Bind the operation mission to the observed lamp location, and do not dispatch repeated 'look under desklamp' missions when the object is elsewhere."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_012",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_045",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_046",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_050"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place pipeline with explicit clean-state verification",
+            "principle": "For 清洗后放置 tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation. Keep clean and place as distinct missions with distinct return conditions.",
+            "when_to_apply": "Any 清洗后放置 goal where the target object may be dirty and the destination is a fixed receptacle."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_013",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_082",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Heat mission after object acquisition",
+            "principle": "After the worker returns holding the target object, dispatch an OPERATION MISSION to heat it using a heat source such as microwave 1. The mission should instruct: open the microwave if closed, put the object in, then heat, and return only when the environment confirms 'You heat the X'.",
+            "when_to_apply": "After a successful SEARCH MISSION handoff where the worker holds the target object."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_015",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_110",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_112"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling requires a dedicated cool action, not just fridge placement",
+            "principle": "For cooling tasks, after obtaining the target object, explicitly perform the cool action with the fridge (e.g., 'cool X with fridge 1') and return on the 'You cool the X' confirmation before attempting to place it. Do not assume that putting the object into the fridge and taking it out constitutes cooling, and keep cool and place as separate missions with distinct return conditions.",
+            "when_to_apply": "When the goal is to cool an object and place it elsewhere, and the object is currently held."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_016",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Before dispatching a search for a specific object, confirm that the object type is present and coolable. If the object is not found after a reasonable broad search, treat the empty exhaustive search as evidence the object may be absent and report failure early rather than re-dispatching the same search.",
+            "why_it_happens": "The supervisor may assume the object exists without checking, leading to exhaustive searches that waste time and end in failure, or may repeat identical broad searches after the worker already exhausted all receptacles.",
+            "how_to_avoid": "During initial exploration, note the locations of objects. If the target object is not found in likely receptacles after a broad search, reassess task feasibility and report failure early instead of repeating the same SEARCH mission."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Supervisor",
+          "target_skill_id": "skill_017",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_120",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_132"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Sequential two-item placement with single-item capacity",
+            "principle": "For 双物品放置 tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination. Track placed-item state so the second search targets a location observed to hold a second instance and never re-takes an already-placed item.",
+            "when_to_apply": "When the goal requires placing two instances of the same object type at a destination and the worker can hold only one object at a time."
+          }
+        }
+      ],
+      "counts": {
+        "base": 17,
+        "delete": 0,
+        "update": 12,
+        "add": 0,
+        "candidate": 17,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Search Worker": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_002",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_003",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_006"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "After taking the target object, navigate to the destination and put it there",
+            "principle": "Once the target object is in inventory, go directly to the specified destination receptacle or surface and use the put action to place the object there. Do not declare HANDOFF while still holding the object unless the supervisor explicitly owns placement; completing the put avoids premature handoff and holding-blocked movement.",
+            "when_to_apply": "After successfully taking the target object and before declaring handoff or completion."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_005",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_012",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_018"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Avoid repeated failed actions and declare blocked only after exhaustive search",
+            "principle": "If an action such as go to, open, or take returns 'Nothing happens', do not keep retrying the same action. Verify the exact numbered object/receptacle identifier from the observation, and if it still fails once or twice, switch to a different location or container. Before declaring blocked, ensure every plausible closed container has actually been opened and inspected, not merely approached, and avoid re-visiting surfaces already confirmed empty.",
+            "when_to_apply": "When repeated navigation, open, or take actions fail, or when all known containers and surfaces have been searched without finding the target object."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_030",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_031"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：desklamp 通常不可拿取，应使用带编号的 use desklamp",
+            "principle": "在台灯观察任务中，desklamp 通常是固定物体，take desklamp 会返回“Nothing happens.”；正确交互是持有目标物后使用观察中看到的带编号标识执行 use desklamp N 来开启它。不要尝试 'use desklamp on X' 或 'use X on desklamp' 组合，这些通常无效。",
+            "when_to_apply": "需要与 desklamp 交互时；若 take desklamp 失败，不要反复尝试拿取，应改为 use desklamp N 或将目标物带到 desklamp 处后再 use desklamp N。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_031"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：先定位目标物，再将其带到台灯处并开启台灯",
+            "principle": "对于“look at/examine X under the desklamp”类任务，先搜索并取得目标物 X；若目标物不在台灯所在位置，则将其带到有 desklamp 的桌面/台面，放置或保持持有，然后使用带编号的 desklamp 开启照明。若目标物已在台灯所在表面，取得后立即 use desklamp N，不要仅取物后就交接，因为观察目标要求台灯开启。",
+            "when_to_apply": "任务目标为观察某物在台灯下，且环境中存在可交互的 desklamp；目标物与 desklamp 不在同一位置，或目标物需要从其他容器/表面取得。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_009",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_043",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_046",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_050"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place workflow for 清洗后放置",
+            "principle": "For clean-and-place tasks, first locate and take the target object, then go to a sinkbasin and clean it, then go to the destination receptacle and put it there. Never place the object before cleaning it, since placing first will not satisfy the clean requirement.",
+            "when_to_apply": "When the goal is to put a clean object in a specified location and the object is not already clean."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_020",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_053",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_059",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_081",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_102"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "When the goal specifies a particular object type (e.g., cup, bowl, pot, mug), do not take or use a different but similar object type (e.g., mug for cup, pan for pot) unless the environment explicitly treats them as equivalent.",
+            "why_it_happens": "Agents may generalize object categories and pick a nearby similar object, causing task failure.",
+            "how_to_avoid": "Match the exact object type requested in the goal; if only a similar type is available, continue searching other locations or report the mismatch instead of substituting."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_014",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_082",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Heat object using microwave",
+            "principle": "To heat an object, go to the microwave, open it if closed, put the object inside, then use the 'heat <object> with microwave 1' action. If the object is already in the microwave, take it first, then heat it while holding it. Open the microwave before attempting to take from or use it, since take/use on a closed microwave returns 'Nothing happens'.",
+            "when_to_apply": "After acquiring the target object and before placing it at the final destination in a heat-and-place task."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_017",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_099",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_101"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling workflow: locate target, cool with fridge, then place",
+            "principle": "For cooling tasks, first find the target object, take it, go to an open fridge, use the cool action with the fridge, then navigate to the final destination and put the object there. Open the fridge before cooling, and do not declare success or hand off until the full cooling-and-placement sequence is complete.",
+            "when_to_apply": "When the goal is to cool an object and place it in a specified receptacle."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_021",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_120",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_127"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "双物品放置：先放置第一件再取第二件",
+            "principle": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品，最后将第二件也放到目标容器。若第一件物品所在表面有多个同类实例，放置第一件后返回同一表面取第二件，而不是去别处搜索。",
+            "when_to_apply": "当任务要求将两个同类物品放入同一目标容器，且智能体一次只能携带一件物品时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "skill_023",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_121",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_126"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，如果只在一种类型的容器（如仅搜索架子或仅搜索柜子）中寻找目标物品，可能无法找到第二件物品，导致任务失败。",
+            "why_it_happens": "目标物品可能分散在不同的容器类型中，如柜台、桌子、架子、柜子、抽屉等。",
+            "how_to_avoid": "系统性地搜索多种类型的容器和表面，包括柜台、桌子、架子、柜子、抽屉等，直到找到两件目标物品；不要过早声明 BLOCKED。"
+          }
+        }
+      ],
+      "counts": {
+        "base": 24,
+        "delete": 0,
+        "update": 10,
+        "add": 0,
+        "candidate": 24,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Operation Worker": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_030",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_041"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：到达台灯所在家具后使用台灯实例完成观察",
+            "principle": "携带目标物到达台灯所在家具后，执行 use desklamp <id>（使用具体实例编号，如 use desklamp 1）即可完成台灯观察；不要使用裸名 use desklamp，也不要对目标物执行 examine、use 或 look 来触发观察。",
+            "when_to_apply": "当已携带目标物并位于台灯所在家具处，且任务要求 examine/look at 目标物 with/under the desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_009",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_030",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_041"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：避免裸名或复合语法，改用 use desklamp <id>",
+            "principle": "在台灯观察任务中，裸名 use desklamp、复合语法 use desklamp on X / use X on desklamp，以及对目标物反复 examine/use/look 通常返回 Nothing happens；成功路径是到达台灯所在家具后执行 use desklamp <id>。若已尝试多次无效，应停止重复并核对台灯实例名后重试。",
+            "when_to_apply": "当任务要求 look at/examine 目标物 under/with the desklamp，且裸名或复合语法返回 Nothing happens 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_014",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_095",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_088"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Heat held object directly with microwave",
+            "principle": "When holding the target object and the microwave is open, use the direct heat action ('heat <obj> with microwave') instead of placing the object inside first; placing inside then heating often returns 'Nothing happens'.",
+            "when_to_apply": "Task type 加热后放置; target object is held; microwave is open; goal requires heating the object."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_016",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_074"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After a successful direct heat while holding the object, the object remains in inventory; attempting to take it from the microwave returns 'Nothing happens'.",
+            "why_it_happens": "The direct heat action does not place the object inside the microwave, so there is nothing to take out.",
+            "how_to_avoid": "After heating, verify with inventory that the object is still held and proceed directly to the destination; do not attempt to take it from the microwave."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_017",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_076",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_077",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_094"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Place heated object at destination before finishing",
+            "principle": "After heating and confirming the object is held, go to the destination, open it if closed, and put the object there. Heating alone is an intermediate milestone, not task completion; do not declare HANDOFF until the object is placed.",
+            "when_to_apply": "Task type 加热后放置; object is heated and held; destination is known."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "skill_022",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_119",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_132"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Two-item placement: place both objects before handoff",
+            "principle": "For tasks requiring two same-type objects at a destination, pick up one object, carry it to the destination, place it, then search for a second distinct instance and repeat. Track a placed count and only declare HANDOFF after both objects are at the destination; do not re-take an already-placed object.",
+            "when_to_apply": "When the goal is to put two objects of the same type at a target location and the agent cannot hold both simultaneously."
+          }
+        }
+      ],
+      "counts": {
+        "base": 22,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 22,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:3a4053e6b7ad0fd2e148a6097337037e0b341a74c074aa5909a4720878e246e1"
+}

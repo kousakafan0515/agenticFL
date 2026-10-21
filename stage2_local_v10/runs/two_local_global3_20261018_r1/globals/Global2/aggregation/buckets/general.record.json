@@ -1,0 +1,15 @@
+{
+  "bucket": "general",
+  "input_skill_count": 56,
+  "output_skill_count": 8,
+  "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/general.attempt_01.json",
+  "usage": {
+    "requested_model": "deepseek-flash",
+    "response_model": "deepseek-flash",
+    "finish_reason": "stop",
+    "prompt_tokens": 13952,
+    "completion_tokens": 5033,
+    "total_tokens": 18985,
+    "transport_attempts": 1
+  }
+}

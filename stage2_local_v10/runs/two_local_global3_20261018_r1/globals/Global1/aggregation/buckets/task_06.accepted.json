@@ -1,0 +1,102 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Sequential two-item placement with per-item confirmation",
+      "principle": "Treat a two-item placement goal as two search-and-place cycles. Locate and take one target object, navigate to the destination, open the destination if it is closed, place the object, and confirm the placement before starting the second cycle. Track how many items are placed and which object was already placed; never take an already-placed object again. If both instances are visible on the same surface or receptacle, place the first then return to that same location for the second. If the final destination is temporarily unavailable, only use a safe recoverable holding location when necessary and move both objects to the final destination afterward.",
+      "when_to_apply": "When the goal requires placing two instances of the same object type at one target location and only one object can be carried at a time.",
+      "source_skill_keys": [
+        "A/Planner/双物品放置/skill_022",
+        "A/Executor/双物品放置/skill_020",
+        "B/Executor/双物品放置/skill_020",
+        "B/Critic/双物品放置/skill_017",
+        "C/Supervisor/双物品放置/skill_017",
+        "C/Search Worker/双物品放置/skill_021",
+        "C/Operation Worker/双物品放置/skill_022"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Systematic search across receptacle types and visible surfaces",
+      "principle": "When target objects are not immediately visible, search broadly instead of checking only one receptacle type. Inspect visible surfaces such as counters, tables, shelves, sofas, and similar open surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. Do not conclude the task is blocked prematurely.",
+      "when_to_apply": "When one or both target objects are not visible and must be located in the environment.",
+      "source_skill_keys": [
+        "A/Executor/双物品放置/skill_021",
+        "C/Search Worker/双物品放置/skill_023"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Taking or moving while already holding an item fails",
+      "description": "Attempts to take a second object, or sometimes to move to another location, while already holding an object can return a no-op. This blocks progress in two-item placement if the held object is not released first.",
+      "why_it_happens": "The environment commonly allows carrying only one object at a time, so take or movement actions may be rejected while inventory is occupied.",
+      "how_to_avoid": "Before taking the second object or moving to search elsewhere, put the held object into the final destination or into a safe recoverable temporary location. Confirm the hands are empty, then continue.",
+      "source_skill_keys": [
+        "B/Executor/双物品放置/skill_021",
+        "B/Critic/双物品放置/skill_019",
+        "C/Search Worker/双物品放置/skill_022"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Unconfirmed or out-of-position placement breaks the sequence",
+      "description": "A put action can produce no effect if it is issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied.",
+      "why_it_happens": "Placement requires being at the target container and a successful put must be verified from the observation; otherwise the first item may still be held or not placed.",
+      "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, move to the target if needed and retry before starting the next search or placement cycle.",
+      "source_skill_keys": [
+        "A/Planner/双物品放置/skill_023",
+        "B/Critic/双物品放置/skill_018"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Closed containers block taking and placing",
+      "description": "Attempting to put an object into, or take an object from, a closed cabinet, drawer, or similar container may produce no effect.",
+      "why_it_happens": "The environment requires the container to be open before its contents can be accessed or modified.",
+      "how_to_avoid": "Open the container first with the appropriate open action. If it is already open, proceed; after opening, verify access before taking or placing.",
+      "source_skill_keys": [
+        "A/Executor/双物品放置/skill_023"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Invalid examine action provides no information",
+      "description": "Using an examine-style action on objects or locations is not supported and returns no useful information.",
+      "why_it_happens": "The available interaction set is limited to navigation, taking, putting, opening, and inventory-style operations; examining is not an effective substitute.",
+      "how_to_avoid": "Inspect a location by navigating to the receptacle and observing its contents. Pick up visible target objects with a take action from that receptacle.",
+      "source_skill_keys": [
+        "A/Executor/双物品放置/skill_022"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Unsafe temporary containers can make objects unrecoverable",
+      "description": "Placing an object into a non-target or unsuitable container such as a garbage can can make retrieval impossible or cause the overall two-item placement to fail.",
+      "why_it_happens": "Some containers may not accept objects cleanly, may change object state, or may not allow reliable retrieval; temporary storage is only safe if the object can be taken back.",
+      "how_to_avoid": "Prefer placing the first object directly into the final destination. If temporary holding is unavoidable, choose an open, stable, recoverable surface or container and avoid garbage cans or other likely irreversible containers.",
+      "source_skill_keys": [
+        "B/Executor/双物品放置/skill_022"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Repeated checks of cleared locations waste the action budget",
+      "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty can exhaust the action budget and cause failure.",
+      "why_it_happens": "Searching without tracking checked locations leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target.",
+      "how_to_avoid": "Maintain a mental or explicit list of checked locations. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location already confirmed to have no target unless new evidence suggests otherwise.",
+      "source_skill_keys": [
+        "B/Critic/双物品放置/skill_020"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Repeated completion signals without action trigger a loop guard",
+      "description": "Repeatedly declaring a subtask complete without executing the required next action can trigger a loop guard and terminate the episode before the two items are placed.",
+      "why_it_happens": "The current state may be misread as satisfying the completion condition even though the actual goal or subgoal is unfinished, causing repeated signals instead of progress.",
+      "how_to_avoid": "Signal completion only after the corresponding subgoal is actually achieved, such as an object being taken or placed. After signaling, continue with the necessary next action and avoid repeating the same completion signal without new progress.",
+      "source_skill_keys": [
+        "C/Search Worker/双物品放置/skill_024"
+      ]
+    }
+  ]
+}

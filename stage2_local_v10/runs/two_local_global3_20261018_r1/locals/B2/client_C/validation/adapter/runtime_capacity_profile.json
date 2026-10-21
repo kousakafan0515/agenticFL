@@ -1,0 +1,86 @@
+{
+  "profile_schema_version": "stage3.skill_injection_capacity.v1",
+  "renderer_version": "collaborator.skill_prompt.v1",
+  "source_client": "C",
+  "source_local_bank_hash": "sha256:109cfd1e8cff675abb70e03f5e3e9666c73b6ff1d52355d973dc2662491709a7",
+  "limits": {
+    "Supervisor": {
+      "简单取放": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 6414
+      },
+      "台灯观察": {
+        "required_skill_count": 11,
+        "max_rendered_characters": 8918
+      },
+      "清洗后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 7056
+      },
+      "加热后放置": {
+        "required_skill_count": 10,
+        "max_rendered_characters": 7311
+      },
+      "冷却后放置": {
+        "required_skill_count": 10,
+        "max_rendered_characters": 7913
+      },
+      "双物品放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 7075
+      }
+    },
+    "Search Worker": {
+      "简单取放": {
+        "required_skill_count": 4,
+        "max_rendered_characters": 2622
+      },
+      "台灯观察": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 4102
+      },
+      "清洗后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 5151
+      },
+      "加热后放置": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 4863
+      },
+      "冷却后放置": {
+        "required_skill_count": 7,
+        "max_rendered_characters": 4138
+      },
+      "双物品放置": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 3696
+      }
+    },
+    "Operation Worker": {
+      "简单取放": {
+        "required_skill_count": 6,
+        "max_rendered_characters": 2839
+      },
+      "台灯观察": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 3713
+      },
+      "清洗后放置": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 3697
+      },
+      "加热后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 4350
+      },
+      "冷却后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 4177
+      },
+      "双物品放置": {
+        "required_skill_count": 6,
+        "max_rendered_characters": 3045
+      }
+    }
+  }
+}

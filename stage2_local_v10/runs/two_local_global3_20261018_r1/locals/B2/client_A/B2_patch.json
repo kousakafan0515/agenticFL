@@ -1,0 +1,398 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "A",
+  "generation": 2,
+  "parent_bank_file_sha256": "sha256:84218a56b828fe08b81bd476c62d32950f61764b13390e957fd22c430bf24db4",
+  "per_role": {
+    "Planner": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_018",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_099",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_117",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_098"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling requires explicit fridge placement, state verification, and retrieval",
+            "principle": "For cooling tasks, decompose into: (1) locate and take the exact target object type, (2) navigate to the fridge, (3) open the fridge, (4) put the object in the fridge, (5) verify the object is actually cool before retrieval (do not immediately take it back out), (6) take the cooled object, (7) navigate to the destination, (8) put the cooled object at the destination and confirm success.",
+            "when_to_apply": "When the goal requires an object to be cooled before being placed in a final location."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_021",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_106",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_112",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_113"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Plans that take an object already inside the fridge and skip any explicit cooling/verification step, or that assume a fridge round-trip cools the object, end plan_completed_without_environment_win.",
+            "why_it_happens": "The planner conflates the object's initial location or a brief fridge placement with the required cooled state, and does not verify the object is cool before retrieval.",
+            "how_to_avoid": "Always include an explicit cooling step and verify the object is cool before taking it out, even if it was found in the fridge. Do not immediately take the object back out after putting it in the fridge."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_020",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_114",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_115"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "When the target object is not found in the first few likely locations, the planner may enter a long search loop across many cabinets and drawers, wasting steps and failing the task.",
+            "why_it_happens": "The planner lacks a fallback strategy and continues searching without reconsidering the plan or using alternative object sources.",
+            "how_to_avoid": "Limit search to a few high-probability locations; if the object is not found, revise the plan or consider whether the goal can be satisfied with a similar object rather than looping through every container."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_019",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_104"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Plans that omit the cooling step and directly place the object in the final location fail to satisfy the goal condition.",
+            "why_it_happens": "The planner may treat the goal as a simple placement task and overlook the required intermediate cooling state.",
+            "how_to_avoid": "Always include an explicit fridge cooling sub-step before the final placement when the goal specifies a cool object; do not just search for an empty destination container."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_108",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_111",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_116",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_090"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Plans often fail because the agent assumes an action succeeded without checking the observation, then proceeds with subsequent steps based on a false state.",
+            "why_it_happens": "The planner may not include verification steps or may ignore failed action feedback.",
+            "how_to_avoid": "After critical actions (take, put, clean, heat, cool), check the observation to confirm success. If the action failed, retry or adjust the plan before continuing. Order navigation to the appliance before the put/take action, and keep explicit track of where the object is and whether it has been cooled."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_108",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_109"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Locate target before acting",
+            "principle": "For any task, first locate the target object by checking open surfaces and likely locations before attempting to take or manipulate it, and match the exact object type named in the goal.",
+            "when_to_apply": "All tasks where the target object's location is not initially known."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_023",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_132",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_133",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_129"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "In some failed trajectories, the agent attempted to place the first item at the target but the placement did not succeed, yet the agent continued searching for the second item. This led to plan completion without the goal being satisfied.",
+            "why_it_happens": "The agent may assume a put action succeeded without checking the observation, or may attempt to put an item at a target that is not reachable or not in the current location.",
+            "how_to_avoid": "After each put action, check the observation to confirm the item was placed. If the put action fails, navigate to the target location and retry before proceeding to find the second item; do not proceed to the second item until the first put is confirmed."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_022",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_132",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_128",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_130"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Sequential two-item placement with per-item verification",
+            "principle": "For two-item placement tasks, process one item at a time: locate and take the first item, place it at the target and confirm the put succeeded, then locate and take the second item, and place it at the target and confirm success. If the destination is a closed container, open it before placing.",
+            "when_to_apply": "When the goal requires placing two instances of the same object type at a single target location."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_134",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_096"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "In failed episodes, the planner often searched many closed drawers or cabinets before checking open surfaces where the target object was actually visible. This wastes steps and can lead to plan failure when the object is on an open surface.",
+            "why_it_happens": "The initial plan treats 'find the object' as an unconstrained search and does not prioritize open, directly observable locations over closed containers.",
+            "how_to_avoid": "When locating the target object, first inspect open surfaces and visible locations (tables, dressers, shelves, countertops, sofas, beds, toilets, etc.) before opening closed containers. Only open closed containers if the object is not found on any open surface, and bound exhaustive closed-container sweeps."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "skill_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_121",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_134"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "In failed episodes, the planner repeatedly attempted to take the target object from locations where it was not present, revisited the same empty surfaces, and sometimes concluded the object was unavailable without systematically checking all plausible open surfaces.",
+            "why_it_happens": "The search strategy does not maintain a systematic list of candidate locations and may prematurely stop or repeat failed locations.",
+            "how_to_avoid": "After a failed take attempt, mark that location as checked and move to a new unchecked plausible location. Maintain a checked-location list and avoid revisiting the same empty surfaces. Continue until all plausible open surfaces and relevant containers have been checked before declaring the object unavailable."
+          }
+        }
+      ],
+      "counts": {
+        "base": 23,
+        "delete": 0,
+        "update": 10,
+        "add": 0,
+        "candidate": 23,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Executor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_003",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_005",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_069",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_134"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Search open surfaces before opening closed containers",
+            "principle": "When the target object is not visible, first visit open surfaces and receptacles that commonly hold the target (countertops, tables, desks, dressers, sidetables, beds, sofas, shelves), then open closed containers such as drawers, cabinets, fridges, and microwaves only if needed. Take the object once found and place it at the goal location.",
+            "when_to_apply": "When the target object is not visible at the start and the goal is to put it in/on a specified receptacle."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_007",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_115",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_053"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Do not retry navigation to an unreachable location",
+            "principle": "If 'go to <location>' returns 'Nothing happens' once or twice for the same location, stop retrying it. Use 'look' to confirm position or move on to other reachable receptacles instead of substituting unrelated locations or repeating the same failed navigation, which exhausts the step budget.",
+            "when_to_apply": "When a navigation action to a specific location has already failed once or twice."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_035",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_081",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_088"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use exact ALFWorld action forms and object identifiers",
+            "principle": "Use 'go to <location>' for navigation, 'take <object> from <receptacle>' for retrieval, 'put <object> in/on <receptacle>' for placement, and 'open <container>' before accessing closed containers. Use exact object identifiers (e.g., 'take alarmclock 1 from desk 1') and track the specific instance taken so later heat/put actions reference the same instance.",
+            "when_to_apply": "Throughout all ALFWorld tasks."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_030",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_033",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_042"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察任务：先取得目标物，再前往台灯所在表面并使用台灯",
+            "principle": "在“台灯观察”任务中，先搜索并取得目标物体；若台灯已在某表面被观察到，直接前往该表面并使用台灯，不要继续搜索其他容器。到达后使用 use desklamp 完成观察。",
+            "when_to_apply": "当任务要求 examine/look at 某物体 with/under the desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_009",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_033",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_036",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_041"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "在寻找目标物或台灯时，若目标物更可能出现在桌面、边桌、床等开放表面，不应优先或反复遍历大量抽屉；且当台灯已在某表面可见时，继续搜索抽屉会浪费步骤并导致失败。",
+            "why_it_happens": "抽屉搜索成本高，很多台灯观察任务的目标物和台灯都在开放表面上；忽略已观察到的台灯会错过完成时机。",
+            "how_to_avoid": "先检查与台灯相关的桌面、边桌、床头柜等开放表面；一旦观察到台灯，直接前往其表面并使用台灯，只有在合理位置未找到时才检查抽屉。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_010",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_053",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_052",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_071"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place sequence with synonym acceptance and sinkbasin verification",
+            "principle": "For clean-and-place goals, locate and take the target object (accepting a close synonym such as pan for pot, butterknife for knife, or mug for cup if the literal name is absent), navigate to a sinkbasin, clean the held object, then navigate to the destination receptacle and put the object there. If clean fails, verify you are at the sinkbasin before retrying.",
+            "when_to_apply": "When the goal is to put a clean object in/on a target receptacle and the object is not already clean."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_011",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_055",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_052"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Open closed destination receptacles before placing, but do not retry a no-op open",
+            "principle": "If the destination receptacle is closed, open it before attempting to put the clean object inside. If 'open' itself returns 'Nothing happens' (already open or non-openable), proceed directly to put rather than retrying open.",
+            "when_to_apply": "When the target destination is a closed cabinet, drawer, fridge, microwave, or similar container."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_016",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_085",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_089"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Successful heating and placement sequence",
+            "principle": "To heat an object and place it in a target receptacle: find and take the object, go to the microwave, open it, heat the object while holding it (take it out first if it is inside), then go to the target and put it there. Track the same instance throughout and do not blindly repeat a failing put; re-verify location, container openness, and held-object state.",
+            "when_to_apply": "When the goal is to heat an object and put it in a specified location."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_017",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_104"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling requires placing the object in the fridge and then retrieving it",
+            "principle": "For cooling tasks, first place the target object into the fridge, then take it out before moving it to the final destination. Do not re-take an object already held; check inventory before re-taking.",
+            "when_to_apply": "When the goal is to cool an object and then place it in a cabinet, countertop, microwave, garbagecan, diningtable, sidetable, or coffeemachine."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_019",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_115"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "If the target object is not found in the fridge, countertops, or dining table, do not search every cabinet and drawer or wander through unrelated cabinets; episodes burned the full step budget opening empty cabinets without finding the object.",
+            "why_it_happens": "The agent may continue exhaustive searching or substitute unrelated cabinet visits, wasting steps and failing to complete the task.",
+            "how_to_avoid": "After checking a few likely locations, if the object is still missing, re-examine the goal or consider that the object may not be present; when navigation to a key receptacle fails, re-evaluate position with 'look' rather than visiting unrelated cabinets."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "skill_020",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_119",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_124",
+            "stage2-local-v10-role-partitioned-patch3/generation_02/client_A/episode_131"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Sequential two-item placement with single-item carry",
+            "principle": "For two-item placement tasks, locate and take the first target object, carry it to the destination receptacle (navigating there first), place it, then search for and place the second target object. If both instances are visible at one receptacle, take one, place it, then return to the same receptacle for the second.",
+            "when_to_apply": "When the goal is to put two instances of the same object type into a specified receptacle and the agent can carry only one object at a time."
+          }
+        }
+      ],
+      "counts": {
+        "base": 23,
+        "delete": 0,
+        "update": 11,
+        "add": 0,
+        "candidate": 23,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:3809de5ba6646ac0b93fb2213be7ee634a7556c0f0d69167763661da74d14fc2"
+}

@@ -1,0 +1,47 @@
+{
+  "batch": 17,
+  "attempt": 1,
+  "input_ids": [
+    "Z0321",
+    "Z0322",
+    "Z0323",
+    "Z0324",
+    "Z0325",
+    "Z0326",
+    "Z0327",
+    "Z0328",
+    "Z0329",
+    "Z0330",
+    "Z0331",
+    "Z0332",
+    "Z0333",
+    "Z0334",
+    "Z0335",
+    "Z0336",
+    "Z0337",
+    "Z0338",
+    "Z0339",
+    "Z0340"
+  ],
+  "input_text_sha256": "sha256:47912fa902e288e499fe42d526b3caf3d52b5b2c1b5697bdbce48817a928d71d",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0321\",\"chinese\":\"在打开封闭容器之前，先搜索开放的表面\"},{\"id\":\"Z0322\",\"chinese\":\"当目标物体不可见时，先访问通常放置目标的开放表面和容器（台面、桌子、书桌、梳妆台、边桌、床、沙发、架子），然后仅在需要时打开抽屉、柜子、冰箱和微波炉等封闭容器。找到物体后拿起它并放到目标位置。\"},{\"id\":\"Z0323\",\"chinese\":\"不要重试导航到不可到达的位置\"},{\"id\":\"Z0324\",\"chinese\":\"如果对同一位置执行 'go to <location>' 一两次返回 'Nothing happens'，停止重试。使用 'look' 确认位置，或转向其他可到达的容器，而不是替换为无关位置或重复相同的失败导航，这会耗尽步数预算。\"},{\"id\":\"Z0325\",\"chinese\":\"使用精确的 ALFWorld 动作形式和对象标识符\"},{\"id\":\"Z0326\",\"chinese\":\"使用 'go to <location>' 进行导航，使用 'take <object> from <receptacle>' 进行取物，使用 'put <object> in/on <receptacle>' 进行放置，并在访问封闭容器前使用 'open <container>'。使用精确的对象标识符（例如 'take alarmclock 1 from desk 1'），并跟踪所取的具体实例，以便后续 heat/put 动作引用同一实例。\"},{\"id\":\"Z0327\",\"chinese\":\"清洁后放置的序列，接受同义词并用 sinkbasin 验证\"},{\"id\":\"Z0328\",\"chinese\":\"对于清洁并放置的目标，定位并拿起目标物体（如果字面名称不存在，可接受近义词，如用 pan 代替 pot、用 butterknife 代替 knife、或用 mug 代替 cup），导航到 sinkbasin，清洁所持物体，然后导航到目标容器并将物体放在那里。如果清洁失败，在重试前确认你位于 sinkbasin。\"},{\"id\":\"Z0329\",\"chinese\":\"在放置前打开封闭的目标容器，但不要重试无效果的 open\"},{\"id\":\"Z0330\",\"chinese\":\"如果目标容器是关闭的，在尝试将清洁后的物体放入之前先打开它。如果 'open' 本身返回 'Nothing happens'（已经打开或不可打开），直接进行 put，而不是重试 open。\"},{\"id\":\"Z0331\",\"chinese\":\"要加热物体并将其放入目标容器：找到并拿起物体，前往微波炉，打开它，在持有物体时加热它（如果物体在里面，先取出），然后前往目标并将其放在那里。全程跟踪同一实例，不要盲目重复失败的 put；重新验证位置、容器打开状态和持有物体状态。\"},{\"id\":\"Z0332\",\"chinese\":\"对于冷却任务，先将目标物体放入冰箱，然后在将其移到最终目的地之前取出。不要重新拿取已持有的物体；在重新拿取前检查物品栏。\"},{\"id\":\"Z0333\",\"chinese\":\"如果在冰箱、台面或餐桌上找不到目标物体，不要搜索每个柜子和抽屉，也不要在无关的柜子间游荡；这些回合耗尽了全部步数预算，打开空柜子却没有找到物体。\"},{\"id\":\"Z0334\",\"chinese\":\"智能体可能继续穷举搜索或替换为无关的柜子访问，浪费步数且无法完成任务。\"},{\"id\":\"Z0335\",\"chinese\":\"检查几个可能位置后，如果物体仍然缺失，重新检查目标或考虑物体可能不存在；当导航到关键容器失败时，用 'look' 重新评估位置，而不是访问无关的柜子。\"},{\"id\":\"Z0336\",\"chinese\":\"对于两件物品的放置任务，定位并拿起第一个目标物体，将其带到目标容器（先导航到那里），放置它，然后搜索并放置第二个目标物体。如果两个实例都在同一个容器处可见，拿起一个，放置它，然后返回同一容器拿第二个。\"},{\"id\":\"Z0337\",\"chinese\":\"对于清洁后放置的目标，执行稳定循环：定位目标中指定的确切目标物体（不要用类似物体替代，如用 butterknife 代替 knife 或用 pan 代替 pot），拿起它，前往 sinkbasin 或 bathtubbasin，清洁它，然后前往目标容器，如果关闭则打开它，并将物体放入其中。如果目标容器已包含类似物体，仍要拿起正确物体、清洁它并放回，而不是交换。\"},{\"id\":\"Z0338\",\"chinese\":\"对于加热并放置的任务，在定位目标物体和微波炉后，拿起物体，前往微波炉，如果关闭则打开它，然后在持有物体时执行 `heat <object> with microwave 1`。如果第一次加热尝试返回 'Nothing happens'，将物体从微波炉中取出，并在持有它时重试 `heat <object> with microwave 1`。不要尝试使用非微波炉器具（stoveburner、toaster、coffeemachine）加热；这些会返回 'Nothing happens'。\"},{\"id\":\"Z0339\",\"chinese\":\"要冷却物体，先前往冰箱并打开它，然后在持有物体时对冰箱使用 cool 动作；不要依赖将物体放入冰箱再取出作为冷却的替代。未与打开的冰箱同处时尝试 cool 会返回 'Nothing happens'。\"},{\"id\":\"Z0340\",\"chinese\":\"如果动作返回 'Nothing happens'，不要重复相同的无效命令；验证当前位置并选择有效的可到达容器或动作。这同样适用于移动、打开、拿取和检查。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1179,
+    "prompt_tokens": 1470,
+    "total_tokens": 2649,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1470
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

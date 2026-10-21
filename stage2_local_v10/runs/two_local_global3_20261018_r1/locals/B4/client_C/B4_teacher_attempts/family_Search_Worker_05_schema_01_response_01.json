@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_05_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:6d8d3c9db65f6c9999c1b30caec4cfcc040d23fed7c080d91ce77caebbd8839e",
+  "message_character_count": 121794,
+  "started_at_utc": "2026-10-18T17:18:43.641768+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the first checked location (often the fridge) lacks the target, continue searching other plausible surfaces and containers instead of declaring BLOCKED. Several episodes stopped after only opening the fridge, even though the object could exist elsewhere.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_109\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_111\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_117\"]}, {\"recommendation\": \"Do not repeat an identical failing navigation command. In episode_097 the worker issued 'go to fridge 1' four times with 'Nothing happens' each time; after one or two no-change results, switch to another reachable location or reassess.\", \"affected_skill_ids\": [\"G_006\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_097\"]}, {\"recommendation\": \"Track checked locations and avoid re-walking already-confirmed-empty surfaces. Episodes 104 and 106 revisited countertops and cabinets repeatedly, exhausting steps without finding the target; maintain a checked-location list and prioritize unchecked plausible spots.\", \"affected_skill_ids\": [\"G_002\", \"T5_003\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_104\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_106\"]}, {\"recommendation\": \"Search broadly across receptacle types rather than only cabinets. Episode_100 checked many cabinets but missed obvious surfaces like countertops and shelves until late; prioritize visible surfaces and common holding places before exhaustive cabinet sweeps.\", \"affected_skill_ids\": [\"G_001\", \"T5_003\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_100\"]}, {\"recommendation\": \"Do not substitute a similar object type for the named target. Episode_102 took a mug when the goal required a cup, and episode_103 placed bread in the microwave without cooling it; acquire the exact named object and complete the required state change before placement.\", \"affected_skill_ids\": [\"T3_005\", \"T5_001\", \"T5_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_103\"]}, {\"recommendation\": \"After acquiring the target, hand off promptly with the object held and note that cooling and placement remain. Successful episodes 098, 099, 101, 105, 107, 108, 110, 112, 113, 116 show clean acquire-then-handoff behavior; keep this pattern and avoid extra intermediate placements.\", \"affected_skill_ids\": [\"G_007\", \"T5_001\", \"T4_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_099\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_105\"]}, {\"recommendation\": \"When a navigation target returns 'Nothing happens' (e.g., cabinet 5, cabinet 12, cabinet 2), treat it as unreachable and move to another candidate rather than retrying the same target. Episode_097 and episode_100 show repeated failed cabinet navigation.\", \"affected_skill_ids\": [\"G_006\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_100\"]}, {\"recommendation\": \"Open closed containers before inspecting or taking from them, and confirm the destination is open before placing. Episode_116 attempted 'put winebottle 1 in/on fridge 1' while the fridge was open but the put failed; verify destination state and use the correct open container.\", \"affected_skill_ids\": [\"G_003\", \"T3_004\", \"T6_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_116\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 36379,
+    "completion_tokens": 1067,
+    "total_tokens": 37446
+  },
+  "completed_at_utc": "2026-10-18T17:18:48.950663+00:00"
+}

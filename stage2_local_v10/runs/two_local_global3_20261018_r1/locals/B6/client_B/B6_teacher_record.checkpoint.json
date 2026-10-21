@@ -1,0 +1,1689 @@
+{
+  "schema_version": "stage2_local_v10.role_teacher_checkpoint.v1",
+  "client": "B",
+  "generation": 6,
+  "parent_kind": "independent",
+  "parent_bank_file_sha256": "sha256:4b4de2a7ceaa738968aef425feaaff3046fb677f49f04dc8c2fe1f7b310ef03e",
+  "evidence_file_sha256": "sha256:e0faea0ab3f24230119485cb813d57aaf72bad848732d9694290036ec1c285ae",
+  "teacher": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "endpoint_path": "/",
+    "model": "deepseek-flash",
+    "api_key_present": true,
+    "api_key_value_recorded": false
+  },
+  "findings": {
+    "Executor": {
+      "简单取放": [
+        {
+          "recommendation": "When a navigation target returns 'Nothing happens' (e.g., go to bed, go to dresser 1, go to drawer 5/6), treat it as unreachable and immediately switch to a different unchecked location rather than retrying the same target; episode_001 and episode_006 show recovery after a single no-change navigation, while episode_024 shows repeated no-change opens/navigations consuming budget.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_006",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024"
+          ]
+        },
+        {
+          "recommendation": "Search open surfaces before closed containers when plausible: episodes 002-005, 008, 010, 016, 017, 019, 020, 021 found the target on the first or second visible surface (sofa, sidetable, coffeetable, desk, dresser, bed, tvstand), avoiding unnecessary drawer/cabinet opening.",
+          "affected_skill_ids": [
+            "G_001",
+            "T1_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_002",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_004",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_020"
+          ]
+        },
+        {
+          "recommendation": "Open closed containers before inspecting or placing: episodes 009, 011, 012, 013, 015, 018, 022, 023 correctly opened drawers/cabinets before taking or putting, and episode_023 opened cabinet 1 before placing the soapbottle. Continue this pattern and do not retry open when it returns no change (already open or non-openable).",
+          "affected_skill_ids": [
+            "G_003",
+            "T6_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_009",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_023",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_022"
+          ]
+        },
+        {
+          "recommendation": "After taking the target, navigate directly to the destination and put without intermediate steps; episodes 002-005, 008, 010, 014, 016, 017, 019, 020, 021 show clean take-then-go-then-put sequences ending in confirmed placement. Treat the confirming put observation as terminal and stop.",
+          "affected_skill_ids": [
+            "G_004",
+            "G_007",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_003",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_014",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_021"
+          ]
+        },
+        {
+          "recommendation": "Use exact object and receptacle identifiers from observations, including instance numbers (e.g., take book 3 from sidetable 1, put cd 1 in/on sidetable 1). Episodes 003, 008, 013, 016, 017, 022 consistently used numbered instances and succeeded.",
+          "affected_skill_ids": [
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_003",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_013",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_022"
+          ]
+        },
+        {
+          "recommendation": "In episode_024 the pencil was never found after checking drawers, cabinets, garbagecan, laundryhamper, safe, desk, and bed; the agent correctly reported failure rather than looping. Maintain a checked-location record and, after exhausting plausible surfaces and opened containers, report blocked instead of revisiting confirmed-empty locations.",
+          "affected_skill_ids": [
+            "G_002",
+            "G_006",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024"
+          ]
+        },
+        {
+          "recommendation": "When a target is not on the first checked surface, broaden systematically to other plausible surfaces and containers rather than concluding absence: episode_007 checked countertop, dresser, cabinets, drawers, sinkbasins, bathtubbasin, then found the candle on the toilet; episode_011 checked many cabinets/drawers before finding the pan on the countertop.",
+          "affected_skill_ids": [
+            "G_001",
+            "G_002",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011"
+          ]
+        },
+        {
+          "recommendation": "Avoid redundant re-navigation to a location already confirmed empty or already holding the target; episode_001 revisited sidetable 2 after earlier checking it, and episode_024 re-checked desk 1. Track checked locations and placed instances to conserve action budget.",
+          "affected_skill_ids": [
+            "G_002",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024"
+          ]
+        }
+      ],
+      "台灯观察": [
+        {
+          "recommendation": "When the target object is already on the same furniture as the desklamp, take it and immediately use the numbered desklamp without extra navigation; this is the dominant successful pattern.",
+          "affected_skill_ids": [
+            "T2_001",
+            "G_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_035",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_036"
+          ]
+        },
+        {
+          "recommendation": "When the target is on a different furniture than the desklamp, take it, navigate to the desklamp's furniture, then use the numbered desklamp; do not place the object down first unless required.",
+          "affected_skill_ids": [
+            "T2_001",
+            "G_004",
+            "G_007"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_030",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_037"
+          ]
+        },
+        {
+          "recommendation": "Do not issue examine/look at on furniture or objects; these return no useful information or empty actions and can terminate the episode. Inspect by navigating and reading the observation instead.",
+          "affected_skill_ids": [
+            "T2_003",
+            "G_005",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029"
+          ]
+        },
+        {
+          "recommendation": "If use desklamp returns Nothing happens, do not retry the same command or fall back to examine. Verify the current furniture's observation actually lists a desklamp; if not, move to the furniture where a desklamp was observed and use its numbered instance.",
+          "affected_skill_ids": [
+            "T2_004",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041"
+          ]
+        },
+        {
+          "recommendation": "When a desklamp is observed on a furniture, go directly there rather than continuing to check unrelated dressers or opening drawers; the successful episodes locate the lamp early and act on it.",
+          "affected_skill_ids": [
+            "T2_005",
+            "G_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033"
+          ]
+        },
+        {
+          "recommendation": "Do not attempt to open drawers or containers that are not part of the observed furniture set; open on a non-container or wrong target returns Nothing happens and wastes steps. Prefer visible surfaces for this task.",
+          "affected_skill_ids": [
+            "G_003",
+            "G_006",
+            "T2_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_028"
+          ]
+        },
+        {
+          "recommendation": "After a successful use desklamp observation, stop; do not add a redundant put or completion-only step. Placing the object on the lamp's furniture before using the lamp is unnecessary and can add failure risk.",
+          "affected_skill_ids": [
+            "G_008",
+            "T2_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039"
+          ]
+        },
+        {
+          "recommendation": "Avoid declaring completion or emitting empty actions after turning on the lamp; the environment may treat this as an error. The terminal success condition is the use desklamp observation itself.",
+          "affected_skill_ids": [
+            "G_008",
+            "T2_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_038",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039"
+          ]
+        }
+      ],
+      "清洗后放置": [
+        {
+          "recommendation": "When a go-to returns 'Nothing happens', treat the target as unreachable and switch to a different unchecked location rather than retrying the same navigation. In episode_044 the executor repeatedly issued go to cabinet 2 three times with no change before moving on, wasting steps.",
+          "affected_skill_ids": [
+            "G_006",
+            "T3_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_053"
+          ]
+        },
+        {
+          "recommendation": "When a clean action returns 'Nothing happens' on a cloth-like object (handtowel/towel), stop repeating clean and either try a different cleanable candidate or report the object as not cleanable. Episode_049 looped on clean handtowel/towel at sinkbasin with no effect and then failed to release the held object.",
+          "affected_skill_ids": [
+            "T3_002",
+            "T3_003",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049"
+          ]
+        },
+        {
+          "recommendation": "After a failed clean, if the held object cannot be placed (put returns 'Nothing happens' across surfaces), do not keep issuing identical put commands; verify current location and inventory, and if the object remains stuck, report blocked rather than looping. Episode_049 repeated put handtowel/towel on countertop with no effect.",
+          "affected_skill_ids": [
+            "G_006",
+            "T3_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049"
+          ]
+        },
+        {
+          "recommendation": "Do not substitute a similar object type (butterknife for knife) unless the exact target is confirmed unavailable and equivalence is permitted. Episode_052 took butterknife 1 for a 'knife' goal and the episode ended in error; prefer searching for the exact named type first.",
+          "affected_skill_ids": [
+            "T3_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052"
+          ]
+        },
+        {
+          "recommendation": "When open returns 'Nothing happens' on a destination container, treat it as already open or non-openable and proceed directly to put rather than retrying open. Episode_052 and episode_055 both recovered correctly by putting after a no-change open.",
+          "affected_skill_ids": [
+            "G_003",
+            "T3_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_055"
+          ]
+        },
+        {
+          "recommendation": "When the target is not found after checking many cabinets and surfaces, broaden to remaining plausible locations such as stoveburners before declaring exhaustion. Episode_044 found the kettle on stoveburner 1 only after checking garbagecan, but ran out of budget before cleaning/placing; prioritize likely surfaces earlier.",
+          "affected_skill_ids": [
+            "T3_006",
+            "G_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044"
+          ]
+        },
+        {
+          "recommendation": "Maintain a checked-location record and avoid re-opening or re-visiting confirmed-empty containers. Episode_063 exhausted its budget opening cabinets 1-11 sequentially without finding the kettle; after several likely locations fail, reassess feasibility rather than opening every remaining container.",
+          "affected_skill_ids": [
+            "G_002",
+            "T3_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063"
+          ]
+        },
+        {
+          "recommendation": "The clean-then-place sequence is well executed in most episodes: acquire exact target, go to sinkbasin, clean with confirmation, then go to destination, open if closed, and put. Continue this pattern and treat the confirming put observation as terminal without extra verification steps.",
+          "affected_skill_ids": [
+            "T3_001",
+            "G_007",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_045",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_046",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_050"
+          ]
+        }
+      ],
+      "加热后放置": [
+        {
+          "recommendation": "When heating fails with the object inside the microwave, take it out and retry while holding it; this recovery pattern succeeded repeatedly. Avoid the extra put-into-microwave step that returns Nothing happens.",
+          "affected_skill_ids": [
+            "T4_002",
+            "T4_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090"
+          ]
+        },
+        {
+          "recommendation": "After a successful held-object heat, go directly to the destination; do not attempt to take the object from the microwave, since held heating leaves it in hand. Episode 074 shows a take-from-microwave that only worked because the object had been placed there.",
+          "affected_skill_ids": [
+            "T4_006",
+            "T4_007"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083"
+          ]
+        },
+        {
+          "recommendation": "Open the microwave before heating; when it is already open, heat directly. Do not issue open on a container that returns Nothing happens and then retry it; treat no-change open as already-open/non-openable and proceed to put.",
+          "affected_skill_ids": [
+            "G_003",
+            "G_006",
+            "T4_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096"
+          ]
+        },
+        {
+          "recommendation": "Search open surfaces broadly before opening many closed containers. Episodes 080, 088, and 096 succeeded by checking successive countertops/dining tables; episode 093 wasted many steps opening cabinets and drawers before finding the mug in the fridge.",
+          "affected_skill_ids": [
+            "G_001",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_080",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096"
+          ]
+        },
+        {
+          "recommendation": "Match the exact object type named in the goal. When the goal says mug, prefer a mug instance over a cup; episodes 075, 081, and 088 substituted cup for mug and failed, while episode 087 found an actual mug and succeeded.",
+          "affected_skill_ids": [
+            "T3_005",
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_075",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_087",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_088"
+          ]
+        },
+        {
+          "recommendation": "After the final put observation confirms placement, stop. Do not emit an empty action or a completion message; episodes 075, 081, and 088 ended in executor/environment error after a successful-looking put followed by an empty action.",
+          "affected_skill_ids": [
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_075",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_088"
+          ]
+        },
+        {
+          "recommendation": "When the destination is a closed container, navigate to it and open it before putting; if open returns no change, proceed to put rather than looping. Episode 096 shows open returning Nothing happens followed by a successful put.",
+          "affected_skill_ids": [
+            "G_003",
+            "T4_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_077"
+          ]
+        },
+        {
+          "recommendation": "Track the specific instance taken and keep it through heating and placement. Episodes 074, 083, and 090 correctly carried the same egg instance from countertop through microwave to destination.",
+          "affected_skill_ids": [
+            "G_005",
+            "G_007"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090"
+          ]
+        }
+      ],
+      "冷却后放置": [
+        {
+          "recommendation": "When the target object is not in the first few locations, avoid opening every remaining cabinet in sequence. Track checked locations and, after a reasonable broad search, reassess feasibility or report blocked rather than exhausting the action budget on cabinets 10-23.",
+          "affected_skill_ids": [
+            "T5_003",
+            "G_002",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100"
+          ]
+        },
+        {
+          "recommendation": "Do not repeat a no-change navigation to the same receptacle. In episode_098 'go to cabinet 2' returned Nothing happens twice; after one no-change result, switch to a different unchecked location instead of retrying.",
+          "affected_skill_ids": [
+            "G_006",
+            "T5_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100"
+          ]
+        },
+        {
+          "recommendation": "For cooling, hold the target at the open fridge and issue the explicit cool action, then proceed directly to the destination. This pattern succeeded repeatedly; do not substitute a put-into-fridge-then-take round-trip, which does not confirm cooling.",
+          "affected_skill_ids": [
+            "T5_001",
+            "T5_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_099",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ]
+        },
+        {
+          "recommendation": "When the goal names a specific object type (e.g., cup), do not silently substitute a similar type such as mug unless equivalence is confirmed. Episode_102 took mug 1 for a 'cup' goal and failed; episode_108 also used a mug for a mug goal successfully, so match the exact named type.",
+          "affected_skill_ids": [
+            "T3_005",
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_108"
+          ]
+        },
+        {
+          "recommendation": "After a confirmed placement, stop and do not emit an empty or status-only action. Episode_102 and episode_109 placed the object successfully but then sent an empty action, producing executor_or_environment_error instead of clean success.",
+          "affected_skill_ids": [
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ]
+        },
+        {
+          "recommendation": "When the target is not found after checking countertops, fridge, and many cabinets, broaden to open surfaces like shelves and dining tables before concluding failure, and avoid re-checking already-confirmed-empty countertops. Episode_104 and episode_106 exhausted budget revisiting surfaces.",
+          "affected_skill_ids": [
+            "G_001",
+            "G_002",
+            "T5_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_106"
+          ]
+        },
+        {
+          "recommendation": "Do not declare failure while plausible unchecked locations remain. Episode_114 reported FAILED after checking cabinets, drawers, fridge, microwave, garbagecan, stoveburner, and two countertops, but had not confirmed all plausible surfaces were exhausted; reassess before self-reporting failure.",
+          "affected_skill_ids": [
+            "G_002",
+            "G_008",
+            "T5_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ]
+        },
+        {
+          "recommendation": "Avoid redundant cooling: episode_116 cooled the winebottle, went to cabinet 1, then returned to the fridge to cool again before placing. After a confirmed cool observation, proceed directly to the destination and place without re-cooling.",
+          "affected_skill_ids": [
+            "T5_001",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_116"
+          ]
+        }
+      ],
+      "双物品放置": [
+        {
+          "recommendation": "When a put fails with 'Nothing happens', verify current location before retrying; several episodes show put attempted from a non-destination location (e.g., at handtowelholder 2 trying to put into toilet 1). Navigate to the destination first, then put.",
+          "affected_skill_ids": [
+            "T6_004",
+            "G_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129"
+          ]
+        },
+        {
+          "recommendation": "After a failed put at the destination, do not loop retrying the same put or switching to an invalid alternative receptacle. In episode_123, repeated put attempts on shelf 1 and countertop 1 all returned 'Nothing happens' while holding towel 1, and the episode ended in error. Diagnose whether the held object is placeable and reassess rather than repeating.",
+          "affected_skill_ids": [
+            "T6_008",
+            "T6_004",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_123"
+          ]
+        },
+        {
+          "recommendation": "When a second take fails while holding an object, attribute it to the one-item carry limit and place the held object at the destination before returning for the second. Episode_125 correctly did this after 'take pen 2' returned 'Nothing happens'.",
+          "affected_skill_ids": [
+            "T6_003",
+            "T6_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_125"
+          ]
+        },
+        {
+          "recommendation": "When both target instances are visible on one surface, take one, place it at the destination, then return to the same surface for the second. Episodes 122, 124, 127, 128, 130, 133, and 134 all succeeded with this pattern.",
+          "affected_skill_ids": [
+            "T6_001",
+            "T6_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_122",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_124",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_127"
+          ]
+        },
+        {
+          "recommendation": "Do not conclude the target is absent after checking only open surfaces; closed containers and unusual receptacles may hold it. In episode_121, soapbottles were found in a garbagecan after shelves and basins were empty, but the episode ended in error while holding the first bottle. Continue systematic search and manage inventory.",
+          "affected_skill_ids": [
+            "T6_002",
+            "G_001",
+            "G_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_121"
+          ]
+        },
+        {
+          "recommendation": "Open a closed destination container before placing, and if open returns 'Nothing happens' treat it as already open or non-openable and proceed. Episode_126 shows an initial open on cabinet 1 returning no change, then later placing into an opened cabinet 2 successfully.",
+          "affected_skill_ids": [
+            "T6_005",
+            "G_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126"
+          ]
+        },
+        {
+          "recommendation": "After a no-change navigation (e.g., 'go to cabinet 4' or 'go to shelf 2' returning 'Nothing happens'), switch to a different unchecked location rather than repeating the same target. Episodes 118 and 120 show a first no-change navigation followed by a successful retry, but repeating an unreachable target wastes steps.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_120"
+          ]
+        },
+        {
+          "recommendation": "Track which instance was already placed and avoid re-taking it; after placing the first item, search for a second distinct instance. Episodes 119, 129, and 132 correctly returned to a different location for the second instance rather than re-taking the placed one.",
+          "affected_skill_ids": [
+            "T6_001",
+            "T6_009"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_119",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_132"
+          ]
+        }
+      ]
+    },
+    "Critic": {
+      "简单取放": [
+        {
+          "recommendation": "When a go-to returns 'Nothing happens', treat that location as unreachable and switch to a different unchecked location rather than retrying the same identifier. In episode_001, 'go to dresser 1' returned Nothing at step 18 but succeeded at step 28, so the Critic should advise moving on after one no-change navigation and revisiting only if new evidence appears.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_009"
+          ]
+        },
+        {
+          "recommendation": "When arriving at a closed container, the next action must be to open it before inspecting or taking; do not move on while it remains closed. Critic advice should explicitly say 'open the current container' rather than only 'check other locations'.",
+          "affected_skill_ids": [
+            "G_003",
+            "T6_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_015"
+          ]
+        },
+        {
+          "recommendation": "After a failed open returning 'Nothing happens', do not retry open; treat the container as non-openable or already open and proceed to take/place or move to another candidate. Episode_001 opened drawer 5 and drawer 6 with no effect and should have pivoted immediately.",
+          "affected_skill_ids": [
+            "G_006",
+            "T3_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024"
+          ]
+        },
+        {
+          "recommendation": "When a search has checked many closed containers without success, Critic should direct the Executor toward open visible surfaces (countertops, tables, beds, shelves) rather than continuing to enumerate more cabinets/drawers. This matches the successful pivots in episodes 011, 015, and 007.",
+          "affected_skill_ids": [
+            "G_001",
+            "G_002",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_015",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007"
+          ]
+        },
+        {
+          "recommendation": "Critic should confirm acquisition from the take observation before advising placement, and confirm placement from the put observation before declaring done. In episode_005 and episode_011 the Critic correctly noted holding the object and directed the next move; keep this pattern and avoid signaling completion before the put is observed.",
+          "affected_skill_ids": [
+            "G_007",
+            "G_008",
+            "T1_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_005",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011"
+          ]
+        },
+        {
+          "recommendation": "Avoid speculative advice that asserts unseen contents or suggests unlikely receptacles like garbagecan for a pencil. Base recommendations on observed state; when likely locations are exhausted, advise reassessing feasibility rather than naming arbitrary containers. Episode_024's Critic suggested garbagecan/laundryhamper for a pencil, which is not grounded.",
+          "affected_skill_ids": [
+            "T6_008",
+            "G_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007"
+          ]
+        },
+        {
+          "recommendation": "When a go-to fails with 'Nothing happens', Critic should not advise re-verifying the same identifier and retrying it; instead recommend a different unchecked location. Episode_013 and episode_018 both show the Critic suggesting re-verification of a failed cabinet/drawer identifier, which risks a repeat no-op.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_013",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_018"
+          ]
+        },
+        {
+          "recommendation": "When the Executor is already at the destination and holding the target, Critic should advise the put directly without an extra go-to. Episode_018's Critic correctly noted arrival at desk 1 and directed the put; reinforce this to avoid redundant navigation.",
+          "affected_skill_ids": [
+            "G_004",
+            "T6_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_018",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_012"
+          ]
+        }
+      ],
+      "台灯观察": [
+        {
+          "recommendation": "When the target object is already visible on the same furniture as the desklamp, the Critic should advise taking it and immediately using the numbered lamp, not searching other surfaces. Episodes 027, 035, 036, 037 show this direct path succeeding in 2-3 steps.",
+          "affected_skill_ids": [
+            "T2_001",
+            "T2_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_035",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_036"
+          ]
+        },
+        {
+          "recommendation": "Critic advice should require the target to be held before using the lamp. In episode 038 the executor used desklamp 1 without taking the alarmclock, and in episode 031 it examined the desk instead of acquiring the target; both failed. Advise take-then-use.",
+          "affected_skill_ids": [
+            "T2_001",
+            "T2_003",
+            "G_007"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_038",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031"
+          ]
+        },
+        {
+          "recommendation": "When the executor is at a furniture with the desklamp and holding the target, the Critic should advise the numbered use desklamp <id> as the terminal step and not suggest placing the object first. Episodes 033 and 039 placed the object on the furniture before using the lamp and failed; episodes 026, 028, 030, 032, 034, 042 succeeded by using the lamp while holding.",
+          "affected_skill_ids": [
+            "T2_001",
+            "T2_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_042"
+          ]
+        },
+        {
+          "recommendation": "Critic should flag use desklamp returning Nothing happens as evidence the lamp is not at the current furniture, and advise moving to a furniture whose observation lists a desklamp rather than retrying. Episode 041 failed at desk 1 then succeeded after moving to shelf 1; episode 029 failed because no desklamp was present at desk 1.",
+          "affected_skill_ids": [
+            "T2_004",
+            "T2_005",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029"
+          ]
+        },
+        {
+          "recommendation": "Critic should not endorse examine-style actions on furniture or objects as progress; episode 031 used examine desk 1 and episode 041 used examine desk 1 without advancing the goal. Advise navigating to a receptacle and observing its contents instead.",
+          "affected_skill_ids": [
+            "T2_003",
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041"
+          ]
+        },
+        {
+          "recommendation": "When the target is not at the first surface, Critic should advise continuing to other open surfaces and only then containers, tracking checked locations. Episodes 037 and 040 succeeded after moving through several surfaces; episode 025 found the newspaper on the sofa after empty dressers.",
+          "affected_skill_ids": [
+            "T2_005",
+            "G_001",
+            "G_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_037",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_040",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025"
+          ]
+        },
+        {
+          "recommendation": "Critic should treat a successful use desklamp observation as terminal and not recommend further actions. Episodes 026, 028, 030, 032, 034, 035, 036, 037, 040, 041, 042 all ended successfully at the lamp-use step.",
+          "affected_skill_ids": [
+            "T2_001",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_034",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_040"
+          ]
+        }
+      ],
+      "清洗后放置": [
+        {
+          "recommendation": "When a clean-then-place search stalls, Critic should push the Executor toward visible open surfaces (countertops, tables, stoveburners) rather than continuing to open empty cabinets/drawers. In episode_044 the kettle was on stoveburner 1 but the Executor exhausted many closed containers first; Critic repeatedly advised more cabinets. Advise checking visible surfaces and stoveburners before further container opening.",
+          "affected_skill_ids": [
+            "T3_006",
+            "G_001",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063"
+          ]
+        },
+        {
+          "recommendation": "Critic should not assert a specific unseen location contains the target or that a failed action was transient without observed evidence. In episode_063 Critic claimed the garbagecan and toaster were plausible unsearched locations and directed the Executor there, but the kettle was never found and the budget was exhausted. Base advice on observed contents and checked-location records.",
+          "affected_skill_ids": [
+            "T6_008",
+            "G_002",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063"
+          ]
+        },
+        {
+          "recommendation": "When a clean action returns Nothing happens on a cloth/handtowel, Critic should diagnose the object type as likely non-cleanable and stop the Executor from looping on clean/put. In episode_049 repeated clean and put attempts on handtowel/towel all returned Nothing happens and the episode errored. Advise trying a different cleanable candidate or reporting the object as not cleanable rather than repeating.",
+          "affected_skill_ids": [
+            "T3_003",
+            "T3_002",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049"
+          ]
+        },
+        {
+          "recommendation": "Critic should verify held-object state before advising a put. In episode_049 Critic suggested putting the handtowel on countertop/garbagecan while the Executor's inventory state was uncertain, producing repeated Nothing happens. Advise confirming the object is actually held (via take observation) before issuing put, and if put fails, check inventory rather than retrying the same put.",
+          "affected_skill_ids": [
+            "G_004",
+            "G_006",
+            "T3_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049"
+          ]
+        },
+        {
+          "recommendation": "Critic should treat a closed destination as requiring an open action before put, and should not call a put ineffective merely because the container was closed at arrival. In episode_052 and episode_054 Critic correctly flagged the closed drawer/cabinet; keep this pattern but phrase it as 'open then put' rather than declaring the prior navigation ineffective.",
+          "affected_skill_ids": [
+            "G_003",
+            "T3_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_054"
+          ]
+        },
+        {
+          "recommendation": "Critic should avoid labeling a successful navigation as ineffective. In episode_051 and episode_057 Critic called a go-to-drawer/cabinet step ineffective because the container was still closed, but navigation succeeded and the correct next step was open. Distinguish 'arrived at closed container' from 'failed action' and advise opening next.",
+          "affected_skill_ids": [
+            "G_003",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_051",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_057"
+          ]
+        },
+        {
+          "recommendation": "Critic should confirm the exact object type before endorsing a take. In episode_059 Critic correctly noted a cup is not a mug and advised continued search; preserve this exact-name discipline. Conversely, do not silently accept butterknife for knife (episode_052) unless equivalence is confirmed.",
+          "affected_skill_ids": [
+            "T3_005",
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_059",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052"
+          ]
+        },
+        {
+          "recommendation": "Critic should recognize when a put has already succeeded and stop issuing further placement advice. In episode_071 Critic claimed the dishsponge was not on countertop 1 and demanded another put, but the prior put had succeeded; this risks redundant actions. After a confirming put observation, treat placement as terminal and do not request re-placement.",
+          "affected_skill_ids": [
+            "G_008",
+            "T3_001"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_071"
+          ]
+        }
+      ],
+      "加热后放置": [
+        {
+          "recommendation": "When a heat attempt returns Nothing happens while the object is held at an open microwave, advise the recovery that worked repeatedly: put the object into the open microwave, take it back out, then heat while holding. Do not repeat the identical failed heat command, and do not conclude the object is unheatable after one no-change.",
+          "affected_skill_ids": [
+            "T4_002",
+            "T4_003",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095"
+          ]
+        },
+        {
+          "recommendation": "Do not assert an object is inside the microwave or already heated unless the observation shows it. After opening an empty microwave, the correct advice is to heat the held object directly, not to claim the object is inside. Cite the actual held/in-container predicate before recommending the next step.",
+          "affected_skill_ids": [
+            "T4_003",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_076",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_078",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090"
+          ]
+        },
+        {
+          "recommendation": "After a confirmed heat success while holding, advise going directly to the destination and placing; do not add a take-from-microwave step. If a take-from-microwave returns Nothing happens, diagnose that the object was never placed inside rather than retrying the take.",
+          "affected_skill_ids": [
+            "T4_006",
+            "T4_007",
+            "G_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_077",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_079",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_084"
+          ]
+        },
+        {
+          "recommendation": "Before advising a put, verify the destination is open or open it first. When a put or open returns Nothing happens, do not repeat it; check whether the container is already open or non-openable and proceed accordingly. Advising placement into a still-closed cabinet is a concrete error to avoid.",
+          "affected_skill_ids": [
+            "G_003",
+            "T4_001",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096"
+          ]
+        },
+        {
+          "recommendation": "When the target is not at the first searched location, advise a bounded systematic search across other open surfaces and containers, tracking checked locations. Do not declare the object absent after one or two empty cabinets, and do not keep opening every remaining container indefinitely.",
+          "affected_skill_ids": [
+            "T4_005",
+            "G_001",
+            "G_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_080"
+          ]
+        },
+        {
+          "recommendation": "Do not treat a mere arrival at a closed container as having inspected it. Advise opening the container before judging its contents empty, and distinguish 'arrived at closed cabinet' from 'checked and empty' when giving progress feedback.",
+          "affected_skill_ids": [
+            "G_003",
+            "G_002",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093"
+          ]
+        },
+        {
+          "recommendation": "When a heat attempt fails, do not blindly switch to a stove, toaster, or other appliance, and do not accept placing an unheated object as satisfying the goal. First correct the microwave interaction (open state, held vs. in-container), then retry; only use an alternative appliance if the observation explicitly shows it supports heating the object.",
+          "affected_skill_ids": [
+            "T4_004",
+            "T4_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095"
+          ]
+        },
+        {
+          "recommendation": "Keep advice grounded in the observed state rather than speculating about unseen contents or transient failures. When a navigation or open action returns no change, recommend a different unchecked location or a state change instead of repeating the same command.",
+          "affected_skill_ids": [
+            "G_006",
+            "G_008",
+            "T4_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086"
+          ]
+        }
+      ],
+      "冷却后放置": [
+        {
+          "recommendation": "When the target object is absent from the fridge and initial surfaces, the Critic should push for a bounded systematic search across other plausible surfaces and containers rather than declaring the object missing or looping on cabinets. In episodes 097, 098, 100, 104, 106, and 114 the target was never found and the budget was exhausted while the Critic kept advising 'check more cabinets' without tracking checked locations or reassessing feasibility.",
+          "affected_skill_ids": [
+            "T5_003",
+            "G_002",
+            "G_006"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_106",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ]
+        },
+        {
+          "recommendation": "The Critic repeatedly misread observations, e.g. claiming 'the fridge is empty, so no cooling interaction could occur' when the fridge was open and the object was held (episode 099), or asserting a cabinet contained a bowl/pot when the observation showed otherwise (episodes 098, 109). Base advice strictly on the actual observation predicates (held vs in-container, open vs closed, listed contents) before recommending the next step.",
+          "affected_skill_ids": [
+            "T5_001",
+            "T4_003",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_099",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ]
+        },
+        {
+          "recommendation": "When the object is already held and the fridge is open, the correct next step is the explicit cool interaction (cool <object> with fridge <id>), not placing the object into the fridge and re-taking it. In episode 102 the Critic's advice led to put-then-take instead of a cool action, and the goal failed; in episode 109 the same put/take pattern was used without a confirmed cool.",
+          "affected_skill_ids": [
+            "T5_001",
+            "T5_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ]
+        },
+        {
+          "recommendation": "After a successful cool observation, the Critic should direct the Executor straight to the destination and place the object, treating cooling as a milestone not completion. Successful episodes (101, 103, 105, 107, 108, 110-113, 115-117) all follow cool-then-go-then-put; reinforce this and avoid inserting extra intermediate placements or re-cooling.",
+          "affected_skill_ids": [
+            "T5_001",
+            "T5_004",
+            "T4_007"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_103",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_105",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_107"
+          ]
+        },
+        {
+          "recommendation": "When a go-to returns 'Nothing happens', the Critic should advise switching to a different unchecked location rather than retrying the same target. Episodes 098, 100, and 104 show repeated no-change navigations (e.g. cabinet 2 twice, cabinet 4) that wasted budget; treat one no-change navigation as evidence the target is unreachable and move on.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104"
+          ]
+        },
+        {
+          "recommendation": "The Critic should not assert unseen contents or 'transient' failures. In episode 109 it claimed cabinet 3 revealed mug 2 when the observation did not show that, and in episode 114 it kept directing to more cabinets after many were confirmed empty. Ground each recommendation in the latest observation and, after several empty likely locations, advise reassessing feasibility rather than continuing blind exhaustive checks.",
+          "affected_skill_ids": [
+            "T6_008",
+            "G_002",
+            "T5_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ]
+        },
+        {
+          "recommendation": "When the Executor arrives at a closed container, the Critic should explicitly instruct opening it before inspecting or taking, and when it is already open, proceed to take/place without reopening. Episodes 097, 100, and 114 show the Critic correctly noting closed containers but the Executor still not opening them; make the open-before-access step explicit and verify the open observation before the next action.",
+          "affected_skill_ids": [
+            "G_003",
+            "T6_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ]
+        },
+        {
+          "recommendation": "The Critic should confirm the exact target object type and instance before acquisition, since goals name a specific type (bowl, pot, cup, pan). In episode 098 the Critic noted a cabinet held a bowl but the goal was a pot; in episode 102 a mug was taken for a 'cup' goal. Advise searching for the exact named type and not substituting similar items without confirmed equivalence.",
+          "affected_skill_ids": [
+            "T3_005",
+            "G_005"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102"
+          ]
+        }
+      ],
+      "双物品放置": [
+        {
+          "recommendation": "When a put returns 'Nothing happens', diagnose it as a location error first: the actor was not at the destination. Advise going to the destination, then retrying the put, rather than switching receptacles or abandoning the held object.",
+          "affected_skill_ids": [
+            "T6_004",
+            "G_004"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129"
+          ]
+        },
+        {
+          "recommendation": "When a second take fails while an object is held, attribute it to the one-item carry limit, not to the target being absent. Advise placing the held object at the destination first, then returning for the second item.",
+          "affected_skill_ids": [
+            "T6_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_125"
+          ]
+        },
+        {
+          "recommendation": "When a closed container is the destination, advise opening it before placing; if open returns no change, treat it as already open or non-openable and proceed to put rather than retrying open.",
+          "affected_skill_ids": [
+            "T6_005",
+            "G_003"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_128",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126"
+          ]
+        },
+        {
+          "recommendation": "After a no-change navigation, advise switching to a different unchecked location instead of repeating the same go command; a repeated go to the same target can eventually succeed but wastes steps.",
+          "affected_skill_ids": [
+            "G_006",
+            "T6_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_120"
+          ]
+        },
+        {
+          "recommendation": "When both target instances are visible on one surface, advise taking one, placing it at the destination, then returning to that same surface for the second, rather than wandering to unrelated containers.",
+          "affected_skill_ids": [
+            "T6_001",
+            "T6_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_124",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_122"
+          ]
+        },
+        {
+          "recommendation": "After a successful put, advise confirming placement from the observation and then proceeding to acquire the second item; do not re-take an already-placed instance or re-place it at a different destination instance.",
+          "affected_skill_ids": [
+            "T6_001",
+            "T6_009"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_127",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_130"
+          ]
+        },
+        {
+          "recommendation": "When a container is reached but closed, advise opening it before inspecting or taking; do not treat arrival at a closed container as a completed search.",
+          "affected_skill_ids": [
+            "G_003",
+            "T6_002"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_130",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_134"
+          ]
+        },
+        {
+          "recommendation": "When the first placement is unconfirmed, advise verifying the held state and current location before searching for the second item; an unconfirmed put can leave the first item still held and block the second take.",
+          "affected_skill_ids": [
+            "T6_004",
+            "G_008"
+          ],
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_133"
+          ]
+        }
+      ]
+    }
+  },
+  "role_patches": {
+    "Executor": {
+      "base_operations": [],
+      "base_counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40
+      },
+      "max_add": 0,
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40
+      },
+      "candidate_sha256": "sha256:26d0cf35e4ee818e16de6f489494bddec3b7370713c164f265fade150e80dea7"
+    },
+    "Critic": {
+      "base_operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物并在台灯所在家具处使用带编号台灯",
+            "principle": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。若 use desklamp 返回 Nothing happens，应判断当前家具观察中并无台灯，改为前往观察中列出 desklamp 的其他家具，而不是在同一位置重试。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "微波加热的显式命令与位置切换恢复",
+            "principle": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+            "when_to_apply": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cool an object and confirm its state before placement",
+            "principle": "Use environment feedback as authority. Acquire the exact target; go to the fridge and open it; while holding the target at the open fridge, issue the explicit cooling interaction cool <object> with fridge <id>. Do not place the object into the fridge and re-take it as a substitute for cooling. Wait for a cooled-state confirmation before leaving. Then go to the destination, open it if closed, put the object there, and confirm placement. Do not treat mere containment, brief placement, or a fridge round-trip as confirmed cooling. Do not re-take an object already held; check inventory first. After successful cooling while holding, proceed directly to the destination rather than adding a take-from-fridge step.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. Distinguish 'arrived at a closed container' from 'inspected and empty': a closed container's contents are unverified until opened. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.",
+            "why_it_happens": "Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.",
+            "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Critic should not assert a specific unseen location contains the target or that a failed action was 'transient' without observed evidence.",
+            "why_it_happens": "Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help; speculation about unseen contents or transient failures drives further wasted steps.",
+            "how_to_avoid": "Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible."
+          }
+        }
+      ],
+      "base_counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40
+      },
+      "max_add": 0,
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物并在台灯所在家具处使用带编号台灯",
+            "principle": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。若 use desklamp 返回 Nothing happens，应判断当前家具观察中并无台灯，改为前往观察中列出 desklamp 的其他家具，而不是在同一位置重试。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "微波加热的显式命令与位置切换恢复",
+            "principle": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+            "when_to_apply": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cool an object and confirm its state before placement",
+            "principle": "Use environment feedback as authority. Acquire the exact target; go to the fridge and open it; while holding the target at the open fridge, issue the explicit cooling interaction cool <object> with fridge <id>. Do not place the object into the fridge and re-take it as a substitute for cooling. Wait for a cooled-state confirmation before leaving. Then go to the destination, open it if closed, put the object there, and confirm placement. Do not treat mere containment, brief placement, or a fridge round-trip as confirmed cooling. Do not re-take an object already held; check inventory first. After successful cooling while holding, proceed directly to the destination rather than adding a take-from-fridge step.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. Distinguish 'arrived at a closed container' from 'inspected and empty': a closed container's contents are unverified until opened. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.",
+            "why_it_happens": "Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.",
+            "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Critic should not assert a specific unseen location contains the target or that a failed action was 'transient' without observed evidence.",
+            "why_it_happens": "Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help; speculation about unseen contents or transient failures drives further wasted steps.",
+            "how_to_avoid": "Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40
+      },
+      "candidate_sha256": "sha256:d03ea7720023126790d2ba202c46746de32fb99edb322d371648b98ede076f17"
+    }
+  },
+  "records": [
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "简单取放",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\":\"When a navigation target returns 'Nothing happens' (e.g., go to bed, go to dresser 1, go to drawer 5/6), treat it as unreachable and immediately switch to a different unchecked location rather than retrying the same target; episode_001 and episode_006 show recovery after a single no-change navigation, while episode_024 shows repeated no-change opens/navigations consuming budget.\", \"affected_skill_ids\":[\"G_006\",\"T6_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_006\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024\"]},{\"recommendation\":\"Search open surfaces before closed containers when plausible: episodes 002-005, 008, 010, 016, 017, 019, 020, 021 found the target on the first or second visible surface (sofa, sidetable, coffeetable, desk, dresser, bed, tvstand), avoiding unnecessary drawer/cabinet opening.\", \"affected_skill_ids\":[\"G_001\",\"T1_001\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_002\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_004\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_020\"]},{\"recommendation\":\"Open closed containers before inspecting or placing: episodes 009, 011, 012, 013, 015, 018, 022, 023 correctly opened drawers/cabinets before taking or putting, and episode_023 opened cabinet 1 before placing the soapbottle. Continue this pattern and do not retry open when it returns no change (already open or non-openable).\", \"affected_skill_ids\":[\"G_003\",\"T6_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_009\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_023\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_022\"]},{\"recommendation\":\"After taking the target, navigate directly to the destination and put without intermediate steps; episodes 002-005, 008, 010, 014, 016, 017, 019, 020, 021 show clean take-then-go-then-put sequences ending in confirmed placement. Treat the confirming put observation as terminal and stop.\", \"affected_skill_ids\":[\"G_004\",\"G_007\",\"G_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_003\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_014\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_021\"]},{\"recommendation\":\"Use exact object and receptacle identifiers from observations, including instance numbers (e.g., take book 3 from sidetable 1, put cd 1 in/on sidetable 1). Episodes 003, 008, 013, 016, 017, 022 consistently used numbered instances and succeeded.\", \"affected_skill_ids\":[\"G_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_003\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_013\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_022\"]},{\"recommendation\":\"In episode_024 the pencil was never found after checking drawers, cabinets, garbagecan, laundryhamper, safe, desk, and bed; the agent correctly reported failure rather than looping. Maintain a checked-location record and, after exhausting plausible surfaces and opened containers, report blocked instead of revisiting confirmed-empty locations.\", \"affected_skill_ids\":[\"G_002\",\"G_006\",\"T6_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024\"]},{\"recommendation\":\"When a target is not on the first checked surface, broaden systematically to other plausible surfaces and containers rather than concluding absence: episode_007 checked countertop, dresser, cabinets, drawers, sinkbasins, bathtubbasin, then found the candle on the toilet; episode_011 checked many cabinets/drawers before finding the pan on the countertop.\", \"affected_skill_ids\":[\"G_001\",\"G_002\",\"T4_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011\"]},{\"recommendation\":\"Avoid redundant re-navigation to a location already confirmed empty or already holding the target; episode_001 revisited sidetable 2 after earlier checking it, and episode_024 re-checked desk 1. Track checked locations and placed instances to conserve action budget.\", \"affected_skill_ids\":[\"G_002\",\"T6_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 42124,
+        "completion_tokens": 1271,
+        "total_tokens": 43395,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_01_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:57:52.007612+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "台灯观察",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the target object is already on the same furniture as the desklamp, take it and immediately use the numbered desklamp without extra navigation; this is the dominant successful pattern.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_035\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_036\"]}, {\"recommendation\": \"When the target is on a different furniture than the desklamp, take it, navigate to the desklamp's furniture, then use the numbered desklamp; do not place the object down first unless required.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_030\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_037\"]}, {\"recommendation\": \"Do not issue examine/look at on furniture or objects; these return no useful information or empty actions and can terminate the episode. Inspect by navigating and reading the observation instead.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\"]}, {\"recommendation\": \"If use desklamp returns Nothing happens, do not retry the same command or fall back to examine. Verify the current furniture's observation actually lists a desklamp; if not, move to the furniture where a desklamp was observed and use its numbered instance.\", \"affected_skill_ids\": [\"T2_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041\"]}, {\"recommendation\": \"When a desklamp is observed on a furniture, go directly there rather than continuing to check unrelated dressers or opening drawers; the successful episodes locate the lamp early and act on it.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033\"]}, {\"recommendation\": \"Do not attempt to open drawers or containers that are not part of the observed furniture set; open on a non-container or wrong target returns Nothing happens and wastes steps. Prefer visible surfaces for this task.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_028\"]}, {\"recommendation\": \"After a successful use desklamp observation, stop; do not add a redundant put or completion-only step. Placing the object on the lamp's furniture before using the lamp is unnecessary and can add failure risk.\", \"affected_skill_ids\": [\"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039\"]}, {\"recommendation\": \"Avoid declaring completion or emitting empty actions after turning on the lamp; the environment may treat this as an error. The terminal success condition is the use desklamp observation itself.\", \"affected_skill_ids\": [\"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_038\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 35961,
+        "completion_tokens": 1032,
+        "total_tokens": 36993,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_02_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:57:57.323952+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "清洗后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a go-to returns 'Nothing happens', treat the target as unreachable and switch to a different unchecked location rather than retrying the same navigation. In episode_044 the executor repeatedly issued go to cabinet 2 three times with no change before moving on, wasting steps.\", \"affected_skill_ids\": [\"G_006\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_053\"]},{\"recommendation\": \"When a clean action returns 'Nothing happens' on a cloth-like object (handtowel/towel), stop repeating clean and either try a different cleanable candidate or report the object as not cleanable. Episode_049 looped on clean handtowel/towel at sinkbasin with no effect and then failed to release the held object.\", \"affected_skill_ids\": [\"T3_002\", \"T3_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049\"]},{\"recommendation\": \"After a failed clean, if the held object cannot be placed (put returns 'Nothing happens' across surfaces), do not keep issuing identical put commands; verify current location and inventory, and if the object remains stuck, report blocked rather than looping. Episode_049 repeated put handtowel/towel on countertop with no effect.\", \"affected_skill_ids\": [\"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049\"]},{\"recommendation\": \"Do not substitute a similar object type (butterknife for knife) unless the exact target is confirmed unavailable and equivalence is permitted. Episode_052 took butterknife 1 for a 'knife' goal and the episode ended in error; prefer searching for the exact named type first.\", \"affected_skill_ids\": [\"T3_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052\"]},{\"recommendation\": \"When open returns 'Nothing happens' on a destination container, treat it as already open or non-openable and proceed directly to put rather than retrying open. Episode_052 and episode_055 both recovered correctly by putting after a no-change open.\", \"affected_skill_ids\": [\"G_003\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_055\"]},{\"recommendation\": \"When the target is not found after checking many cabinets and surfaces, broaden to remaining plausible locations such as stoveburners before declaring exhaustion. Episode_044 found the kettle on stoveburner 1 only after checking garbagecan, but ran out of budget before cleaning/placing; prioritize likely surfaces earlier.\", \"affected_skill_ids\": [\"T3_006\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044\"]},{\"recommendation\": \"Maintain a checked-location record and avoid re-opening or re-visiting confirmed-empty containers. Episode_063 exhausted its budget opening cabinets 1-11 sequentially without finding the kettle; after several likely locations fail, reassess feasibility rather than opening every remaining container.\", \"affected_skill_ids\": [\"G_002\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063\"]},{\"recommendation\": \"The clean-then-place sequence is well executed in most episodes: acquire exact target, go to sinkbasin, clean with confirmation, then go to destination, open if closed, and put. Continue this pattern and treat the confirming put observation as terminal without extra verification steps.\", \"affected_skill_ids\": [\"T3_001\", \"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_045\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_046\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_050\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 54072,
+        "completion_tokens": 1003,
+        "total_tokens": 55075,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_03_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:03.159970+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "加热后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When heating fails with the object inside the microwave, take it out and retry while holding it; this recovery pattern succeeded repeatedly. Avoid the extra put-into-microwave step that returns Nothing happens.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090\"]}, {\"recommendation\": \"After a successful held-object heat, go directly to the destination; do not attempt to take the object from the microwave, since held heating leaves it in hand. Episode 074 shows a take-from-microwave that only worked because the object had been placed there.\", \"affected_skill_ids\": [\"T4_006\", \"T4_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\"]}, {\"recommendation\": \"Open the microwave before heating; when it is already open, heat directly. Do not issue open on a container that returns Nothing happens and then retry it; treat no-change open as already-open/non-openable and proceed to put.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T4_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096\"]}, {\"recommendation\": \"Search open surfaces broadly before opening many closed containers. Episodes 080, 088, and 096 succeeded by checking successive countertops/dining tables; episode 093 wasted many steps opening cabinets and drawers before finding the mug in the fridge.\", \"affected_skill_ids\": [\"G_001\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_080\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096\"]}, {\"recommendation\": \"Match the exact object type named in the goal. When the goal says mug, prefer a mug instance over a cup; episodes 075, 081, and 088 substituted cup for mug and failed, while episode 087 found an actual mug and succeeded.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_087\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_088\"]}, {\"recommendation\": \"After the final put observation confirms placement, stop. Do not emit an empty action or a completion message; episodes 075, 081, and 088 ended in executor/environment error after a successful-looking put followed by an empty action.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_088\"]}, {\"recommendation\": \"When the destination is a closed container, navigate to it and open it before putting; if open returns no change, proceed to put rather than looping. Episode 096 shows open returning Nothing happens followed by a successful put.\", \"affected_skill_ids\": [\"G_003\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_077\"]}, {\"recommendation\": \"Track the specific instance taken and keep it through heating and placement. Episodes 074, 083, and 090 correctly carried the same egg instance from countertop through microwave to destination.\", \"affected_skill_ids\": [\"G_005\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 42861,
+        "completion_tokens": 1135,
+        "total_tokens": 43996,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_04_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:09.701447+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "冷却后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the target object is not in the first few locations, avoid opening every remaining cabinet in sequence. Track checked locations and, after a reasonable broad search, reassess feasibility or report blocked rather than exhausting the action budget on cabinets 10-23.\", \"affected_skill_ids\": [\"T5_003\", \"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\"]},{\"recommendation\": \"Do not repeat a no-change navigation to the same receptacle. In episode_098 'go to cabinet 2' returned Nothing happens twice; after one no-change result, switch to a different unchecked location instead of retrying.\", \"affected_skill_ids\": [\"G_006\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\"]},{\"recommendation\": \"For cooling, hold the target at the open fridge and issue the explicit cool action, then proceed directly to the destination. This pattern succeeded repeatedly; do not substitute a put-into-fridge-then-take round-trip, which does not confirm cooling.\", \"affected_skill_ids\": [\"T5_001\", \"T5_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_099\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_101\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]},{\"recommendation\": \"When the goal names a specific object type (e.g., cup), do not silently substitute a similar type such as mug unless equivalence is confirmed. Episode_102 took mug 1 for a 'cup' goal and failed; episode_108 also used a mug for a mug goal successfully, so match the exact named type.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_108\"]},{\"recommendation\": \"After a confirmed placement, stop and do not emit an empty or status-only action. Episode_102 and episode_109 placed the object successfully but then sent an empty action, producing executor_or_environment_error instead of clean success.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]},{\"recommendation\": \"When the target is not found after checking countertops, fridge, and many cabinets, broaden to open surfaces like shelves and dining tables before concluding failure, and avoid re-checking already-confirmed-empty countertops. Episode_104 and episode_106 exhausted budget revisiting surfaces.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_106\"]},{\"recommendation\": \"Do not declare failure while plausible unchecked locations remain. Episode_114 reported FAILED after checking cabinets, drawers, fridge, microwave, garbagecan, stoveburner, and two countertops, but had not confirmed all plausible surfaces were exhausted; reassess before self-reporting failure.\", \"affected_skill_ids\": [\"G_002\", \"G_008\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]},{\"recommendation\": \"Avoid redundant cooling: episode_116 cooled the winebottle, went to cabinet 1, then returned to the fridge to cool again before placing. After a confirmed cool observation, proceed directly to the destination and place without re-cooling.\", \"affected_skill_ids\": [\"T5_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_116\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 42054,
+        "completion_tokens": 1057,
+        "total_tokens": 43111,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_05_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:15.280299+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Executor",
+      "task_type": "双物品放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a put fails with 'Nothing happens', verify current location before retrying; several episodes show put attempted from a non-destination location (e.g., at handtowelholder 2 trying to put into toilet 1). Navigate to the destination first, then put.\", \"affected_skill_ids\": [\"T6_004\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129\"]}, {\"recommendation\": \"After a failed put at the destination, do not loop retrying the same put or switching to an invalid alternative receptacle. In episode_123, repeated put attempts on shelf 1 and countertop 1 all returned 'Nothing happens' while holding towel 1, and the episode ended in error. Diagnose whether the held object is placeable and reassess rather than repeating.\", \"affected_skill_ids\": [\"T6_008\", \"T6_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_123\"]}, {\"recommendation\": \"When a second take fails while holding an object, attribute it to the one-item carry limit and place the held object at the destination before returning for the second. Episode_125 correctly did this after 'take pen 2' returned 'Nothing happens'.\", \"affected_skill_ids\": [\"T6_003\", \"T6_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_125\"]}, {\"recommendation\": \"When both target instances are visible on one surface, take one, place it at the destination, then return to the same surface for the second. Episodes 122, 124, 127, 128, 130, 133, and 134 all succeeded with this pattern.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_122\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_127\"]}, {\"recommendation\": \"Do not conclude the target is absent after checking only open surfaces; closed containers and unusual receptacles may hold it. In episode_121, soapbottles were found in a garbagecan after shelves and basins were empty, but the episode ended in error while holding the first bottle. Continue systematic search and manage inventory.\", \"affected_skill_ids\": [\"T6_002\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_121\"]}, {\"recommendation\": \"Open a closed destination container before placing, and if open returns 'Nothing happens' treat it as already open or non-openable and proceed. Episode_126 shows an initial open on cabinet 1 returning no change, then later placing into an opened cabinet 2 successfully.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126\"]}, {\"recommendation\": \"After a no-change navigation (e.g., 'go to cabinet 4' or 'go to shelf 2' returning 'Nothing happens'), switch to a different unchecked location rather than repeating the same target. Episodes 118 and 120 show a first no-change navigation followed by a successful retry, but repeating an unreachable target wastes steps.\", \"affected_skill_ids\": [\"G_006\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_120\"]}, {\"recommendation\": \"Track which instance was already placed and avoid re-taking it; after placing the first item, search for a second distinct instance. Episodes 119, 129, and 132 correctly returned to a different location for the second instance rather than re-taking the placed one.\", \"affected_skill_ids\": [\"T6_001\", \"T6_009\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_132\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 36849,
+        "completion_tokens": 1085,
+        "total_tokens": 37934,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Executor_06_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:20.646250+00:00"
+    },
+    {
+      "stage": "base",
+      "role": "Executor",
+      "attempt": 1,
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40
+      },
+      "raw_model_output": "{\"operations\": []}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 19398,
+        "completion_tokens": 5,
+        "total_tokens": 19403,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/base_Executor_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:22.001000+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "简单取放",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\": [{\"recommendation\": \"When a go-to returns 'Nothing happens', treat that location as unreachable and switch to a different unchecked location rather than retrying the same identifier. In episode_001, 'go to dresser 1' returned Nothing at step 18 but succeeded at step 28, so the Critic should advise moving on after one no-change navigation and revisiting only if new evidence appears.\", \"affected_skill_ids\": [\"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_009\"]}, {\"recommendation\": \"When arriving at a closed container, the next action must be to open it before inspecting or taking; do not move on while it remains closed. Critic advice should explicitly say 'open the current container' rather than only 'check other locations'.\", \"affected_skill_ids\": [\"G_003\", \"T6_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_015\"]}, {\"recommendation\": \"After a failed open returning 'Nothing happens', do not retry open; treat the container as non-openable or already open and proceed to take/place or move to another candidate. Episode_001 opened drawer 5 and drawer 6 with no effect and should have pivoted immediately.\", \"affected_skill_ids\": [\"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024\"]}, {\"recommendation\": \"When a search has checked many closed containers without success, Critic should direct the Executor toward open visible surfaces (countertops, tables, beds, shelves) rather than continuing to enumerate more cabinets/drawers. This matches the successful pivots in episodes 011, 015, and 007.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_015\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007\"]}, {\"recommendation\": \"Critic should confirm acquisition from the take observation before advising placement, and confirm placement from the put observation before declaring done. In episode_005 and episode_011 the Critic correctly noted holding the object and directed the next move; keep this pattern and avoid signaling completion before the put is observed.\", \"affected_skill_ids\": [\"G_007\", \"G_008\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_005\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_011\"]}, {\"recommendation\": \"Avoid speculative advice that asserts unseen contents or suggests unlikely receptacles like garbagecan for a pencil. Base recommendations on observed state; when likely locations are exhausted, advise reassessing feasibility rather than naming arbitrary containers. Episode_024's Critic suggested garbagecan/laundryhamper for a pencil, which is not grounded.\", \"affected_skill_ids\": [\"T6_008\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_024\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_007\"]}, {\"recommendation\": \"When a go-to fails with 'Nothing happens', Critic should not advise re-verifying the same identifier and retrying it; instead recommend a different unchecked location. Episode_013 and episode_018 both show the Critic suggesting re-verification of a failed cabinet/drawer identifier, which risks a repeat no-op.\", \"affected_skill_ids\": [\"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_013\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_018\"]}, {\"recommendation\": \"When the Executor is already at the destination and holding the target, Critic should advise the put directly without an extra go-to. Episode_018's Critic correctly noted arrival at desk 1 and directed the put; reinforce this to avoid redundant navigation.\", \"affected_skill_ids\": [\"G_004\", \"T6_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_018\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_012\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 27350,
+        "completion_tokens": 1162,
+        "total_tokens": 28512,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_01_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:28.626001+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "台灯观察",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the target object is already visible on the same furniture as the desklamp, the Critic should advise taking it and immediately using the numbered lamp, not searching other surfaces. Episodes 027, 035, 036, 037 show this direct path succeeding in 2-3 steps.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_035\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_036\"]}, {\"recommendation\": \"Critic advice should require the target to be held before using the lamp. In episode 038 the executor used desklamp 1 without taking the alarmclock, and in episode 031 it examined the desk instead of acquiring the target; both failed. Advise take-then-use.\", \"affected_skill_ids\": [\"T2_001\", \"T2_003\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_038\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031\"]}, {\"recommendation\": \"When the executor is at a furniture with the desklamp and holding the target, the Critic should advise the numbered use desklamp <id> as the terminal step and not suggest placing the object first. Episodes 033 and 039 placed the object on the furniture before using the lamp and failed; episodes 026, 028, 030, 032, 034, 042 succeeded by using the lamp while holding.\", \"affected_skill_ids\": [\"T2_001\", \"T2_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_042\"]}, {\"recommendation\": \"Critic should flag use desklamp returning Nothing happens as evidence the lamp is not at the current furniture, and advise moving to a furniture whose observation lists a desklamp rather than retrying. Episode 041 failed at desk 1 then succeeded after moving to shelf 1; episode 029 failed because no desklamp was present at desk 1.\", \"affected_skill_ids\": [\"T2_004\", \"T2_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\"]}, {\"recommendation\": \"Critic should not endorse examine-style actions on furniture or objects as progress; episode 031 used examine desk 1 and episode 041 used examine desk 1 without advancing the goal. Advise navigating to a receptacle and observing its contents instead.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041\"]}, {\"recommendation\": \"When the target is not at the first surface, Critic should advise continuing to other open surfaces and only then containers, tracking checked locations. Episodes 037 and 040 succeeded after moving through several surfaces; episode 025 found the newspaper on the sofa after empty dressers.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_040\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025\"]}, {\"recommendation\": \"Critic should treat a successful use desklamp observation as terminal and not recommend further actions. Episodes 026, 028, 030, 032, 034, 035, 036, 037, 040, 041, 042 all ended successfully at the lamp-use step.\", \"affected_skill_ids\": [\"T2_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_034\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_040\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 21736,
+        "completion_tokens": 1150,
+        "total_tokens": 22886,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_02_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:34.406845+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "清洗后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\":\"When a clean-then-place search stalls, Critic should push the Executor toward visible open surfaces (countertops, tables, stoveburners) rather than continuing to open empty cabinets/drawers. In episode_044 the kettle was on stoveburner 1 but the Executor exhausted many closed containers first; Critic repeatedly advised more cabinets. Advise checking visible surfaces and stoveburners before further container opening.\", \"affected_skill_ids\":[\"T3_006\",\"G_001\",\"T4_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_044\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063\"]},{\"recommendation\":\"Critic should not assert a specific unseen location contains the target or that a failed action was transient without observed evidence. In episode_063 Critic claimed the garbagecan and toaster were plausible unsearched locations and directed the Executor there, but the kettle was never found and the budget was exhausted. Base advice on observed contents and checked-location records.\", \"affected_skill_ids\":[\"T6_008\",\"G_002\",\"G_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_063\"]},{\"recommendation\":\"When a clean action returns Nothing happens on a cloth/handtowel, Critic should diagnose the object type as likely non-cleanable and stop the Executor from looping on clean/put. In episode_049 repeated clean and put attempts on handtowel/towel all returned Nothing happens and the episode errored. Advise trying a different cleanable candidate or reporting the object as not cleanable rather than repeating.\", \"affected_skill_ids\":[\"T3_003\",\"T3_002\",\"G_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049\"]},{\"recommendation\":\"Critic should verify held-object state before advising a put. In episode_049 Critic suggested putting the handtowel on countertop/garbagecan while the Executor's inventory state was uncertain, producing repeated Nothing happens. Advise confirming the object is actually held (via take observation) before issuing put, and if put fails, check inventory rather than retrying the same put.\", \"affected_skill_ids\":[\"G_004\",\"G_006\",\"T3_004\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_049\"]},{\"recommendation\":\"Critic should treat a closed destination as requiring an open action before put, and should not call a put ineffective merely because the container was closed at arrival. In episode_052 and episode_054 Critic correctly flagged the closed drawer/cabinet; keep this pattern but phrase it as 'open then put' rather than declaring the prior navigation ineffective.\", \"affected_skill_ids\":[\"G_003\",\"T3_004\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_054\"]},{\"recommendation\":\"Critic should avoid labeling a successful navigation as ineffective. In episode_051 and episode_057 Critic called a go-to-drawer/cabinet step ineffective because the container was still closed, but navigation succeeded and the correct next step was open. Distinguish 'arrived at closed container' from 'failed action' and advise opening next.\", \"affected_skill_ids\":[\"G_003\",\"G_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_051\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_057\"]},{\"recommendation\":\"Critic should confirm the exact object type before endorsing a take. In episode_059 Critic correctly noted a cup is not a mug and advised continued search; preserve this exact-name discipline. Conversely, do not silently accept butterknife for knife (episode_052) unless equivalence is confirmed.\", \"affected_skill_ids\":[\"T3_005\",\"G_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_059\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_052\"]},{\"recommendation\":\"Critic should recognize when a put has already succeeded and stop issuing further placement advice. In episode_071 Critic claimed the dishsponge was not on countertop 1 and demanded another put, but the prior put had succeeded; this risks redundant actions. After a confirming put observation, treat placement as terminal and do not request re-placement.\", \"affected_skill_ids\":[\"G_008\",\"T3_001\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_071\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 36802,
+        "completion_tokens": 1117,
+        "total_tokens": 37919,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_03_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:41.206248+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "加热后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\":\"When a heat attempt returns Nothing happens while the object is held at an open microwave, advise the recovery that worked repeatedly: put the object into the open microwave, take it back out, then heat while holding. Do not repeat the identical failed heat command, and do not conclude the object is unheatable after one no-change.\", \"affected_skill_ids\":[\"T4_002\",\"T4_003\",\"G_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095\"]},{\"recommendation\":\"Do not assert an object is inside the microwave or already heated unless the observation shows it. After opening an empty microwave, the correct advice is to heat the held object directly, not to claim the object is inside. Cite the actual held/in-container predicate before recommending the next step.\", \"affected_skill_ids\":[\"T4_003\",\"G_008\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_076\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_078\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_090\"]},{\"recommendation\":\"After a confirmed heat success while holding, advise going directly to the destination and placing; do not add a take-from-microwave step. If a take-from-microwave returns Nothing happens, diagnose that the object was never placed inside rather than retrying the take.\", \"affected_skill_ids\":[\"T4_006\",\"T4_007\",\"G_004\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_077\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_079\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_084\"]},{\"recommendation\":\"Before advising a put, verify the destination is open or open it first. When a put or open returns Nothing happens, do not repeat it; check whether the container is already open or non-openable and proceed accordingly. Advising placement into a still-closed cabinet is a concrete error to avoid.\", \"affected_skill_ids\":[\"G_003\",\"T4_001\",\"G_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_081\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_096\"]},{\"recommendation\":\"When the target is not at the first searched location, advise a bounded systematic search across other open surfaces and containers, tracking checked locations. Do not declare the object absent after one or two empty cabinets, and do not keep opening every remaining container indefinitely.\", \"affected_skill_ids\":[\"T4_005\",\"G_001\",\"G_002\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_080\"]},{\"recommendation\":\"Do not treat a mere arrival at a closed container as having inspected it. Advise opening the container before judging its contents empty, and distinguish 'arrived at closed cabinet' from 'checked and empty' when giving progress feedback.\", \"affected_skill_ids\":[\"G_003\",\"G_002\",\"T4_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093\"]},{\"recommendation\":\"When a heat attempt fails, do not blindly switch to a stove, toaster, or other appliance, and do not accept placing an unheated object as satisfying the goal. First correct the microwave interaction (open state, held vs. in-container), then retry; only use an alternative appliance if the observation explicitly shows it supports heating the object.\", \"affected_skill_ids\":[\"T4_004\",\"T4_003\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095\"]},{\"recommendation\":\"Keep advice grounded in the observed state rather than speculating about unseen contents or transient failures. When a navigation or open action returns no change, recommend a different unchecked location or a state change instead of repeating the same command.\", \"affected_skill_ids\":[\"G_006\",\"G_008\",\"T4_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_093\",\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_086\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 29718,
+        "completion_tokens": 1175,
+        "total_tokens": 30893,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_04_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:47.195763+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "冷却后放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the target object is absent from the fridge and initial surfaces, the Critic should push for a bounded systematic search across other plausible surfaces and containers rather than declaring the object missing or looping on cabinets. In episodes 097, 098, 100, 104, 106, and 114 the target was never found and the budget was exhausted while the Critic kept advising 'check more cabinets' without tracking checked locations or reassessing feasibility.\", \"affected_skill_ids\": [\"T5_003\", \"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_106\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]}, {\"recommendation\": \"The Critic repeatedly misread observations, e.g. claiming 'the fridge is empty, so no cooling interaction could occur' when the fridge was open and the object was held (episode 099), or asserting a cabinet contained a bowl/pot when the observation showed otherwise (episodes 098, 109). Base advice strictly on the actual observation predicates (held vs in-container, open vs closed, listed contents) before recommending the next step.\", \"affected_skill_ids\": [\"T5_001\", \"T4_003\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_099\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]}, {\"recommendation\": \"When the object is already held and the fridge is open, the correct next step is the explicit cool interaction (cool <object> with fridge <id>), not placing the object into the fridge and re-taking it. In episode 102 the Critic's advice led to put-then-take instead of a cool action, and the goal failed; in episode 109 the same put/take pattern was used without a confirmed cool.\", \"affected_skill_ids\": [\"T5_001\", \"T5_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]}, {\"recommendation\": \"After a successful cool observation, the Critic should direct the Executor straight to the destination and place the object, treating cooling as a milestone not completion. Successful episodes (101, 103, 105, 107, 108, 110-113, 115-117) all follow cool-then-go-then-put; reinforce this and avoid inserting extra intermediate placements or re-cooling.\", \"affected_skill_ids\": [\"T5_001\", \"T5_004\", \"T4_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_101\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_103\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_105\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_107\"]}, {\"recommendation\": \"When a go-to returns 'Nothing happens', the Critic should advise switching to a different unchecked location rather than retrying the same target. Episodes 098, 100, and 104 show repeated no-change navigations (e.g. cabinet 2 twice, cabinet 4) that wasted budget; treat one no-change navigation as evidence the target is unreachable and move on.\", \"affected_skill_ids\": [\"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104\"]}, {\"recommendation\": \"The Critic should not assert unseen contents or 'transient' failures. In episode 109 it claimed cabinet 3 revealed mug 2 when the observation did not show that, and in episode 114 it kept directing to more cabinets after many were confirmed empty. Ground each recommendation in the latest observation and, after several empty likely locations, advise reassessing feasibility rather than continuing blind exhaustive checks.\", \"affected_skill_ids\": [\"T6_008\", \"G_002\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]}, {\"recommendation\": \"When the Executor arrives at a closed container, the Critic should explicitly instruct opening it before inspecting or taking, and when it is already open, proceed to take/place without reopening. Episodes 097, 100, and 114 show the Critic correctly noting closed containers but the Executor still not opening them; make the open-before-access step explicit and verify the open observation before the next action.\", \"affected_skill_ids\": [\"G_003\", \"T6_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]}, {\"recommendation\": \"The Critic should confirm the exact target object type and instance before acquisition, since goals name a specific type (bowl, pot, cup, pan). In episode 098 the Critic noted a cabinet held a bowl but the goal was a pot; in episode 102 a mug was taken for a 'cup' goal. Advise searching for the exact named type and not substituting similar items without confirmed equivalence.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 30720,
+        "completion_tokens": 1563,
+        "total_tokens": 32283,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_05_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:54.960639+00:00"
+    },
+    {
+      "stage": "family",
+      "role": "Critic",
+      "task_type": "双物品放置",
+      "attempt": 1,
+      "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a put returns 'Nothing happens', diagnose it as a location error first: the actor was not at the destination. Advise going to the destination, then retrying the put, rather than switching receptacles or abandoning the held object.\", \"affected_skill_ids\": [\"T6_004\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129\"]}, {\"recommendation\": \"When a second take fails while an object is held, attribute it to the one-item carry limit, not to the target being absent. Advise placing the held object at the destination first, then returning for the second item.\", \"affected_skill_ids\": [\"T6_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_123\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_125\"]}, {\"recommendation\": \"When a closed container is the destination, advise opening it before placing; if open returns no change, treat it as already open or non-openable and proceed to put rather than retrying open.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_128\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126\"]}, {\"recommendation\": \"After a no-change navigation, advise switching to a different unchecked location instead of repeating the same go command; a repeated go to the same target can eventually succeed but wastes steps.\", \"affected_skill_ids\": [\"G_006\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_120\"]}, {\"recommendation\": \"When both target instances are visible on one surface, advise taking one, placing it at the destination, then returning to that same surface for the second, rather than wandering to unrelated containers.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_122\"]}, {\"recommendation\": \"After a successful put, advise confirming placement from the observation and then proceeding to acquire the second item; do not re-take an already-placed instance or re-place it at a different destination instance.\", \"affected_skill_ids\": [\"T6_001\", \"T6_009\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_127\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_130\"]}, {\"recommendation\": \"When a container is reached but closed, advise opening it before inspecting or taking; do not treat arrival at a closed container as a completed search.\", \"affected_skill_ids\": [\"G_003\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_130\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_134\"]}, {\"recommendation\": \"When the first placement is unconfirmed, advise verifying the held state and current location before searching for the second item; an unconfirmed put can leave the first item still held and block the second take.\", \"affected_skill_ids\": [\"T6_004\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_126\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_133\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 27356,
+        "completion_tokens": 947,
+        "total_tokens": 28303,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/family_Critic_06_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:58:59.512561+00:00"
+    },
+    {
+      "stage": "base",
+      "role": "Critic",
+      "attempt": 1,
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40
+      },
+      "raw_model_output": "{\"operations\": [{\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T2_001\", \"bucket\": \"台灯观察\", \"skill\": {\"type\": \"Procedure or Local Strategy\", \"title\": \"台灯观察：定位目标物并在台灯所在家具处使用带编号台灯\", \"principle\": \"先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。若 use desklamp 返回 Nothing happens，应判断当前家具观察中并无台灯，改为前往观察中列出 desklamp 的其他家具，而不是在同一位置重试。\", \"when_to_apply\": \"当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\"]}, {\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T4_002\", \"bucket\": \"加热后放置\", \"skill\": {\"type\": \"Procedure or Local Strategy\", \"title\": \"微波加热的显式命令与位置切换恢复\", \"principle\": \"使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。\", \"when_to_apply\": \"目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095\"]}, {\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T5_001\", \"bucket\": \"冷却后放置\", \"skill\": {\"type\": \"Procedure or Local Strategy\", \"title\": \"Cool an object and confirm its state before placement\", \"principle\": \"Use environment feedback as authority. Acquire the exact target; go to the fridge and open it; while holding the target at the open fridge, issue the explicit cooling interaction cool <object> with fridge <id>. Do not place the object into the fridge and re-take it as a substitute for cooling. Wait for a cooled-state confirmation before leaving. Then go to the destination, open it if closed, put the object there, and confirm placement. Do not treat mere containment, brief placement, or a fridge round-trip as confirmed cooling. Do not re-take an object already held; check inventory first. After successful cooling while holding, proceed directly to the destination rather than adding a take-from-fridge step.\", \"when_to_apply\": \"When the goal requires an object to be cooled and then placed at a specified destination.\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]}, {\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T5_003\", \"bucket\": \"冷却后放置\", \"skill\": {\"type\": \"Procedure or Local Strategy\", \"title\": \"Bounded search with early feasibility reassessment\", \"principle\": \"Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. Distinguish 'arrived at a closed container' from 'inspected and empty': a closed container's contents are unverified until opened. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.\", \"when_to_apply\": \"When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist.\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]}, {\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T6_004\", \"bucket\": \"双物品放置\", \"skill\": {\"type\": \"Failure Lesson\", \"description\": \"A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.\", \"why_it_happens\": \"Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.\", \"how_to_avoid\": \"Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked.\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129\"]}, {\"operation\": \"UPDATE\", \"target_role\": \"Critic\", \"target_skill_id\": \"T6_008\", \"bucket\": \"双物品放置\", \"skill\": {\"type\": \"Failure Lesson\", \"description\": \"After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Critic should not assert a specific unseen location contains the target or that a failed action was 'transient' without observed evidence.\", \"why_it_happens\": \"Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help; speculation about unseen contents or transient failures drives further wasted steps.\", \"how_to_avoid\": \"Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible.\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]}]}",
+      "model_reasoning": "",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 20239,
+        "completion_tokens": 2143,
+        "total_tokens": 22382,
+        "response_attempts": 1,
+        "transport_failures": 0,
+        "requested_max_tokens": 16000,
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash"
+      },
+      "response_attempt_record": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_teacher_attempts/base_Critic_schema_01_response_01.json",
+      "completed_at": "2026-10-19T05:59:08.235826+00:00"
+    }
+  ]
+}

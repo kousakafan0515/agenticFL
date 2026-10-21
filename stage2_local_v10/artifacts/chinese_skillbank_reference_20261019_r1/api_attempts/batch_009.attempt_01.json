@@ -1,0 +1,47 @@
+{
+  "batch": 9,
+  "attempt": 1,
+  "input_ids": [
+    "Z0161",
+    "Z0162",
+    "Z0163",
+    "Z0164",
+    "Z0165",
+    "Z0166",
+    "Z0167",
+    "Z0168",
+    "Z0169",
+    "Z0170",
+    "Z0171",
+    "Z0172",
+    "Z0173",
+    "Z0174",
+    "Z0175",
+    "Z0176",
+    "Z0177",
+    "Z0178",
+    "Z0179",
+    "Z0180"
+  ],
+  "input_text_sha256": "sha256:e00a20c4170245ca7adc8f20df7614fe6d9805b669042f75652fa57806f9ae87",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0161\",\"chinese\":\"直接的 'cool X with fridge' 动作通常返回 'Nothing happens'，除非该物品已经在冰箱内；应改为把物品放入打开的冰箱，然后再取出。\"},{\"id\":\"Z0162\",\"chinese\":\"冷却机制要求将物品放入冰箱容器内；直接冷却命令可能无效或不起作用。\"},{\"id\":\"Z0163\",\"chinese\":\"打开冰箱，把物品放进去，然后取出，以获得冷却后的物品。\"},{\"id\":\"Z0164\",\"chinese\":\"两阶段“先搜索、后操作”分解\"},{\"id\":\"Z0165\",\"chinese\":\"对于必须先获取对象、再对其进行操作或放置的任务，将任务拆分为 SEARCH MISSION（搜索任务），在目标对象进入库存时结束；随后是 OPERATION MISSION（操作任务），在环境观察确认所需最终状态时结束。\"},{\"id\":\"Z0166\",\"chinese\":\"当目标要求先找到对象，然后使用、清洁、加热、冷却、检查或放置该对象，且该对象尚未被持有时。\"},{\"id\":\"Z0167\",\"chinese\":\"搜索任务返回条件：持有目标对象\"},{\"id\":\"Z0168\",\"chinese\":\"将 SEARCH MISSION 的返回条件定义为 worker 持有目标对象，而不仅仅是看到它或打开过容器。\"},{\"id\":\"Z0169\",\"chinese\":\"当派发 worker 为任何任务族寻找并拿取对象时。\"},{\"id\":\"Z0170\",\"chinese\":\"操作任务返回条件：环境观察确认最终状态\"},{\"id\":\"Z0171\",\"chinese\":\"将 OPERATION MISSION 的返回条件定义为环境观察确认所需最终状态（例如对象已放置在目的地、对象已清洁、对象已加热、对象已冷却），而不仅仅是 worker 尝试了该动作。\"},{\"id\":\"Z0172\",\"chinese\":\"当派发 worker 为任何任务族操作已持有的对象时。\"},{\"id\":\"Z0173\",\"chinese\":\"如果 worker 返回 HANDOFF 但未达成任务的返回条件，或报告失败，不要将同一任务重新派发到同一位置；应更改搜索位置、对象描述或策略。\"},{\"id\":\"Z0174\",\"chinese\":\"当 worker 的失败不被视为当前计划已穷尽的证据时，supervisor 可以重复相同的 ASSIGN。\"},{\"id\":\"Z0175\",\"chinese\":\"搜索失败或结果为空后，派发下一个候选位置，或让 worker 确认该位置为空后再继续。某个动作反复出现 'Nothing happens' 后，应改变策略：核实对象位置、打开电器，或改用不同方法。\"},{\"id\":\"Z0176\",\"chinese\":\"不要派发要求在某个特定容器中找到对象的搜索任务，除非已知该容器包含该对象；如果第一个位置失败，应将搜索扩大到其他可到达的容器。\"},{\"id\":\"Z0177\",\"chinese\":\"supervisor 可能根据目标模板而非观察到的环境状态，假设目标在某个命名容器中，但环境可能将其放在别处，导致 worker 耗尽指定位置并失败。\"},{\"id\":\"Z0178\",\"chinese\":\"在派发搜索任务前，要求 worker 先报告候选容器的内容，或将任务表述为 'search cabinets/drawers/countertops for X'，而不是绑定到某个未经验证的特定位置。如果第一次搜索返回为空，应重新分配更广泛的搜索，而不是重复同一位置。\"},{\"id\":\"Z0179\",\"chinese\":\"在派发放置任务前，核实目的地是打开的或可以被打开。如果目的地是关闭的容器，应在前面加上打开步骤。如果打开返回 'Nothing happens'，则将该容器视为不可打开，并重新分配到有效的开放目的地。\"},{\"id\":\"Z0180\",\"chinese\":\"supervisor 分配了一个 OPERATION MISSION，要求将对象放入一个关闭或不支持打开的容器中。worker 反复尝试 'put' 和 'open'，观察到 'Nothing happens'，耗尽步数并失败。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 833,
+    "prompt_tokens": 1097,
+    "total_tokens": 1930,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1097
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

@@ -1,0 +1,60 @@
+{
+  "profile_schema_version": "stage3.skill_injection_capacity.v1",
+  "renderer_version": "collaborator.skill_prompt.v1",
+  "source_client": "B",
+  "source_local_bank_hash": "sha256:96b13dd9a782a5796aa0198270872e379afad04a179d156978e90fce082d45d2",
+  "limits": {
+    "Executor": {
+      "简单取放": {
+        "required_skill_count": 6,
+        "max_rendered_characters": 1372
+      },
+      "台灯观察": {
+        "required_skill_count": 10,
+        "max_rendered_characters": 2536
+      },
+      "清洗后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 2775
+      },
+      "加热后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 2989
+      },
+      "冷却后放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 2710
+      },
+      "双物品放置": {
+        "required_skill_count": 9,
+        "max_rendered_characters": 2102
+      }
+    },
+    "Critic": {
+      "简单取放": {
+        "required_skill_count": 4,
+        "max_rendered_characters": 2068
+      },
+      "台灯观察": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 2978
+      },
+      "清洗后放置": {
+        "required_skill_count": 7,
+        "max_rendered_characters": 4109
+      },
+      "加热后放置": {
+        "required_skill_count": 7,
+        "max_rendered_characters": 3318
+      },
+      "冷却后放置": {
+        "required_skill_count": 6,
+        "max_rendered_characters": 2920
+      },
+      "双物品放置": {
+        "required_skill_count": 8,
+        "max_rendered_characters": 2975
+      }
+    }
+  }
+}

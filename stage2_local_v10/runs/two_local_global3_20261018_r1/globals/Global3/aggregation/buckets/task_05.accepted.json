@@ -1,0 +1,66 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Cool the target and verify state before destination placement",
+      "principle": "Treat environment feedback as authority. Acquire the exact target and check current holdings so an already-held object is not re-taken. Go to the cooling location, open it if needed, and while holding the target there use the available explicit cooling interaction for the target and cooling container. If no explicit cooling action exists, use the available cooling interaction. Do not substitute placing the object inside and immediately re-taking it for cooling. Wait for a cooled-state confirmation; containment, brief placement, or a round-trip alone is not confirmation. After cooling succeeds while holding, proceed directly to the destination without an extra take-from-container step. Open the destination if closed, place the object, and confirm placement. Cooling is an intermediate checkpoint; do not signal completion at that point because final placement is also required.",
+      "when_to_apply": "When the goal requires an object to be brought to a cooled state and then placed at a specified destination.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/T5_001",
+        "A/Executor/冷却后放置/T5_001",
+        "B/Executor/冷却后放置/T5_001",
+        "B/Critic/冷却后放置/T5_001",
+        "C/Supervisor/冷却后放置/T5_001",
+        "C/Search Worker/冷却后放置/T5_001",
+        "C/Operation Worker/冷却后放置/T5_001"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Do not confuse containment or a brief cooling attempt with confirmed cooled state",
+      "description": "An object found in or briefly placed inside a cooling container may not be in the required cooled state; cooling must be performed or verified explicitly before transport to the destination.",
+      "why_it_happens": "Location or containment can be mistaken for temperature state, and a round-trip may be assumed sufficient. The environment may change the relevant state only through an explicit cooling interaction.",
+      "how_to_avoid": "After opening the cooling container and holding the target, use the available cooling interaction and wait for cooled-state confirmation. Do not immediately retrieve an object just placed inside and treat it as cooled. If no confirmation appears, do not assume success; retry or report the unresolved state through the available feedback channel.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/T5_002",
+        "A/Executor/冷却后放置/T5_002",
+        "B/Executor/冷却后放置/T5_002",
+        "B/Critic/冷却后放置/T5_002",
+        "C/Supervisor/冷却后放置/T5_002",
+        "C/Search Worker/冷却后放置/T5_002",
+        "C/Operation Worker/冷却后放置/T5_002"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Search likely locations first, then reassess feasibility",
+      "principle": "Search high-probability locations first: the cooling container, countertops, stove burners, dining table, cabinets, drawers, and shelves. Prefer visible surfaces before closed-container sweeps; open containers as needed and track visited locations. Reaching a closed container is not inspection: its contents remain unverified until opened. If the target is absent from the first expected location, continue a bounded search of plausible surfaces and containers rather than declaring failure. When found on an accessible surface, take it and proceed. If a reasonable broad search finds nothing, reassess feasibility or absence instead of checking unrelated receptacles. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty when feasibility is doubtful.",
+      "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/T5_003",
+        "A/Executor/冷却后放置/T5_003",
+        "B/Executor/冷却后放置/T5_003",
+        "B/Critic/冷却后放置/T5_003",
+        "C/Supervisor/冷却后放置/T5_003",
+        "C/Search Worker/冷却后放置/T5_003",
+        "C/Operation Worker/冷却后放置/T5_003"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Complete both cooling and final placement checkpoints",
+      "description": "Placing the object without cooling, stopping after opening the cooling container, or cooling without final placement leaves the goal incomplete. The goal requires both a cooled object and placement at the specified destination.",
+      "why_it_happens": "The goal can be misread as simple placement, or cooling can be treated as the whole mission. Declaring completion after a partial step, after repeated cooling failures, or when the cooled state was never confirmed also causes failure.",
+      "how_to_avoid": "Treat cooling and final placement as separate checkpoints. Include an explicit cooling step before placement when a cooled object is required, then continue to the destination and place the object. Do not declare success until both the cooled state and destination placement have been confirmed. If cooling repeatedly fails, do not signal completion on placement alone.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/T5_004",
+        "A/Executor/冷却后放置/T5_004",
+        "B/Executor/冷却后放置/T5_004",
+        "B/Critic/冷却后放置/T5_004",
+        "C/Supervisor/冷却后放置/T5_004",
+        "C/Search Worker/冷却后放置/T5_004",
+        "C/Operation Worker/冷却后放置/T5_004"
+      ]
+    }
+  ]
+}

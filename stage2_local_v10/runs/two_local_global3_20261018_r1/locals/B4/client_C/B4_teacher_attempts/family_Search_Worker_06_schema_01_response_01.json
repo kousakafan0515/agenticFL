@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_06_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:b055fe1b0965a86513d56bad68479d77f1b61c3fe4fa04ab398ab3aeaf471518",
+  "message_character_count": 104361,
+  "started_at_utc": "2026-10-18T17:18:49.009618+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a second target instance is visible on the same surface as the first, place the first item then return to that same surface for the second, as in episodes 119/124/127/134. Avoid wandering to unrelated containers before re-checking the known source.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_127\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_134\"]}, {\"recommendation\": \"Do not attempt to take a second object while already holding one; episode 123 shows 'take cloth 3' returning Nothing happens while cloth 2 was held. Place the held item at the destination first, then acquire the second.\", \"affected_skill_ids\": [\"T6_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_123\"]}, {\"recommendation\": \"After a successful placement, stop signaling HANDOFF repeatedly; episodes 121/123/132 show repeated completion signals triggering loop guards or supervisor failure. Signal once and continue with the next concrete action.\", \"affected_skill_ids\": [\"T6_009\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_121\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_123\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_132\"]}, {\"recommendation\": \"When a navigation target returns 'Nothing happens' (e.g., shelf 2 in episode 120, cabinet 4 in episode 118), treat it as unreachable and move to another unchecked location rather than retrying the same go command.\", \"affected_skill_ids\": [\"G_006\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_120\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_118\"]}, {\"recommendation\": \"Open closed containers before taking or placing; episodes 118/125/128/130 show cabinets/drawers opened before access. Conversely, episode 126 declared failure after checking only countertop and cabinets 1-4, without checking other plausible surfaces like shelves or drawers.\", \"affected_skill_ids\": [\"G_003\", \"T6_005\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_125\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_126\"]}, {\"recommendation\": \"Track which instance was already placed and avoid re-taking it. Episode 132 took newspaper 2, placed it, then later re-took the same newspaper 2 from the armchair, never finding a genuine second newspaper.\", \"affected_skill_ids\": [\"T6_001\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_132\"]}, {\"recommendation\": \"Maintain a checked-location record and avoid revisiting confirmed-empty surfaces; episode 128 re-checked countertop 1 after taking the first peppershaker, and episode 120 revisited shelf 1. Move directly to unchecked plausible locations.\", \"affected_skill_ids\": [\"G_002\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_128\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_120\"]}, {\"recommendation\": \"Prefer placing the first item directly into the final destination rather than an intermediate surface; episode 133 placed creditcard 2 on armchair 2 then had to retrieve creditcard 1 from armchair 1, adding steps. Confirm the destination before placing.\", \"affected_skill_ids\": [\"T6_001\", \"T6_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_133\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 30538,
+    "completion_tokens": 1062,
+    "total_tokens": 31600
+  },
+  "completed_at_utc": "2026-10-18T17:18:53.817643+00:00"
+}

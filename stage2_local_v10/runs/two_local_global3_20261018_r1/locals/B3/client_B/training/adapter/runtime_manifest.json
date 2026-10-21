@@ -1,0 +1,10 @@
+{
+  "manifest_schema_version": "stage3_1.global_adapter_bank_manifest.v1",
+  "target_client": "B",
+  "aggregation_mode": "patchFL_v3_complete_role_repository",
+  "global_pool_hash": "sha256:3112f5cf7277e83e95720d8c19b3eb917d26e55a74a0cdb0b1da076395b36c99",
+  "global_pool_file_sha256": "sha256:5100ab8d019b48578cceb498cc7a69fcbea26bd0f01f6e23e869e096164a5eb9",
+  "global_adapter_bank_file_sha256": "sha256:5100ab8d019b48578cceb498cc7a69fcbea26bd0f01f6e23e869e096164a5eb9",
+  "global_adapter_bank_hash": "sha256:3112f5cf7277e83e95720d8c19b3eb917d26e55a74a0cdb0b1da076395b36c99",
+  "source_input_set_hash": "sha256:3112f5cf7277e83e95720d8c19b3eb917d26e55a74a0cdb0b1da076395b36c99"
+}

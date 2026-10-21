@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "phase": "validation",
+  "generation": 1,
+  "client": "B",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 110,
+  "api_clean": true,
+  "result_file_sha256": "sha256:fe3a3e969bde5db9021fb680046a78a7ca7f5be18ac4d2bb08834d18e6be9f38"
+}

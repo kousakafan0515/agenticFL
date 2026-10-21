@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_05_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:aadb4994927f0ea23adbf8b317c41a29549d8501c5cd1e8b64b42caf75a39b67",
+  "message_character_count": 128448,
+  "started_at_utc": "2026-10-19T03:57:03.606388+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the target object is not found after checking a few high-probability surfaces, do not exhaustively open every remaining cabinet/drawer. Track checked locations, and after a reasonable broad search reassess feasibility or report blocked rather than opening cabinets 1-19 sequentially (episode_100, episode_104, episode_106).\", \"affected_skill_ids\": [\"G_002\", \"T5_003\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_100\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_104\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_106\"]},{\"recommendation\": \"Do not substitute a similar object type for the named target. In episode_102 the goal was a cup but the worker took a mug and cooled/placed it, leading to supervisor failure. Search for the exact named type unless equivalence is explicitly confirmed.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_102\"]},{\"recommendation\": \"For cooling tasks, the correct sequence is: acquire target, go to fridge, open it, then issue cool <object> with fridge while holding it, confirm the cooled observation, then go to destination and put. Episode_116 instead put the winebottle into the fridge and later took it out, treating containment as cooling; this failed. Use the explicit cool action and verify its confirmation.\", \"affected_skill_ids\": [\"T5_001\", \"T5_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_116\"]},{\"recommendation\": \"When a put returns Nothing happens, verify current location and container state before retrying. In episode_116 the worker put the winebottle into the fridge (no effect), then later took it from the fridge and re-placed it, wasting steps. Diagnose the failed put rather than looping through take/put cycles.\", \"affected_skill_ids\": [\"G_006\", \"T5_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_116\"]},{\"recommendation\": \"Do not repeat an identical no-change action. In episode_115 the worker issued use microwave 1 six times consecutively after heat failed, triggering repeated_invalid_action_pattern_failure. After one or two identical failures, change the approach (open the microwave, adjust held/contained state, or use the correct heat form).\", \"affected_skill_ids\": [\"G_006\", \"T4_002\", \"T4_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_115\"]},{\"recommendation\": \"When a navigation target returns Nothing happens (e.g., stoveburner 2/4, cabinet 2/5), treat it as unreachable and move to a different unchecked location rather than retrying it. Episode_114 retried stoveburner 2 and 4 and eventually declared blocked while other plausible locations may have remained.\", \"affected_skill_ids\": [\"G_006\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_114\"]},{\"recommendation\": \"Do not declare BLOCKED prematurely after checking only a subset of plausible locations. Episode_097 declared blocked after cabinets 1-8 and a few surfaces, but episode_098 found the pot on stoveburner 4 after checking stoveburners. Ensure stoveburners, dining tables, and other open surfaces are checked before concluding the object is absent.\", \"affected_skill_ids\": [\"G_002\", \"T5_003\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_098\"]},{\"recommendation\": \"After acquiring the target and confirming it is held, proceed directly to cooling and then to the destination without redundant intermediate steps. Successful episodes (101, 107, 108, 109, 112, 113, 117) follow acquire -> open fridge -> cool -> go to destination -> put; keep this clean sequence and avoid re-taking or extra placement.\", \"affected_skill_ids\": [\"T5_001\", \"G_007\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_101\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_107\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_117\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 39414,
+    "completion_tokens": 1122,
+    "total_tokens": 40536
+  },
+  "completed_at_utc": "2026-10-19T03:57:09.182768+00:00"
+}

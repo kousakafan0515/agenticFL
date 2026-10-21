@@ -1,0 +1,35 @@
+{
+  "schema_version": "stage2_local_v10.global_validation_controller.v1",
+  "generation": 6,
+  "global_round": 3,
+  "global_bank_file_sha256": "sha256:ae306273790f699bd467ad47eaf0662f9541674fbd1fe55d61ce2688944224b8",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "stop_after": "Global3_three_client_validation",
+  "status": "complete",
+  "current_client": null,
+  "completed_clients": [
+    "C",
+    "B",
+    "A"
+  ],
+  "started_at": "2026-10-19T07:52:57.638395+00:00",
+  "results": {
+    "C": {
+      "success_count": 103,
+      "result_file_sha256": "sha256:a235aab74ea99dc0497db5f840f59ecdc082160f8f6be14c2f0b9b945e9b5ac8",
+      "replacement_bank_file_sha256": "sha256:ca09b73f43f6d1c0bcfa860b701f1dfd5b34dbadd64a3ea7704cd9932b57dafd"
+    },
+    "B": {
+      "success_count": 113,
+      "result_file_sha256": "sha256:7047ac3b212ed405f933c68e9f9b9e2a75493668718b085c4d51690668adc2f2",
+      "replacement_bank_file_sha256": "sha256:a02a2eb617516ab2d938ac2afef03af439d04c5f5fedd1bbbf5fbeddd42a0052"
+    },
+    "A": {
+      "success_count": 103,
+      "result_file_sha256": "sha256:f3ec8c42b6a810307a70abc7f136bceec7311af7efcec436b2dba8a24035abbc",
+      "replacement_bank_file_sha256": "sha256:85531c07ed9e8125aa68aaa6c2e5b983a08f019d9dd552dc0d73eb5256b6f329"
+    }
+  },
+  "completed_at": "2026-10-19T08:57:16.823848+00:00",
+  "pooled_success_count": 319
+}

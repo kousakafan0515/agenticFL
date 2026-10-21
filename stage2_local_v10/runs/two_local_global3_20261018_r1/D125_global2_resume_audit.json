@@ -1,0 +1,36 @@
+{
+  "schema_version": "stage2_local_v10.global2_resume_audit.v1",
+  "global_bank_file_sha256": "sha256:f83d3e2dd65f574f4fdec9760070a360fbeb669a8e2c463a6ba9f04547efb221",
+  "clients": {
+    "A": {
+      "completed_episodes": 88,
+      "successful_episodes": 76,
+      "remaining_episodes": 46,
+      "prefix_result_file_sha256": "sha256:59119c9657c5c71bb0d24e182ac0a14b28f9d6b85097b91ca1b74e8f1fa26b00",
+      "source_lock_file_sha256": "sha256:e51e1660ef3f78e273b604aa2d848a668395ac590dd5140e957d9442265c386b",
+      "replacement_bank_file_sha256": "sha256:a56be43d601b4b4bc77f246d584cce035215e7d6eb40c7e54eba443bd0dd4f94",
+      "manifest_file_sha256": "sha256:bf6e368f688ccdbe7f9d6d43809ba7571a17910f4ef44e7468d4229dca88cee9",
+      "reference_result_file_sha256": "sha256:db2b6fab107f0a4915599c1f80646df64724b8e57c0463b43442a0a686d9146e"
+    },
+    "B": {
+      "completed_episodes": 103,
+      "successful_episodes": 91,
+      "remaining_episodes": 31,
+      "prefix_result_file_sha256": "sha256:200f11325003ee915d313cbaec182dc662bdd853e860c11155252a5969c07819",
+      "source_lock_file_sha256": "sha256:f767f0185d3a6b5dde8ef5bfeccf0d87eab7d525653f26d7c2fdef7cc7e9133c",
+      "replacement_bank_file_sha256": "sha256:a27d2873c3cb7296597ddb446010e353ea6273533ae471df936c7ffe4aa0471b",
+      "manifest_file_sha256": "sha256:a1940aed56c5648b46dc03a0cb3a5769a76a7b146825bd3760f99ea22147a8ce",
+      "reference_result_file_sha256": "sha256:be0a7bc20d8fa304a6db69323af0d990dcbf004cc17dc6470c6e4a27afb18004"
+    },
+    "C": {
+      "completed_episodes": 105,
+      "successful_episodes": 86,
+      "remaining_episodes": 29,
+      "prefix_result_file_sha256": "sha256:043829f33659421d2470eb0fe974269002b4524bcae57740f12e7ef310715d19",
+      "source_lock_file_sha256": "sha256:9807797b2ae29c0dad24fa926a819e934264140c2a5fd8bc4d77a8dae8781919",
+      "replacement_bank_file_sha256": "sha256:e4d5f9688e61913c75779f32eba34369bb89547124c331573579073e589257c8",
+      "manifest_file_sha256": "sha256:fcce17dfeeac800fe76a47e3efcc1baee1238e4e36d16a8c6ebd20bbdb6b9535",
+      "reference_result_file_sha256": "sha256:0a5e85013d9669dde0e36d3a893f3ccbdb8c4d0afd0dc4b39367fb7f0514063b"
+    }
+  }
+}

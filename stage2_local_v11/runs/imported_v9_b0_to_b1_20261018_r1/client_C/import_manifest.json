@@ -1,0 +1,39 @@
+{
+  "schema_version": "stage2_local_v11.imported_v9_b0_b1_seed.v1",
+  "classification": "imported_v9_seed_not_native_v11_B1",
+  "client": "C",
+  "origin_experiment_id": "stage2-local-v9-client-c-v6-no-capacity-control",
+  "source_run": "D:\\skillMAS\\stage2_local_v9\\runs\\client_c_generation_01_20261013_r3",
+  "source_manifest": "D:\\skillMAS\\stage2_local_v9\\artifacts\\manifests\\client_c_generation_01.json",
+  "source_manifest_sha256": "sha256:8030fc279eb6e58f8b031592c18acd307d5b6e4ef39893b0aa3962c47ef73b78",
+  "v11_manifest": "D:\\skillMAS\\stage2_local_v11\\artifacts\\manifests\\client_c_generation_01.json",
+  "v11_manifest_sha256": "sha256:946399ed5dcae8de629e05d7a2ccb8d9100642ed622327953d2f2dae1c6c319f",
+  "cohort_equal": true,
+  "family_analysis_count": 18,
+  "add_candidate_count": 72,
+  "non_add_candidate_count": 0,
+  "role_skill_counts": {
+    "Supervisor": 17,
+    "Search Worker": 24,
+    "Operation Worker": 22
+  },
+  "validation_success": {
+    "B0_validation": 51,
+    "B1_validation": 110
+  },
+  "files": {
+    "B0_validation/result.json": "sha256:e84d79f2f483ceb8f5bcd999fde4c52a0f4e04509604d9ea1b307ad5257f7878",
+    "B0_validation/summary.json": "sha256:9661fa7534164d3252e4f1461cd8e82292b2cb402e4dedf2818208891efe2fb7",
+    "B0_validation/source_lock.json": "sha256:9b30fcd01cadffad749279ef499d8c358c81dddb1b1cfde26029380dc345911f",
+    "B0_training/result.json": "sha256:f570c9a97f454a1cf4bde26931ff86bca821bce43acf118ba78fe136fd127c25",
+    "B0_training/summary.json": "sha256:06c61944edc5d355e6df9c7f5bb1299b019d712108152186e4e6e04f05ddee48",
+    "B0_training/source_lock.json": "sha256:123f80b1f65e4aa32a6a6b6a6095a4c528577468d2b277dc8466309931957acd",
+    "B0_training/evidence.json": "sha256:3036feffb86454acbd3fa269740200c6c5b80cb1f24ea28f143beb943bc05772",
+    "B1_skillbank.json": "sha256:4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d",
+    "B1_teacher_record.json": "sha256:7cae048fafe3399dda142dbc68a9de2a4d2747102a71263eaa9715d2b4e0c1c0",
+    "B1_teacher_record.checkpoint.json": "sha256:50b022ea7668f13f5173585c3fae946b33bd173179bbe93050fcef769d75597a",
+    "B1_validation/result.json": "sha256:0819399c6390f9ecaf0c8cb43ff53b37c703f39eff1de841d8890c03f49ab718",
+    "B1_validation/summary.json": "sha256:192f079af147e0b67682164a5844fda9906261591ef594d967b4429ad4ec1c52",
+    "B1_validation/source_lock.json": "sha256:27db10d21e17ada01b6e5ada7940952a3a6b9be43d80d6be6fa401b02bac9e71"
+  }
+}

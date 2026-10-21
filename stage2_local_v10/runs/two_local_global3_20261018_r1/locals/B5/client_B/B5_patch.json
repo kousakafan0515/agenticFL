@@ -1,0 +1,153 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "B",
+  "generation": 5,
+  "parent_bank_file_sha256": "sha256:a27d2873c3cb7296597ddb446010e353ea6273533ae471df936c7ffe4aa0471b",
+  "per_role": {
+    "Executor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T6_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_121",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_133"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic broad search with checked-location tracking",
+            "principle": "When targets are not immediately visible, search broadly. Inspect visible open surfaces (counters, tables, shelves, sofas) first, then open closed containers (cabinets, drawers) before inspecting or taking from inside. Continue across location types until the required instances are found or a checked-location record shows no unchecked likely locations remain. If both instances are visible on one surface, take one, place it, then return to that surface for the second. Treat an unreachable or no-change navigation target as unavailable and move to another candidate. Reassess feasibility after likely locations are exhausted, but do not conclude blocked prematurely.",
+            "when_to_apply": "When one or both target objects are not visible and must be located in the environment."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Critic": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_076",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_078",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_091"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "微波加热的显式命令与位置切换恢复",
+            "principle": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+            "when_to_apply": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_075",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_084"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "加热命令可能失败或返回 Nothing happens；若把未确认的尝试当作成功，可能导致移动并放置一个仍然冷的物体。Critic 常误判物体“已被放入微波炉”或“现在在微波炉内”，而观察只显示微波炉被打开或物体仍被手持；这种误判会驱动错误的下一步。不能仅因物体被手持或被放入微波炉就推断加热成功。",
+            "why_it_happens": "只有当物体位置与微波炉状态合适时，加热才可能改变状态；命令已发出并不保证成功。缺少明确成功观测时，后续移动和放置可能基于错误前提，而把“已打开微波炉”或“仍手持”误读为“已放入/已加热”会进一步放大错误。",
+            "how_to_avoid": "在给出下一步建议前，先引用实际观察谓词（held 还是 in-container）。只有在出现明确的加热成功观测后才继续，例如提示物体已被加热，或其他可靠的热状态确认。若未确认成功，应修正物体位置或手持状态后重新执行有效加热尝试，并再次验证，然后再移动物体。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_078",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_085",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "当加热在物体被手持时成功，物体仍留在持有状态。此后尝试从微波炉取物可能返回 Nothing happens，因为该加热动作并未把物体放入微波炉。Critic 应据此诊断：take from microwave 失败意味着物体从未在微波炉内，而不是需要再次取物。",
+            "why_it_happens": "手持状态下的加热成功并不一定移动物体进入微波炉，因此微波炉里没有可取的该物体。若按错误位置假设继续操作，就会产生无效取物步骤。",
+            "how_to_avoid": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作；若 take from microwave 返回 Nothing happens，应检查持有状态而非重复取物。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_106"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. Distinguish 'arrived at a closed container' from 'inspected and empty': a closed container's contents are unverified until opened. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_127",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_134"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.",
+            "why_it_happens": "Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.",
+            "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_132",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_118"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Critic should not assert a specific unseen location contains the target or that a failed action was 'transient' without observed evidence.",
+            "why_it_happens": "Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help; speculation about unseen contents or transient failures drives further wasted steps.",
+            "how_to_avoid": "Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:6605b47311ec514962081a6841f45e9d3cd7e808481ab7852b053899c18021b7"
+}

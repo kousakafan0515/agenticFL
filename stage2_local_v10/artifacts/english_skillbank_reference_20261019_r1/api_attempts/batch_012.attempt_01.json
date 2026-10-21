@@ -1,0 +1,47 @@
+{
+  "batch": 12,
+  "attempt": 1,
+  "input_ids": [
+    "T0166",
+    "T0167",
+    "T0168",
+    "T0169",
+    "T0170",
+    "T0171",
+    "T0172",
+    "T0173",
+    "T0174",
+    "T0175",
+    "T0176",
+    "T0177",
+    "T0178",
+    "T0179",
+    "T0180"
+  ],
+  "input_text_sha256": "sha256:7584e0ebc8c9cade4b170864dfe0f50247bf7d62d0a467d090e098d0ebd8a0dd",
+  "raw_response": "{\"translations\":[{\"id\":\"T0166\",\"english\":\"Desklamp observation: avoid bare names or compound syntax; instead use use desklamp <id>\"},{\"id\":\"T0167\",\"english\":\"In a desklamp observation task, bare-name use desklamp, compound syntax use desklamp on X / use X on desklamp, and repeated examine/use/look on the target object usually return Nothing happens; the successful path is to reach the furniture where the desklamp is located and then execute use desklamp <id>. If multiple attempts have been invalid, stop repeating and verify the desklamp instance name before retrying.\"},{\"id\":\"T0168\",\"english\":\"When the task requires look at/examine the target object under/with the desklamp, and bare-name or compound syntax returns Nothing happens.\"},{\"id\":\"T0169\",\"english\":\"Desklamp observation: locate the target object and the desklamp, and use the desklamp at the furniture where the desklamp is located\"},{\"id\":\"T0170\",\"english\":\"First confirm the locations of the target object and the desklamp; the desklamp is usually fixed on a furniture surface. If the desklamp has already been observed on a surface such as a desk, side table, or dresser, go directly to that furniture and do not continue searching unrelated containers or blindly opening drawers. If the target object is not at the desklamp, first obtain and carry the target object to that furniture; if the target object is already at the desklamp, directly try to use the desklamp, and if the interaction is not accepted, ensure the target object is in hand and retry. After arriving, use use desklamp <id> with the instance ID to trigger the observation; do not use bare names or compound syntax, and do not treat the desklamp as a carryable object or navigation point. Successfully turning on the desklamp is the termination condition; do not append use/look afterward.\"},{\"id\":\"T0171\",\"english\":\"When the task requires examine/look at something with/under the desklamp, and an interactable desklamp exists in the environment.\"},{\"id\":\"T0172\",\"english\":\"Multiple failed trajectories show that take desklamp, go to desklamp, or repeatedly going to the desklamp/desk usually returns Nothing happens, wastes steps, and may block subsequent observation. The desklamp is an interaction point fixed on furniture, not a carryable object or navigable location.\"},{\"id\":\"T0173\",\"english\":\"The environment models the desklamp as a fixed light source or fixed device; only the furniture where it is located can be a navigation target, and the desklamp itself cannot be the target of take or go to.\"},{\"id\":\"T0174\",\"english\":\"Do not try to take, move, or navigate to the desklamp. First reach the furniture that holds the desklamp (desk, sidetable, dresser, coffeetable, etc.), and after arriving, directly use use desklamp <id> with the ID; if already at the desklamp, do not repeatedly go to the same location.\"},{\"id\":\"T0175\",\"english\":\"In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, bare-name use desklamp, use desklamp on X, and use X on desklamp often return There's nothing special about X or Nothing happens, and cannot replace the observation condition. Merely placing the target object on the desk or desklamp without triggering the desklamp interaction also makes the task appear complete while the environment goal is not achieved.\"},{\"id\":\"T0176\",\"english\":\"The environment does not support using the desklamp as a tool parameter for examine, nor does it support bare names or compound syntax; the placement action itself does not trigger the observation success condition.\"},{\"id\":\"T0177\",\"english\":\"After locating the target object and bringing it to the furniture where the desklamp is located, use the observed numbered lamp instance to execute use desklamp <id>. Do not use examine X with desklamp or compound use syntax; if invalid syntax has been tried, verify the desklamp instance name and retry, rather than repeatedly examining the target object or desklamp.\"},{\"id\":\"T0178\",\"english\":\"If use desklamp returns Nothing happens, it usually means you are not currently at the desklamp location or the interaction conditions are not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating.\"},{\"id\":\"T0179\",\"english\":\"Using the desklamp requires being at the same furniture where the desklamp is located, and incorrect syntax or location will not produce a state change; mistaking an empty observation for a retryable signal will repeat ineffective actions.\"},{\"id\":\"T0180\",\"english\":\"After a failure, first check whether the target object and desklamp are at the current furniture; if necessary, move to the observed desklamp furniture, switch to use desklamp <id> with the ID, or first obtain or keep the target object and retry; if there is still no change, switch to searching other locations or declare that it cannot be completed, and do not repeat the same command.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 3468,
+    "prompt_tokens": 1182,
+    "total_tokens": 4650,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 2330,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1182
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

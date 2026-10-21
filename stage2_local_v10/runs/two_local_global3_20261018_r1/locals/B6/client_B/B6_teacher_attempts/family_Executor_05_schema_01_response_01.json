@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Executor_05_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:cc8be80be1f86a1e3b60ee760cac3760e2d2bff563992c1ed99427c3ad74cd00",
+  "message_character_count": 137976,
+  "started_at_utc": "2026-10-19T05:58:09.726668+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the target object is not in the first few locations, avoid opening every remaining cabinet in sequence. Track checked locations and, after a reasonable broad search, reassess feasibility or report blocked rather than exhausting the action budget on cabinets 10-23.\", \"affected_skill_ids\": [\"T5_003\", \"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\"]},{\"recommendation\": \"Do not repeat a no-change navigation to the same receptacle. In episode_098 'go to cabinet 2' returned Nothing happens twice; after one no-change result, switch to a different unchecked location instead of retrying.\", \"affected_skill_ids\": [\"G_006\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100\"]},{\"recommendation\": \"For cooling, hold the target at the open fridge and issue the explicit cool action, then proceed directly to the destination. This pattern succeeded repeatedly; do not substitute a put-into-fridge-then-take round-trip, which does not confirm cooling.\", \"affected_skill_ids\": [\"T5_001\", \"T5_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_099\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_101\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]},{\"recommendation\": \"When the goal names a specific object type (e.g., cup), do not silently substitute a similar type such as mug unless equivalence is confirmed. Episode_102 took mug 1 for a 'cup' goal and failed; episode_108 also used a mug for a mug goal successfully, so match the exact named type.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_108\"]},{\"recommendation\": \"After a confirmed placement, stop and do not emit an empty or status-only action. Episode_102 and episode_109 placed the object successfully but then sent an empty action, producing executor_or_environment_error instead of clean success.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109\"]},{\"recommendation\": \"When the target is not found after checking countertops, fridge, and many cabinets, broaden to open surfaces like shelves and dining tables before concluding failure, and avoid re-checking already-confirmed-empty countertops. Episode_104 and episode_106 exhausted budget revisiting surfaces.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_104\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_106\"]},{\"recommendation\": \"Do not declare failure while plausible unchecked locations remain. Episode_114 reported FAILED after checking cabinets, drawers, fridge, microwave, garbagecan, stoveburner, and two countertops, but had not confirmed all plausible surfaces were exhausted; reassess before self-reporting failure.\", \"affected_skill_ids\": [\"G_002\", \"G_008\", \"T5_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114\"]},{\"recommendation\": \"Avoid redundant cooling: episode_116 cooled the winebottle, went to cabinet 1, then returned to the fridge to cool again before placing. After a confirmed cool observation, proceed directly to the destination and place without re-cooling.\", \"affected_skill_ids\": [\"T5_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_116\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 42054,
+    "completion_tokens": 1057,
+    "total_tokens": 43111
+  },
+  "completed_at_utc": "2026-10-19T05:58:15.280299+00:00"
+}

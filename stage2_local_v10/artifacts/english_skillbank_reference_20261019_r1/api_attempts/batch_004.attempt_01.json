@@ -1,0 +1,47 @@
+{
+  "batch": 4,
+  "attempt": 1,
+  "input_ids": [
+    "T0046",
+    "T0047",
+    "T0048",
+    "T0049",
+    "T0050",
+    "T0051",
+    "T0052",
+    "T0053",
+    "T0054",
+    "T0055",
+    "T0056",
+    "T0057",
+    "T0058",
+    "T0059",
+    "T0060"
+  ],
+  "input_text_sha256": "sha256:9014c86b1cc8e4e3a7190ff32286fc116dc2cb3269da727df2aa52c0ad1671fe",
+  "raw_response": "{\"translations\":[{\"id\":\"T0046\",\"english\":\"When the target object's initial location is unknown and the room contains multiple types of furniture/containers.\"},{\"id\":\"T0047\",\"english\":\"Avoid invalid examine and blind exhaustive search\"},{\"id\":\"T0048\",\"english\":\"Do not use examine as a search action; if many containers have been checked and the target still has not been found, reassess visible support surfaces or whether the target exists, rather than continuing blind exhaustive search.\"},{\"id\":\"T0049\",\"english\":\"When searching for the target object fails or the target has not been found for a long time.\"},{\"id\":\"T0050\",\"english\":\"Avoid repeating invalid actions\"},{\"id\":\"T0051\",\"english\":\"When an action returns \\\"Nothing happens\\\", do not repeat the same action; change the state (e.g., open/close a container, move location, take out an object) before retrying.\"},{\"id\":\"T0052\",\"english\":\"When any action returns \\\"Nothing happens\\\" and does not change the environment state.\"},{\"id\":\"T0053\",\"english\":\"Avoid declaring completion before success is confirmed\"},{\"id\":\"T0054\",\"english\":\"Do not output a completion status or stop acting until the environment observation confirms the final placement action succeeded; declaring completion too early may cause the task to fail.\"},{\"id\":\"T0055\",\"english\":\"After executing the final placement action.\"},{\"id\":\"T0056\",\"english\":\"Desklamp observation task execution flow\"},{\"id\":\"T0057\",\"english\":\"For tasks of the type \\\"examine/look at X with/under the desklamp\\\", first locate the target object and the desklamp; if the target is portable, pick up the target, move to the desklamp's location, and then use the desklamp (use desklamp) to complete the observation.\"},{\"id\":\"T0058\",\"english\":\"When the task goal is to observe the relationship between an object and the desklamp (examine X with desklamp or look at X under desklamp).\"},{\"id\":\"T0059\",\"english\":\"In desklamp observation tasks, do not use the `examine X with desklamp` action; this action usually returns \\\"Nothing happens\\\"; instead, pick up the target object and then use `use desklamp`.\"},{\"id\":\"T0060\",\"english\":\"The ALFWorld environment does not support passing the desklamp as a tool parameter to the examine action; the desklamp is a fixed object and can only be turned on via the use action.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1550,
+    "prompt_tokens": 673,
+    "total_tokens": 2223,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1010,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 673
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

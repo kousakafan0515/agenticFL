@@ -1,0 +1,47 @@
+{
+  "batch": 15,
+  "attempt": 1,
+  "input_ids": [
+    "Z0281",
+    "Z0282",
+    "Z0283",
+    "Z0284",
+    "Z0285",
+    "Z0286",
+    "Z0287",
+    "Z0288",
+    "Z0289",
+    "Z0290",
+    "Z0291",
+    "Z0292",
+    "Z0293",
+    "Z0294",
+    "Z0295",
+    "Z0296",
+    "Z0297",
+    "Z0298",
+    "Z0299",
+    "Z0300"
+  ],
+  "input_text_sha256": "sha256:85bc9f6312a57e656ba35cf3c3e7a8e9eee9a543b755a830e4ac850d0e26885d",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0281\",\"chinese\":\"用微波炉直接加热手持物体\"},{\"id\":\"Z0282\",\"chinese\":\"当手持目标物体且微波炉已打开时，使用直接加热动作，而不是先把物体放进去。\"},{\"id\":\"Z0283\",\"chinese\":\"当物体在微波炉内时，反复使用 'use microwave' 或 'heat object with microwave' 可能失败且不改变状态。\"},{\"id\":\"Z0284\",\"chinese\":\"环境可能要求手持物体或微波炉打开，加热动作才能成功。\"},{\"id\":\"Z0285\",\"chinese\":\"如果加热失败，取出物体，确保微波炉打开，并在手持物体时尝试直接加热动作。\"},{\"id\":\"Z0286\",\"chinese\":\"加热后，如果微波炉关闭或物体不在里面，从微波炉中取物体可能失败。\"},{\"id\":\"Z0287\",\"chinese\":\"take 动作要求物体在打开的微波炉内可触及。\"},{\"id\":\"Z0288\",\"chinese\":\"在尝试取加热后的物体前先打开微波炉，并确认物体在里面。\"},{\"id\":\"Z0289\",\"chinese\":\"将加热后的物体放到目的地\"},{\"id\":\"Z0290\",\"chinese\":\"加热并取走物体后，前往目的地位置并将物体放在那里。\"},{\"id\":\"Z0291\",\"chinese\":\"用打开的冰箱冷却手持物体\"},{\"id\":\"Z0292\",\"chinese\":\"当目标要求冷却物体时，先获取物体，然后手持它前往打开的冰箱，并对冰箱使用 cool 命令。\"},{\"id\":\"Z0293\",\"chinese\":\"手持目标物体并站在打开的冰箱前，且目标要求物体是冷的。\"},{\"id\":\"Z0294\",\"chinese\":\"将物体放入冰箱不会冷却它；必须在冰箱前手持物体时使用 cool 命令。\"},{\"id\":\"Z0295\",\"chinese\":\"环境仅通过显式的 cool 动作改变物体温度，而不是通过盛放。\"},{\"id\":\"Z0296\",\"chinese\":\"手持物体到达冰箱后，发出 'cool <object> with fridge'，而不是将物体放入冰箱。\"},{\"id\":\"Z0297\",\"chinese\":\"如果目的地关闭或智能体不在目的地，put 动作会静默失败；放置前先打开目的地并导航到那里。\"},{\"id\":\"Z0298\",\"chinese\":\"环境要求智能体位于打开的容器处才能放置物体。\"},{\"id\":\"Z0299\",\"chinese\":\"冷却后，前往目的地，如果关闭则打开它，然后将手持物体放在那里。\"},{\"id\":\"Z0300\",\"chinese\":\"仅冷却物体不够；只有将冷却后的物体放到要求的目的地后任务才完成。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 557,
+    "prompt_tokens": 841,
+    "total_tokens": 1398,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 841
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

@@ -1,0 +1,193 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "A",
+  "generation": 3,
+  "parent_bank_file_sha256": "sha256:2c44e896545c26e5f6e932b4f1d94a00c52bf57014650cf72c10c8fb0b76c774",
+  "per_role": {
+    "Planner": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_034",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_038"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物与台灯并在台灯所在家具处使用台灯",
+            "principle": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器或盲目开抽屉。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。成功开启台灯即为终止条件，不要在其后追加 use/look。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T2_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_033",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_036",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_037",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_039"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察搜索策略：优先开放表面并系统检查容器",
+            "principle": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、扶手椅、咖啡桌、架子等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+            "when_to_apply": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物或台灯不在该处、连续观察无新信息时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_077",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_089",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_090"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Microwave heating with observation-driven holding/placement recovery",
+            "principle": "Open the microwave before taking from or using it, and keep it open until heating is confirmed. Use the explicit heat action form heat <object> with microwave <id> rather than generic use <object> or use microwave. Observations conflict on the required heating state: some successful runs heated the object while holding it, while others succeeded by placing the object in an open microwave and then heating. Treat the holding/placement requirement as observation-dependent. If heating while holding returns 'Nothing happens', place the object in the open microwave and retry. If heating with the object inside returns 'Nothing happens', take it out, ensure the microwave is open, and retry while holding it. Do not repeat an identical failing heat command without changing the object’s position or holding state.",
+            "when_to_apply": "When the target object must be heated with a microwave, especially if the first heat attempt fails or the object is inside the microwave."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T4_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_079",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_080",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_091",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_096"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic search and continue after misses",
+            "principle": "When the target object is not in the first searched location, continue systematically checking other plausible containers and surfaces such as cabinets, drawers, countertops, dining table, fridge, sink basin, coffee machine, and stoveburners. Prioritize visible surfaces and high-probability containers by object type before opening every cabinet in sequence, and track checked locations to avoid redundant loops. Do not declare the task blocked or the object unavailable merely because the first location is empty.",
+            "when_to_apply": "During the acquisition phase of a heat-and-place task when the target object is not immediately visible or is absent from the first checked location."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_105",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_111"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling workflow with confirmed cool state before placement",
+            "principle": "Inputs differ on whether cooling requires placing the object in the fridge and taking it out or issuing an explicit cool action while holding it at an open fridge. Use environment feedback as authority: perform or verify cooling explicitly, and do not treat mere containment or brief placement as confirmed cooling. A reliable sequence is: acquire the exact target; go to the fridge; open it; if an explicit cool action is available, issue it while holding the object, otherwise use the available cooling interaction and wait for a cooled-state confirmation; then go to the destination; open it if closed; put the object there; confirm placement. Do not add a take-from-fridge step when cooling was done while holding, and do not immediately re-take an object already held; check inventory before re-taking.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_106",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded systematic search and early feasibility reassessment",
+            "principle": "Check a few high-probability locations first, including the fridge, countertops, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. If the target is not found after a reasonable broad search, reassess the goal or whether the object may be absent rather than continuing through every unrelated receptacle. Do not repeat an identical broad search after all obvious receptacles have been exhausted; report or escalate early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T6_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_127",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_134"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic search across receptacle types and visible surfaces",
+            "principle": "When target objects are not immediately visible, search broadly instead of checking only one receptacle type. Inspect visible surfaces such as counters, tables, shelves, sofas, dressers, and similar open surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. Do not conclude the task is blocked prematurely, and do not accept a similar-named substitute for the exact target object type.",
+            "when_to_apply": "When one or both target objects are not visible and must be located in the environment."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T6_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_129",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_132"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A put action can produce no effect if it is issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied.",
+            "why_it_happens": "Placement requires being at the target container and a successful put must be verified from the observation; otherwise the first item may still be held or not placed.",
+            "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, move to the target if needed and retry before starting the next search or placement cycle. Track that the first item was already placed and drive directly to the second acquisition and final put."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 8,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Executor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "G_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_125",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_052",
+            "stage2-local-v10-role-partitioned-patch3/generation_03/client_A/episode_059"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use exact action forms, identifiers, and matching object types",
+            "principle": "Use the environment's supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, and open a container before accessing it. Refer to exact numbered object and receptacle identifiers from observations, and track the specific instance taken so later actions use the same one. Do not use examine or open on non-container surfaces; open only applies to openable containers. Before taking or transforming, confirm the object name matches the goal, because similar but different objects may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.",
+            "when_to_apply": "Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:5de701161896aecf419bef55816c6f3f624c34c0551927ac9da57f85bdcdc103"
+}

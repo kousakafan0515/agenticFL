@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 260, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 256, in main
+    print(json.dumps(run(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 224, in run
+    run_local_parallel(args, index, state)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py", line 168, in run_local_parallel
+    raise RuntimeError(f"Client {client} B{generation} exited {code}; see logs/B{generation}_client_{client}.stderr.log")
+RuntimeError: Client B B2 exited 1; see logs/B2_client_B.stderr.log

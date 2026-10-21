@@ -1,0 +1,11 @@
+* text=auto
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+
+# Full V10/V11 run trees remain versioned byte-for-byte.
+# They intentionally bypass text normalization because they are frozen evidence.
+stage2_local_v10/runs/** -text -diff
+stage2_local_v11/runs/** -text -diff

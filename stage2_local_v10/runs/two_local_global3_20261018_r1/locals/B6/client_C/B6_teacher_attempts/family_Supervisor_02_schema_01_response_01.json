@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:14a65e24af93066af95e9cdde28c866782816f5d4fb20da828f45277ec9c7177",
+  "message_character_count": 89449,
+  "started_at_utc": "2026-10-19T05:55:41.170489+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When dispatching a search mission, require the worker to return only after the target is actually held, not merely located on a surface. Several handoffs returned 'found on surface' and forced extra take dispatches; specify 'RETURN WHEN: target is in inventory' and treat a surface sighting as an intermediate state.\", \"affected_skill_ids\": [\"G_007\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_035\"]}, {\"recommendation\": \"Instruct workers to use the numbered lamp instance (use desklamp <id>) and to verify the lamp is actually present in the current furniture observation before issuing use. Bare 'use desklamp' returned Nothing happens in several episodes, wasting steps.\", \"affected_skill_ids\": [\"T2_003\", \"T2_004\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_041\"]}, {\"recommendation\": \"When a use desklamp attempt returns Nothing happens, do not repeat it at the same location. Re-check whether the current furniture lists a desklamp; if not, move to a furniture that does, as in episode 029 where the second sidetable lamp succeeded after the desk lamp failed.\", \"affected_skill_ids\": [\"T2_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_029\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_041\"]}, {\"recommendation\": \"Avoid dispatching examine-style actions (examine desk, examine bowl, examine X with desklamp) as search or observation steps; they return no useful information. Dispatch navigation plus take, and reserve the lamp interaction for use desklamp <id>.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_041\"]}, {\"recommendation\": \"When the target is not at the first assumed lamp location, dispatch a bounded search across open surfaces (beds, sidetables, dressers, armchairs, coffeetables) before opening many drawers. Episode 037 found the cellphone on an armchair after desk drawers yielded nothing.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_040\"]}, {\"recommendation\": \"Do not dispatch 'go to desklamp' or 'take desklamp'; the lamp is a fixed fixture. Dispatch navigation to the furniture carrying the lamp, then use desklamp <id>. Episode 042 shows repeated failed put/go attempts before the correct use succeeded.\", \"affected_skill_ids\": [\"T2_002\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_042\"]}, {\"recommendation\": \"Treat a successful 'You turn on the desklamp' observation as the terminal success condition and stop dispatching further actions. In episode 036 the lamp was already turned on at step 2, yet the episode ended in a worker parse error, indicating unnecessary follow-up dispatch after success.\", \"affected_skill_ids\": [\"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_036\"]}, {\"recommendation\": \"When a worker returns FAILED after a partial search, do not immediately declare the task failed; re-dispatch a broader search covering unchecked open surfaces and containers. Episode 040's worker failed but the bowl was later found on shelf 2 in episode 041.\", \"affected_skill_ids\": [\"G_002\", \"G_006\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_040\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_041\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 26227,
+    "completion_tokens": 1060,
+    "total_tokens": 27287
+  },
+  "completed_at_utc": "2026-10-19T05:55:46.259522+00:00"
+}

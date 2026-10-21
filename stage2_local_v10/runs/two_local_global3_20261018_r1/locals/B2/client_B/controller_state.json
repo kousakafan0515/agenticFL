@@ -1,0 +1,37 @@
+{
+  "schema_version": "stage2_local_v10.local_round_controller.v1",
+  "client": "B",
+  "generation": 2,
+  "parent_kind": "independent",
+  "parent_bank_file_sha256": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+  "parent_validation_summary_sha256": "sha256:ab95c3520441867272a0db6728114e507c7462c435f892e3b670520041595a7f",
+  "stop_after": "B2_validation",
+  "status": "complete",
+  "current_step": null,
+  "completed_steps": [
+    "training",
+    "teacher",
+    "validation"
+  ],
+  "started_at": "2026-10-18T10:43:33.145246+00:00",
+  "error_type": "CalledProcessError",
+  "error": "Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.role_evolver', '--client', 'B', '--generation', '2', '--parent-kind', 'independent', '--parent-bank', '/mnt/d/skillMAS/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json', '--evidence', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/training/evidence.json', '--output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.json', '--patch-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_patch.json', '--record-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_teacher_record.json', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3']' returned non-zero exit status 1.",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/skillMAS/stage2_local_v10/run_local_round.py\", line 114, in run\n    subprocess.run([str(args.python), \"-m\", \"stage2_local_v10.role_evolver\", \"--client\", args.client, \"--generation\", str(args.generation), \"--parent-kind\", args.parent_kind, \"--parent-bank\", str(args.parent_bank), \"--evidence\", str(training_root / \"evidence.json\"), \"--output\", str(output_bank), \"--patch-output\", str(patch), \"--record-output\", str(record), \"--experiment-id\", args.experiment_id], cwd=ROOT, check=True)\n  File \"/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.role_evolver', '--client', 'B', '--generation', '2', '--parent-kind', 'independent', '--parent-bank', '/mnt/d/skillMAS/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json', '--evidence', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/training/evidence.json', '--output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.json', '--patch-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_patch.json', '--record-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_teacher_record.json', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3']' returned non-zero exit status 1.\n",
+  "failed_at": "2026-10-18T11:52:38.721767+00:00",
+  "resume_events": [
+    {
+      "time": "2026-10-18T11:51:43.726695+00:00",
+      "from_step": "teacher"
+    },
+    {
+      "time": "2026-10-18T12:33:17.628997+00:00",
+      "from_step": "teacher"
+    }
+  ],
+  "completed_at": "2026-10-18T13:15:24.679043+00:00",
+  "training_success": 110,
+  "validation_success": 119,
+  "output_bank_file_sha256": "sha256:16b80dc9e4821546e70778b5119247f9d7880856780c2a418d0e2c34add3d088",
+  "patch_file_sha256": "sha256:91746934cecbf01d9b5b31fe1258ad9f203d9bd1a37d48e63532405185ec2090",
+  "validation_result_sha256": "sha256:6e003dea2b7fa5af7cb6dc8ccb7f4e737f48930956b43bb1a71a1983e2bcb755"
+}

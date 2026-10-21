@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:da9f93710f0e0b01cbf416c6ad97a695299b4c6509dd5178e1a020200a4b56f8",
+  "message_character_count": 103880,
+  "started_at_utc": "2026-10-18T17:18:01.679866+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a search worker returns HANDOFF after only opening a container (e.g., fridge) without taking the target, the supervisor should not accept it as acquisition complete. Re-dispatch a take mission naming the visible instance, or continue the search, since G_007 requires acquisition to end only when the object is actually held.\", \"affected_skill_ids\": [\"G_007\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_089\"]},{\"recommendation\": \"Avoid declaring FAILED after a placement observation that already shows the object placed. In episode_081 the mug was put in cabinet 1 yet the supervisor emitted Status: FAILED; per G_008 a confirming placement is terminal success, so verify the observation before declaring failure.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_081\"]},{\"recommendation\": \"When the goal names a specific object type (cup), do not silently accept a different type (mug) as the target. Episode_081 searched for a cup but took mug 2; per T3_005 similar alternatives should not be substituted unless confirmed equivalent. Re-dispatch search for the exact type or report mismatch.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_081\"]},{\"recommendation\": \"Bound the search mission: episodes 075 and 093 show workers traversing many closed cabinets/drawers (steps 7-22, 5-19) without opening them, wasting budget. Instruct workers to open each closed container before moving on and to track checked locations, and reassess after a reasonable set rather than visiting every cabinet.\", \"affected_skill_ids\": [\"G_002\", \"G_003\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_093\"]},{\"recommendation\": \"After a successful heat action performed while holding the object, do not assign a take-from-microwave step. Episode_084 shows a redundant take tomato 1 from fridge 1 after heating; per T4_006 verify held state and proceed directly to the destination.\", \"affected_skill_ids\": [\"T4_006\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_084\"]},{\"recommendation\": \"When a heat attempt returns Nothing happens (episode_096 step 8), the supervisor should re-dispatch a corrected heat mission (ensure microwave open, adjust held vs placed state) rather than proceeding to placement or blindly opening unrelated cabinets. Per T4_002/T4_003 heating must be confirmed before moving on.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_096\"]},{\"recommendation\": \"Keep the operation mission scoped to the named destination. Episode_082's goal was diningtable but the worker placed on diningtable 2; episode_096's goal was cabinet but the worker used cabinet 10 after several failed opens. Confirm the destination identifier from observation and instruct the worker to open the intended destination before placing.\", \"affected_skill_ids\": [\"G_003\", \"G_005\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_082\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_096\"]},{\"recommendation\": \"When a worker returns HANDOFF after only a navigation step (episode_086: go to microwave 1), the supervisor should issue the next concrete operation (open microwave, then heat) rather than treating arrival as progress toward heating. Decompose heat missions into open-then-heat with explicit confirmation conditions.\", \"affected_skill_ids\": [\"G_007\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_086\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 29258,
+    "completion_tokens": 1019,
+    "total_tokens": 30277
+  },
+  "completed_at_utc": "2026-10-18T17:18:07.210895+00:00"
+}

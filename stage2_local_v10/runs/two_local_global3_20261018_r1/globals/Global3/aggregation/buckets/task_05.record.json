@@ -1,0 +1,17 @@
+{
+  "bucket": "冷却后放置",
+  "input_skill_count": 28,
+  "output_skill_count": 4,
+  "accepted_attempt_file": "stage2_local_v10\\runs\\two_local_global3_20261018_r1\\globals\\Global3\\aggregation\\buckets\\task_05.attempt_03.json",
+  "manual_repair_audit_file": "stage2_local_v10\\runs\\two_local_global3_20261018_r1\\globals\\Global3\\aggregation\\buckets\\task_05.manual_repair_audit.json",
+  "manual_repair_scope": "skills[3].principle_only",
+  "usage": {
+    "requested_model": "deepseek-flash",
+    "response_model": "deepseek-flash",
+    "finish_reason": "stop",
+    "prompt_tokens": 6921,
+    "completion_tokens": 3026,
+    "total_tokens": 9947,
+    "transport_attempts": 1
+  }
+}

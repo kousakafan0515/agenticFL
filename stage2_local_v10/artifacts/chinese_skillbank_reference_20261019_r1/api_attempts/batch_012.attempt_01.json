@@ -1,0 +1,47 @@
+{
+  "batch": 12,
+  "attempt": 1,
+  "input_ids": [
+    "Z0221",
+    "Z0222",
+    "Z0223",
+    "Z0224",
+    "Z0225",
+    "Z0226",
+    "Z0227",
+    "Z0228",
+    "Z0229",
+    "Z0230",
+    "Z0231",
+    "Z0232",
+    "Z0233",
+    "Z0234",
+    "Z0235",
+    "Z0236",
+    "Z0237",
+    "Z0238",
+    "Z0239",
+    "Z0240"
+  ],
+  "input_text_sha256": "sha256:d651baf9e79af34c91345594afe7ae9db6e1601f6d4300358b5e511733105b27",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0221\",\"chinese\":\"当目标是把一个干净的物体放到指定位置，而该物体尚未干净时。\"},{\"id\":\"Z0222\",\"chinese\":\"如果目标要求物体干净，在清洁前放置该物体会无法满足任务，并可能导致失败。\"},{\"id\":\"Z0223\",\"chinese\":\"智能体可能跳过清洁步骤或尝试在放置后清洁，但环境可能不允许物体放置后再清洁，或可能将任务标记为失败。\"},{\"id\":\"Z0224\",\"chinese\":\"始终先在 sinkbasin 清洁物体，再将其放入最终目的地。\"},{\"id\":\"Z0225\",\"chinese\":\"如果在检查合理数量的位置后仍未找到目标物体，不要继续打开每个剩余容器；而应重新评估或移交。\"},{\"id\":\"Z0226\",\"chinese\":\"智能体可能陷入反复打开柜子/抽屉的循环，浪费步数并最终因超时或监督者失败而失败。\"},{\"id\":\"Z0227\",\"chinese\":\"在检查几个可能的位置后，考虑物体可能在异常位置或任务可能无法完成；报告受阻或移交，而不是无限继续。\"},{\"id\":\"Z0228\",\"chinese\":\"清洁动作仅在 sinkbasin 有效；使用 bathtubbasin 或 fridge 等其他容器会失败。\"},{\"id\":\"Z0229\",\"chinese\":\"智能体可能尝试其他水源或容器，但环境仅支持在 sinkbasin 清洁。\"},{\"id\":\"Z0230\",\"chinese\":\"在发出 clean 动作前，始终先导航到 sinkbasin。\"},{\"id\":\"Z0231\",\"chinese\":\"在常见容器中搜索目标物体\"},{\"id\":\"Z0232\",\"chinese\":\"当目标物体不在第一个搜索位置时，系统地检查其他可能容器（cabinets、drawers、countertops、fridge、diningtable、sinkbasin、coffeemachine、stoveburners），直到找到该物体。\"},{\"id\":\"Z0233\",\"chinese\":\"在加热并放置任务的搜索阶段，当目标物体不立即可见或不在第一个检查位置时。\"},{\"id\":\"Z0234\",\"chinese\":\"使用 microwave 加热物体\"},{\"id\":\"Z0235\",\"chinese\":\"要加热物体，前往 microwave，若关闭则打开，将物体放入，然后使用 'heat <object> with microwave 1' 动作。如果物体已在 microwave 中，先取出，再在持有它时加热。\"},{\"id\":\"Z0236\",\"chinese\":\"在加热并放置任务中，获取目标物体后、将其放到最终目的地之前。\"},{\"id\":\"Z0237\",\"chinese\":\"如果 heat 动作失败，不要重复同一动作。而应确认物体在正确位置（例如 microwave 内），并在需要时确认你正持有它，然后尝试不同的加热器具或调整物体位置。\"},{\"id\":\"Z0238\",\"chinese\":\"如果物体不在正确容器中、容器关闭，或环境要求持有物体时未持有，heat 动作可能失败。\"},{\"id\":\"Z0239\",\"chinese\":\"加热前检查物体位置和容器状态。如果加热失败，尝试打开容器、将物体放入，或使用 stoveburner 等替代器具。\"},{\"id\":\"Z0240\",\"chinese\":\"如果目标物体不在第一个搜索位置，继续搜索其他可能位置，而不是宣布任务受阻或失败。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 701,
+    "prompt_tokens": 998,
+    "total_tokens": 1699,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 998
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

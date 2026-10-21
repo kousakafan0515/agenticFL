@@ -1,0 +1,47 @@
+{
+  "batch": 8,
+  "attempt": 1,
+  "input_ids": [
+    "T0106",
+    "T0107",
+    "T0108",
+    "T0109",
+    "T0110",
+    "T0111",
+    "T0112",
+    "T0113",
+    "T0114",
+    "T0115",
+    "T0116",
+    "T0117",
+    "T0118",
+    "T0119",
+    "T0120"
+  ],
+  "input_text_sha256": "sha256:44fdf57b322de2cb1178523a366d1ed8c7d28dbf5549f272da1df83310e71f42",
+  "raw_response": "{\"translations\":[{\"id\":\"T0106\",\"english\":\"For two-object placement tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination.\"},{\"id\":\"T0107\",\"english\":\"Desklamp observation: first locate the target object, then bring it to the desklamp and turn on the desklamp.\"},{\"id\":\"T0108\",\"english\":\"For tasks of the type “look at/examine X under the desklamp”, first search for and take the target object X; if the target object is not at the location of the desklamp, bring it to the desktop/table surface with the desklamp, place it or keep holding it, then use the desklamp to turn on the light, so as to complete the observation condition.\"},{\"id\":\"T0109\",\"english\":\"The task goal is to observe something under the desklamp, and there is an interactable desklamp in the environment; the target object and the desklamp are not in the same location, or the target object needs to be obtained from another container/surface.\"},{\"id\":\"T0110\",\"english\":\"Desklamp observation: the desklamp is usually not takeable; use it rather than take.\"},{\"id\":\"T0111\",\"english\":\"In desklamp observation tasks, the desklamp is usually a fixed object; take desklamp returns “Nothing happens.”; the correct interaction is use desklamp to turn it on, or place the target object on the surface where the desklamp is and then use desklamp.\"},{\"id\":\"T0112\",\"english\":\"When interaction with the desklamp is needed; if take desklamp fails, do not repeatedly try to take it; instead switch to use desklamp or bring the target object to the desklamp.\"},{\"id\":\"T0113\",\"english\":\"Desklamp observation: do not rely on examine target object or examine desklamp to satisfy the observation condition.\"},{\"id\":\"T0114\",\"english\":\"examine target object usually only returns “There's nothing special about X.” or “Nothing happens.”, and examine desklamp also often has no effect; these actions cannot replace the environment success condition of “observing under the desklamp”. Prioritize actions that can change the environment state, such as locating the target object, taking/placing it, and turning on the desklamp.\"},{\"id\":\"T0115\",\"english\":\"When the task requires look at/examine X under the desklamp, and examine X or examine desklamp does not produce a valid observation result.\"},{\"id\":\"T0116\",\"english\":\"Desklamp observation: avoid repeatedly look/examine the same location; continue searching for the target object.\"},{\"id\":\"T0117\",\"english\":\"Repeatedly executing look or examine on the same desktop/desklamp will not change the state and can easily lead to blocked or handoff_loop_guard. If the current surface has no target object, turn to other containers or furniture to search for the target object, and after finding it, return to the desklamp to complete the observation.\"},{\"id\":\"T0118\",\"english\":\"In desklamp observation tasks, when you have reached the location of the desklamp but the target object is not on that surface, and consecutive look/examine produces no new information.\"},{\"id\":\"T0119\",\"english\":\"In two-object placement tasks, after finding the first target item, first place it in the target container, then search for and take the second target item, and finally place the second item also in the target container.\"},{\"id\":\"T0120\",\"english\":\"When the task requires placing two items of the same type into the same target container, and the agent can carry only one item at a time.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 2427,
+    "prompt_tokens": 926,
+    "total_tokens": 3353,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1612,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 926
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

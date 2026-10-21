@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:8a4ad2f89a7854440ff93cce5a64444ea7b973680b44c6bdc434b21b5841ab17",
+  "message_character_count": 90215,
+  "started_at_utc": "2026-10-19T05:55:35.265364+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a search worker reports a failed take or 'Nothing happens' at a location, dispatch a new search mission to a different plausible location rather than re-issuing the same target. In episode_012 the supervisor correctly broadened from countertop 1 to countertop 2 after repeated no-ops, which recovered the soapbottle; codify that a no-change take should trigger a location change, not a retry.\", \"affected_skill_ids\": [\"G_006\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_012\"]},{\"recommendation\": \"Keep search missions bounded to plausible surfaces first, then containers, and specify a clear RETURN WHEN that includes 'not found here, broaden'. Episodes 001-010 show successful short searches where the worker checked a few surfaces and found the target; avoid dispatching exhaustive drawer-by-drawer sweeps when open surfaces are likely.\", \"affected_skill_ids\": [\"G_001\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_003\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_009\"]},{\"recommendation\": \"For placement missions, instruct the worker to navigate to the destination before putting, and to treat a 'Nothing happens' put as a location error first. Episode_004 shows a put failing before arrival and succeeding after go to sofa 1; the operation mission should require arrival confirmation before the put.\", \"affected_skill_ids\": [\"G_004\", \"T6_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_004\"]},{\"recommendation\": \"When the destination is a closed container, the operation mission must include an explicit open step before put. Episode_023 succeeded because the worker opened cabinet 1 before placing; make this a standard part of placement dispatch for closed receptacles.\", \"affected_skill_ids\": [\"G_003\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_023\"]},{\"recommendation\": \"Do not declare the task blocked after a single empty location. Episode_011 failed because the search stopped after stoveburner 1 showed a pot instead of a pan; the supervisor should have dispatched continued search of other stoveburners, cabinets, or surfaces before accepting failure.\", \"affected_skill_ids\": [\"G_002\", \"G_006\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_011\"]},{\"recommendation\": \"Preserve the exact object instance id from the search handoff into the operation mission (e.g., 'put book 3', 'put keychain 4'). Episodes 003, 013, 016, 017 show this pattern succeeding; the operation mission should always name the specific instance the worker is holding.\", \"affected_skill_ids\": [\"G_005\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_003\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_013\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_016\"]},{\"recommendation\": \"Treat the placement observation as terminal: once the worker reports 'You put X in/on Y', stop dispatching and do not add verification steps. Episodes 001-010, 013-024 all end correctly at the confirming put observation; avoid redundant follow-up missions.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_010\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_024\"]},{\"recommendation\": \"When a search mission's RETURN WHEN allows 'or confirms absent', ensure the worker actually reports absence before the supervisor switches locations; episode_012 shows the worker looping on the same countertop. The supervisor should detect repeated identical no-change actions and issue a corrective mission to a new location.\", \"affected_skill_ids\": [\"G_006\", \"T6_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_012\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 26655,
+    "completion_tokens": 1069,
+    "total_tokens": 27724
+  },
+  "completed_at_utc": "2026-10-19T05:55:41.140861+00:00"
+}

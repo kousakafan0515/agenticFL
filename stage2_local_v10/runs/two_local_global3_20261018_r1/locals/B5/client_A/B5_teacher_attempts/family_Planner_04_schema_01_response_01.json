@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Planner_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:c2c0df53e435e4445ce8fefe1392ba9d10bbf0d85bb38a2940c680475f444b88",
+  "message_character_count": 86283,
+  "started_at_utc": "2026-10-19T04:05:17.881464+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When heating fails with 'Nothing happens' while the object is held, the object may need to be placed into the open microwave first, then heated; if heating inside fails, take it back out and retry while held. Change the object's position/holding state after a failed heat rather than repeating the identical command.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_093\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_095\"]}, {\"recommendation\": \"After a successful heat while holding the object, do not add a take-from-microwave step; the object remains in hand. Proceed directly to the destination. Only take from the microwave if the object was actually placed inside it.\", \"affected_skill_ids\": [\"T4_006\", \"T4_001\", \"T4_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_085\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_091\"]}, {\"recommendation\": \"Before putting into a destination, ensure the actor is actually at that destination. In episode_078, repeated 'put apple in fridge' returned Nothing happens until a go-to-fridge step was executed; verify location after a failed put rather than retrying the same put.\", \"affected_skill_ids\": [\"G_004\", \"G_006\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_078\"]}, {\"recommendation\": \"Some destinations reject placement entirely (e.g., garbagecan returned Nothing happens across put/open/use attempts). After repeated put failures at a destination, stop looping and reassess whether the destination is valid rather than issuing open/use/examine on it.\", \"affected_skill_ids\": [\"T4_004\", \"G_006\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_086\"]}, {\"recommendation\": \"Match the exact object type named in the goal. When the goal says 'mug' but only a cup is taken and placed, the task can complete without environment win. Search for the exact named type (mug vs cup) rather than substituting a similar object.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_088\"]}, {\"recommendation\": \"When the target is not at the first location, broaden systematically across open surfaces (countertops, diningtable, sidetable) and containers, tracking checked locations. Do not open many empty cabinets in sequence while a visible surface holds the target; in episode_087 the mug was found on a countertop after several empty cabinets.\", \"affected_skill_ids\": [\"T4_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_087\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_093\"]}, {\"recommendation\": \"Open a closed destination before placing into it, and if open returns Nothing happens treat it as already open or non-openable and proceed rather than retrying open. In episode_096, repeated open/put across many cabinets failed; verify the destination is open and reachable before committing to it.\", \"affected_skill_ids\": [\"G_003\", \"T4_001\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_096\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_081\"]}, {\"recommendation\": \"Treat the confirming placement observation as terminal success and stop. Do not add redundant verification or inventory steps after a successful put; conversely, do not declare completion before the final placement is confirmed.\", \"affected_skill_ids\": [\"G_008\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_A/episode_092\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 26851,
+    "completion_tokens": 1050,
+    "total_tokens": 27901
+  },
+  "completed_at_utc": "2026-10-19T04:05:22.862073+00:00"
+}

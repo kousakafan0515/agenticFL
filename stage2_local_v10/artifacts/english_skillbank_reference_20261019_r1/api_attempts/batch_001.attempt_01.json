@@ -1,0 +1,47 @@
+{
+  "batch": 1,
+  "attempt": 1,
+  "input_ids": [
+    "T0001",
+    "T0002",
+    "T0003",
+    "T0004",
+    "T0005",
+    "T0006",
+    "T0007",
+    "T0008",
+    "T0009",
+    "T0010",
+    "T0011",
+    "T0012",
+    "T0013",
+    "T0014",
+    "T0015"
+  ],
+  "input_text_sha256": "sha256:479e477ba5369babf0749977482c9dd458351352b25ced2344606d4a857da271",
+  "raw_response": "{\"translations\":[{\"id\":\"T0001\",\"english\":\"Desklamp observation: first locate and turn on the desklamp, then take the target object.\"},{\"id\":\"T0002\",\"english\":\"In the desklamp observation task, first find and turn on the desklamp, then acquire the object to be observed, and finally execute examine/look.\"},{\"id\":\"T0003\",\"english\":\"The goal is examine/look at X under/with the desklamp, and a usable desklamp exists in the environment.\"},{\"id\":\"T0004\",\"english\":\"Multiple failed trajectories show that a plan to take desklamp first causes subsequent take/examine to fail or prevents completion of the observation.\"},{\"id\":\"T0005\",\"english\":\"desklamp may not be carryable or may need to remain in place as the observation light source; taking the desklamp first will break the subsequent examine/look conditions.\"},{\"id\":\"T0006\",\"english\":\"Prefer to find and turn on the desklamp near the target object's location; if the target object must be moved, bring the target object to the desklamp instead of taking the desklamp away first.\"},{\"id\":\"T0007\",\"english\":\"Multiple failed trajectories repeatedly open and close drawers or move blindly when the target object has not been found, resulting in plan_failed.\"},{\"id\":\"T0008\",\"english\":\"The target object may be in containers such as drawers or cabinets; attempting to take the object without a systematic search will fail.\"},{\"id\":\"T0009\",\"english\":\"First systematically search for the target object by container type (drawer/cabinet), and after finding it, execute take and examine/look.\"},{\"id\":\"T0010\",\"english\":\"Some trajectories put the target object on the desk or desklamp but did not execute examine/look, resulting in plan_completed_without_environment_win.\"},{\"id\":\"T0011\",\"english\":\"The task goal is observation, not placement; the put action does not trigger the observation success condition.\"},{\"id\":\"T0012\",\"english\":\"After the target object and the desklamp are in the same place, you must execute examine X or look at X under the desklamp.\"},{\"id\":\"T0013\",\"english\":\"Standard three-step plan for cleaning then placing.\"},{\"id\":\"T0014\",\"english\":\"For the \\\"clean then place\\\" task, the initial plan should be decomposed into three ordered subtasks: S1 find and pick up the target item; S2 clean the item in the sinkbasin; S3 put the cleaned item into or on the target container or surface.\"},{\"id\":\"T0015\",\"english\":\"When the goal is \\\"put a clean X in/on Y\\\" or \\\"clean some X and put it in/on Y\\\".\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1754,
+    "prompt_tokens": 734,
+    "total_tokens": 2488,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1166,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 734
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

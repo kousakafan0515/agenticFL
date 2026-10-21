@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Executor_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:b6f8070446cc8e915207b910712c5bd1a337fbcea7a177984d4b6dc94007c807",
+  "message_character_count": 117691,
+  "started_at_utc": "2026-10-19T03:59:55.094499+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the target object is already visible on the same furniture as the desklamp, take it and immediately use the numbered lamp without extra navigation; several successes did exactly this in 2-3 steps.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_036\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_038\"]}, {\"recommendation\": \"Do not issue bare 'use desklamp' or 'look' when the lamp instance is not confirmed present at the current furniture; episode_041 failed after two no-change 'use desklamp 1' at a desk whose observation listed no desklamp, then wandered. Verify the lamp is listed in the current observation before using it.\", \"affected_skill_ids\": [\"T2_004\", \"T2_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_041\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_031\"]}, {\"recommendation\": \"Avoid unsupported 'examine'/'look' actions on furniture or objects; episode_026 and episode_029 show 'examine desk 1' and 'look' returning Nothing happens or failing. Navigate with 'go to' and observe contents instead.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_029\"]}, {\"recommendation\": \"When the target is not at the first surface, continue checking other plausible open surfaces (beds, dressers, sidetables, armchairs, tables) before opening many drawers; episode_032 opened numerous empty drawers before finding the alarmclock on desk 2, while successful episodes found targets on open surfaces quickly.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_032\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_040\"]}, {\"recommendation\": \"After locating the desklamp, remember its furniture and return there once the target is acquired; do not re-search unrelated containers. Episode_028 and episode_033 correctly returned to the lamp-bearing furniture after taking the target elsewhere.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_028\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_033\"]}, {\"recommendation\": \"Treat 'use desklamp <id>' success ('You turn on the desklamp') as the terminal condition and stop; do not add placement or verification steps afterward. Episode_031 placed the alarmclock on the dresser before using the lamp, an unnecessary step that risked failure.\", \"affected_skill_ids\": [\"T2_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_025\"]}, {\"recommendation\": \"Do not attempt to navigate to a room or object name that is not a valid location; episode_025's 'go to bedroom 1' returned Nothing happens. Recover by navigating to observed furniture instead of retrying the invalid target.\", \"affected_skill_ids\": [\"G_006\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_B/episode_025\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 35709,
+    "completion_tokens": 980,
+    "total_tokens": 36689
+  },
+  "completed_at_utc": "2026-10-19T04:00:00.061241+00:00"
+}

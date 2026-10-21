@@ -1,0 +1,47 @@
+{
+  "batch": 6,
+  "attempt": 1,
+  "input_ids": [
+    "Z0101",
+    "Z0102",
+    "Z0103",
+    "Z0104",
+    "Z0105",
+    "Z0106",
+    "Z0107",
+    "Z0108",
+    "Z0109",
+    "Z0110",
+    "Z0111",
+    "Z0112",
+    "Z0113",
+    "Z0114",
+    "Z0115",
+    "Z0116",
+    "Z0117",
+    "Z0118",
+    "Z0119",
+    "Z0120"
+  ],
+  "input_text_sha256": "sha256:a8d93e8813e2cb4dbda75c58825864294095a86adbe7071c53a1078e16a5298c",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0101\",\"chinese\":\"在将物体放入柜子、抽屉或类似容器之前，使用 'open <container>' 确保它已打开。如果它已经打开，则继续执行 put 动作。\"},{\"id\":\"Z0102\",\"chinese\":\"清洁后放置的执行循环\"},{\"id\":\"Z0103\",\"chinese\":\"对于清洁后放置的目标，执行一个稳定的循环：定位目标物体，take 它，go to 一个 sinkbasin 或 bathtubbasin，clean 它，然后 go to 目标容器，如果关闭则 open 它，并将物体 put 到其中/其上。\"},{\"id\":\"Z0104\",\"chinese\":\"当目标是将一个干净的物体放入指定容器，且该物体尚未清洁时使用。\"},{\"id\":\"Z0105\",\"chinese\":\"如果智能体不在 sinkbasin 或 bathtubbasin 处，clean 动作可能会以 'Nothing happens' 失败。如果清洁失败，go to 清洁容器并重试 clean 动作。\"},{\"id\":\"Z0106\",\"chinese\":\"环境要求智能体在 clean 动作有效之前必须与清洁设施处于同一位置。\"},{\"id\":\"Z0107\",\"chinese\":\"在 take 物体后，明确 go to sinkbasin 1 或 bathtubbasin 1，然后使用 <fixture> 发出 clean <object>。\"},{\"id\":\"Z0108\",\"chinese\":\"如果目标容器是关闭的，在尝试将干净物体 put 到其中/其上之前先 open 它。\"},{\"id\":\"Z0109\",\"chinese\":\"抽屉、柜子、冰箱和微波炉等关闭的容器必须先 open 才能将物品放入其中。\"},{\"id\":\"Z0110\",\"chinese\":\"到达目的地时，检查它是否关闭；如果是，发出 open <receptacle>，然后 put <object> in/on <receptacle>。\"},{\"id\":\"Z0111\",\"chinese\":\"用微波炉加热手持物体\"},{\"id\":\"Z0112\",\"chinese\":\"对于加热后放置的任务，在定位目标物体和微波炉后，take 物体，go to 微波炉，如果关闭则 open 它，然后在手持物体时执行 `heat <object> with microwave 1`。如果第一次加热尝试返回 'Nothing happens'，将物体从微波炉中 take 出来，并在手持它时重试 `heat <object> with microwave 1`。\"},{\"id\":\"Z0113\",\"chinese\":\"当目标需要加热物体且微波炉可用时，尤其是当物体在微波炉内或上时初始加热尝试失败的情况下。\"},{\"id\":\"Z0114\",\"chinese\":\"不要在未确认的情况下假设加热成功\"},{\"id\":\"Z0115\",\"chinese\":\"只有在观察明确确认加热后才继续执行放置步骤，例如 'You heat the <object> using the microwave 1.'。如果加热尚未确认，继续尝试有效的加热方法，而不是放置物体。\"},{\"id\":\"Z0116\",\"chinese\":\"在尝试加热物体之后、将其放置到目的地之前。\"},{\"id\":\"Z0117\",\"chinese\":\"在放置加热物体之前移动到目的地\"},{\"id\":\"Z0118\",\"chinese\":\"成功加热物体后，go to 目标容器/位置，如果需要则 open 它，然后执行 `put <object> in/on <destination>`。如果 put 动作返回 'Nothing happens'，验证当前位置并移动到目的地后再重试。\"},{\"id\":\"Z0119\",\"chinese\":\"当物体是热的且目标需要将其放入或放到特定位置时。\"},{\"id\":\"Z0120\",\"chinese\":\"冷却需要打开的冰箱和直接的 cool 动作\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 769,
+    "prompt_tokens": 1007,
+    "total_tokens": 1776,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1007
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

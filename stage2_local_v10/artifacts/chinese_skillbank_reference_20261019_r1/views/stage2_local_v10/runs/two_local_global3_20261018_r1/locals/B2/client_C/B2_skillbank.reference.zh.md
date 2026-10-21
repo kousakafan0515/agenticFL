@@ -1,0 +1,475 @@
+# 中文阅读版：B2_skillbank.json
+
+仅供阅读；原始 Skill ID、任务类别及来源信息保持不变，未参与任何实验。
+
+## 监督者（Supervisor）· 通用
+
+### skill_001：两阶段“先搜索、后操作”分解
+
+**原则：** 对于必须先获取对象、再对其进行操作或放置的任务，将任务拆分为 SEARCH MISSION（搜索任务），在目标对象进入库存时结束；随后是 OPERATION MISSION（操作任务），在环境观察确认所需最终状态时结束。
+
+**适用条件：** 当目标要求先找到对象，然后使用、清洁、加热、冷却、检查或放置该对象，且该对象尚未被持有时。
+
+### skill_002：搜索任务返回条件：持有目标对象
+
+**原则：** 将 SEARCH MISSION 的返回条件定义为 worker 持有目标对象，而不仅仅是看到它或打开过容器。
+
+**适用条件：** 当派发 worker 为任何任务族寻找并拿取对象时。
+
+### skill_003：操作任务返回条件：环境观察确认最终状态
+
+**原则：** 将 OPERATION MISSION 的返回条件定义为环境观察确认所需最终状态（例如对象已放置在目的地、对象已清洁、对象已加热、对象已冷却），而不仅仅是 worker 尝试了该动作。
+
+**适用条件：** 当派发 worker 为任何任务族操作已持有的对象时。
+
+### skill_004：失败教训
+
+**问题描述：** 如果 worker 在未达成任务的返回条件时返回 HANDOFF 或报告失败，不要将同一任务重新派发到同一位置；改变搜索位置、对象描述或策略。将 open/go/take/use/clean 动作上反复出现的 'Nothing happens' 视为当前方法已耗尽的证据并切换策略。
+
+**原因：** 当 worker 的失败未被视作当前计划已耗尽的证据时，supervisor 可能重复相同的 ASSIGN，并可能重新发出不断返回 'Nothing happens' 的相同 open/take/use/clean 动作。
+
+**避免方法：** 在搜索失败或为空后，派发下一个候选位置，或让 worker 确认该位置为空后再继续。在某个动作反复出现 'Nothing happens' 后，通过核实对象位置、打开电器、使用具体实例 id（例如 'soapbottle 1'）或切换到不同方法来改变策略；在一两次 examine/use 尝试失败后，停止并改变策略或宣布失败。
+
+### skill_005：失败教训
+
+**问题描述：** 除非已知某个特定容器包含该对象，否则不要派发绑定到该容器的搜索任务；将搜索表述为对台面和可打开容器的广泛多位置搜索，如果第一个位置为空，则扩大范围而不是重复。
+
+**原因：** supervisor 可能根据目标模板而非观察到的环境状态，假设目标在某个命名容器中，但环境可能将其放在别处，导致 worker 耗尽指定位置并失败。
+
+**避免方法：** 将任务表述为 'search cabinets, drawers, countertops, shelves, beds, and other reachable receptacles for X'，并指示打开关闭的容器。如果第一次搜索返回为空，立即重新分配更广泛的多位置搜索，而不是重复同一地点；将穷尽且为空的搜索视为该对象可能不存在的证据。
+
+### skill_006：失败教训
+
+**问题描述：** 在派发放置任务之前，确认目的地是打开的或可以被打开。如果目的地是关闭的容器，在前面加上 open 步骤。如果 open 返回 'Nothing happens'，将该容器视为不可打开，并重新分配到有效的打开目的地或台面。
+
+**原因：** supervisor 分配一个 OPERATION MISSION，将对象 put 到一个关闭或不支持打开的容器（例如 coffeemachine、armchair）。worker 反复尝试 'put' 和 'open'，观察到 'Nothing happens'，耗尽步数并失败。
+
+**避免方法：** 在派发放置任务之前，确认目的地是打开的或可以被打开。如果目的地是关闭的容器，在前面加上 open 步骤并确认 open 成功。如果 open 返回 'Nothing happens'，将该容器视为不可打开，并重新分配到有效的打开目的地；对于像 armchair 这样不可打开的固定设施，只发出 go-then-put。
+
+### skill_007：失败教训
+
+**问题描述：** 在每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态。只有当观察确认目标谓词时才宣布成功；只有当观察显示无效/被阻止的动作或对象不可达时才宣布失败。在放置观察已确认目标后，不要派发验证任务。
+
+**原因：** supervisor 有时在 worker HANDOFF 后宣布 FAILED，即使环境事件显示对象已成功放置或冷却；有时在成功后发出多余的验证任务，导致交接循环。
+
+**避免方法：** 在每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态（例如 'You put the X in/on Y'、'You clean the X'、'You cool the X'）。只有当观察确认目标谓词时才宣布成功；只有当观察显示无效/被阻止的动作或对象不可达时才宣布失败。将放置观察视为终态，之后不要派发验证任务。
+
+### skill_008：失败教训
+
+**问题描述：** 只有在 worker 已确认持有该对象后，才应派发将对象放到目的地的 OPERATION MISSION；否则放置动作将失败或无效。
+
+**原因：** 主管可能基于预期对象而非 worker 的实际库存状态来发布放置任务。
+
+**避免方法：** 在分配相应的放置任务之前，要求 worker 的 HANDOFF 明确报告持有目标对象。
+
+## 监督者（Supervisor）· 台灯观察
+
+### skill_009：将 desklamp 用作其观察位置处的固定设施
+
+**原则：** In 台灯观察 tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's observed location and use it (turn it on) while holding the target object. Bind the operation to the lamp's observed location, not a guessed one, and if the target object is already visible at the lamp's location, a single combined take-then-use mission suffices.
+
+**适用条件：** 当目标要求用 desklamp 或在 desklamp 下 examine 或 look at 某个对象，且观察到 desklamp 在 desk、sidetable、dresser 或其他台面上时。
+
+### skill_010：失败教训
+
+**问题描述：** 在环境已经返回 'There's nothing special about X' 或 'Nothing happens' 之后，对同一对象反复派发 examine、look 或 use 任务会导致交接循环和任务失败。在一两次失败尝试后，改变策略：核实对象和灯的位置，尝试不同的交互，或宣告失败。
+
+**原因：** 监督者可能不会把空观察视为当前 examine/use 策略已耗尽的证据，并且即使灯不在当前位置，也可能重新派发同一任务。
+
+**避免方法：** 在一两次失败的 examine/use 尝试后，改变策略：核实对象和灯在当前位置，尝试不同的交互（take/put/use），或宣告失败。在 'Nothing happens' 之后，不要重新派发同一 use/examine desklamp 任务。
+
+### skill_011：失败教训
+
+**问题描述：** The phrase 'under the desklamp' in 台灯观察 goals does not guarantee the target object is physically under the lamp, nor that the lamp is at the assumed location. If the object or lamp is not visible at the assumed location, search other surfaces and containers before declaring failure.
+
+**原因：** 监督者可能按字面理解目标短语，并反复在假定的台灯位置派发 look/use 任务，即使对象或灯在别处。
+
+**避免方法：** 如果对象或灯在假定位置不可见，在宣告失败前搜索其他表面和容器（dressers、sidetables、desks）。将操作任务绑定到观察到的灯位置，并且当对象在别处时，不要派发重复的 'look under desklamp' 任务。
+
+## 监督者（Supervisor）· 清洗后放置
+
+### skill_012：带显式清洁状态验证的清洁后放置流水线
+
+**原则：** For 清洗后放置 tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation. Keep clean and place as distinct missions with distinct return conditions.
+
+**适用条件：** Any 清洗后放置 goal where the target object may be dirty and the destination is a fixed receptacle.
+
+## 监督者（Supervisor）· 加热后放置
+
+### skill_013：获取对象后的加热任务
+
+**原则：** 在 worker 返回并拿着目标对象后，派发一个 OPERATION MISSION，使用热源（如 microwave 1）加热它。该任务应指示：如果微波炉关着就打开它，把对象放进去，然后加热，并且只有在环境确认 'You heat the X' 时才返回。
+
+**适用条件：** 在 worker 持有目标对象的成功 SEARCH MISSION 交接后。
+
+### skill_014：加热后的放置任务
+
+**原则：** 在 worker 带着已加热对象返回后，派发 OPERATION MISSION 将其放置到指定目的地。当环境确认对象在目的地时返回。
+
+**适用条件：** 在对象已加热的成功 HEAT MISSION 交接后。
+
+## 监督者（Supervisor）· 冷却后放置
+
+### skill_015：冷却需要专门的 cool 动作，而不仅仅是放入冰箱
+
+**原则：** 对于冷却任务，在获得目标对象后，明确用冰箱执行 cool 动作（例如 'cool X with fridge 1'），并在 'You cool the X' 确认后返回，然后再尝试放置。不要假设把对象放入冰箱再取出就构成冷却，并且将 cool 和 place 保持为具有不同返回条件的独立任务。
+
+**适用条件：** 当目标是冷却一个物体并将其放到别处，且该物体当前正被持有时。
+
+### skill_016：失败教训
+
+**问题描述：** 在派发对特定对象的搜索之前，确认该对象类型存在且可冷却。如果在合理的广泛搜索后仍未找到该对象，将空尽的穷举搜索视为该对象可能不存在的证据，并尽早报告失败，而不是重新派发同一搜索。
+
+**原因：** 监督者可能未经检查就假设对象存在，导致浪费时间的穷举搜索并以失败告终，或者在 worker 已经穷尽所有容器后重复相同的广泛搜索。
+
+**避免方法：** 在初始探索期间，记录对象的位置。如果在广泛搜索后未在可能的容器中找到目标对象，重新评估任务可行性并尽早报告失败，而不是重复同一 SEARCH 任务。
+
+## 监督者（Supervisor）· 双物品放置
+
+### skill_017：单件容量下的顺序两件放置
+
+**原则：** For 双物品放置 tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination. Track placed-item state so the second search targets a location observed to hold a second instance and never re-takes an already-placed item.
+
+**适用条件：** 当目标要求将同一物体类型的两个实例放到目的地，且工作者一次只能持有一个物体时。
+
+## 搜索者（Search Worker）· 通用
+
+### skill_001：在打开封闭容器之前先搜索可见表面
+
+**原则：** 对于找物体任务，先扫描所有可见表面（桌子、书桌、梳妆台、床、架子、台面、沙发、扶手椅等）寻找目标物体，然后再打开抽屉、柜子、保险箱、冰箱和微波炉等封闭容器。
+
+**适用条件：** 当目标物体在当前地点不能立即看到且任务要求找到它时。
+
+### skill_002：在尝试从封闭容器中取物之前先打开它
+
+**原则：** 当目标物体预期在封闭容器（抽屉、柜子、保险箱、冰箱、微波炉）内时，先导航到该容器，然后使用 open 动作，再从打开的容器中 take 该物体。
+
+**适用条件：** 当目标物体在表面上不可见且封闭容器是可能的位置时。
+
+### skill_003：拿到目标物体后，导航到目的地并将其放在那里
+
+**原则：** 一旦目标对象在库存中，直接前往指定的目的地容器或表面，并使用 put 动作将对象放置在那里。除非监督者明确负责放置，否则不要在仍拿着对象时宣告 HANDOFF；完成 put 可避免过早交接和因持有而受阻的移动。
+
+**适用条件：** 在成功拿到目标物体之后、宣布交接或完成之前。
+
+### skill_004：避免重复失败的动作，并且只有在穷举搜索后才宣告 blocked
+
+**原则：** 如果 go to、open 或 take 等动作返回 'Nothing happens'，不要继续重试同一动作。从观察中核实确切的带编号对象/容器标识符，如果仍然失败一两次，则切换到不同的位置或容器。在宣告 blocked 之前，确保每个可能的关闭容器都确实被打开并检查过，而不仅仅是靠近过，并避免重新访问已确认空的表面。
+
+**适用条件：** 当重复的导航、open 或 take 动作失败时，或者当所有已知容器和表面都已搜索过但未找到目标对象时。
+
+## 搜索者（Search Worker）· 台灯观察
+
+### skill_005：台灯观察：先定位目标物，再将其带到台灯处并开启台灯
+
+**原则：** 对于“look at/examine X under the desklamp”类任务，先搜索并取得目标物 X；若目标物不在台灯所在位置，则将其带到有 desklamp 的桌面/台面，放置或保持持有，然后使用带编号的 desklamp 开启照明。若目标物已在台灯所在表面，取得后立即 use desklamp N，不要仅取物后就交接，因为观察目标要求台灯开启。
+
+**适用条件：** 任务目标为观察某物在台灯下，且环境中存在可交互的 desklamp；目标物与 desklamp 不在同一位置，或目标物需要从其他容器/表面取得。
+
+### skill_006：台灯观察：desklamp 通常不可拿取，应使用带编号的 use desklamp
+
+**原则：** 在台灯观察任务中，desklamp 通常是固定物体，take desklamp 会返回“Nothing happens.”；正确交互是持有目标物后使用观察中看到的带编号标识执行 use desklamp N 来开启它。不要尝试 'use desklamp on X' 或 'use X on desklamp' 组合，这些通常无效。
+
+**适用条件：** 需要与 desklamp 交互时；若 take desklamp 失败，不要反复尝试拿取，应改为 use desklamp N 或将目标物带到 desklamp 处后再 use desklamp N。
+
+### skill_007：台灯观察：不要依赖 examine 目标物或 examine desklamp 来满足观察条件
+
+**原则：** examine 目标物通常只返回“There's nothing special about X.”或“Nothing happens.”，examine desklamp 也常无效果；这些动作不能替代“在台灯下观察”的环境成功条件。应优先完成目标物定位、取得/放置、开启台灯等可改变环境状态的动作。
+
+**适用条件：** 当任务要求 look at/examine X under the desklamp，而 examine X 或 examine desklamp 没有产生有效观察结果时。
+
+### skill_008：台灯观察：避免重复 look/examine 同一位置，应继续搜索目标物
+
+**原则：** 反复执行 look 或 examine 同一桌面/台灯不会改变状态，容易导致 blocked 或 handoff_loop_guard。若当前表面没有目标物，应转向其他容器或家具搜索目标物，找到后再回到 desklamp 处完成观察。
+
+**适用条件：** 在台灯观察任务中，已到达 desklamp 所在位置但目标物不在该表面，且连续 look/examine 没有新信息时。
+
+## 搜索者（Search Worker）· 清洗后放置
+
+### skill_009：Clean-then-place workflow for 清洗后放置
+
+**原则：** 对于清洁并放置任务，首先定位并拿起目标对象，然后前往 sinkbasin 并清洁它，再前往目的地容器并将其放在那里。绝不要在清洁之前放置对象，因为先放置将不满足清洁要求。
+
+**适用条件：** 当目标是把一个干净的物体放到指定位置，而该物体尚未干净时。
+
+### skill_010：失败教训
+
+**问题描述：** 如果目标要求物体干净，在清洁前放置该物体会无法满足任务，并可能导致失败。
+
+**原因：** 智能体可能跳过清洁步骤或尝试在放置后清洁，但环境可能不允许物体放置后再清洁，或可能将任务标记为失败。
+
+**避免方法：** 始终先在 sinkbasin 清洁物体，再将其放入最终目的地。
+
+### skill_011：失败教训
+
+**问题描述：** 如果在检查合理数量的位置后仍未找到目标物体，不要继续打开每个剩余容器；而应重新评估或移交。
+
+**原因：** 智能体可能陷入反复打开柜子/抽屉的循环，浪费步数并最终因超时或监督者失败而失败。
+
+**避免方法：** 在检查几个可能的位置后，考虑物体可能在异常位置或任务可能无法完成；报告受阻或移交，而不是无限继续。
+
+### skill_012：失败教训
+
+**问题描述：** 清洁动作仅在 sinkbasin 有效；使用 bathtubbasin 或 fridge 等其他容器会失败。
+
+**原因：** 智能体可能尝试其他水源或容器，但环境仅支持在 sinkbasin 清洁。
+
+**避免方法：** 在发出 clean 动作前，始终先导航到 sinkbasin。
+
+### skill_020：失败教训
+
+**问题描述：** 当目标指定特定对象类型（例如 cup、bowl、pot、mug）时，不要拿取或使用不同但相似的对象类型（例如用 mug 代替 cup，用 pan 代替 pot），除非环境明确将它们视为等价。
+
+**原因：** 智能体可能泛化对象类别并拿起附近的相似对象，导致任务失败。
+
+**避免方法：** 匹配目标中要求的确切对象类型；如果只有相似类型可用，继续搜索其他位置或报告不匹配，而不是替换。
+
+## 搜索者（Search Worker）· 加热后放置
+
+### skill_013：在常见容器中搜索目标物体
+
+**原则：** 当目标物体不在第一个搜索位置时，系统地检查其他可能容器（cabinets、drawers、countertops、fridge、diningtable、sinkbasin、coffeemachine、stoveburners），直到找到该物体。
+
+**适用条件：** 在加热并放置任务的搜索阶段，当目标物体不立即可见或不在第一个检查位置时。
+
+### skill_014：使用 microwave 加热物体
+
+**原则：** 要加热对象，前往微波炉，如果关着就打开它，把对象放进去，然后使用 'heat <object> with microwave 1' 动作。如果对象已经在微波炉中，先拿起它，然后在拿着它时加热。在尝试从中拿取或使用之前先打开微波炉，因为对关闭的微波炉执行 take/use 会返回 'Nothing happens'。
+
+**适用条件：** 在加热并放置任务中，获取目标物体后、将其放到最终目的地之前。
+
+### skill_015：失败教训
+
+**问题描述：** 如果 heat 动作失败，不要重复同一动作。而应确认物体在正确位置（例如 microwave 内），并在需要时确认你正持有它，然后尝试不同的加热器具或调整物体位置。
+
+**原因：** 如果物体不在正确容器中、容器关闭，或环境要求持有物体时未持有，heat 动作可能失败。
+
+**避免方法：** 加热前检查物体位置和容器状态。如果加热失败，尝试打开容器、将物体放入，或使用 stoveburner 等替代器具。
+
+### skill_016：失败教训
+
+**问题描述：** 如果目标物体不在第一个搜索位置，继续搜索其他可能位置，而不是宣布任务受阻或失败。
+
+**原因：** 该物体可能位于尚未检查过的另一个容器或表面上。
+
+**避免方法：** 在断定物体不可用之前，应系统地搜索所有可能的容器和表面。
+
+## 搜索者（Search Worker）· 冷却后放置
+
+### skill_017：冷却流程：定位目标，用冰箱冷却，然后放置
+
+**原则：** 对于冷却任务，首先找到目标对象，拿起它，前往打开的冰箱，使用冰箱执行 cool 动作，然后导航到最终目的地并将对象放在那里。在冷却前打开冰箱，并且在完整的冷却和放置序列完成之前，不要宣告成功或交接。
+
+**适用条件：** 当目标是冷却一个物体并将其放入指定的容器中时。
+
+### skill_018：失败教训
+
+**问题描述：** 冰箱不保证包含目标物体；在断定物体不可用之前，应搜索其他位置，如台面、橱柜、餐桌和架子。
+
+**原因：** 智能体通常先检查冰箱，因为冷却需要冰箱，但物体可能在别处。
+
+**避免方法：** 检查冰箱后，在宣布失败之前应系统地搜索其他常见的物体位置。
+
+### skill_019：失败教训
+
+**问题描述：** 打开冰箱不足以完成冷却任务；智能体必须定位目标物体、take 它、冷却它，并在交接前把它 put 到目的地。
+
+**原因：** 智能体可能将任务误解为只需打开冰箱，或在完成部分步骤后过早交接。
+
+**避免方法：** 在宣布成功或交接之前，验证完整的冷却和放置序列是否已完成。
+
+## 搜索者（Search Worker）· 双物品放置
+
+### skill_021：双物品放置：先放置第一件再取第二件
+
+**原则：** 在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品，最后将第二件也放到目标容器。若第一件物品所在表面有多个同类实例，放置第一件后返回同一表面取第二件，而不是去别处搜索。
+
+**适用条件：** 当任务要求将两个同类物品放入同一目标容器，且智能体一次只能携带一件物品时。
+
+### skill_022：失败教训
+
+**问题描述：** 在双物品放置任务中，当智能体已经持有一件物品时，尝试移动到其他位置或取另一件物品通常会失败（返回“Nothing happens”），因为智能体一次只能携带一件物品。
+
+**原因：** ALFWorld 环境限制智能体一次只能持有一件物品，持有物品时移动或取物操作会被阻止。
+
+**避免方法：** 在尝试移动或取第二件物品之前，先将当前持有的物品放到目标容器或临时位置，释放双手后再继续。
+
+### skill_023：失败教训
+
+**问题描述：** 在双物品放置任务中，如果只在一种类型的容器（如仅搜索架子或仅搜索柜子）中寻找目标物品，可能无法找到第二件物品，导致任务失败。
+
+**原因：** 目标物品可能分散在不同的容器类型中，如柜台、桌子、架子、柜子、抽屉等。
+
+**避免方法：** 系统性地搜索多种类型的容器和表面，包括柜台、桌子、架子、柜子、抽屉等，直到找到两件目标物品；不要过早声明 BLOCKED。
+
+### skill_024：失败教训
+
+**问题描述：** 在双物品放置任务中，如果智能体在已经持有物品或已完成部分任务时反复声明 HANDOFF 而不执行实际动作，会导致 handoff_loop_guard 终止，任务失败。
+
+**原因：** 智能体可能错误地认为当前状态已满足交接条件，但实际任务尚未完成，导致反复声明交接而不推进任务。
+
+**避免方法：** 仅在确实完成当前子目标（如已取到物品或已放置物品）时声明 HANDOFF，并在声明后继续执行必要的后续动作，避免重复声明。
+
+## 操作者（Operation Worker）· 通用
+
+### skill_001：在放入之前打开关闭的容器
+
+**原则：** 如果目的地是关闭的容器，在尝试将持有的物体 put 进去之前先 open 它。
+
+**适用条件：** 当目的地是橱柜、抽屉、冰箱、微波炉、保险箱或类似容器，且观察表明它是关闭的时。
+
+### skill_002：失败教训
+
+**问题描述：** 如果 put 动作返回 'Nothing happens'，验证当前位置并导航到目的地，然后重试 put。
+
+**原因：** 智能体可能未在目的位置就尝试放置物体，导致 put 动作静默失败。
+
+**避免方法：** put 失败后，检查智能体是否在目的地；如果不在，go to 目的地，然后重试 put。
+
+### skill_003：失败教训
+
+**问题描述：** 如果某个动作失败（例如显示 'Nothing happens'），不要在没有改变状态或方法的情况下重复它；重新评估并尝试不同的动作或位置。
+
+**原因：** 智能体可能会卡住并重复同一个无效动作，浪费步数并导致失败或交接循环。
+
+**避免方法：** 动作失败后，检查库存、位置和物体状态；尝试不同的动作或移动到不同的位置。
+
+### skill_004：失败教训
+
+**问题描述：** 确保被拿起或转换的物体与目标物体类型匹配；相似但不同的物体（例如 cup 与 mug、towel 与 handtowel）不会满足目标。
+
+**原因：** 智能体可能会混淆相似物体或误读观察结果，浪费时间并导致任务失败。
+
+**避免方法：** 在拿起或转换物体之前，仔细阅读观察结果并确认物体名称与目标匹配。
+
+### skill_005：失败教训
+
+**问题描述：** 如果在搜索相关位置后仍找不到目标物体，应声明失败，而不是无限期地继续。
+
+**原因：** 该物体可能不存在于环境中，或者可能位于无法到达的位置。
+
+**避免方法：** 搜索可能的容器和表面；如果找不到该物体，报告失败。
+
+## 操作者（Operation Worker）· 简单取放
+
+### skill_006：简单的拿起并放置执行
+
+**原则：** 对于简单的拿起并放置任务，定位目标物体，take 它，导航到目的地，然后 put 它 down。
+
+**适用条件：** 当目标是将单个物体移动到指定目的地，且不需要清洁、加热、冷却或照明时。
+
+## 操作者（Operation Worker）· 台灯观察
+
+### skill_007：台灯观察：先定位台灯所在家具，再携带目标物前往
+
+**原则：** 在台灯观察任务中，不要直接尝试 go to desklamp；台灯是固定在家具上的对象，应先通过探索或已知位置找到承载台灯的家具（如 desk、sidetable、dresser、coffeetable），再携带目标物前往该家具并使用台灯。
+
+**适用条件：** 当目标物已取得或已在手，且需要将其置于台灯下观察时。
+
+### skill_008：台灯观察：到达台灯所在家具后使用台灯实例完成观察
+
+**原则：** 携带目标物到达台灯所在家具后，执行 use desklamp <id>（使用具体实例编号，如 use desklamp 1）即可完成台灯观察；不要使用裸名 use desklamp，也不要对目标物执行 examine、use 或 look 来触发观察。
+
+**适用条件：** 当已携带目标物并位于台灯所在家具处，且任务要求 examine/look at 目标物 with/under the desklamp 时。
+
+### skill_009：台灯观察：避免裸名或复合语法，改用 use desklamp <id>
+
+**原则：** 在台灯观察任务中，裸名 use desklamp、复合语法 use desklamp on X / use X on desklamp，以及对目标物反复 examine/use/look 通常返回 Nothing happens；成功路径是到达台灯所在家具后执行 use desklamp <id>。若已尝试多次无效，应停止重复并核对台灯实例名后重试。
+
+**适用条件：** 当任务要求 look at/examine 目标物 under/with the desklamp，且裸名或复合语法返回 Nothing happens 时。
+
+### skill_010：台灯观察：不要尝试拿起或移动台灯
+
+**原则：** 台灯是固定对象，take desklamp 或 go to desklamp 通常无效；应把台灯视为家具上的固定交互点，通过前往其所在家具并使用它来完成观察。
+
+**适用条件：** 当任务涉及 desklamp，且尝试 take desklamp 或 go to desklamp 返回 Nothing happens 时。
+
+## 操作者（Operation Worker）· 清洗后放置
+
+### skill_011：Clean-then-place sequence for 清洗后放置
+
+**原则：** 对于先清洁再放置的目标，先获取目标物体，然后 go to 一个 sinkbasin 并 clean 它，再 go to 目的地并放置它。如果目的地是关闭的容器，在放置前先 open 它。
+
+**适用条件：** 当目标是将一个干净的物体放到目的地，而该物体尚未干净时。
+
+### skill_012：不要用非 sinkbasin 的设施清洁
+
+**原则：** 清洁只对 sinkbasin 有效。尝试用 fridge、bathtubbasin 或其他设施清洁会产生 'Nothing happens' 并浪费步数。
+
+**适用条件：** 当拿着需要清洁的物体并选择清洁位置时。
+
+### skill_013：不要放入非容器设施
+
+**原则：** 某些设施（如 toilets 和 coffeemachines）不是有效的放置容器。反复尝试 put 会产生 'Nothing happens'；如果目的地无效，报告 blocked，而不是循环。
+
+**适用条件：** 当目的地是 toilet、coffeemachine 或其他拒绝放置的设施时。
+
+## 操作者（Operation Worker）· 加热后放置
+
+### skill_014：用微波炉直接加热手持物体
+
+**原则：** 当手持目标物体且微波炉已打开时，使用直接加热动作（'heat <obj> with microwave'），而不是先把物体放进去；先放入再加热通常会返回 'Nothing happens'。
+
+**适用条件：** Task type 加热后放置; target object is held; microwave is open; goal requires heating the object.
+
+### skill_015：失败教训
+
+**问题描述：** 当物体在微波炉内时，反复使用 'use microwave' 或 'heat object with microwave' 可能失败且不改变状态。
+
+**原因：** 环境可能要求手持物体或微波炉打开，加热动作才能成功。
+
+**避免方法：** 如果加热失败，取出物体，确保微波炉打开，并在手持物体时尝试直接加热动作。
+
+### skill_016：失败教训
+
+**问题描述：** 在手持物体时直接加热成功后，物体仍留在物品栏中；尝试从微波炉中取出它会返回 'Nothing happens'。
+
+**原因：** 直接加热动作不会把物体放入微波炉，因此没有东西可取出来。
+
+**避免方法：** 加热后，用物品栏确认物体仍被手持，并直接前往目的地；不要尝试从微波炉中取出它。
+
+### skill_017：在结束前将加热后的物体放到目的地
+
+**原则：** 加热并确认物体被手持后，前往目的地，若关闭则打开它，并把物体放在那里。仅加热只是中间里程碑，不是任务完成；在物体被放置之前不要宣布 HANDOFF。
+
+**适用条件：** Task type 加热后放置; object is heated and held; destination is known.
+
+## 操作者（Operation Worker）· 冷却后放置
+
+### skill_018：用打开的冰箱冷却手持物体
+
+**原则：** 当目标要求冷却物体时，先获取物体，然后手持它前往打开的冰箱，并对冰箱使用 cool 命令。
+
+**适用条件：** 手持目标物体并站在打开的冰箱前，且目标要求物体是冷的。
+
+### skill_019：失败教训
+
+**问题描述：** 将物体放入冰箱不会冷却它；必须在冰箱前手持物体时使用 cool 命令。
+
+**原因：** 环境仅通过显式的 cool 动作改变物体温度，而不是通过盛放。
+
+**避免方法：** 手持物体到达冰箱后，发出 'cool <object> with fridge'，而不是将物体放入冰箱。
+
+### skill_020：失败教训
+
+**问题描述：** 如果目的地关闭或智能体不在目的地，put 动作会静默失败；放置前先打开目的地并导航到那里。
+
+**原因：** 环境要求智能体位于打开的容器处才能放置物体。
+
+**避免方法：** 冷却后，前往目的地，如果关闭则打开它，然后将手持物体放在那里。
+
+### skill_021：失败教训
+
+**问题描述：** 仅冷却物体不够；只有将冷却后的物体放到要求的目的地后任务才完成。
+
+**原因：** 任务目标同时包含冷却和放置，因此仅在冷却后就宣布交接会使任务不完整。
+
+**避免方法：** 冷却后，继续前往目的地并放置物体，然后再宣布成功。
+
+## 操作者（Operation Worker）· 双物品放置
+
+### skill_022：两件物品放置：在交接前放置两件物体
+
+**原则：** 对于需要在目的地放置两个同类型物体的任务，拿起一个物体，把它带到目的地，放下，然后寻找第二个不同的实例并重复。记录已放置数量，只有在两个物体都到达目的地后才宣布 HANDOFF；不要重新拿取已放置的物体。
+
+**适用条件：** 当目标是将两个同类型物体放到目标位置，且智能体无法同时持有两者时。

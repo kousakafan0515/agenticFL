@@ -1,0 +1,241 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "C",
+  "generation": 4,
+  "parent_bank_file_sha256": "sha256:337acc2f028beae177d74d76311c5a9c6b3cf0716317d307fb49de65767afffd",
+  "per_role": {
+    "Supervisor": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Search Worker": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_007",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_020",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_028"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Search visible surfaces first and broaden across plausible locations",
+            "principle": "When a target object's location is unknown, locate it before manipulation by checking open, directly observable surfaces and common holding places first, such as tables, countertops, desks, dressers, shelves, beds, sofas, chairs, and even unusual surfaces like toilets or tvstands. Only then open closed containers such as drawers, cabinets, fridges, and microwaves. Treat the search as a broad multi-location search rather than assuming one named receptacle contains the object; if an early location is empty, broaden to other plausible unchecked locations. If the target or a needed fixture (e.g., a desklamp) is already visible on a surface, go directly to that furniture instead of continuing to search unrelated containers.",
+            "when_to_apply": "When the target object's location is unknown at the start, when the first checked location does not contain it, or when the target or a required fixture is already visible on a surface."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_044",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_063",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_128"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Failed searches often repeat the same empty surfaces or failed take attempts, revisit already-confirmed-empty locations, or conclude the object is unavailable before all plausible open surfaces and relevant containers have been checked. A search should maintain a checked-location list and move to a new unchecked plausible location after a failed take or empty look.",
+            "why_it_happens": "The search may be treated as an unconstrained sequence without bookkeeping, so empty locations are revisited and some plausible locations are never examined; alternatively the agent may declare blocked after only a subset of locations is checked.",
+            "how_to_avoid": "Record each checked location and its result. After a failed take or empty look, mark that location checked and move to another plausible unchecked location. Do not revisit confirmed empty surfaces unless the environment state changed. Open closed receptacles before treating them as searched and prioritize locations by object type. If the object remains absent after relevant locations are exhausted, report failure rather than continuing indefinitely; but do not declare blocked while plausible unchecked locations remain."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_026",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_031",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_052",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_081"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use exact action forms, identifiers, and matching object types",
+            "principle": "Use only supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, open a container before accessing it, and use a fixture with its numbered instance. Refer to exact object and receptacle identifiers from observations, including instance numbers (e.g., take soapbottle 1 from countertop 1); never navigate to a takeable object. Track the specific instance taken so later actions use the same one. Do not use examine, look at, or open on non-container surfaces; open only applies to openable containers. Confirm the object name matches the goal, since similar types (mug vs cup, butterknife vs knife) may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.",
+            "when_to_apply": "Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_120"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "When an action such as go to, open, take, put, use, or clean returns 'Nothing happens', do not repeat the same command. Failed attempts can come from being at the wrong location, using an inexact or invalid identifier, targeting a closed or non-openable receptacle, or trying an inaccessible location. Treat an unreachable navigation target as unavailable and switch to another candidate; treat an already-open container as open and continue rather than reopening it. Repeated no-change results are evidence that the current approach is exhausted.",
+            "why_it_happens": "The same invalid action may be retried without updating the inferred state, and a failed task segment may be reissued identically instead of changing the search location, object description, or strategy.",
+            "how_to_avoid": "After a no-change observation, re-check location, inventory, exact identifiers, and object or container state. Change at least one relevant condition: move to a different reachable location, open a closed container, use the specific instance id, or switch to another strategy. After one or two identical failures, stop retrying. If a task segment fails or returns without meeting its condition, do not repeat it unchanged; broaden the search or change the approach. Before declaring blocked, ensure every plausible closed container was actually opened and inspected, not merely approached, and avoid revisiting surfaces already confirmed empty."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_007",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_023",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_048",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_054",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_079"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use an acquire-then-operate sequence with explicit completion conditions",
+            "principle": "For tasks that require an object to be found and then manipulated, cleaned, heated, cooled, examined, or placed, split the task into an acquisition phase and an operation phase. The acquisition phase ends only when the target object is actually held, not merely seen or when a container is opened. Signal handoff only after the take observation confirms holding the object, and note any remaining operation (cleaning, heating, cooling, placement) for the next role. The operation phase ends only when the environment observation confirms the required final state.",
+            "when_to_apply": "When a goal requires an object to be acquired before it is used, transformed, or placed, and the object is not already held."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T2_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_028",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_034",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_037"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察搜索策略：优先开放表面并系统检查容器",
+            "principle": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、coffeetable 等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉或无关容器。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+            "when_to_apply": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物或台灯不在该处、连续观察无新信息时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T3_006",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_053",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_060",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_063",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_093"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Searching for the target object should prioritize plausible locations and avoid opening every remaining container indefinitely or declaring blocked prematurely. If the object is not found after checking a reasonable set of likely locations, reassess or report blocked rather than continuing a step-consuming loop; conversely, do not stop after only one or two empty locations while many plausible ones remain.",
+            "why_it_happens": "Item locations follow some regularities, but unusual placement or impossible tasks can occur; unbounded search wastes steps and can cause timeout or failure, while premature blocking misses findable objects.",
+            "how_to_avoid": "Prioritize likely locations by object type: food-related items in fridge; dishes or utensils in countertop, cabinet, or drawer; cleaning supplies near sinkbasin, countertop, or shelf. Track checked locations and avoid revisiting confirmed-empty ones. After a few likely locations fail, consider unusual placement or impossibility, then reassess or report blocked rather than exhaustively opening all containers or stopping too early."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T4_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_088",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_093"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic search and continue after misses",
+            "principle": "When the target object is not in the first searched location, continue systematically checking other plausible containers and surfaces such as cabinets, drawers, countertops, fridge, dining table, sink basin, coffee machine, and stoveburners. Do not declare the task blocked or the object unavailable merely because the first location is empty. Track checked locations and avoid revisiting confirmed-empty surfaces; after a reasonable broad search, reassess rather than opening every remaining container.",
+            "when_to_apply": "During the acquisition phase of a heat-and-place task when the target object is not immediately visible or is absent from the first checked location."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_109",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_111",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_117",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_100"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded systematic search and early feasibility reassessment",
+            "principle": "Check a few high-probability locations first, including the fridge, countertops, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. If the target is not found after a reasonable broad search, reassess the goal or whether the object may be absent rather than continuing through every unrelated receptacle. Do not repeat an identical broad search after all obvious receptacles have been exhausted; report or escalate early when feasibility is doubtful. Do not declare blocked after only opening the fridge while other plausible locations remain unchecked.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T6_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_118",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_120",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_126"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic search across receptacle types and visible surfaces",
+            "principle": "When target objects are not immediately visible, search broadly instead of checking only one receptacle type. Inspect visible surfaces such as counters, tables, shelves, sofas, and similar open surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. Do not conclude the task is blocked prematurely, and treat an unreachable navigation target as unavailable and move to another candidate.",
+            "when_to_apply": "When one or both target objects are not visible and must be located in the environment."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "T6_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_120",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_128",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_132"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, or re-taking an already-placed instance, can exhaust the action budget and cause failure.",
+            "why_it_happens": "Searching without tracking checked locations leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target; the agent may also lose track of which instance was already placed.",
+            "how_to_avoid": "Maintain a mental or explicit list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location already confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 11,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Operation Worker": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:440914b0b95030ce5dfc8d384e2976ef55c27848e3616381ae5e2a8151eba873"
+}

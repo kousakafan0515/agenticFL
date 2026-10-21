@@ -1,0 +1,45 @@
+{
+  "schema_version": "stage2_local_v10.global_validation_controller.v1",
+  "generation": 4,
+  "global_round": 2,
+  "global_bank_file_sha256": "sha256:f83d3e2dd65f574f4fdec9760070a360fbeb669a8e2c463a6ba9f04547efb221",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "stop_after": "Global2_three_client_validation",
+  "status": "complete",
+  "current_client": null,
+  "completed_clients": [
+    "C",
+    "A",
+    "B"
+  ],
+  "started_at": "2026-10-18T18:19:55.252384+00:00",
+  "error_type": "RuntimeError",
+  "error": "parallel Global validation failed: C: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_c_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_c_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python']' returned non-zero exit status 1.; A: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_a_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_a_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '--max-control-retries', '12']' returned non-zero exit status 1.; B: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_b_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_b_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python']' returned non-zero exit status 1.",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/skillMAS/stage2_local_v10/run_global_validation.py\", line 88, in run\n    raise RuntimeError(\"parallel Global validation failed: \" + \"; \".join(f\"{client}: {exc}\" for client, exc in errors))\nRuntimeError: parallel Global validation failed: C: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_c_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_c_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python']' returned non-zero exit status 1.; A: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_a_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_a_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '--max-control-retries', '12']' returned non-zero exit status 1.; B: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v9.scripts.run_client_b_phase', '--phase', 'validation', '--generation', '4', '--manifest', '/mnt/d/skillMAS/stage2_local_v10/artifacts/manifests/client_b_generation_01.json', '--bank', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.json', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/validation', '--data-root', '/mnt/d/skillMAS/alfworld_data', '--python', '/home/user0515/miniconda3/envs/stage3-alfworld/bin/python']' returned non-zero exit status 1.\n",
+  "failed_at": "2026-10-18T18:54:48.498390+00:00",
+  "resume_events": [
+    {
+      "time": "2026-10-19T03:11:08.201113+00:00",
+      "from_client": "ABC_parallel"
+    }
+  ],
+  "results": {
+    "C": {
+      "success_count": 109,
+      "result_file_sha256": "sha256:8c96f30fd3e90a665ad7a45e9cfe124a6c6784902c91645125caf7d848945451",
+      "replacement_bank_file_sha256": "sha256:e4d5f9688e61913c75779f32eba34369bb89547124c331573579073e589257c8"
+    },
+    "A": {
+      "success_count": 110,
+      "result_file_sha256": "sha256:d399f36be45637e6b68c54a05e5e505b990af63c25c001ed8095da56ca9518a6",
+      "replacement_bank_file_sha256": "sha256:a56be43d601b4b4bc77f246d584cce035215e7d6eb40c7e54eba443bd0dd4f94"
+    },
+    "B": {
+      "success_count": 117,
+      "result_file_sha256": "sha256:c7430f72d1ee94653d124d341c847999f1c6ad8ba79bde495767e513ffff0a83",
+      "replacement_bank_file_sha256": "sha256:a27d2873c3cb7296597ddb446010e353ea6273533ae471df936c7ffe4aa0471b"
+    }
+  },
+  "completed_at": "2026-10-19T03:11:08.273240+00:00",
+  "pooled_success_count": 336
+}

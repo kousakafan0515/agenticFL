@@ -1,0 +1,15 @@
+{
+  "bucket": "清洗后放置",
+  "input_skill_count": 42,
+  "output_skill_count": 6,
+  "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_03.attempt_01.json",
+  "usage": {
+    "requested_model": "deepseek-flash",
+    "response_model": "deepseek-flash",
+    "finish_reason": "stop",
+    "prompt_tokens": 9764,
+    "completion_tokens": 4211,
+    "total_tokens": 13975,
+    "transport_attempts": 1
+  }
+}

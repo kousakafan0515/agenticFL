@@ -1,0 +1,76 @@
+{
+  "status": "complete",
+  "phase": "training",
+  "generation": 4,
+  "client": "A",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 102,
+  "api_clean": true,
+  "result_file_sha256": "sha256:db095477600566b2b4254d9410975dd212862cecd452c00017d2eb1de2d297d7",
+  "evidence_file_sha256": "sha256:134fc076aa883c5b61c86f65d07ce8a5996ebe827c36c0c792a3817df171fcd7"
+}
+{
+  "status": "complete",
+  "client": "A",
+  "generation": 4,
+  "capacity_policy": {
+    "scope": "per_role_per_round",
+    "per_role": {
+      "Planner": {
+        "base": 40,
+        "delete": 0,
+        "update": 7,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      },
+      "Executor": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "quota_passed": true
+  },
+  "bank": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_A/B4_skillbank.json"
+}
+{
+  "status": "complete",
+  "phase": "validation",
+  "generation": 4,
+  "client": "A",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 108,
+  "api_clean": true,
+  "result_file_sha256": "sha256:f8ea824471f9c7c0425da6ffde880d5af0f13da03170e3e21718ab4475e33518"
+}
+{
+  "schema_version": "stage2_local_v10.local_round_controller.v1",
+  "client": "A",
+  "generation": 4,
+  "parent_kind": "independent",
+  "parent_bank_file_sha256": "sha256:c39354e8e4a3c5658ebd7e259ff706076a3576154f4eed191bc03d8a968e15ce",
+  "parent_validation_summary_sha256": "sha256:cf7fb8714a8d19e8da51e4361f4a26459f11c1efd9b9b6e5872b85ee5a0d8e90",
+  "stop_after": "B4_validation",
+  "status": "complete",
+  "current_step": null,
+  "completed_steps": [
+    "training",
+    "teacher",
+    "validation"
+  ],
+  "started_at": "2026-10-18T16:35:16.941662+00:00",
+  "completed_at": "2026-10-18T18:17:54.736197+00:00",
+  "training_success": 102,
+  "validation_success": 108,
+  "output_bank_file_sha256": "sha256:9e11c375fb45621368f8054bb0b3c982de24c001fe1647f6688e6b3340747a0c",
+  "patch_file_sha256": "sha256:23a2ba31f9cce6c5456a59fb66362854c2b2f4d010fa0fcf3e6f6d932d4b7abb",
+  "validation_result_sha256": "sha256:f8ea824471f9c7c0425da6ffde880d5af0f13da03170e3e21718ab4475e33518"
+}

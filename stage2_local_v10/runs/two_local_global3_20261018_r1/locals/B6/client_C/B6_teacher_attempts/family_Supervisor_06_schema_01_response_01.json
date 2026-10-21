@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_06_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:f8fa206a71173289c39fe755dddad79cf638288930a85a688ee99e08153b8a22",
+  "message_character_count": 103458,
+  "started_at_utc": "2026-10-19T05:56:05.041109+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a put fails, verify the actor is actually at the destination before concluding the receptacle rejects placement; in ep126 the first put to cabinet 4 returned Nothing happens because the actor had not arrived, and only after go to cabinet 4 did the put succeed. Reinforce T6_004's location-first diagnosis.\", \"affected_skill_ids\": [\"T6_004\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}, {\"recommendation\": \"When a take fails while already holding an object, attribute it to the one-item carry limit and place the held object first rather than retrying the take. In ep123 taking cloth 3 failed while holding cloth 2; after placing cloth 2 at shelf 1, the same take succeeded.\", \"affected_skill_ids\": [\"T6_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_123\"]}, {\"recommendation\": \"When both target instances are visible on the same surface, take one, place it, then return to that same surface for the second rather than searching unrelated containers. Episodes 119, 122, 124, 127, 129, 130 show this efficient pattern succeeding.\", \"affected_skill_ids\": [\"T6_001\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_130\"]}, {\"recommendation\": \"Open a closed destination before placing into it, and do not retry open when it returns no change. In ep125 and ep128 the destination drawer/cabinet was opened before the first put; in ep126 the put failed until the cabinet was actually opened and reached.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_125\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_128\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}, {\"recommendation\": \"Track which instance was already placed and avoid re-taking it; in ep132 the supervisor's dispatch text became confused about which newspaper was placed and which remained, risking re-taking a placed item. Keep per-item placed/held state explicit.\", \"affected_skill_ids\": [\"T6_001\", \"T6_009\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_132\"]}, {\"recommendation\": \"Do not declare blocked while plausible unchecked locations remain. In ep133 the worker declared failure after checking only a few surfaces and never opened closed containers; the search should have continued into cabinets/drawers before concluding the creditcards were absent.\", \"affected_skill_ids\": [\"T6_002\", \"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_133\"]}, {\"recommendation\": \"After a no-change navigation, switch to a different unchecked location rather than repeating it. In ep126 go to toilet 1 returned Nothing happens twice and take candle 2 failed twice before the actor finally arrived and succeeded; one no-change navigation should trigger a different candidate.\", \"affected_skill_ids\": [\"T6_008\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_126\"]}, {\"recommendation\": \"Prefer placing the first object directly into the final destination; avoid temporary holding in risky containers. Episodes 118 and 121 show the first item placed at the final destination (toilet/cart) and the second retrieved afterward, which is the safe pattern.\", \"affected_skill_ids\": [\"T6_007\", \"T6_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_118\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_121\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 30346,
+    "completion_tokens": 1002,
+    "total_tokens": 31348
+  },
+  "completed_at_utc": "2026-10-19T05:56:15.871894+00:00"
+}

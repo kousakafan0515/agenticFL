@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Executor_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:10f5ec6e05d0363dab269698943d1f18218cc0d5c0f0582d3fb5fcfad49360dd",
+  "message_character_count": 133815,
+  "started_at_utc": "2026-10-18T17:19:59.315198+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a put action returns 'Nothing happens', verify current location and navigate to the destination before retrying, rather than repeating the put. Episode 003 shows put failing then succeeding only after go to sofa 1.\", \"affected_skill_ids\": [\"G_004\", \"G_006\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_003\"]},{\"recommendation\": \"Do not self-report failure while a plausible unchecked location remains. In episode 005 the agent declared failure after only two desks, without checking dressers, shelves, beds, or containers where books commonly appear.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"G_008\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_005\"]},{\"recommendation\": \"Avoid repeated 'go to drawer' commands that return 'Nothing happens'; after one failure, change approach (open the drawer, or move to a different receptacle). Episode 007 looped on drawers and cabinets and never opened most closed cabinets before declaring failure.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_007\"]},{\"recommendation\": \"Open closed containers before treating them as searched. In episode 007 cabinets 1-4 were approached but never opened, so their contents were never inspected before failure was declared.\", \"affected_skill_ids\": [\"G_003\", \"G_002\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_007\"]},{\"recommendation\": \"When the target is not on the first surfaces, broaden systematically across open surfaces and then containers, tracking checked locations. Episodes 010, 011, 012, and 015 show successful broadening after empty drawers/cabinets to dresser, countertop, or diningtable.\", \"affected_skill_ids\": [\"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_010\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_011\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_012\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_015\"]},{\"recommendation\": \"Open a closed destination before placing into it. Episode 023 correctly opened cabinet 1 before putting the soapbottle; this should be the standard for container destinations.\", \"affected_skill_ids\": [\"G_003\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_023\"]},{\"recommendation\": \"Do not declare failure after exhausting only a narrow set of surfaces; episode 024 checked drawers, one desk, one cabinet, bed, safe, armchairs, and laundryhamper but never opened several closed drawers/cabinets, so the search was incomplete before self-reporting failure.\", \"affected_skill_ids\": [\"G_002\", \"G_003\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_024\"]},{\"recommendation\": \"After acquiring the target, go directly to the destination and place it without intermediate steps. Episodes 002, 004, 014, 016, 019, 021, and 022 show the clean acquire-then-place pattern succeeding in few steps.\", \"affected_skill_ids\": [\"G_004\", \"G_007\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_004\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_014\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_016\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_019\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_021\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_B/episode_022\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 39196,
+    "completion_tokens": 1057,
+    "total_tokens": 40253
+  },
+  "completed_at_utc": "2026-10-18T17:20:04.958487+00:00"
+}

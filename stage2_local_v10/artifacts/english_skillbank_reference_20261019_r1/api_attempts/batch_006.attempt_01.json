@@ -1,0 +1,47 @@
+{
+  "batch": 6,
+  "attempt": 1,
+  "input_ids": [
+    "T0076",
+    "T0077",
+    "T0078",
+    "T0079",
+    "T0080",
+    "T0081",
+    "T0082",
+    "T0083",
+    "T0084",
+    "T0085",
+    "T0086",
+    "T0087",
+    "T0088",
+    "T0089",
+    "T0090"
+  ],
+  "input_text_sha256": "sha256:1afe313e357515b7867045e8ea8990fb4a26eb0eb779a657699989e7de59739b",
+  "raw_response": "{\"translations\":[{\"id\":\"T0076\",\"english\":\"Prioritize placing temporarily held items into the final target container; if temporary storage is necessary, choose a container from which they can be retrieved normally, and avoid using containers such as garbagecan that may be irreversible.\"},{\"id\":\"T0077\",\"english\":\"Desklamp observation task: first locate and carry the target object, then turn on the desklamp at the desklamp location.\"},{\"id\":\"T0078\",\"english\":\"For goals of the type “examine/look at X with/under the desklamp”, first find the target object and take it in hand, then move to the desklamp’s location, and finally turn on the desklamp to complete the observation.\"},{\"id\":\"T0079\",\"english\":\"When the goal requires observing something with the desklamp, and the target object is not at the desklamp’s location.\"},{\"id\":\"T0080\",\"english\":\"Desklamp observation task: when the target object and the desklamp are in the same place, directly turn on the desklamp.\"},{\"id\":\"T0081\",\"english\":\"If the target object and the desklamp are already in the same location, directly use the desklamp to complete the observation; there is no need to first take the target object.\"},{\"id\":\"T0082\",\"english\":\"After arriving at the desklamp’s location, observe that the target object is also on the same surface or in the same container.\"},{\"id\":\"T0083\",\"english\":\"The desklamp is a fixed object; take desklamp returns “Nothing happens”, wasting steps.\"},{\"id\":\"T0084\",\"english\":\"The environment models the desklamp as a fixed device that cannot be carried.\"},{\"id\":\"T0085\",\"english\":\"Do not execute take desklamp; instead move to the desklamp’s location and directly use desklamp.\"},{\"id\":\"T0086\",\"english\":\"examine X with desklamp often returns “Nothing happens” and cannot complete the observation; instead use desklamp or examine X.\"},{\"id\":\"T0087\",\"english\":\"The environment may not support the “with” tool syntax, or the desklamp is not a holdable tool.\"},{\"id\":\"T0088\",\"english\":\"At the desklamp, prioritize using use desklamp; if you need to inspect the target object, use examine X rather than examine X with desklamp.\"},{\"id\":\"T0089\",\"english\":\"Clean-then-place workflow for placing after cleaning.\"},{\"id\":\"T0090\",\"english\":\"Two-item placement: first place the first item, then take the second item.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1835,
+    "prompt_tokens": 674,
+    "total_tokens": 2509,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1271,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 674
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

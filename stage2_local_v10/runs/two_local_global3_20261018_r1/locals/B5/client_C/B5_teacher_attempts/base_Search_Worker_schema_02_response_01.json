@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "base_Search_Worker_schema_02",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:e6ca7b775b0c489ee6850e2b1d2e5d7019c7c81b1eefe6512a059828154653eb",
+  "message_character_count": 69614,
+  "started_at_utc": "2026-10-19T03:57:29.745179+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"operations\": [{\"operation\": \"UPDATE\", \"target_role\": \"Search Worker\", \"target_skill_id\": \"G_005\", \"bucket\": \"general\", \"skill\": {\"type\": \"Procedure or Local Strategy\", \"title\": \"Use supported action forms, exact identifiers, and matching object instances\", \"principle\": \"Use only supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, open a container before accessing it, and use a fixture with its numbered instance when applicable. Refer to exact object and receptacle identifiers from observations, including instance numbers, and track the specific instance taken so later actions use the same one. Prefer navigating to locations, furniture, or receptacles rather than to a takeable object when the action form requires it. Do not use examine, look at, or open on non-container surfaces; open only applies to openable containers. Before taking or transforming, confirm the object name matches the goal, because similar types may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.\", \"when_to_apply\": \"Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous.\"}, \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_035\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_131\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 19433,
+    "completion_tokens": 348,
+    "total_tokens": 19781
+  },
+  "completed_at_utc": "2026-10-19T03:57:31.402618+00:00"
+}

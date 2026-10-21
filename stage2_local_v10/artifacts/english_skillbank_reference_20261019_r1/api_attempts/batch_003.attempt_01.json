@@ -1,0 +1,47 @@
+{
+  "batch": 3,
+  "attempt": 1,
+  "input_ids": [
+    "T0031",
+    "T0032",
+    "T0033",
+    "T0034",
+    "T0035",
+    "T0036",
+    "T0037",
+    "T0038",
+    "T0039",
+    "T0040",
+    "T0041",
+    "T0042",
+    "T0043",
+    "T0044",
+    "T0045"
+  ],
+  "input_text_sha256": "sha256:83cfc4fc83144d47ec627e0354a81cfbc03d0121efb4ba39e7676243e4aa505d",
+  "raw_response": "{\"translations\":[{\"id\":\"T0031\",\"english\":\"After already being at the desklamp location, repeating go to desklamp or go to desk returns Nothing happens, wasting steps.\"},{\"id\":\"T0032\",\"english\":\"The desklamp is not a navigable location, and desk may also be unable to be navigated to again because it has already been reached.\"},{\"id\":\"T0033\",\"english\":\"After reaching the surface where the desklamp is, directly use use desklamp; if you need to observe an object, first ensure the target object is carried or is near the desklamp.\"},{\"id\":\"T0034\",\"english\":\"When searching for the target object, if the target object is more likely to appear on surfaces such as desktops, side tables, beds, etc., do not prioritize or repeatedly traverse a large number of drawers.\"},{\"id\":\"T0035\",\"english\":\"Drawer search is costly, and in many desklamp observation tasks the target object is on open surfaces.\"},{\"id\":\"T0036\",\"english\":\"First check surfaces related to the desklamp, such as desktops, side tables, nightstands, etc.; check drawers only when not found in reasonable locations.\"},{\"id\":\"T0037\",\"english\":\"Clean-then-place sequence for cleaning followed by placing\"},{\"id\":\"T0038\",\"english\":\"First locate the target object, then locate the target container.\"},{\"id\":\"T0039\",\"english\":\"For pick-and-place tasks, first search for and obtain the target object, then go to the target container to execute placement.\"},{\"id\":\"T0040\",\"english\":\"When the task requires placing an object on a container/furniture and the initial location is unknown.\"},{\"id\":\"T0041\",\"english\":\"Must be at the target container before placing.\"},{\"id\":\"T0042\",\"english\":\"Before executing put, you must have already reached the target container/furniture location via go to; otherwise put may be ineffective.\"},{\"id\":\"T0043\",\"english\":\"When the target object has been obtained and you are ready to place it.\"},{\"id\":\"T0044\",\"english\":\"Prioritize checking common support surfaces, then check closed containers.\"},{\"id\":\"T0045\",\"english\":\"When searching for the target object, prioritize checking open support surfaces such as tables, countertops, shelves, beds, sofas, etc.; if not found, then check closed containers such as drawers, cabinets, etc.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1218,
+    "prompt_tokens": 647,
+    "total_tokens": 1865,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 704,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 647
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

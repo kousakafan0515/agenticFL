@@ -1,0 +1,141 @@
+{
+  "display_only": true,
+  "repair": "translate only two type labels in Markdown headings",
+  "changed_views": [
+    {
+      "view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.reference.zh.md",
+      "old_sha256": "sha256:e9d2d59f872326eb6d6213b1d8cd4920c1d107036ba590efff05ed9d71632ead",
+      "new_sha256": "sha256:c7debb7d93231653a7df490dcb84f686e39a9013a95cb682cc5bcb25a8a8fe45"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.reference.zh.md",
+      "old_sha256": "sha256:13678c345ae36416b2fc490bad1e09793baff8c4edc0c004a6f1593d53792182",
+      "new_sha256": "sha256:3fbeb2162d7a2f0ef71d68f50af90575cd92ea7e9de10119b968956db12ff908"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.reference.zh.md",
+      "old_sha256": "sha256:139c97e3802c6ac6f716852b1f8207bf4c29edaf3f155591b93c51c1e15e5cf5",
+      "new_sha256": "sha256:a251a83a11e36a8de0b97c5a914f6f136ffd23b49f753af695b2bedc558c5ef7"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_A/B2_skillbank.reference.zh.md",
+      "old_sha256": "sha256:e22007831a09c147d1393c7d96b9047dfd946f33b66f8f53c3f2f8ec83810599",
+      "new_sha256": "sha256:e421e1dd66f86f5f3b24b4edb6b0cc95986b971f8fdfbe3477a112500080a3e3"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.reference.zh.md",
+      "old_sha256": "sha256:a607f1f8f09e2b84da72b58ed4483e554dcdd7ed7fa748aed7507498fa761b30",
+      "new_sha256": "sha256:f85b3740d1764c92a26747d026026e3ad086515aed9cdbeb99a376a58464a142"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_C/B2_skillbank.reference.zh.md",
+      "old_sha256": "sha256:8b8cda6845f9ebb10283671fde5cdc92e0cd33586e734b2b20b9a488a202ac55",
+      "new_sha256": "sha256:84e8457f55c42f556bd03569e9a6b05eaba514788ef5f65084a6ec4c90872e52"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_A/B3_skillbank.reference.zh.md",
+      "old_sha256": "sha256:dc2f6f9d1181f4b302184d171837233df3f7f03ff3d981a91e6fe6ab3b044c1d",
+      "new_sha256": "sha256:91759196360ea18f38b9cc6fe8a749403c1d98bd6198204a489cb5192574d886"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_B/B3_skillbank.reference.zh.md",
+      "old_sha256": "sha256:db71ba28be53d7eb11213731172484cd24c2ada2dee0742f4de129e6ca40da05",
+      "new_sha256": "sha256:833f5a8b6eb5102e7c4cee5301bcac3ef7a3af27375e7b7aa765eda86705e99f"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_C/B3_skillbank.reference.zh.md",
+      "old_sha256": "sha256:bd137494f59b898a27a2049f4f98e0a416f939d050250d229ae96c2d89b33b6e",
+      "new_sha256": "sha256:b373f50b82b47d13a005c51b6b39827267b0452607a399a7b46bad29ef18efbd"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_A/B4_skillbank.reference.zh.md",
+      "old_sha256": "sha256:e36bbd29f77974fe9b8fdf42340f41c67f03aa1b3603621340f4323e7b1f8c6b",
+      "new_sha256": "sha256:f1eaec6f432145b7a9c501dd52ebc9eddc9decb9cf0ca8417885182d08637b89"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_B/B4_skillbank.reference.zh.md",
+      "old_sha256": "sha256:45649e3069b70a32c4ddfed3b9a6e5164aaa40c521f3e52c7d05bfc2868110f8",
+      "new_sha256": "sha256:2ca3eba19b54aee175a1508d9044f1b25f05794eed6e095f899e31efdc5e33bb"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_C/B4_skillbank.reference.zh.md",
+      "old_sha256": "sha256:02382b5047fb81a7a9adcb0afa0b1ad50331c959a3ada82e1796e1118f4f9a8a",
+      "new_sha256": "sha256:9326ed2cb13749533e6b0f7989d114ec499fdd5cd002b811afbf5ab1b79c358e"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_A/B5_skillbank.reference.zh.md",
+      "old_sha256": "sha256:55c46e15a9be28140776e83b152c32d6eb557e95e86c1832c231f1b1c86d1723",
+      "new_sha256": "sha256:276581d99ce1a9aeeb6ca2d0ec53dbb9d68629b8a63912e25e257dc702329fc5"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_B/B5_skillbank.reference.zh.md",
+      "old_sha256": "sha256:462bceb3f9cd3390bcfeee7d72499c2a122a9aea1d6e4c76f69bdc34a1b70d00",
+      "new_sha256": "sha256:927843a52ceaacb46e12b7dbcb0e79e3a14fa318fef498daae76e5e375458972"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_C/B5_skillbank.reference.zh.md",
+      "old_sha256": "sha256:1164975f2847b875793c8ce1afcccfda9da70990d10fb2b10796546381ac06c7",
+      "new_sha256": "sha256:f19edec4285b9b3a889a56cd6f562347d6ceff4ac7a009722f33e10e9b2b0aa3"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.reference.zh.md",
+      "old_sha256": "sha256:9562756edde4d0ffca2f382a3b3992a2419404442c8ab18a50afa236e8b66fba",
+      "new_sha256": "sha256:83df59904002353454cf82858c7819b1c6da14f720d467cbfcc309cc3f8ed69f"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.reference.zh.md",
+      "old_sha256": "sha256:15449ae84446d6509967c69de8e250759f40ac530d74297443297a48adac906d",
+      "new_sha256": "sha256:8fdeccbfc7139b10d8d58a396459da3bb4a8d58a26b5d176abe9b0f320ae9dec"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.reference.zh.md",
+      "old_sha256": "sha256:5047285291605d9ea746b3be22f962ea57df6c2f0614c0013fc8b219cc962d78",
+      "new_sha256": "sha256:6e725b1bd0c6e3611dde11a571a45a0c274db8fcd948c3d719adea6666320814"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_A/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:116682272fe1aa01bf9db6af0278d70b5bdae0b68b18b473f96216344f4f0279",
+      "new_sha256": "sha256:3e335770fd282d31e655a0c340197a6f295232f379c3d513099de89ea7a474ac"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_B/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:52856fbe34c20f0cd99a306911af6d03b33566348b4c80ebadae516d3ad9e3e8",
+      "new_sha256": "sha256:0c4a3f95a67658e64d9e898afd9e52c9eb4a4b8e4ec506fe708a11b310c77b62"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_C/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:d736f9956d54168c9ef222084c8f5d6cb9177b18723b91b5cba26948d45d3ed8",
+      "new_sha256": "sha256:c68f8e52785c51dfe37805780a9fd47fbf79d410dc5b1daeaf75dd5e2e920599"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:d8a9881becc48e667afe84f2884f79fc26337832fafa1d4b094f7f23fc8eed27",
+      "new_sha256": "sha256:6c7048245e32f39570bd1ae4b6dc9b7d94c3cdd3a7611583e7ddf9c7edab323a"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:92e406ce28190c91f2f1ec05439f248ffc3833f9543aae9478f1c4e05b0108ed",
+      "new_sha256": "sha256:68581dd29a84d885ac8c7acd2d41f11c1d004822cbed9aff985e4f6018a98222"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:00d9ef947f6c835152847f54b09a3b79f6f72b935e12e9309aa1e98fddfc5c42",
+      "new_sha256": "sha256:7ff138dcf525b218f0b3cb1cb6eaa2c41d9a4dc0fb3f1f229ac5b59af0440aab"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_A/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:138aa77f91f77ce75ca7db627f132d4410534809047e0cc19eedecf7fbc8470e",
+      "new_sha256": "sha256:43ca2ced2581ca618a4e021bf5c712ed3a5b6cf06da77bd47771f1e0a3c808ad"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_B/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:b7839533a8def91b5b57e66a1544f146c7c93684656e6d2d10c7da25dde1811d",
+      "new_sha256": "sha256:21b26f9d5b1dd92538829ee4a06fef16a499b69b35d0ae27a88956eb038b0abf"
+    },
+    {
+      "view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_C/replacement_skillbank.reference.zh.md",
+      "old_sha256": "sha256:bd091acb5c1e76332beddecac4e03b1248101fc1aae2ff117e991c81f60f837e",
+      "new_sha256": "sha256:09007eb78631962e58c5cc1b12338061364f13f7d74490bcce4e26ccd104c8cb"
+    }
+  ]
+}

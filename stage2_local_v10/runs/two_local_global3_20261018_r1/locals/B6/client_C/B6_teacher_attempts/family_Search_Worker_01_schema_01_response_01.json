@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:053155c1edeadb1d7d394d6869b24638c5981520fb9fe1d41e4315300a62ef22",
+  "message_character_count": 114756,
+  "started_at_utc": "2026-10-19T05:56:17.517185+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a take fails with 'Nothing happens' after seeing the object, do not repeat the same bare-name take or re-issue go to the same location. Use the exact instance identifier (e.g., 'take soapbottle 2 from countertop 2') and, if still failing, move to a different unchecked location rather than looping.\", \"affected_skill_ids\": [\"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_012\"]},{\"recommendation\": \"Do not declare BLOCKED after a single location shows a similar-but-wrong object (pot instead of pan). Continue searching other plausible surfaces and containers before reporting failure.\", \"affected_skill_ids\": [\"G_002\", \"G_006\", \"T3_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_011\"]},{\"recommendation\": \"When a put returns 'Nothing happens', verify current location before retrying; the failure is usually because the actor is not yet at the destination. Navigate to the destination, then put again.\", \"affected_skill_ids\": [\"G_004\", \"G_006\", \"T6_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_004\"]},{\"recommendation\": \"Avoid revisiting a location already confirmed empty (e.g., returning to diningtable 1 after checking it). Track checked locations and move to new unchecked plausible surfaces.\", \"affected_skill_ids\": [\"G_002\", \"T6_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_006\"]},{\"recommendation\": \"For closed-container destinations, open the container before putting. The successful pattern is go to cabinet, open cabinet, then put; do not attempt put into a closed container.\", \"affected_skill_ids\": [\"G_003\", \"T6_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_023\"]},{\"recommendation\": \"Search open observable surfaces first (bed, desk, dresser, sidetable, shelf, countertop) and take the target directly when visible, rather than assuming a specific receptacle. This broad-surface-first pattern succeeded repeatedly.\", \"affected_skill_ids\": [\"G_001\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_018\"]},{\"recommendation\": \"After confirming the target is held, hand off promptly with a clear status; do not add redundant verification or empty actions once the take observation confirms holding.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_013\"]},{\"recommendation\": \"Use exact object identifiers from observations (e.g., 'book 3', 'keychain 4', 'pen 3') when taking, and carry that same instance through to placement to avoid ambiguity.\", \"affected_skill_ids\": [\"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_003\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_016\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 34924,
+    "completion_tokens": 857,
+    "total_tokens": 35781
+  },
+  "completed_at_utc": "2026-10-19T05:56:21.825708+00:00"
+}

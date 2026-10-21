@@ -1,0 +1,47 @@
+{
+  "batch": 35,
+  "attempt": 1,
+  "input_ids": [
+    "Z0681",
+    "Z0682",
+    "Z0683",
+    "Z0684",
+    "Z0685",
+    "Z0686",
+    "Z0687",
+    "Z0688",
+    "Z0689",
+    "Z0690",
+    "Z0691",
+    "Z0692",
+    "Z0693",
+    "Z0694",
+    "Z0695",
+    "Z0696",
+    "Z0697",
+    "Z0698",
+    "Z0699",
+    "Z0700"
+  ],
+  "input_text_sha256": "sha256:b4c9c2a19076456c0d6045087db156246d0ee4ca60ab66736c550f6a8565fb81",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0681\",\"chinese\":\"通过改变位置、状态或策略，从无变化的动作中恢复\"},{\"id\":\"Z0682\",\"chinese\":\"在宣布成功前核实最终观察到的状态，确认后停止\"},{\"id\":\"Z0683\",\"chinese\":\"当固定设施、位置或手持物体错误时，清洁会失败\"},{\"id\":\"Z0684\",\"chinese\":\"有些物体无法用 sinkbasin 清洁\"},{\"id\":\"Z0685\",\"chinese\":\"如果目标已关闭、已满或不是容器，可能拒绝放置\"},{\"id\":\"Z0686\",\"chinese\":\"物体身份：优先使用确切目标，不要悄悄替换\"},{\"id\":\"Z0687\",\"chinese\":\"高效搜索，并在合理检查后停止\"},{\"id\":\"Z0688\",\"chinese\":\"在移动或放置前确认加热\"},{\"id\":\"Z0689\",\"chinese\":\"避免盲目替换加热器具\"},{\"id\":\"Z0690\",\"chinese\":\"不要从微波炉中取出已直接加热的手持物体\"},{\"id\":\"Z0691\",\"chinese\":\"避免不必要的中间放置\"},{\"id\":\"Z0692\",\"chinese\":\"不要仅凭冰箱位置或容纳关系推断已冷却状态\"},{\"id\":\"Z0693\",\"chinese\":\"仅冷却或打开冰箱并不能完成任务\"},{\"id\":\"Z0694\",\"chinese\":\"在已手持物品时执行 take 或移动会失败\"},{\"id\":\"Z0695\",\"chinese\":\"未确认或位置不当的放置会打断序列\"},{\"id\":\"Z0696\",\"chinese\":\"关闭的容器会阻止 take 和放置\"},{\"id\":\"Z0697\",\"chinese\":\"无效的 examine 动作不提供任何信息\"},{\"id\":\"Z0698\",\"chinese\":\"不安全的临时容器可能导致物体无法取回\"},{\"id\":\"Z0699\",\"chinese\":\"重复检查已清理的位置会浪费动作预算\"},{\"id\":\"Z0700\",\"chinese\":\"无动作的重复完成信号会触发循环防护\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 424,
+    "prompt_tokens": 630,
+    "total_tokens": 1054,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 630
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

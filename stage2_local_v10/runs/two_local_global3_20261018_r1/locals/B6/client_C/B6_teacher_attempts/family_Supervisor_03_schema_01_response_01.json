@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_03_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:9447128f45f3e0d9ee177147d7c500ca2e94152719d28cc3d014f373df9a43f6",
+  "message_character_count": 136759,
+  "started_at_utc": "2026-10-19T05:55:46.289592+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a search worker reports a target found but the wrong object type was taken (e.g., butterknife instead of knife), the supervisor should re-dispatch a corrected search for the exact named type rather than proceeding to clean/place the substitute. Episode 052 shows this recovery worked; make it the default when the held instance mismatches the goal noun.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_052\"]}, {\"recommendation\": \"Before dispatching a clean operation, verify the worker actually holds the target. Episode 058 shows a clean attempt issued before the take succeeded ('Nothing happens'), then a successful clean after taking. Require the handoff to confirm holding before assigning clean.\", \"affected_skill_ids\": [\"T3_001\", \"G_007\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_058\"]}, {\"recommendation\": \"When a search worker exhausts plausible locations without finding the target (kettle, pot, ladle), the supervisor should not declare failure prematurely if unchecked opened containers or visible surfaces remain; but it also should not loop. Episode 044/063 show broad cabinet sweeps that never opened many closed cabinets before failing. Require the search mission to actually open closed containers, not merely navigate to them.\", \"affected_skill_ids\": [\"G_002\", \"G_006\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_044\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_063\"]}, {\"recommendation\": \"Episode 053 shows the worker took a pan instead of the required pot and placed it on the stoveburner, then the supervisor declared failure. When the goal noun is 'pot', a pan is not an acceptable substitute; the supervisor should reject the mismatched instance and re-dispatch search for the exact type before any placement.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_053\"]}, {\"recommendation\": \"Episode 054 shows a soapbar placed into cabinet 4 without any clean step, yet the goal required a clean soapbar; the supervisor then declared failure. The supervisor must enforce the clean checkpoint before dispatching placement, and should not accept a placement handoff that skipped cleaning.\", \"affected_skill_ids\": [\"T3_001\", \"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_054\"]}, {\"recommendation\": \"Episode 059 shows a mug placed into coffeemachine without cleaning, and the supervisor declared failure. Similarly episode 073 placed an uncleaned ladle. When the goal requires 'clean', the supervisor should insert an explicit clean operation between acquisition and placement and verify the clean observation before assigning put.\", \"affected_skill_ids\": [\"T3_001\", \"T3_004\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_059\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_073\"]}, {\"recommendation\": \"Episode 060 shows a handoff loop guard triggered by repeatedly re-assigning the same 'put mug on shelf' operation and then redundant verification after placement already succeeded. Once the placement observation confirms success, the supervisor must treat it as terminal and stop issuing further missions.\", \"affected_skill_ids\": [\"G_008\", \"T3_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_060\"]}, {\"recommendation\": \"Episode 043 shows a clean attempt on a dishsponge returning 'Nothing happens' and the worker then wandering drawers; the supervisor should recognize non-cleanable objects and either try a different cleanable candidate or report the object not cleanable rather than continuing placement search. Also avoid re-navigating to already-visited drawers (drawer 1 revisited with no change).\", \"affected_skill_ids\": [\"T3_002\", \"T3_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_043\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 40711,
+    "completion_tokens": 1027,
+    "total_tokens": 41738
+  },
+  "completed_at_utc": "2026-10-19T05:55:51.565896+00:00"
+}

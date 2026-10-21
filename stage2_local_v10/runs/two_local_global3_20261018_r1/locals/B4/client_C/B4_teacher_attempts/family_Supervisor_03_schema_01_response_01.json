@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_03_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:15f42a50fed283c568283007d058b493bc108af0ea0a37a561c67bce669cb23d",
+  "message_character_count": 127564,
+  "started_at_utc": "2026-10-18T17:17:56.044577+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the goal requires a clean object, the supervisor must include an explicit clean step before placement; several failures (episode_050, episode_070) dispatched a direct 'put potato/plate in microwave' mission after acquisition, skipping cleaning entirely. Decompose as acquire → clean at sinkbasin → place, and verify the clean observation before assigning placement.\", \"affected_skill_ids\": [\"T3_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_050\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_070\"]}, {\"recommendation\": \"Do not substitute a similar object type for the named target. In episode_052 the goal was a clean knife but the worker took a butterknife and the supervisor proceeded to clean and place it, ending in failure. When the acquired object's name differs from the goal type, reassign a search for the exact type rather than continuing.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_052\"]}, {\"recommendation\": \"Search missions should be bounded and broaden across plausible locations rather than naming one receptacle. Episodes 053 and 063 show long fruitless searches (many cabinets/drawers) ending in failure; the supervisor should track checked locations, prioritize likely surfaces, and reassess or declare blocked after a reasonable set rather than continuing indefinitely.\", \"affected_skill_ids\": [\"G_002\", \"T3_006\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_053\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_063\"]}, {\"recommendation\": \"When a worker returns HANDOFF after a no-op (e.g., 'open drawer 1' → 'Nothing happens'), the supervisor should change the approach—pick a different destination or verify state—instead of reissuing the same target. Episode_052 shows an open on drawer 1 failing, then the supervisor redirecting to drawer 2, which is the correct recovery pattern to reinforce.\", \"affected_skill_ids\": [\"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_052\"]}, {\"recommendation\": \"Placement destinations that reject puts (e.g., coffeemachine, toilet) should be probed before committing. Episode_059 shows repeated failed puts into coffeemachine before the worker found a mug and succeeded; the supervisor should treat repeated no-op puts as evidence the destination is invalid and redirect to a valid receptacle or report blocked.\", \"affected_skill_ids\": [\"T3_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_059\"]}, {\"recommendation\": \"Cleaning must occur at a sinkbasin while holding the object. Episode_066 shows a clean attempt at sidetable returning 'Nothing happens' before the worker moved to sinkbasin and succeeded; supervisors should specify the sinkbasin as the cleaning fixture in the mission rather than leaving location implicit.\", \"affected_skill_ids\": [\"T3_002\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_066\"]}, {\"recommendation\": \"Confirm the clean observation before assigning placement. In episode_064 the supervisor dispatched 'put the clean egg in microwave' immediately after acquisition, and the worker happened to clean en route; the mission text should require an explicit clean confirmation so success does not depend on worker improvisation.\", \"affected_skill_ids\": [\"T3_001\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_064\"]}, {\"recommendation\": \"When a search worker returns HANDOFF reporting an empty location, the supervisor should immediately assign the next plausible unchecked location rather than declaring failure. Episode_060 shows the supervisor correctly broadening from countertop to cabinet, but the episode still failed; ensure the search mission lists a prioritized sequence of candidate locations so the worker can continue without a round-trip per location.\", \"affected_skill_ids\": [\"G_001\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_060\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 36727,
+    "completion_tokens": 1033,
+    "total_tokens": 37760
+  },
+  "completed_at_utc": "2026-10-18T17:18:01.653026+00:00"
+}

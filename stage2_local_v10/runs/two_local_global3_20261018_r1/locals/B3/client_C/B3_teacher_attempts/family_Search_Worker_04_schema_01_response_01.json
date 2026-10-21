@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:63a7b9b834c5f3563768331b2337728d56af460d6320f5b0a237e8e3a0e6c69b",
+  "message_character_count": 121659,
+  "started_at_utc": "2026-10-18T15:25:54.605534+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the first searched location is empty, continue systematically to other plausible locations instead of declaring BLOCKED. Episode 074 opened the fridge, saw no egg, and immediately declared failure; episode 092 did the same after one countertop. Both should have broadened the search per G_001/G_002/T4_005.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_092\"]},{\"recommendation\": \"Use exact object identifiers in take actions. Episode 079's 'take plate from diningtable 1' returned Nothing happens; retrying with 'take plate 1 from diningtable 1' succeeded. Prefer the observed instance id on the first attempt.\", \"affected_skill_ids\": [\"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_079\"]},{\"recommendation\": \"Do not substitute a different object type for the named target. Episode 081 took a mug when the goal was a cup and the supervisor declared failure; episode 093 took a cup when the goal was a mug and failed. Search for the exact named type before considering any equivalent.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_081\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_093\"]},{\"recommendation\": \"After a heat attempt returns Nothing happens, change the object's position/holding state rather than repeating identical commands. Episodes 077, 078, 086, and 093 looped on 'use X'/'use microwave' or repeated heat with no change; the successful pattern was to place the object in the open microwave, take it out, then heat while holding.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_077\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_078\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_086\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_093\"]},{\"recommendation\": \"Do not blindly fall back to stoveburner or other appliances after microwave heat fails. Episode 078 tried 'heat apple 1 with stoveburner 1' (Nothing happens) and episode 086 tried putting tomato on stoveburner (Nothing happens). Correct the microwave interaction first.\", \"affected_skill_ids\": [\"T4_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_078\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_086\"]},{\"recommendation\": \"When a destination put returns Nothing happens, verify you are at the destination and that it is open/valid before retrying. Episode 093 repeatedly put cup into coffeemachine with no effect; episode 096 opened many cabinets with no effect and then put into cabinet 26 with no effect. Reassess destination validity rather than looping.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_093\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_096\"]},{\"recommendation\": \"After a successful heat while holding the object, do not attempt to take it from the microwave. Episode 077 heated cup 4 while holding it, then 'take cup 4 from microwave 1' succeeded only because it had been placed there; episode 086 shows the take-from-microwave no-op pattern. Track whether the object was placed inside or kept in inventory.\", \"affected_skill_ids\": [\"T4_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_077\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_086\"]},{\"recommendation\": \"Avoid redundant inventory/look actions and repeated identical commands that consume steps without progress. Episode 096 issued five consecutive 'inventory' actions after a failed put; episode 089 issued a 'look' after already observing the countertop. Stop and change strategy instead.\", \"affected_skill_ids\": [\"G_006\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_096\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_089\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 36334,
+    "completion_tokens": 1166,
+    "total_tokens": 37500
+  },
+  "completed_at_utc": "2026-10-18T15:25:59.932926+00:00"
+}

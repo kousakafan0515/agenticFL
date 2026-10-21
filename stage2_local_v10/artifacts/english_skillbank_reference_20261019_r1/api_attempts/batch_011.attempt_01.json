@@ -1,0 +1,47 @@
+{
+  "batch": 11,
+  "attempt": 1,
+  "input_ids": [
+    "T0151",
+    "T0152",
+    "T0153",
+    "T0154",
+    "T0155",
+    "T0156",
+    "T0157",
+    "T0158",
+    "T0159",
+    "T0160",
+    "T0161",
+    "T0162",
+    "T0163",
+    "T0164",
+    "T0165"
+  ],
+  "input_text_sha256": "sha256:bf9ed806878441aca847b6beed462dd07d34746f94a3cb2fc02078ec5ec5fa8e",
+  "raw_response": "{\"translations\":[{\"id\":\"T0151\",\"english\":\"For tasks of the “examine/look at X with/under the desklamp” type, first locate the target object and the desklamp; if the target is portable, pick up the target, move to the desklamp's location, then use the desklamp (use desklamp <id>) to complete the observation. If the target object is already on the furniture where the desklamp is, pick up the target object first and then use the desklamp; if the first table has no desklamp, continue searching other support surfaces (sidetable, shelf, dresser) while keeping the target object held.\"},{\"id\":\"T0152\",\"english\":\"In two-object placement tasks, if only one object can be carried at a time, first find and pick up the first target object; if the target container is reachable, place it directly into the final target container; otherwise temporarily store it on a safe open support surface, then find and pick up the second target object, and finally place both objects into the target container. Prefer searching open support surfaces (table, countertop, shelf, sofa); the two objects are often on the same support surface.\"},{\"id\":\"T0153\",\"english\":\"In desklamp observation tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's observed location and use it (turn it on) while holding the target object. Bind the operation to the lamp's observed location, not a guessed one, and if the target object is already visible at the lamp's location, a single combined take-then-use mission suffices.\"},{\"id\":\"T0154\",\"english\":\"The phrase 'under the desklamp' in desklamp observation goals does not guarantee the target object is physically under the lamp, nor that the lamp is at the assumed location. If the object or lamp is not visible at the assumed location, search other surfaces and containers before declaring failure.\"},{\"id\":\"T0155\",\"english\":\"For clean-then-place tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation. Keep clean and place as distinct missions with distinct return conditions.\"},{\"id\":\"T0156\",\"english\":\"For two-object placement tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination. Track placed-item state so the second search targets a location observed to hold a second instance and never re-takes an already-placed item.\"},{\"id\":\"T0157\",\"english\":\"For tasks of the “look at/examine X under the desklamp” type, first search for and obtain the target object X; if the target object is not at the desklamp's location, bring it to a desktop/countertop that has a desklamp, place it or keep holding it, then use the numbered desklamp to turn on the light. If the target object is already on the surface where the desklamp is, immediately use desklamp N after obtaining it; do not hand off after merely taking the object, because the observation goal requires the desklamp to be on.\"},{\"id\":\"T0158\",\"english\":\"Desklamp observation: the desklamp is usually not takeable; use the numbered use desklamp.\"},{\"id\":\"T0159\",\"english\":\"In desklamp observation tasks, the desklamp is usually a fixed object; take desklamp returns “Nothing happens.”; the correct interaction is, after holding the target object, use the numbered identifier seen in the observation to execute use desklamp N to turn it on. Do not attempt the 'use desklamp on X' or 'use X on desklamp' combinations; these are usually invalid.\"},{\"id\":\"T0160\",\"english\":\"When interaction with the desklamp is needed; if take desklamp fails, do not repeatedly try to take it; instead switch to use desklamp N or bring the target object to the desklamp and then use desklamp N.\"},{\"id\":\"T0161\",\"english\":\"In two-object placement tasks, after finding the first target object, first place it into the target container, then find and retrieve the second target object, and finally place the second one into the target container as well. If the surface where the first object is located has multiple instances of the same type, after placing the first object return to the same surface to take the second, rather than searching elsewhere.\"},{\"id\":\"T0162\",\"english\":\"The target objects may be scattered across different container types, such as counters, tables, shelves, cabinets, drawers, etc.\"},{\"id\":\"T0163\",\"english\":\"Systematically search multiple types of containers and surfaces, including counters, tables, shelves, cabinets, drawers, etc., until both target objects are found; do not declare BLOCKED prematurely.\"},{\"id\":\"T0164\",\"english\":\"Desklamp observation: after arriving at the furniture where the desklamp is, use the desklamp instance to complete the observation.\"},{\"id\":\"T0165\",\"english\":\"After carrying the target object to the furniture where the desklamp is, execute use desklamp <id> (use the specific instance number, such as use desklamp 1) to complete the desklamp observation; do not use the bare name use desklamp, and do not execute examine, use, or look on the target object to trigger the observation.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 3938,
+    "prompt_tokens": 1314,
+    "total_tokens": 5252,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 2707,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1314
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

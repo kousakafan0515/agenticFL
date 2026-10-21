@@ -1,0 +1,15 @@
+{
+  "bucket": "台灯观察",
+  "input_skill_count": 35,
+  "output_skill_count": 5,
+  "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_02.attempt_01.json",
+  "usage": {
+    "requested_model": "deepseek-flash",
+    "response_model": "deepseek-flash",
+    "finish_reason": "stop",
+    "prompt_tokens": 10394,
+    "completion_tokens": 3793,
+    "total_tokens": 14187,
+    "transport_attempts": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch": 16,
+  "attempt": 1,
+  "input_ids": [
+    "T0226",
+    "T0227",
+    "T0228",
+    "T0229",
+    "T0230",
+    "T0231",
+    "T0232",
+    "T0233",
+    "T0234",
+    "T0235",
+    "T0236",
+    "T0237",
+    "T0238",
+    "T0239",
+    "T0240"
+  ],
+  "input_text_sha256": "sha256:a701dc008d9eab64b42ccadd975f54fe010d83352acbbc0b5a44bf7240da754a",
+  "raw_response": "{\"translations\":[{\"id\":\"T0226\",\"english\":\"When the target object is not at the first search location, continue systematically checking other possible containers and surfaces, such as cabinets, drawers, countertops, dining tables, stoves, refrigerators, sink basins, coffee machines, side tables, etc. Maintain a record of checked locations, prioritize turning to unchecked and already-open containers and visible surfaces, and avoid repeatedly returning to locations confirmed empty. Do not declare the task blocked or the object nonexistent merely because the first location is empty. If several consecutive containers are empty, expand to open surfaces and other container types rather than endlessly searching drawer by drawer; for dish-type objects, prioritize open surfaces such as dining tables, countertops, and side tables while also considering containers. After a broad search of reasonable scope, reassess rather than continuing to open every remaining container.\"},{\"id\":\"T0227\",\"english\":\"In the acquisition phase of a heat-then-place task, when the target object does not appear immediately or is not at the first checked location.\"},{\"id\":\"T0228\",\"english\":\"When heating succeeds while the object is held, the object remains in the held state. Attempting to take the object from the microwave afterward may return Nothing happens, because that heating action did not put the object into the microwave.\"},{\"id\":\"T0229\",\"english\":\"Heating successfully while held does not necessarily move the object into the microwave, so the object is not in the microwave to be taken. Continuing to act on the wrong location assumption produces invalid take steps.\"},{\"id\":\"T0230\",\"english\":\"After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually put into the microwave, do not issue an action to take the object from the microwave.\"},{\"id\":\"T0231\",\"english\":\"Inserting an extra countertop or other intermediate placement between heating and the final destination adds unnecessary actions and may cause object tracking or final placement to fail.\"},{\"id\":\"T0232\",\"english\":\"The task may be over-decomposed, introducing an intermediate placement step even though the goal only requires moving the heated object to the final destination. Intermediate placement changes the object's location and adds state that must be tracked.\"},{\"id\":\"T0233\",\"english\":\"After heating, pick up or keep holding the object, go directly to the final destination, and place it there. Add such intermediate placement steps only when the environment explicitly requires them.\"},{\"id\":\"T0234\",\"english\":\"Before using the microwave, open it first and confirm by observation that it is open. Use a heating form that explicitly specifies the object and microwave, e.g. heat <object> with microwave <id>; bare generic forms such as use <object> or use microwave may return Nothing happens. Observations show that heating can occur while the object is held or after it is placed in the open microwave. If held heating returns Nothing happens, a reliable recovery is to put the object into the open microwave, take it back out, then retry heating while held; if heating fails while the object is inside the microwave, take the object out, confirm the microwave is open, and retry while held. After a first failure, change the object's location or held state; do not repeat the exact same failing command; if there is still no confirmation after switching, switch back to the other state and retry once. Proceed to the destination only after observing explicit heating success.\"},{\"id\":\"T0235\",\"english\":\"The heating command may fail or return Nothing happens; treating an unconfirmed attempt as success may lead to moving and placing an object that is still cold. The Critic often misjudges that the object \\\"has been put into the microwave\\\" or \\\"is now in the microwave,\\\" while observations only show the microwave was opened or the object is still held; this misjudgment drives wrong next steps. Heating success cannot be inferred merely from the object being held or placed in the microwave.\"},{\"id\":\"T0236\",\"english\":\"Heating can change state only when the object's location and the microwave's state are suitable; issuing the command does not guarantee success. Without explicit success observation, subsequent moving and placing may rest on a false premise, and misreading \\\"microwave opened\\\" or \\\"still held\\\" as \\\"placed/heated\\\" further amplifies the error.\"},{\"id\":\"T0237\",\"english\":\"Before giving the next-step suggestion, cite the actual observation predicate (held or in-container). Continue only after an explicit heating-success observation appears, such as a prompt that the object has been heated, or other reliable heat-state confirmation. If success is unconfirmed, correct the object's location or held state, re-execute a valid heating attempt, verify again, and then move the object.\"},{\"id\":\"T0238\",\"english\":\"When heating succeeds while the object is held, the object remains in the held state. Attempting to take the object from the microwave afterward may return Nothing happens, because that heating action did not put the object into the microwave. The Critic should diagnose accordingly: a failed take from microwave means the object was never in the microwave, not that another take is needed.\"},{\"id\":\"T0239\",\"english\":\"After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually put into the microwave, do not issue an action to take the object from the microwave; if take from microwave returns Nothing happens, check the held state rather than repeating the take.\"},{\"id\":\"T0240\",\"english\":\"First confirm the locations of the target object and the desk lamp. The desk lamp is usually fixed on a furniture surface; once the desk lamp is observed, go directly to the furniture it is on, do not continue searching unrelated containers or blindly opening drawers, and do not treat the desk lamp as a carryable object or navigation point. If the target object and the desk lamp are on the same furniture, take the target object directly and then immediately use the numbered desk lamp; do not go to the same furniture again (repeated go to often returns Nothing happens). If the target object is not at the desk lamp, first take it and carry it to that furniture; do not first place the target object on the desk lamp furniture and then use the desk lamp—interact while holding the target object. Upon arrival, use use desklamp <id> with the instance number to trigger observation; do not use a bare name or compound syntax. Successfully turning on the desk lamp is the termination condition; do not append use/look/examine after it.\"}]}",
+  "finish_reason": "stop",
+  "thinking_mode": "disabled",
+  "usage": {
+    "completion_tokens": 1367,
+    "prompt_tokens": 1369,
+    "total_tokens": 2736,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1369
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

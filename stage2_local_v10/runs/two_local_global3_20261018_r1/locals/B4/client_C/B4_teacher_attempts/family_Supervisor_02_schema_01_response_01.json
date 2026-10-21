@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:52115869d8bcfb23ce9b48c12e20ad356e5b3fcb5e227deff14f7f026659e7e7",
+  "message_character_count": 82438,
+  "started_at_utc": "2026-10-18T17:17:50.322120+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When dispatching a search mission, require the worker to return only after the target is actually held, not merely seen. Several failures show search missions ending with the object located but not taken, forcing extra handoff cycles (e.g., creditcard on desk, pencil on desk).\", \"affected_skill_ids\": [\"G_007\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_036\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_029\"]},{\"recommendation\": \"Instruct operation workers to use the exact instance id of the desklamp observed at the current furniture, and to verify they are at that furniture before issuing use. Failures show bare 'use desklamp' and use at wrong locations returning Nothing happens repeatedly.\", \"affected_skill_ids\": [\"T2_002\", \"T2_003\", \"T2_004\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_041\"]},{\"recommendation\": \"When a use desklamp attempt returns Nothing happens, do not repeat the same command. Reassess whether the desklamp is actually at the current furniture; if not, navigate to the observed desklamp furniture and retry with the correct instance id. Episode 033 shows repeated failures until the worker moved to sidetable 1 where the lamp was.\", \"affected_skill_ids\": [\"T2_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_041\"]},{\"recommendation\": \"Avoid dispatching a separate search mission for the desklamp when the target object search already reveals it. In successful episodes the lamp was found incidentally on a surface; splitting lamp search into its own mission adds steps and can lead to broad drawer sweeps.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_039\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_037\"]},{\"recommendation\": \"When the target object is not on the first surface, broaden to other open surfaces (beds, dressers, sidetables) before opening many drawers. Episode 037 shows a long drawer sweep that still failed to find the cellphone, while successful episodes found objects on beds/desks/dressers.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_038\"]},{\"recommendation\": \"Do not issue examine-style or composite commands such as 'use desklamp on X' or 'use desk'. These return Nothing happens and waste steps; only the plain 'use desklamp <id>' form triggers the observation.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_029\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_041\"]},{\"recommendation\": \"After a successful use desklamp observation, treat the task as complete and stop. Do not add redundant go-to or use steps once the lamp interaction has confirmed success.\", \"affected_skill_ids\": [\"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_027\"]},{\"recommendation\": \"When dispatching, specify the exact target instance and require the worker to confirm holding it before the operation phase. Episode 039 shows a failed take of newspaper 3 while already holding newspaper 4, indicating the worker should track which instance is held and not attempt a second take.\", \"affected_skill_ids\": [\"G_007\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_039\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 22894,
+    "completion_tokens": 1051,
+    "total_tokens": 23945
+  },
+  "completed_at_utc": "2026-10-18T17:17:56.020550+00:00"
+}

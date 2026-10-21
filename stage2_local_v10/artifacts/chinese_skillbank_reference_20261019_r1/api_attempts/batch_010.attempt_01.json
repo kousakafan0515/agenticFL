@@ -1,0 +1,47 @@
+{
+  "batch": 10,
+  "attempt": 1,
+  "input_ids": [
+    "Z0181",
+    "Z0182",
+    "Z0183",
+    "Z0184",
+    "Z0185",
+    "Z0186",
+    "Z0187",
+    "Z0188",
+    "Z0189",
+    "Z0190",
+    "Z0191",
+    "Z0192",
+    "Z0193",
+    "Z0194",
+    "Z0195",
+    "Z0196",
+    "Z0197",
+    "Z0198",
+    "Z0199",
+    "Z0200"
+  ],
+  "input_text_sha256": "sha256:c29aa171e1e68a473dcf0822d1a99f99f8b8a890affd2e117659cea8b65b8ed6",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0181\",\"chinese\":\"每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态。仅当观察确认目标谓词时才宣布成功；仅当观察显示动作无效/被阻止或对象不可达时才宣布失败。\"},{\"id\":\"Z0182\",\"chinese\":\"即使环境事件显示对象已成功放置，主管有时也会在 worker HANDOFF 后宣布 FAILED。反之，它也可能在未验证清洁状态或最终放置的情况下接受交接。\"},{\"id\":\"Z0183\",\"chinese\":\"每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态（例如 'You put the X in/on Y' 或 'You clean the X'）。仅当观察确认目标谓词时才宣布成功；仅当观察显示动作无效/被阻止或对象不可达时才宣布失败。\"},{\"id\":\"Z0184\",\"chinese\":\"只有在 worker 已确认持有该对象后，才应派发将对象放到目的地的 OPERATION MISSION；否则放置动作将失败或无效。\"},{\"id\":\"Z0185\",\"chinese\":\"主管可能基于预期对象而非 worker 的实际库存状态来发布放置任务。\"},{\"id\":\"Z0186\",\"chinese\":\"在分配相应的放置任务之前，要求 worker 的 HANDOFF 明确报告持有目标对象。\"},{\"id\":\"Z0187\",\"chinese\":\"将 desklamp 视为固定设施，而非可拿取对象\"},{\"id\":\"Z0188\",\"chinese\":\"当目标要求借助 desklamp 检查或查看某对象，且观察到 desklamp 在 desk、sidetable 或 dresser 上时。\"},{\"id\":\"Z0189\",\"chinese\":\"在环境已返回 'There's nothing special about X' 或 'Nothing happens' 后，反复为同一对象派发 examine 或 look 任务会导致交接循环和任务失败。在一两次 examine 尝试失败后，改变策略：验证对象位置，尝试不同的交互（take/put/use），或宣布失败。\"},{\"id\":\"Z0190\",\"chinese\":\"主管可能不会将空观察视为当前 examine 策略已耗尽的证据。\"},{\"id\":\"Z0191\",\"chinese\":\"在一两次 examine 尝试失败后，改变策略：验证对象位置，尝试不同的交互（take/put/use），或宣布失败。\"},{\"id\":\"Z0192\",\"chinese\":\"主管可能按字面理解目标短语，即使对象不在那里也反复向 desklamp 派发 look 任务。\"},{\"id\":\"Z0193\",\"chinese\":\"如果对象在 desklamp 位置不可见，在宣布失败前搜索其他表面和容器。当对象在别处时反复派发 'look under desklamp' 任务会浪费步骤并导致失败。\"},{\"id\":\"Z0194\",\"chinese\":\"带显式清洁状态验证的清洁后放置流水线\"},{\"id\":\"Z0195\",\"chinese\":\"获取对象后的加热任务\"},{\"id\":\"Z0196\",\"chinese\":\"在 worker 返回并持有目标对象后，派发 OPERATION MISSION，使用微波炉 1 等热源加热它。当环境确认对象已加热时返回。\"},{\"id\":\"Z0197\",\"chinese\":\"在 worker 持有目标对象的成功 SEARCH MISSION 交接后。\"},{\"id\":\"Z0198\",\"chinese\":\"加热后的放置任务\"},{\"id\":\"Z0199\",\"chinese\":\"在 worker 带着已加热对象返回后，派发 OPERATION MISSION 将其放置到指定目的地。当环境确认对象在目的地时返回。\"},{\"id\":\"Z0200\",\"chinese\":\"在对象已加热的成功 HEAT MISSION 交接后。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 781,
+    "prompt_tokens": 1039,
+    "total_tokens": 1820,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1039
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

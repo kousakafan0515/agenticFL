@@ -1,0 +1,19 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Simple pick-and-place procedure",
+      "principle": "For a simple pick-and-place goal, decompose the task into two ordered subtasks: first locate and take the target object, then move to the specified destination and put the object down. Keep the two steps sequential: do not begin the transfer until the object has been successfully taken, and do not release it until the destination has been reached.",
+      "when_to_apply": "When the goal is to move a single object to a specified destination and no additional state change such as cleaning, heating, cooling, or lighting is required. If the goal also requires such a state change, treat this procedure as only the transport portion and handle the extra requirement separately.",
+      "source_skill_keys": [
+        "A/Planner/简单取放/T1_001",
+        "A/Executor/简单取放/T1_001",
+        "B/Executor/简单取放/T1_001",
+        "B/Critic/简单取放/T1_001",
+        "C/Supervisor/简单取放/T1_001",
+        "C/Search Worker/简单取放/T1_001",
+        "C/Operation Worker/简单取放/T1_001"
+      ]
+    }
+  ]
+}

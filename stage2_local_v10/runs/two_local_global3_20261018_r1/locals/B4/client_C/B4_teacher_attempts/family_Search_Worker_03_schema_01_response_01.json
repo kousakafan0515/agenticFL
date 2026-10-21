@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_03_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:94fa4160ba7881c75f35ddd533298939f3fa3a6c656874a7cbb1ca916a116297",
+  "message_character_count": 151525,
+  "started_at_utc": "2026-10-18T17:18:32.664635+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\":\"When the target object is not at the first checked location, continue searching other plausible surfaces and containers rather than declaring BLOCKED. Episode 060 stopped after countertop 1 and cabinet 1 were empty, though many other locations existed; episode 053 similarly exhausted only a subset before declaring blocked. Track checked locations and keep broadening.\", \"affected_skill_ids\":[\"G_001\",\"G_002\",\"T3_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_060\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_053\"]},{\"recommendation\":\"Do not substitute a similar object type for the named target. Episode 052 took butterknife 1 when the goal was a knife, then failed; episode 059 initially grabbed a cup for a mug goal and only succeeded after finding mug 1. Search for the exact named type before considering any equivalent.\", \"affected_skill_ids\":[\"T3_005\",\"G_005\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_052\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_059\"]},{\"recommendation\":\"After a no-change action, change a relevant condition instead of repeating it. Episode 059 issued put cup 1 in/on coffeemachine 1, open coffeemachine 1, put cup 1 in/on countertop 3, and go to coffeemachine 1 in a row, all returning Nothing happens; episode 066's clean at sidetable failed but succeeded after moving to sinkbasin. Re-check location, held object, and identifiers before retrying.\", \"affected_skill_ids\":[\"G_006\",\"T3_002\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_059\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_066\"]},{\"recommendation\":\"Clean only at a sinkbasin and only while holding the object. Episode 066 attempted clean tomato 1 with sinkbasin 1 while at sidetable 1 and got Nothing happens; after going to sinkbasin 1 the clean succeeded. Verify current location is the cleaning fixture before issuing clean.\", \"affected_skill_ids\":[\"T3_002\",\"G_004\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_066\"]},{\"recommendation\":\"Open a closed destination before placing, and if open returns Nothing happens treat it as already open or non-openable rather than retrying. Episode 052's open drawer 1 returned Nothing happens, then it moved on and placed into drawer 2; episode 055's open cabinet 1 returned Nothing happens and it correctly switched to cabinet 2.\", \"affected_skill_ids\":[\"G_003\",\"T3_004\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_052\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_055\"]},{\"recommendation\":\"Avoid revisiting locations already confirmed empty. Episode 044 returned to countertop 2 after checking it, and episode 063 repeatedly revisited already-open empty cabinets 2-5. Maintain a checked-location list and move to unchecked plausible locations.\", \"affected_skill_ids\":[\"G_002\",\"T3_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_044\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_063\"]},{\"recommendation\":\"Hand off only after the object is actually held, and note that cleaning is still required. Several episodes signaled HANDOFF after merely observing the object (e.g., episode 048 after opening the fridge, episode 054 after arriving at countertop 1) before taking it; the acquisition phase ends only when the take observation confirms holding.\", \"affected_skill_ids\":[\"G_007\",\"T3_001\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_048\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_054\"]},{\"recommendation\":\"Use exact identifiers and supported action forms. Episode 057 issued a bare look action that returned nothing useful; episode 059's put cup 1 in/on coffeemachine 1 failed while the eventual put mug 1 in/on coffeemachine 1 succeeded. Refer to exact instance ids and only supported go/take/put/open/clean forms.\", \"affected_skill_ids\":[\"G_005\",\"G_006\"],\"evidence_refs\":[\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_057\",\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_059\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 45766,
+    "completion_tokens": 1139,
+    "total_tokens": 46905
+  },
+  "completed_at_utc": "2026-10-18T17:18:38.624735+00:00"
+}

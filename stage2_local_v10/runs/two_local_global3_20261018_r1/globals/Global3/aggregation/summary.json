@@ -1,0 +1,121 @@
+{
+  "status": "complete",
+  "round_index": 3,
+  "input_skill_count": 280,
+  "output_skill_count": 39,
+  "global_skillbank": {
+    "path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/global_skillbank3.json",
+    "file_sha256": "sha256:ae306273790f699bd467ad47eaf0662f9541674fbd1fe55d61ce2688944224b8",
+    "live_global_hash": "sha256:add27722e3464db2cf3cacfb1ea18d7c615d3826504217e3fd6f3f4326e6321c"
+  },
+  "server_evaluation_performed": false,
+  "records": [
+    {
+      "bucket": "general",
+      "input_skill_count": 56,
+      "output_skill_count": 8,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/general.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 14751,
+        "completion_tokens": 4528,
+        "total_tokens": 19279,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "简单取放",
+      "input_skill_count": 7,
+      "output_skill_count": 1,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_01.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 1456,
+        "completion_tokens": 268,
+        "total_tokens": 1724,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "台灯观察",
+      "input_skill_count": 35,
+      "output_skill_count": 5,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_02.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 10394,
+        "completion_tokens": 3793,
+        "total_tokens": 14187,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "清洗后放置",
+      "input_skill_count": 42,
+      "output_skill_count": 5,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_03.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 10697,
+        "completion_tokens": 5281,
+        "total_tokens": 15978,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "加热后放置",
+      "input_skill_count": 49,
+      "output_skill_count": 7,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_04.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 11566,
+        "completion_tokens": 4917,
+        "total_tokens": 16483,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "冷却后放置",
+      "input_skill_count": 28,
+      "output_skill_count": 4,
+      "accepted_attempt_file": "stage2_local_v10\\runs\\two_local_global3_20261018_r1\\globals\\Global3\\aggregation\\buckets\\task_05.attempt_03.json",
+      "manual_repair_audit_file": "stage2_local_v10\\runs\\two_local_global3_20261018_r1\\globals\\Global3\\aggregation\\buckets\\task_05.manual_repair_audit.json",
+      "manual_repair_scope": "skills[3].principle_only",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 6921,
+        "completion_tokens": 3026,
+        "total_tokens": 9947,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "双物品放置",
+      "input_skill_count": 63,
+      "output_skill_count": 9,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/buckets/task_06.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 16266,
+        "completion_tokens": 4975,
+        "total_tokens": 21241,
+        "transport_attempts": 1
+      }
+    }
+  ]
+}

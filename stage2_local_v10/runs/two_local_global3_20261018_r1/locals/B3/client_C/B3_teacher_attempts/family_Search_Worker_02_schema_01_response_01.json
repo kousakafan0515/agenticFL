@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:903c9a455fb196d7d042613c7d40f6b7fca32ed53fbf21028a25adaf57be63ab",
+  "message_character_count": 97610,
+  "started_at_utc": "2026-10-18T15:25:42.954630+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the desklamp is already visible on a surface, go directly to that furniture and use the numbered lamp instance; do not keep searching unrelated containers. In episode_025 the worker found desklamp 1 on coffeetable 1 at step 1 but then searched coffeetable 2 and sofa before returning, adding unnecessary steps.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_025\"]}, {\"recommendation\": \"After acquiring the target object, hand off promptly rather than continuing to search for the lamp or issuing extra navigation. In episode_026 the worker took alarmclock 1 and correctly handed off; the operation phase then reached desk 1 and used desklamp 1. Keep the acquisition phase ending at confirmed holding.\", \"affected_skill_ids\": [\"G_007\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_026\"]}, {\"recommendation\": \"Do not attempt to open drawers that are not confirmed to exist at the current location. In episode_032 the worker issued open drawer 1 through drawer 9 at desk 1, all returning 'Nothing happens', then declared blocked without searching other surfaces for the alarmclock. After one or two no-change opens, stop and move to another plausible location.\", \"affected_skill_ids\": [\"G_006\", \"T2_004\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_032\"]}, {\"recommendation\": \"Use the exact numbered lamp instance and avoid bare or compound syntax. In episode_041 the worker tried 'use desklamp', 'use desklamp 1', and 'use desklamp 1 on bowl 1' at a desk where no desklamp was observed, all returning 'Nothing happens'; it should have searched for the actual desklamp location instead of repeating invalid use forms.\", \"affected_skill_ids\": [\"T2_003\", \"T2_004\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_041\"]}, {\"recommendation\": \"When the target object is not on the first surface, continue systematic search across plausible open surfaces before concluding failure. Episode_029 shows the worker searching desk, bed, shelves, and sidetable until it found desklamp 1 on sidetable 1, then successfully used it; this contrasts with episode_032's premature blocked declaration.\", \"affected_skill_ids\": [\"G_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_029\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_032\"]}, {\"recommendation\": \"Track which surface holds the lamp and which holds the target, then carry the target to the lamp. Episode_031 correctly found alarmclock 1 on desk 1, found desklamp 1 on dresser 1, took the alarmclock, returned to the dresser, and used the lamp. Avoid redundant look actions that yield no new information.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_031\"]}, {\"recommendation\": \"Prefer taking the target object when it is visible on the same surface as the lamp, then use the lamp. Episode_036 shows the worker at desk 1 using desklamp 1 and taking creditcard 1; episode_027 similarly took tissuebox 1 from the desk with the lamp. This is efficient when both are co-located.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_036\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_027\"]}, {\"recommendation\": \"Avoid declaring handoff merely because the lamp or target was observed; the acquisition phase should end only when the target is actually held. Several episodes (e.g., 027, 033, 039) emitted HANDOFF after only observing the lamp or target, which risks leaving the operation phase without the object in hand.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_039\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 28713,
+    "completion_tokens": 1118,
+    "total_tokens": 29831
+  },
+  "completed_at_utc": "2026-10-18T15:25:48.497422+00:00"
+}

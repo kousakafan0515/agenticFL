@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Simple pick-and-place procedure",
+      "principle": "For simple pick-and-place goals, decompose the task into two ordered subtasks: first locate and take the target object, then move to the specified destination and put the object down.",
+      "when_to_apply": "When the goal is to move a single object to a specified destination and no additional state change such as cleaning, heating, cooling, or lighting is required.",
+      "source_skill_keys": [
+        "A/Planner/简单取放/skill_005",
+        "C/Operation Worker/简单取放/skill_006"
+      ]
+    }
+  ]
+}

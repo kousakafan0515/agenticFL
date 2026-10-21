@@ -1,0 +1,47 @@
+{
+  "batch": 9,
+  "attempt": 1,
+  "input_ids": [
+    "T0121",
+    "T0122",
+    "T0123",
+    "T0124",
+    "T0125",
+    "T0126",
+    "T0127",
+    "T0128",
+    "T0129",
+    "T0130",
+    "T0131",
+    "T0132",
+    "T0133",
+    "T0134",
+    "T0135"
+  ],
+  "input_text_sha256": "sha256:b832a326e742ec8f1e2fcbcb4cda1d037d8124702f64131e08a4c9088df8adbc",
+  "raw_response": "{\"translations\":[{\"id\":\"T0121\",\"english\":\"In two-item placement tasks, when the agent already holds an item, trying to move to another location or pick up another item usually fails (returns \\\"Nothing happens\\\"), because the agent can carry only one item at a time.\"},{\"id\":\"T0122\",\"english\":\"The ALFWorld environment restricts the agent to holding only one item at a time; while holding an item, move or pick up operations are blocked.\"},{\"id\":\"T0123\",\"english\":\"Before attempting to move or pick up the second item, first put the currently held item into the target container or a temporary location, free both hands, then continue.\"},{\"id\":\"T0124\",\"english\":\"In two-item placement tasks, if you search for target items only in one type of container (e.g., only search shelves or only search cabinets), you may not find the second item, causing task failure.\"},{\"id\":\"T0125\",\"english\":\"Target items may be scattered across different container types, such as counters, tables, shelves, cabinets, etc.\"},{\"id\":\"T0126\",\"english\":\"Systematically search multiple types of containers and surfaces, including counters, tables, shelves, cabinets, drawers, etc., until both target items are found.\"},{\"id\":\"T0127\",\"english\":\"In two-item placement tasks, if the agent repeatedly declares HANDOFF without executing actual actions while already holding an item or after partially completing the task, handoff_loop_guard will terminate it and the task fails.\"},{\"id\":\"T0128\",\"english\":\"The agent may incorrectly believe the current state already satisfies the handoff condition, but the actual task is not yet complete, causing repeated handoff declarations without advancing the task.\"},{\"id\":\"T0129\",\"english\":\"Declare HANDOFF only when the current subgoal is truly completed (e.g., the item has been picked up or placed), and after declaring it continue executing necessary follow-up actions to avoid repeated declarations.\"},{\"id\":\"T0130\",\"english\":\"Desklamp observation: first locate the furniture where the desklamp is, then carry the target object there.\"},{\"id\":\"T0131\",\"english\":\"In the desklamp observation task, do not directly try to go to desklamp; the desklamp is an object fixed to furniture. First find the furniture carrying the desklamp (e.g., desk, sidetable, dresser, coffeetable) through exploration or known location, then carry the target object to that furniture and use the desklamp.\"},{\"id\":\"T0132\",\"english\":\"When the target object has been obtained or is already in hand, and it needs to be placed under the desklamp for observation.\"},{\"id\":\"T0133\",\"english\":\"Desklamp observation: after reaching the furniture where the desklamp is, use the desklamp to complete observation.\"},{\"id\":\"T0134\",\"english\":\"After carrying the target object to the furniture where the desklamp is, execute use desklamp to complete the desklamp observation; there is no need to execute examine, use, or look on the target object to trigger observation.\"},{\"id\":\"T0135\",\"english\":\"When the target object is already carried and the agent is at the furniture where the desklamp is, and the task requires examine/look at the target object with/under the desklamp.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1596,
+    "prompt_tokens": 822,
+    "total_tokens": 2418,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 894,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 822
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

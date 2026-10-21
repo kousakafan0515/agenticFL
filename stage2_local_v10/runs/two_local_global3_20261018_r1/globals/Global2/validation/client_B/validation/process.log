@@ -1,0 +1,1743 @@
+Initializing AlfredTWEnv...
+  0%|          | 0/8810 [00:00<?, ?it/s]  0%|          | 37/8810 [00:00<00:23, 368.66it/s]  1%|          | 74/8810 [00:00<00:57, 152.60it/s]  1%|▏         | 114/8810 [00:00<00:40, 215.41it/s]  2%|▏         | 159/8810 [00:00<00:31, 277.66it/s]  2%|▏         | 201/8810 [00:00<00:27, 315.85it/s]  3%|▎         | 240/8810 [00:00<00:25, 335.60it/s]  3%|▎         | 278/8810 [00:01<00:29, 284.47it/s]  4%|▎         | 321/8810 [00:01<00:26, 320.10it/s]  4%|▍         | 357/8810 [00:01<00:26, 319.15it/s]  4%|▍         | 392/8810 [00:01<00:26, 312.57it/s]  5%|▍         | 425/8810 [00:01<00:29, 283.44it/s]  5%|▌         | 455/8810 [00:01<00:32, 256.39it/s]  6%|▌         | 494/8810 [00:01<00:30, 272.83it/s]  6%|▌         | 534/8810 [00:01<00:27, 298.20it/s]  6%|▋         | 565/8810 [00:02<00:31, 258.21it/s]  7%|▋         | 612/8810 [00:02<00:26, 308.74it/s]  7%|▋         | 646/8810 [00:02<00:28, 286.60it/s]  8%|▊         | 677/8810 [00:02<00:28, 282.66it/s]  8%|▊         | 708/8810 [00:02<00:28, 288.19it/s]  8%|▊         | 738/8810 [00:02<00:32, 246.67it/s]  9%|▊         | 765/8810 [00:02<00:33, 236.90it/s]  9%|▉         | 790/8810 [00:02<00:36, 219.53it/s]  9%|▉         | 818/8810 [00:03<00:34, 233.67it/s] 10%|▉         | 855/8810 [00:03<00:30, 262.32it/s] 10%|█         | 897/8810 [00:03<00:26, 303.43it/s] 11%|█         | 929/8810 [00:03<00:30, 262.13it/s] 11%|█         | 958/8810 [00:03<00:29, 265.28it/s] 11%|█         | 986/8810 [00:03<00:33, 233.47it/s] 11%|█▏        | 1011/8810 [00:03<00:34, 225.69it/s] 12%|█▏        | 1035/8810 [00:03<00:41, 187.18it/s] 12%|█▏        | 1056/8810 [00:04<00:41, 185.58it/s] 12%|█▏        | 1076/8810 [00:04<00:44, 174.12it/s] 12%|█▏        | 1095/8810 [00:04<00:43, 177.41it/s] 13%|█▎        | 1115/8810 [00:04<00:42, 180.66it/s] 13%|█▎        | 1134/8810 [00:04<00:55, 139.28it/s] 13%|█▎        | 1150/8810 [00:04<00:56, 136.57it/s] 13%|█▎        | 1169/8810 [00:04<00:51, 148.14it/s] 13%|█▎        | 1187/8810 [00:04<00:49, 154.33it/s] 14%|█▎        | 1204/8810 [00:05<00:49, 154.67it/s] 14%|█▍        | 1222/8810 [00:05<00:47, 158.96it/s] 14%|█▍        | 1239/8810 [00:05<00:47, 160.33it/s] 14%|█▍        | 1256/8810 [00:05<00:47, 158.07it/s] 14%|█▍        | 1273/8810 [00:05<00:48, 156.97it/s] 15%|█▍        | 1291/8810 [00:05<00:46, 162.29it/s] 15%|█▍        | 1310/8810 [00:05<00:44, 167.45it/s] 15%|█▌        | 1329/8810 [00:05<00:43, 171.50it/s] 15%|█▌        | 1347/8810 [00:05<00:43, 171.01it/s] 15%|█▌        | 1365/8810 [00:06<00:54, 137.34it/s] 16%|█▌        | 1384/8810 [00:06<00:49, 148.93it/s] 16%|█▌        | 1400/8810 [00:06<00:51, 144.46it/s] 16%|█▌        | 1416/8810 [00:06<00:50, 145.88it/s] 16%|█▋        | 1432/8810 [00:06<00:50, 145.84it/s] 16%|█▋        | 1447/8810 [00:06<01:01, 119.43it/s] 17%|█▋        | 1463/8810 [00:06<00:59, 122.80it/s] 17%|█▋        | 1476/8810 [00:07<01:14, 98.21it/s]  17%|█▋        | 1487/8810 [00:07<01:14, 98.04it/s] 17%|█▋        | 1508/8810 [00:07<00:59, 122.80it/s] 17%|█▋        | 1522/8810 [00:07<01:00, 121.19it/s] 17%|█▋        | 1538/8810 [00:07<00:57, 127.28it/s] 18%|█▊        | 1552/8810 [00:07<01:09, 104.59it/s] 18%|█▊        | 1568/8810 [00:07<01:02, 116.12it/s] 18%|█▊        | 1584/8810 [00:07<00:58, 124.33it/s] 18%|█▊        | 1598/8810 [00:08<00:58, 122.47it/s] 18%|█▊        | 1611/8810 [00:08<01:02, 114.81it/s] 18%|█▊        | 1627/8810 [00:08<01:04, 110.57it/s] 19%|█▊        | 1639/8810 [00:08<01:04, 111.77it/s] 19%|█▉        | 1658/8810 [00:08<00:54, 131.15it/s] 19%|█▉        | 1676/8810 [00:08<00:51, 139.78it/s] 19%|█▉        | 1691/8810 [00:08<00:54, 130.00it/s] 19%|█▉        | 1713/8810 [00:08<00:48, 147.20it/s] 20%|█▉        | 1729/8810 [00:09<00:54, 129.33it/s] 20%|█▉        | 1743/8810 [00:09<00:55, 127.60it/s] 20%|█▉        | 1757/8810 [00:09<01:01, 115.56it/s] 20%|██        | 1770/8810 [00:09<00:59, 118.29it/s] 20%|██        | 1783/8810 [00:09<01:00, 115.27it/s] 20%|██        | 1799/8810 [00:09<00:55, 126.76it/s] 21%|██        | 1817/8810 [00:09<00:50, 138.70it/s] 21%|██        | 1835/8810 [00:09<00:47, 147.10it/s] 21%|██        | 1852/8810 [00:10<00:46, 150.26it/s] 21%|██        | 1872/8810 [00:10<00:43, 160.83it/s] 21%|██▏       | 1890/8810 [00:10<00:42, 162.98it/s] 22%|██▏       | 1908/8810 [00:10<00:41, 165.09it/s] 22%|██▏       | 1926/8810 [00:10<00:41, 167.81it/s] 22%|██▏       | 1945/8810 [00:10<00:39, 173.85it/s] 22%|██▏       | 1963/8810 [00:10<00:40, 168.01it/s] 23%|██▎       | 1983/8810 [00:10<00:38, 176.73it/s] 23%|██▎       | 2003/8810 [00:10<00:37, 180.00it/s] 23%|██▎       | 2022/8810 [00:11<00:41, 163.54it/s] 23%|██▎       | 2039/8810 [00:11<00:41, 164.15it/s] 23%|██▎       | 2056/8810 [00:11<00:41, 164.00it/s] 24%|██▎       | 2073/8810 [00:11<00:41, 164.17it/s] 24%|██▎       | 2090/8810 [00:11<00:42, 156.87it/s] 24%|██▍       | 2108/8810 [00:11<00:41, 162.70it/s] 24%|██▍       | 2125/8810 [00:11<00:41, 161.24it/s] 24%|██▍       | 2142/8810 [00:11<00:53, 125.00it/s] 24%|██▍       | 2156/8810 [00:11<00:55, 120.04it/s] 25%|██▍       | 2170/8810 [00:12<00:53, 123.44it/s] 25%|██▍       | 2184/8810 [00:12<00:56, 117.54it/s] 25%|██▌       | 2207/8810 [00:12<00:45, 144.82it/s] 25%|██▌       | 2233/8810 [00:12<00:37, 173.51it/s] 26%|██▌       | 2252/8810 [00:12<00:44, 147.06it/s] 26%|██▌       | 2290/8810 [00:12<00:32, 202.22it/s] 26%|██▋       | 2313/8810 [00:12<00:35, 184.74it/s] 26%|██▋       | 2334/8810 [00:12<00:37, 172.56it/s] 42%|████▏     | 3701/8810 [00:13<00:01, 3381.32it/s] 47%|████▋     | 4113/8810 [00:15<00:08, 585.75it/s]  50%|█████     | 4407/8810 [00:16<00:10, 426.19it/s] 52%|█████▏    | 4620/8810 [00:17<00:11, 362.07it/s] 54%|█████▍    | 4776/8810 [00:18<00:13, 308.22it/s] 56%|█████▌    | 4891/8810 [00:18<00:12, 304.77it/s] 57%|█████▋    | 4980/8810 [00:19<00:13, 290.45it/s] 57%|█████▋    | 5049/8810 [00:19<00:13, 288.90it/s] 58%|█████▊    | 5106/8810 [00:19<00:15, 234.56it/s] 58%|█████▊    | 5149/8810 [00:20<00:16, 220.94it/s] 59%|█████▉    | 5237/8810 [00:20<00:12, 277.06it/s] 60%|██████    | 5287/8810 [00:20<00:16, 216.76it/s] 60%|██████    | 5325/8810 [00:20<00:16, 208.01it/s] 61%|██████    | 5357/8810 [00:21<00:18, 183.83it/s] 61%|██████    | 5383/8810 [00:21<00:19, 173.05it/s] 61%|██████▏   | 5405/8810 [00:21<00:19, 174.35it/s] 62%|██████▏   | 5426/8810 [00:21<00:19, 177.58it/s] 63%|██████▎   | 5531/8810 [00:21<00:09, 333.28it/s] 63%|██████▎   | 5576/8810 [00:22<00:12, 256.96it/s] 64%|██████▎   | 5613/8810 [00:22<00:13, 234.70it/s] 64%|██████▍   | 5644/8810 [00:22<00:14, 214.37it/s] 64%|██████▍   | 5671/8810 [00:22<00:16, 186.55it/s] 65%|██████▍   | 5694/8810 [00:22<00:20, 150.66it/s] 65%|██████▍   | 5714/8810 [00:23<00:19, 157.84it/s] 65%|██████▌   | 5733/8810 [00:23<00:19, 156.70it/s] 65%|██████▌   | 5752/8810 [00:23<00:18, 161.41it/s] 65%|██████▌   | 5770/8810 [00:23<00:18, 164.93it/s] 66%|██████▌   | 5788/8810 [00:23<00:19, 157.58it/s] 66%|██████▌   | 5805/8810 [00:23<00:22, 135.42it/s] 66%|██████▌   | 5820/8810 [00:23<00:22, 133.74it/s] 66%|██████▌   | 5835/8810 [00:23<00:23, 128.93it/s] 66%|██████▋   | 5849/8810 [00:24<00:23, 126.43it/s] 67%|██████▋   | 5862/8810 [00:24<00:25, 115.91it/s] 67%|██████▋   | 5874/8810 [00:24<00:25, 115.75it/s] 67%|██████▋   | 5886/8810 [00:24<00:27, 108.21it/s] 67%|██████▋   | 5897/8810 [00:24<00:27, 107.50it/s] 68%|██████▊   | 5972/8810 [00:24<00:10, 269.54it/s] 68%|██████▊   | 6000/8810 [00:24<00:12, 220.77it/s] 68%|██████▊   | 6025/8810 [00:24<00:13, 207.93it/s] 69%|██████▉   | 6096/8810 [00:25<00:08, 322.26it/s] 70%|██████▉   | 6132/8810 [00:25<00:14, 188.12it/s] 70%|██████▉   | 6160/8810 [00:25<00:15, 167.81it/s] 70%|███████   | 6184/8810 [00:25<00:17, 153.25it/s] 72%|███████▏  | 6324/8810 [00:26<00:06, 358.86it/s] 72%|███████▏  | 6378/8810 [00:26<00:06, 377.64it/s] 73%|███████▎  | 6473/8810 [00:26<00:04, 496.14it/s] 74%|███████▍  | 6537/8810 [00:26<00:09, 239.35it/s] 75%|███████▍  | 6585/8810 [00:27<00:10, 215.20it/s] 75%|███████▌  | 6624/8810 [00:27<00:13, 165.70it/s] 76%|███████▌  | 6654/8810 [00:27<00:13, 164.91it/s] 76%|███████▌  | 6680/8810 [00:27<00:12, 167.67it/s] 76%|███████▌  | 6704/8810 [00:28<00:12, 165.17it/s] 76%|███████▋  | 6725/8810 [00:28<00:13, 152.43it/s] 77%|███████▋  | 6744/8810 [00:28<00:13, 155.83it/s] 77%|███████▋  | 6765/8810 [00:28<00:12, 163.80it/s] 77%|███████▋  | 6784/8810 [00:28<00:12, 167.24it/s] 77%|███████▋  | 6803/8810 [00:28<00:12, 163.31it/s] 77%|███████▋  | 6822/8810 [00:28<00:11, 167.63it/s] 78%|███████▊  | 6841/8810 [00:28<00:11, 171.73it/s] 78%|███████▊  | 6859/8810 [00:29<00:11, 173.81it/s] 78%|███████▊  | 6877/8810 [00:29<00:15, 126.26it/s] 78%|███████▊  | 6897/8810 [00:29<00:13, 141.96it/s] 79%|███████▊  | 6916/8810 [00:29<00:12, 150.72it/s] 79%|███████▊  | 6935/8810 [00:29<00:11, 157.75it/s] 79%|███████▉  | 6952/8810 [00:29<00:11, 160.70it/s] 79%|███████▉  | 6971/8810 [00:29<00:11, 166.48it/s] 79%|███████▉  | 6989/8810 [00:29<00:10, 169.29it/s] 80%|███████▉  | 7009/8810 [00:30<00:10, 176.07it/s] 81%|████████  | 7156/8810 [00:30<00:03, 539.60it/s] 82%|████████▏ | 7212/8810 [00:30<00:05, 296.26it/s] 83%|████████▎ | 7341/8810 [00:30<00:03, 476.21it/s] 84%|████████▍ | 7410/8810 [00:30<00:03, 360.48it/s] 85%|████████▍ | 7465/8810 [00:31<00:04, 322.20it/s] 85%|████████▌ | 7511/8810 [00:31<00:04, 296.04it/s] 86%|████████▌ | 7550/8810 [00:31<00:05, 233.60it/s] 86%|████████▌ | 7581/8810 [00:31<00:05, 235.59it/s] 86%|████████▋ | 7610/8810 [00:31<00:05, 231.00it/s] 87%|████████▋ | 7637/8810 [00:32<00:05, 233.42it/s] 87%|████████▋ | 7663/8810 [00:32<00:05, 219.43it/s] 87%|████████▋ | 7689/8810 [00:32<00:04, 225.94it/s] 88%|████████▊ | 7716/8810 [00:32<00:04, 234.36it/s] 88%|████████▊ | 7741/8810 [00:32<00:04, 237.25it/s] 88%|████████▊ | 7770/8810 [00:32<00:04, 248.09it/s] 88%|████████▊ | 7796/8810 [00:32<00:04, 234.61it/s] 89%|████████▉ | 7821/8810 [00:32<00:04, 232.21it/s] 89%|████████▉ | 7845/8810 [00:32<00:04, 227.77it/s] 89%|████████▉ | 7869/8810 [00:33<00:04, 228.23it/s] 90%|████████▉ | 7893/8810 [00:33<00:04, 228.56it/s] 90%|████████▉ | 7916/8810 [00:33<00:04, 193.00it/s] 90%|█████████ | 7937/8810 [00:33<00:04, 192.91it/s] 90%|█████████ | 7961/8810 [00:33<00:04, 203.15it/s] 91%|█████████ | 7986/8810 [00:33<00:03, 212.96it/s] 91%|█████████ | 8008/8810 [00:33<00:03, 212.27it/s] 91%|█████████ | 8030/8810 [00:33<00:03, 209.17it/s] 91%|█████████▏| 8057/8810 [00:33<00:03, 225.09it/s] 92%|█████████▏| 8081/8810 [00:34<00:03, 226.50it/s] 92%|█████████▏| 8104/8810 [00:34<00:03, 227.34it/s] 92%|█████████▏| 8127/8810 [00:34<00:03, 218.72it/s] 93%|█████████▎| 8150/8810 [00:34<00:03, 207.22it/s] 93%|█████████▎| 8173/8810 [00:34<00:03, 211.02it/s] 93%|█████████▎| 8195/8810 [00:34<00:02, 206.98it/s] 93%|█████████▎| 8216/8810 [00:34<00:02, 201.53it/s] 93%|█████████▎| 8237/8810 [00:34<00:03, 190.79it/s] 94%|█████████▍| 8274/8810 [00:34<00:02, 237.38it/s] 94%|█████████▍| 8299/8810 [00:35<00:02, 240.24it/s] 94%|█████████▍| 8324/8810 [00:35<00:02, 218.03it/s] 95%|█████████▍| 8347/8810 [00:35<00:02, 181.18it/s] 95%|█████████▌| 8375/8810 [00:35<00:02, 203.51it/s] 95%|█████████▌| 8401/8810 [00:35<00:01, 215.61it/s] 96%|█████████▌| 8430/8810 [00:35<00:01, 233.04it/s] 96%|█████████▌| 8455/8810 [00:35<00:01, 224.94it/s] 96%|█████████▌| 8479/8810 [00:35<00:01, 205.17it/s] 97%|█████████▋| 8503/8810 [00:36<00:01, 213.49it/s] 97%|█████████▋| 8526/8810 [00:36<00:01, 211.29it/s] 97%|█████████▋| 8548/8810 [00:36<00:01, 156.73it/s] 97%|█████████▋| 8575/8810 [00:36<00:01, 181.25it/s] 98%|█████████▊| 8605/8810 [00:36<00:00, 208.89it/s] 98%|█████████▊| 8629/8810 [00:36<00:00, 205.32it/s] 98%|█████████▊| 8652/8810 [00:36<00:00, 205.93it/s] 98%|█████████▊| 8674/8810 [00:36<00:00, 189.29it/s] 99%|█████████▊| 8694/8810 [00:37<00:00, 172.55it/s] 99%|█████████▉| 8719/8810 [00:37<00:00, 191.45it/s] 99%|█████████▉| 8748/8810 [00:37<00:00, 214.36it/s]100%|█████████▉| 8774/8810 [00:37<00:00, 224.85it/s]100%|█████████▉| 8799/8810 [00:37<00:00, 231.54it/s]100%|██████████| 8810/8810 [00:37<00:00, 234.60it/s]
+Overall we have 790 games in split=train
+Training with 790 games
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_and_place_simple step 16/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 17/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 18/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 19/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_and_place_simple step 21/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 22/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 23/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 24/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_and_place_simple step 26/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 27/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 28/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 29/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_and_place_simple step 31/50
+pick_and_place_simple: SUCCESS (31 Executor calls, 6 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+pick_and_place_simple: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Client B Critic format failure after step 5; note not injected.
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+pick_and_place_simple: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+pick_and_place_simple: SUCCESS (12 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+pick_and_place_simple: SUCCESS (14 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Client B Critic format failure after step 5; note not injected.
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+pick_and_place_simple: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+pick_and_place_simple: SUCCESS (5 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+pick_and_place_simple: SUCCESS (14 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+pick_and_place_simple: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+pick_and_place_simple: SUCCESS (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+pick_and_place_simple: SUCCESS (5 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+pick_and_place_simple: SUCCESS (14 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+pick_and_place_simple: SUCCESS (5 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Client B Critic format failure after step 10; note not injected.
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+pick_and_place_simple: SUCCESS (13 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_and_place_simple step 16/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 17/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 18/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 19/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_and_place_simple step 21/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 22/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 23/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 24/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_and_place_simple step 26/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 27/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 28/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 29/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_and_place_simple step 31/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 32/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 33/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 34/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_and_place_simple step 36/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 37/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 38/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 39/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 40/50
+Calling Critic qwen3.6-flash: after environment step 40
+Calling Executor qwen3.6-flash: pick_and_place_simple step 41/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 42/50
+Client B Executor parse failure in pick_and_place_simple: 'Thought: I need to check the contents of cabinet 1, which is open and nearby, to see if it contains a pan.\nAction: look inside cabinet 1'
+pick_and_place_simple: FAIL (42 Executor calls, 8 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+pick_and_place_simple: SUCCESS (4 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 8/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 9/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Client B Critic format failure after step 10; note not injected.
+Calling Executor qwen3.6-flash: pick_and_place_simple step 11/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 12/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 13/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 14/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_and_place_simple step 16/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 17/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 18/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 19/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_and_place_simple step 21/50
+pick_and_place_simple: SUCCESS (21 Executor calls, 4 Critic calls)
+Calling Executor qwen3.6-flash: pick_and_place_simple step 1/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 2/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 3/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 4/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_and_place_simple step 6/50
+Calling Executor qwen3.6-flash: pick_and_place_simple step 7/50
+pick_and_place_simple: SUCCESS (7 Executor calls, 1 Critic calls)
+Initializing AlfredTWEnv...
+  0%|          | 0/8810 [00:00<?, ?it/s]  0%|          | 10/8810 [00:00<01:31, 96.13it/s]  0%|          | 21/8810 [00:00<01:27, 100.01it/s]  0%|          | 33/8810 [00:00<01:25, 103.17it/s]  0%|          | 44/8810 [00:00<01:24, 103.72it/s]  1%|          | 55/8810 [00:00<01:25, 102.78it/s]  1%|          | 66/8810 [00:00<01:25, 102.77it/s]  1%|          | 77/8810 [00:00<01:25, 102.00it/s]  1%|          | 88/8810 [00:00<01:26, 100.63it/s]  1%|          | 99/8810 [00:00<01:26, 101.21it/s]  1%|          | 110/8810 [00:01<01:26, 100.20it/s]  1%|▏         | 121/8810 [00:01<01:24, 102.26it/s]  1%|▏         | 132/8810 [00:01<01:25, 101.41it/s]  2%|▏         | 143/8810 [00:01<01:24, 102.22it/s]  2%|▏         | 154/8810 [00:01<01:24, 102.49it/s]  2%|▏         | 165/8810 [00:01<01:23, 103.19it/s]  2%|▏         | 176/8810 [00:01<01:24, 101.64it/s]  2%|▏         | 187/8810 [00:01<01:23, 102.75it/s]  2%|▏         | 198/8810 [00:01<01:23, 103.25it/s]  2%|▏         | 209/8810 [00:02<01:26, 99.71it/s]   2%|▏         | 220/8810 [00:02<01:23, 102.43it/s]  3%|▎         | 233/8810 [00:02<01:21, 105.70it/s]  3%|▎         | 244/8810 [00:02<01:21, 105.32it/s]  3%|▎         | 256/8810 [00:02<01:20, 105.63it/s]  3%|▎         | 267/8810 [00:02<01:20, 105.48it/s]  3%|▎         | 278/8810 [00:02<01:22, 103.00it/s]  3%|▎         | 289/8810 [00:02<01:23, 102.31it/s]  3%|▎         | 300/8810 [00:02<01:24, 101.29it/s]  4%|▎         | 311/8810 [00:03<01:26, 98.60it/s]   4%|▎         | 322/8810 [00:03<01:24, 100.79it/s]  4%|▍         | 333/8810 [00:03<01:23, 101.64it/s]  4%|▍         | 344/8810 [00:03<01:22, 102.32it/s]  4%|▍         | 355/8810 [00:03<01:25, 98.79it/s]   4%|▍         | 365/8810 [00:03<01:26, 97.89it/s]  4%|▍         | 375/8810 [00:03<01:28, 94.96it/s]  4%|▍         | 385/8810 [00:03<01:27, 96.32it/s]  5%|▍         | 397/8810 [00:03<01:24, 99.39it/s]  5%|▍         | 408/8810 [00:04<01:24, 99.00it/s]  5%|▍         | 419/8810 [00:04<01:22, 101.64it/s]  5%|▍         | 430/8810 [00:04<01:48, 77.30it/s]   5%|▍         | 439/8810 [00:04<01:48, 77.04it/s]  5%|▌         | 453/8810 [00:04<01:32, 90.43it/s]  5%|▌         | 468/8810 [00:04<01:19, 105.37it/s]  6%|▌         | 487/8810 [00:04<01:06, 125.09it/s]  6%|▌         | 501/8810 [00:04<01:05, 127.56it/s]  6%|▌         | 516/8810 [00:04<01:03, 131.54it/s]  6%|▌         | 530/8810 [00:05<01:13, 112.88it/s]  6%|▌         | 546/8810 [00:05<01:07, 122.25it/s]  6%|▋         | 564/8810 [00:05<01:01, 135.04it/s]  7%|▋         | 579/8810 [00:05<00:59, 138.52it/s]  7%|▋         | 594/8810 [00:05<01:00, 135.32it/s]  7%|▋         | 608/8810 [00:05<01:05, 124.96it/s]  7%|▋         | 621/8810 [00:05<01:16, 107.40it/s]  7%|▋         | 633/8810 [00:06<01:35, 85.21it/s]   7%|▋         | 648/8810 [00:06<01:22, 98.55it/s]  8%|▊         | 664/8810 [00:06<01:12, 112.41it/s]  8%|▊         | 677/8810 [00:06<01:18, 103.74it/s]  8%|▊         | 692/8810 [00:06<01:11, 113.74it/s]  8%|▊         | 708/8810 [00:06<01:04, 125.01it/s]  8%|▊         | 723/8810 [00:06<01:05, 123.02it/s]  8%|▊         | 736/8810 [00:06<01:10, 114.18it/s]  8%|▊         | 748/8810 [00:07<01:18, 103.20it/s]  9%|▊         | 759/8810 [00:07<01:17, 103.47it/s]  9%|▊         | 770/8810 [00:07<01:16, 104.71it/s]  9%|▉         | 783/8810 [00:07<01:13, 108.59it/s]  9%|▉         | 795/8810 [00:07<01:25, 93.29it/s]   9%|▉         | 805/8810 [00:07<01:39, 80.32it/s]  9%|▉         | 815/8810 [00:07<01:37, 81.87it/s]  9%|▉         | 825/8810 [00:07<01:33, 85.75it/s]  9%|▉         | 834/8810 [00:08<01:37, 82.09it/s] 10%|▉         | 845/8810 [00:08<01:29, 88.58it/s] 10%|▉         | 861/8810 [00:08<01:14, 106.09it/s] 10%|▉         | 873/8810 [00:08<01:13, 107.91it/s] 10%|█         | 886/8810 [00:08<01:10, 111.92it/s] 10%|█         | 902/8810 [00:08<01:04, 122.49it/s] 10%|█         | 915/8810 [00:08<01:07, 116.25it/s] 11%|█         | 927/8810 [00:08<01:24, 93.80it/s]  11%|█         | 938/8810 [00:09<01:31, 85.82it/s] 11%|█         | 948/8810 [00:09<01:29, 88.18it/s] 11%|█         | 961/8810 [00:09<01:20, 97.26it/s] 11%|█         | 977/8810 [00:09<01:10, 111.34it/s] 11%|█         | 989/8810 [00:09<01:09, 112.95it/s] 12%|█▏        | 1025/8810 [00:09<00:43, 179.86it/s] 12%|█▏        | 1058/8810 [00:09<00:35, 221.35it/s] 12%|█▏        | 1081/8810 [00:09<00:36, 213.88it/s] 13%|█▎        | 1104/8810 [00:10<00:47, 162.14it/s] 13%|█▎        | 1123/8810 [00:10<00:46, 165.91it/s] 13%|█▎        | 1142/8810 [00:10<00:47, 160.34it/s] 13%|█▎        | 1169/8810 [00:10<00:40, 186.82it/s] 14%|█▎        | 1204/8810 [00:10<00:33, 228.68it/s] 14%|█▍        | 1229/8810 [00:10<00:32, 231.24it/s] 14%|█▍        | 1262/8810 [00:10<00:29, 256.92it/s] 15%|█▍        | 1292/8810 [00:10<00:27, 268.52it/s] 15%|█▌        | 1326/8810 [00:10<00:25, 288.47it/s] 15%|█▌        | 1364/8810 [00:11<00:23, 314.60it/s] 16%|█▌        | 1399/8810 [00:11<00:23, 321.45it/s] 16%|█▋        | 1432/8810 [00:11<00:22, 322.82it/s] 17%|█▋        | 1465/8810 [00:11<00:22, 321.07it/s] 17%|█▋        | 1499/8810 [00:11<00:22, 325.02it/s] 17%|█▋        | 1532/8810 [00:11<00:23, 312.21it/s] 18%|█▊        | 1564/8810 [00:11<00:25, 280.90it/s] 18%|█▊        | 1594/8810 [00:11<00:25, 284.05it/s] 18%|█▊        | 1623/8810 [00:11<00:26, 273.06it/s] 19%|█▊        | 1651/8810 [00:11<00:26, 273.11it/s] 19%|█▉        | 1679/8810 [00:12<00:32, 221.29it/s] 19%|█▉        | 1703/8810 [00:12<00:35, 202.69it/s] 20%|█▉        | 1731/8810 [00:12<00:32, 220.73it/s] 20%|█▉        | 1760/8810 [00:12<00:29, 237.62it/s] 20%|██        | 1796/8810 [00:12<00:26, 268.28it/s] 21%|██        | 1827/8810 [00:12<00:25, 275.73it/s] 21%|██        | 1856/8810 [00:12<00:25, 267.60it/s] 21%|██▏       | 1894/8810 [00:12<00:23, 296.61it/s] 22%|██▏       | 1925/8810 [00:13<00:23, 291.13it/s] 22%|██▏       | 1961/8810 [00:13<00:22, 310.37it/s] 23%|██▎       | 2000/8810 [00:13<00:20, 329.93it/s] 23%|██▎       | 2038/8810 [00:13<00:19, 341.77it/s] 24%|██▎       | 2079/8810 [00:13<00:18, 358.95it/s] 24%|██▍       | 2116/8810 [00:13<00:24, 271.57it/s] 24%|██▍       | 2147/8810 [00:13<00:32, 202.57it/s] 25%|██▍       | 2172/8810 [00:14<00:33, 198.84it/s] 25%|██▍       | 2198/8810 [00:14<00:31, 211.10it/s] 25%|██▌       | 2227/8810 [00:14<00:28, 228.60it/s] 26%|██▌       | 2253/8810 [00:14<00:29, 224.66it/s] 26%|██▌       | 2279/8810 [00:14<00:28, 233.24it/s] 26%|██▌       | 2304/8810 [00:14<00:31, 205.73it/s] 26%|██▋       | 2328/8810 [00:14<00:30, 212.44it/s] 42%|████▏     | 3688/8810 [00:14<00:01, 3560.45it/s] 46%|████▌     | 4069/8810 [00:17<00:08, 547.29it/s]  49%|████▉     | 4341/8810 [00:18<00:12, 365.93it/s] 51%|█████▏    | 4536/8810 [00:19<00:12, 339.74it/s] 53%|█████▎    | 4681/8810 [00:19<00:12, 329.61it/s] 54%|█████▍    | 4791/8810 [00:20<00:13, 309.12it/s] 55%|█████▌    | 4875/8810 [00:20<00:14, 277.95it/s] 56%|█████▌    | 4939/8810 [00:21<00:15, 253.74it/s] 57%|█████▋    | 5016/8810 [00:21<00:13, 289.08it/s] 58%|█████▊    | 5073/8810 [00:22<00:17, 212.19it/s] 58%|█████▊    | 5116/8810 [00:22<00:24, 148.08it/s] 58%|█████▊    | 5148/8810 [00:23<00:24, 152.52it/s] 59%|█████▉    | 5228/8810 [00:23<00:17, 207.36it/s] 60%|█████▉    | 5271/8810 [00:23<00:19, 183.62it/s] 60%|██████    | 5305/8810 [00:23<00:19, 175.97it/s] 61%|██████    | 5333/8810 [00:23<00:20, 171.05it/s] 61%|██████    | 5358/8810 [00:24<00:23, 149.25it/s] 61%|██████    | 5378/8810 [00:24<00:24, 142.57it/s] 61%|██████    | 5396/8810 [00:24<00:23, 147.07it/s] 61%|██████▏   | 5414/8810 [00:24<00:23, 144.44it/s] 63%|██████▎   | 5519/8810 [00:24<00:10, 308.16it/s] 63%|██████▎   | 5557/8810 [00:25<00:14, 222.75it/s] 63%|██████▎   | 5588/8810 [00:25<00:15, 213.17it/s] 64%|██████▎   | 5615/8810 [00:25<00:15, 201.43it/s] 64%|██████▍   | 5639/8810 [00:25<00:16, 194.95it/s] 64%|██████▍   | 5661/8810 [00:25<00:21, 143.87it/s] 64%|██████▍   | 5682/8810 [00:25<00:20, 150.65it/s] 65%|██████▍   | 5700/8810 [00:25<00:19, 155.60it/s] 65%|██████▍   | 5718/8810 [00:26<00:19, 159.08it/s] 65%|██████▌   | 5736/8810 [00:26<00:21, 144.69it/s] 65%|██████▌   | 5752/8810 [00:26<00:21, 142.64it/s] 66%|██████▌   | 5772/8810 [00:26<00:19, 155.36it/s] 66%|██████▌   | 5793/8810 [00:26<00:17, 168.83it/s] 66%|██████▌   | 5811/8810 [00:26<00:18, 163.29it/s] 66%|██████▌   | 5828/8810 [00:26<00:21, 141.73it/s] 66%|██████▋   | 5843/8810 [00:27<00:29, 100.50it/s] 66%|██████▋   | 5856/8810 [00:27<00:30, 96.21it/s]  67%|██████▋   | 5870/8810 [00:27<00:28, 103.85it/s] 67%|██████▋   | 5888/8810 [00:27<00:24, 120.26it/s] 68%|██████▊   | 5961/8810 [00:27<00:10, 263.40it/s] 68%|██████▊   | 5992/8810 [00:27<00:11, 237.35it/s] 68%|██████▊   | 6019/8810 [00:27<00:13, 200.15it/s] 69%|██████▉   | 6092/8810 [00:28<00:08, 311.05it/s] 70%|██████▉   | 6129/8810 [00:28<00:10, 250.88it/s] 70%|██████▉   | 6160/8810 [00:29<00:23, 114.34it/s] 70%|███████   | 6183/8810 [00:29<00:22, 116.74it/s] 72%|███████▏  | 6325/8810 [00:29<00:08, 282.88it/s] 73%|███████▎  | 6461/8810 [00:29<00:05, 445.64it/s] 74%|███████▍  | 6538/8810 [00:30<00:10, 221.18it/s] 75%|███████▍  | 6595/8810 [00:30<00:11, 197.87it/s] 75%|███████▌  | 6639/8810 [00:31<00:13, 163.15it/s] 76%|███████▌  | 6673/8810 [00:31<00:14, 147.81it/s] 76%|███████▌  | 6700/8810 [00:31<00:13, 154.11it/s] 76%|███████▋  | 6725/8810 [00:31<00:16, 123.46it/s] 77%|███████▋  | 6745/8810 [00:32<00:17, 119.64it/s] 77%|███████▋  | 6762/8810 [00:32<00:17, 115.19it/s] 77%|███████▋  | 6778/8810 [00:32<00:16, 121.24it/s] 77%|███████▋  | 6799/8810 [00:32<00:14, 135.03it/s] 77%|███████▋  | 6819/8810 [00:32<00:13, 147.53it/s] 78%|███████▊  | 6839/8810 [00:32<00:12, 157.57it/s] 78%|███████▊  | 6857/8810 [00:32<00:16, 119.98it/s] 78%|███████▊  | 6873/8810 [00:33<00:15, 126.90it/s] 78%|███████▊  | 6895/8810 [00:33<00:13, 146.23it/s] 78%|███████▊  | 6913/8810 [00:33<00:12, 153.57it/s] 79%|███████▊  | 6931/8810 [00:33<00:14, 126.71it/s] 79%|███████▉  | 6946/8810 [00:33<00:16, 111.66it/s] 79%|███████▉  | 6959/8810 [00:33<00:16, 112.91it/s] 79%|███████▉  | 6972/8810 [00:33<00:15, 116.56it/s] 79%|███████▉  | 6990/8810 [00:33<00:14, 129.92it/s] 80%|███████▉  | 7005/8810 [00:34<00:13, 133.38it/s] 81%|████████  | 7155/8810 [00:34<00:03, 494.17it/s] 82%|████████▏ | 7210/8810 [00:34<00:07, 227.28it/s] 82%|████████▏ | 7251/8810 [00:34<00:06, 253.27it/s] 84%|████████▎ | 7360/8810 [00:34<00:03, 391.41it/s] 84%|████████▍ | 7418/8810 [00:35<00:04, 299.08it/s] 85%|████████▍ | 7464/8810 [00:35<00:04, 279.53it/s] 85%|████████▌ | 7503/8810 [00:35<00:05, 231.50it/s] 86%|████████▌ | 7535/8810 [00:35<00:05, 226.63it/s] 86%|████████▌ | 7564/8810 [00:36<00:05, 216.93it/s] 86%|████████▌ | 7590/8810 [00:36<00:06, 193.39it/s] 86%|████████▋ | 7612/8810 [00:36<00:06, 176.19it/s] 87%|████████▋ | 7638/8810 [00:36<00:06, 191.66it/s] 87%|████████▋ | 7668/8810 [00:36<00:05, 214.08it/s] 87%|████████▋ | 7700/8810 [00:36<00:04, 234.80it/s] 88%|████████▊ | 7726/8810 [00:36<00:04, 232.85it/s] 88%|████████▊ | 7751/8810 [00:37<00:05, 186.00it/s] 88%|████████▊ | 7772/8810 [00:37<00:05, 185.99it/s] 88%|████████▊ | 7793/8810 [00:37<00:05, 172.38it/s] 89%|████████▊ | 7812/8810 [00:37<00:05, 174.79it/s] 89%|████████▉ | 7831/8810 [00:37<00:07, 135.01it/s] 89%|████████▉ | 7847/8810 [00:37<00:08, 120.09it/s] 89%|████████▉ | 7870/8810 [00:37<00:06, 142.27it/s] 90%|████████▉ | 7897/8810 [00:38<00:05, 169.43it/s] 90%|████████▉ | 7917/8810 [00:38<00:05, 150.85it/s] 90%|█████████ | 7940/8810 [00:38<00:05, 167.39it/s] 90%|█████████ | 7961/8810 [00:38<00:04, 176.67it/s] 91%|█████████ | 7986/8810 [00:38<00:04, 195.14it/s] 91%|█████████ | 8007/8810 [00:38<00:04, 198.67it/s] 91%|█████████ | 8028/8810 [00:38<00:03, 199.86it/s] 91%|█████████▏| 8052/8810 [00:38<00:03, 207.80it/s] 92%|█████████▏| 8076/8810 [00:38<00:03, 215.09it/s] 92%|█████████▏| 8103/8810 [00:39<00:03, 228.28it/s] 92%|█████████▏| 8127/8810 [00:39<00:03, 222.57it/s] 93%|█████████▎| 8150/8810 [00:39<00:03, 165.47it/s] 93%|█████████▎| 8179/8810 [00:39<00:03, 191.77it/s] 93%|█████████▎| 8201/8810 [00:39<00:03, 189.78it/s] 93%|█████████▎| 8222/8810 [00:39<00:03, 161.09it/s] 94%|█████████▎| 8240/8810 [00:39<00:03, 150.04it/s] 94%|█████████▍| 8262/8810 [00:40<00:03, 165.52it/s] 94%|█████████▍| 8281/8810 [00:40<00:03, 170.94it/s] 94%|█████████▍| 8300/8810 [00:40<00:03, 155.72it/s] 94%|█████████▍| 8317/8810 [00:40<00:03, 134.64it/s] 95%|█████████▍| 8332/8810 [00:40<00:03, 134.58it/s] 95%|█████████▍| 8358/8810 [00:40<00:02, 164.13it/s] 95%|█████████▌| 8387/8810 [00:40<00:02, 192.76it/s] 95%|█████████▌| 8408/8810 [00:40<00:02, 146.71it/s] 96%|█████████▌| 8426/8810 [00:41<00:02, 145.54it/s] 96%|█████████▌| 8443/8810 [00:41<00:02, 133.93it/s] 96%|█████████▌| 8472/8810 [00:41<00:02, 167.55it/s] 96%|█████████▋| 8496/8810 [00:41<00:01, 182.52it/s] 97%|█████████▋| 8516/8810 [00:41<00:01, 186.30it/s] 97%|█████████▋| 8540/8810 [00:41<00:01, 198.06it/s] 97%|█████████▋| 8566/8810 [00:41<00:01, 214.08it/s] 97%|█████████▋| 8589/8810 [00:41<00:01, 189.84it/s] 98%|█████████▊| 8610/8810 [00:42<00:01, 190.74it/s] 98%|█████████▊| 8630/8810 [00:42<00:01, 124.10it/s] 98%|█████████▊| 8651/8810 [00:42<00:01, 132.12it/s] 98%|█████████▊| 8667/8810 [00:42<00:01, 128.42it/s] 99%|█████████▊| 8690/8810 [00:42<00:00, 149.18it/s] 99%|█████████▉| 8712/8810 [00:42<00:00, 165.56it/s] 99%|█████████▉| 8737/8810 [00:42<00:00, 186.66it/s] 99%|█████████▉| 8759/8810 [00:43<00:00, 191.35it/s]100%|█████████▉| 8787/8810 [00:43<00:00, 212.36it/s]100%|██████████| 8810/8810 [00:43<00:00, 203.83it/s]
+Overall we have 308 games in split=train
+Training with 308 games
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+look_at_obj_in_light: FAIL (2 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+look_at_obj_in_light: SUCCESS (6 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 11/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 12/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 13/50
+look_at_obj_in_light: SUCCESS (13 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+look_at_obj_in_light: SUCCESS (6 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+look_at_obj_in_light: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+look_at_obj_in_light: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Client B Executor parse failure in look_at_obj_in_light: 'Thought: The desklamp has been successfully turned on, which is the required interaction to examine the alarmclock with it.\nAction: Status: COMPLETED'
+look_at_obj_in_light: FAIL (3 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 11/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 12/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 13/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 14/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 16/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 17/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 18/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 19/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 20/50
+look_at_obj_in_light: SUCCESS (20 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+look_at_obj_in_light: SUCCESS (5 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+look_at_obj_in_light: SUCCESS (3 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 11/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 12/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 13/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 14/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 16/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 17/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 18/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 19/50
+look_at_obj_in_light: SUCCESS (19 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+look_at_obj_in_light: FAIL (2 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+look_at_obj_in_light: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 11/50
+Client B Executor parse failure in look_at_obj_in_light: 'Thought: I am currently holding bowl 1 and standing at desk 1, but the observation says "Next to it, you see nothing," which implies the desk surface is not showing items or I am not interacting with it correctly. The previous `use desklamp 1` failed twice. According to the skill T2_004, if `use desklamp` fails repeatedly, I should stop retrying and reassess. Since I am holding the bowl, maybe I need to put it down first? But `put` also failed in Turn 9. Let\'s check inventory to be sure, then try to look at the bowl itself or find another way. Wait, the task is "look at bowl under the desklamp". If I can\'t use the lamp, maybe I just need to have the bowl near the lamp? But I\'m already there. Let\'s re-read the initial observation: "On the desk 1, you see a alarmclock 1, a bowl 2, a bowl 1...". It seems bowl 1 was on the desk. I took it. Now I\'m holding it. The desk looks empty now because I took the items? No, usually items remain unless taken. But the observation says'
+look_at_obj_in_light: FAIL (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+look_at_obj_in_light: SUCCESS (6 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 7/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 8/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 9/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 11/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 12/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 13/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 14/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 16/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 17/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 18/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 19/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 20/50
+look_at_obj_in_light: SUCCESS (20 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+look_at_obj_in_light: SUCCESS (5 Executor calls, 0 Critic calls)
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 1/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 2/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 3/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 4/50
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: look_at_obj_in_light step 6/50
+look_at_obj_in_light: SUCCESS (6 Executor calls, 1 Critic calls)
+Initializing AlfredTWEnv...
+  0%|          | 0/8810 [00:00<?, ?it/s]  1%|          | 62/8810 [00:00<00:14, 611.96it/s]  1%|▏         | 128/8810 [00:00<00:13, 633.48it/s]  2%|▏         | 192/8810 [00:00<00:14, 600.16it/s]  3%|▎         | 256/8810 [00:00<00:13, 611.27it/s]  4%|▎         | 318/8810 [00:00<00:17, 472.42it/s]  4%|▍         | 374/8810 [00:00<00:17, 495.49it/s]  5%|▍         | 436/8810 [00:00<00:15, 527.07it/s]  6%|▌         | 492/8810 [00:00<00:17, 480.99it/s]  6%|▌         | 546/8810 [00:01<00:16, 496.44it/s]  7%|▋         | 601/8810 [00:01<00:16, 508.24it/s]  7%|▋         | 654/8810 [00:01<00:19, 418.40it/s]  8%|▊         | 703/8810 [00:01<00:18, 434.37it/s]  9%|▊         | 750/8810 [00:01<00:19, 405.80it/s]  9%|▉         | 793/8810 [00:01<00:22, 349.52it/s]  9%|▉         | 831/8810 [00:01<00:25, 318.56it/s] 10%|▉         | 880/8810 [00:01<00:22, 357.26it/s] 11%|█         | 933/8810 [00:02<00:19, 398.85it/s] 11%|█         | 976/8810 [00:02<00:20, 376.87it/s] 12%|█▏        | 1034/8810 [00:02<00:18, 428.94it/s] 12%|█▏        | 1085/8810 [00:02<00:17, 448.60it/s] 13%|█▎        | 1132/8810 [00:02<00:19, 399.63it/s] 13%|█▎        | 1175/8810 [00:02<00:19, 383.54it/s] 14%|█▍        | 1215/8810 [00:02<00:21, 356.34it/s] 14%|█▍        | 1258/8810 [00:02<00:20, 374.24it/s] 15%|█▍        | 1303/8810 [00:03<00:19, 392.84it/s] 15%|█▌        | 1344/8810 [00:03<00:21, 354.10it/s] 16%|█▌        | 1381/8810 [00:03<00:20, 354.77it/s] 16%|█▌        | 1431/8810 [00:03<00:18, 392.51it/s] 17%|█▋        | 1472/8810 [00:03<00:19, 381.81it/s] 17%|█▋        | 1518/8810 [00:03<00:18, 400.17it/s] 18%|█▊        | 1564/8810 [00:03<00:17, 414.41it/s] 18%|█▊        | 1606/8810 [00:03<00:21, 342.85it/s] 19%|█▊        | 1643/8810 [00:03<00:21, 337.57it/s] 19%|█▉        | 1699/8810 [00:04<00:18, 394.77it/s] 20%|█▉        | 1751/8810 [00:04<00:16, 427.18it/s] 20%|██        | 1796/8810 [00:04<00:18, 388.64it/s] 21%|██        | 1842/8810 [00:04<00:17, 405.76it/s] 22%|██▏       | 1904/8810 [00:04<00:14, 460.84it/s] 22%|██▏       | 1961/8810 [00:04<00:14, 488.25it/s] 23%|██▎       | 2017/8810 [00:04<00:13, 507.33it/s] 24%|██▎       | 2079/8810 [00:04<00:12, 539.31it/s] 24%|██▍       | 2134/8810 [00:04<00:14, 472.58it/s] 25%|██▍       | 2184/8810 [00:05<00:19, 340.43it/s] 25%|██▌       | 2225/8810 [00:05<00:18, 354.90it/s] 26%|██▋       | 2313/8810 [00:05<00:13, 475.10it/s] 42%|████▏     | 3701/8810 [00:05<00:01, 3759.96it/s] 47%|████▋     | 4136/8810 [00:08<00:09, 489.99it/s]  50%|█████     | 4445/8810 [00:10<00:14, 294.85it/s] 53%|█████▎    | 4665/8810 [00:12<00:17, 234.58it/s] 55%|█████▍    | 4823/8810 [00:14<00:20, 193.16it/s] 56%|█████▌    | 4937/8810 [00:14<00:20, 191.12it/s] 57%|█████▋    | 5022/8810 [00:14<00:18, 208.46it/s] 58%|█████▊    | 5097/8810 [00:15<00:18, 204.88it/s] 59%|█████▊    | 5155/8810 [00:15<00:17, 212.25it/s] 59%|█████▉    | 5239/8810 [00:15<00:14, 253.07it/s] 60%|██████    | 5298/8810 [00:16<00:16, 210.02it/s] 61%|██████    | 5343/8810 [00:16<00:18, 191.25it/s] 61%|██████    | 5378/8810 [00:16<00:21, 161.44it/s] 61%|██████▏   | 5406/8810 [00:17<00:21, 161.30it/s] 62%|██████▏   | 5430/8810 [00:17<00:20, 166.70it/s] 63%|██████▎   | 5538/8810 [00:17<00:11, 286.31it/s] 63%|██████▎   | 5585/8810 [00:17<00:13, 243.65it/s] 64%|██████▍   | 5623/8810 [00:17<00:14, 213.62it/s] 64%|██████▍   | 5654/8810 [00:18<00:15, 205.10it/s] 64%|██████▍   | 5681/8810 [00:18<00:17, 178.60it/s] 65%|██████▍   | 5704/8810 [00:18<00:17, 176.08it/s] 65%|██████▍   | 5725/8810 [00:18<00:17, 176.43it/s] 65%|██████▌   | 5745/8810 [00:18<00:19, 157.19it/s] 65%|██████▌   | 5768/8810 [00:18<00:17, 170.63it/s] 66%|██████▌   | 5787/8810 [00:18<00:18, 164.36it/s] 66%|██████▌   | 5805/8810 [00:19<00:22, 134.76it/s] 66%|██████▌   | 5824/8810 [00:19<00:20, 144.13it/s] 66%|██████▋   | 5846/8810 [00:19<00:19, 155.17it/s] 67%|██████▋   | 5863/8810 [00:19<00:19, 147.98it/s] 67%|██████▋   | 5879/8810 [00:19<00:22, 128.86it/s] 67%|██████▋   | 5893/8810 [00:19<00:22, 127.14it/s] 68%|██████▊   | 5971/8810 [00:19<00:10, 282.13it/s] 68%|██████▊   | 6004/8810 [00:20<00:17, 157.77it/s] 69%|██████▉   | 6081/8810 [00:20<00:10, 255.47it/s] 69%|██████▉   | 6121/8810 [00:20<00:14, 188.93it/s] 70%|██████▉   | 6153/8810 [00:20<00:14, 182.36it/s] 70%|███████   | 6180/8810 [00:21<00:14, 184.45it/s] 72%|███████▏  | 6324/8810 [00:21<00:06, 405.18it/s] 73%|███████▎  | 6461/8810 [00:21<00:03, 591.16it/s] 74%|███████▍  | 6542/8810 [00:21<00:07, 285.18it/s] 75%|███████▍  | 6603/8810 [00:22<00:10, 201.29it/s] 75%|███████▌  | 6649/8810 [00:23<00:14, 149.88it/s] 76%|███████▌  | 6683/8810 [00:23<00:13, 152.33it/s] 76%|███████▌  | 6712/8810 [00:23<00:14, 149.77it/s] 76%|███████▋  | 6737/8810 [00:23<00:13, 153.89it/s] 77%|███████▋  | 6760/8810 [00:23<00:14, 142.42it/s] 77%|███████▋  | 6781/8810 [00:24<00:13, 151.92it/s] 77%|███████▋  | 6801/8810 [00:24<00:12, 158.32it/s] 77%|███████▋  | 6821/8810 [00:24<00:15, 130.28it/s] 78%|███████▊  | 6837/8810 [00:24<00:16, 123.23it/s] 78%|███████▊  | 6855/8810 [00:24<00:14, 132.39it/s] 78%|███████▊  | 6873/8810 [00:24<00:13, 140.41it/s] 78%|███████▊  | 6890/8810 [00:24<00:13, 146.86it/s] 78%|███████▊  | 6906/8810 [00:25<00:14, 127.48it/s] 79%|███████▊  | 6920/8810 [00:25<00:14, 129.33it/s] 79%|███████▉  | 6938/8810 [00:25<00:13, 141.46it/s] 79%|███████▉  | 6954/8810 [00:25<00:12, 143.12it/s] 79%|███████▉  | 6972/8810 [00:25<00:12, 150.94it/s] 79%|███████▉  | 6994/8810 [00:25<00:10, 167.18it/s] 80%|███████▉  | 7012/8810 [00:25<00:15, 113.11it/s] 81%|████████  | 7151/8810 [00:25<00:04, 378.02it/s] 82%|████████▏ | 7203/8810 [00:26<00:05, 278.04it/s] 82%|████████▏ | 7244/8810 [00:26<00:06, 250.92it/s] 84%|████████▎ | 7361/8810 [00:26<00:03, 409.55it/s] 84%|████████▍ | 7419/8810 [00:26<00:04, 313.68it/s] 85%|████████▍ | 7465/8810 [00:27<00:04, 281.70it/s] 85%|████████▌ | 7504/8810 [00:27<00:04, 274.44it/s] 86%|████████▌ | 7539/8810 [00:27<00:05, 250.86it/s] 86%|████████▌ | 7569/8810 [00:27<00:04, 251.57it/s] 86%|████████▌ | 7598/8810 [00:27<00:05, 239.68it/s] 87%|████████▋ | 7631/8810 [00:27<00:04, 249.53it/s] 87%|████████▋ | 7666/8810 [00:27<00:04, 272.02it/s] 87%|████████▋ | 7696/8810 [00:28<00:04, 276.20it/s] 88%|████████▊ | 7726/8810 [00:28<00:05, 216.24it/s] 88%|████████▊ | 7751/8810 [00:28<00:05, 210.15it/s] 88%|████████▊ | 7774/8810 [00:28<00:04, 209.46it/s] 89%|████████▊ | 7797/8810 [00:28<00:05, 187.95it/s] 89%|████████▊ | 7817/8810 [00:28<00:06, 158.03it/s] 89%|████████▉ | 7836/8810 [00:28<00:05, 164.12it/s] 89%|████████▉ | 7859/8810 [00:29<00:05, 178.30it/s] 90%|████████▉ | 7888/8810 [00:29<00:04, 206.08it/s] 90%|████████▉ | 7912/8810 [00:29<00:04, 213.83it/s] 90%|█████████ | 7935/8810 [00:29<00:05, 164.39it/s] 90%|█████████ | 7957/8810 [00:29<00:04, 176.47it/s] 91%|█████████ | 7995/8810 [00:29<00:03, 224.16it/s] 91%|█████████ | 8020/8810 [00:29<00:04, 194.82it/s] 91%|█████████▏| 8057/8810 [00:29<00:03, 233.60it/s] 92%|█████████▏| 8083/8810 [00:30<00:03, 236.10it/s] 92%|█████████▏| 8109/8810 [00:30<00:02, 241.76it/s] 92%|█████████▏| 8147/8810 [00:30<00:02, 274.56it/s] 93%|█████████▎| 8181/8810 [00:30<00:02, 287.21it/s] 93%|█████████▎| 8211/8810 [00:30<00:02, 221.68it/s] 93%|█████████▎| 8236/8810 [00:30<00:02, 206.42it/s] 94%|█████████▍| 8274/8810 [00:30<00:02, 243.67it/s] 94%|█████████▍| 8312/8810 [00:30<00:01, 274.46it/s] 95%|█████████▍| 8342/8810 [00:31<00:02, 210.43it/s] 95%|█████████▍| 8367/8810 [00:31<00:02, 208.74it/s] 95%|█████████▌| 8391/8810 [00:31<00:01, 215.33it/s] 96%|█████████▌| 8415/8810 [00:31<00:02, 191.67it/s] 96%|█████████▌| 8436/8810 [00:31<00:02, 186.66it/s] 96%|█████████▌| 8456/8810 [00:32<00:02, 120.91it/s] 96%|█████████▋| 8491/8810 [00:32<00:02, 159.25it/s] 97%|█████████▋| 8520/8810 [00:32<00:01, 184.51it/s] 97%|█████████▋| 8543/8810 [00:32<00:01, 167.93it/s] 97%|█████████▋| 8585/8810 [00:32<00:01, 221.61it/s] 98%|█████████▊| 8612/8810 [00:32<00:00, 227.98it/s] 98%|█████████▊| 8638/8810 [00:32<00:00, 194.63it/s] 98%|█████████▊| 8661/8810 [00:33<00:00, 171.46it/s] 99%|█████████▊| 8681/8810 [00:33<00:00, 170.95it/s] 99%|█████████▉| 8723/8810 [00:33<00:00, 221.42it/s] 99%|█████████▉| 8748/8810 [00:33<00:00, 219.93it/s]100%|█████████▉| 8772/8810 [00:33<00:00, 208.21it/s]100%|█████████▉| 8802/8810 [00:33<00:00, 229.29it/s]100%|██████████| 8810/8810 [00:33<00:00, 262.15it/s]
+Overall we have 650 games in split=train
+Training with 650 games
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Client B Critic format failure after step 5; note not injected.
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 28/50
+Client B Executor parse failure in pick_clean_then_place_in_recep: 'Thought: I am holding towel 1 and stuck in a loop of failed clean and put actions. The critic notes that I must choose a genuinely different target. Since `towel` is likely not the correct "cloth" for this task (or is not cleanable), I need to find a different object. However, I cannot drop `towel 1` to search or pick up another item because all previous `put` attempts failed. This suggests `towel 1` might be a special object or I am at an invalid location for dropping. Given I am currently at `cabinet 1` (from Turn 24/25 context, though observation says "Nothing happens" for go, implying I might still be there or the move failed silently but state didn\'t change), and I cannot drop the item, I must try to use the item itself if possible, or find a way to release it. Wait, looking at the inventory, I only have `towel 1`. The task is to clean *some* cloth. Maybe `handtowel 1` is the target? It was seen on `handtowelholder 1`. I cannot reach it while holding `towel 1`.\n\nLet\'s re-evaluate'
+pick_clean_then_place_in_recep: FAIL (28 Executor calls, 5 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+pick_clean_then_place_in_recep: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+pick_clean_then_place_in_recep: SUCCESS (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+pick_clean_then_place_in_recep: SUCCESS (17 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+pick_clean_then_place_in_recep: SUCCESS (6 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 32/50
+pick_clean_then_place_in_recep: SUCCESS (32 Executor calls, 6 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+pick_clean_then_place_in_recep: SUCCESS (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 22/50
+pick_clean_then_place_in_recep: SUCCESS (22 Executor calls, 4 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+pick_clean_then_place_in_recep: SUCCESS (18 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+pick_clean_then_place_in_recep: SUCCESS (17 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+pick_clean_then_place_in_recep: SUCCESS (18 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+pick_clean_then_place_in_recep: SUCCESS (18 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+pick_clean_then_place_in_recep: SUCCESS (15 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Client B Critic format failure after step 25; note not injected.
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Client B Critic format failure after step 30; note not injected.
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 32/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 33/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 34/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 36/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 37/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 38/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 39/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 40/50
+Calling Critic qwen3.6-flash: after environment step 40
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 41/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 42/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 43/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 44/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 45/50
+Calling Critic qwen3.6-flash: after environment step 45
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 46/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 47/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 48/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 49/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 50/50
+pick_clean_then_place_in_recep: FAIL (50 Executor calls, 9 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+pick_clean_then_place_in_recep: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+pick_clean_then_place_in_recep: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+pick_clean_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+pick_clean_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+pick_clean_then_place_in_recep: SUCCESS (21 Executor calls, 4 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 32/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 33/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 34/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 36/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 37/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 38/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 39/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 40/50
+Calling Critic qwen3.6-flash: after environment step 40
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 41/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 42/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 43/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 44/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 45/50
+Calling Critic qwen3.6-flash: after environment step 45
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 46/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 47/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 48/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 49/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 50/50
+pick_clean_then_place_in_recep: FAIL (50 Executor calls, 9 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+pick_clean_then_place_in_recep: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+pick_clean_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+pick_clean_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+pick_clean_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_clean_then_place_in_recep step 16/50
+pick_clean_then_place_in_recep: SUCCESS (16 Executor calls, 3 Critic calls)
+Initializing AlfredTWEnv...
+  0%|          | 0/8810 [00:00<?, ?it/s]  0%|          | 37/8810 [00:00<00:24, 361.59it/s]  1%|          | 74/8810 [00:00<00:28, 306.52it/s]  1%|          | 110/8810 [00:00<00:26, 324.93it/s]  2%|▏         | 143/8810 [00:00<00:32, 263.17it/s]  2%|▏         | 181/8810 [00:00<00:29, 297.04it/s]  2%|▏         | 217/8810 [00:00<00:27, 314.35it/s]  3%|▎         | 250/8810 [00:00<00:26, 318.14it/s]  3%|▎         | 283/8810 [00:00<00:27, 314.53it/s]  4%|▎         | 321/8810 [00:01<00:25, 331.87it/s]  4%|▍         | 355/8810 [00:01<00:26, 316.46it/s]  4%|▍         | 390/8810 [00:01<00:26, 323.71it/s]  5%|▍         | 423/8810 [00:01<00:26, 310.83it/s]  5%|▌         | 455/8810 [00:01<00:27, 301.82it/s]  6%|▌         | 492/8810 [00:01<00:26, 317.28it/s]  6%|▌         | 524/8810 [00:01<00:28, 288.79it/s]  6%|▋         | 554/8810 [00:01<00:30, 274.36it/s]  7%|▋         | 582/8810 [00:01<00:30, 274.19it/s]  7%|▋         | 610/8810 [00:02<00:35, 233.71it/s]  7%|▋         | 643/8810 [00:02<00:31, 255.41it/s]  8%|▊         | 684/8810 [00:02<00:27, 294.28it/s]  8%|▊         | 715/8810 [00:02<00:29, 276.00it/s]  8%|▊         | 744/8810 [00:02<00:41, 194.23it/s]  9%|▊         | 768/8810 [00:02<00:39, 203.09it/s]  9%|▉         | 792/8810 [00:02<00:42, 189.97it/s]  9%|▉         | 826/8810 [00:03<00:35, 223.71it/s] 10%|▉         | 862/8810 [00:03<00:30, 256.58it/s] 10%|█         | 900/8810 [00:03<00:27, 286.46it/s] 11%|█         | 932/8810 [00:03<00:26, 295.44it/s] 11%|█         | 964/8810 [00:03<00:26, 301.70it/s] 11%|█▏        | 1001/8810 [00:03<00:24, 320.52it/s] 12%|█▏        | 1035/8810 [00:03<00:25, 308.89it/s] 12%|█▏        | 1067/8810 [00:03<00:25, 298.44it/s] 12%|█▏        | 1098/8810 [00:03<00:31, 243.10it/s] 13%|█▎        | 1125/8810 [00:04<00:33, 226.98it/s] 13%|█▎        | 1152/8810 [00:04<00:32, 236.95it/s] 13%|█▎        | 1182/8810 [00:04<00:30, 251.17it/s] 14%|█▎        | 1209/8810 [00:04<00:32, 231.39it/s] 14%|█▍        | 1234/8810 [00:04<00:32, 232.52it/s] 14%|█▍        | 1258/8810 [00:04<00:35, 209.98it/s] 15%|█▍        | 1284/8810 [00:04<00:34, 219.83it/s] 15%|█▍        | 1307/8810 [00:04<00:37, 201.00it/s] 15%|█▌        | 1328/8810 [00:05<00:40, 184.21it/s] 16%|█▌        | 1367/8810 [00:05<00:31, 233.34it/s] 16%|█▌        | 1402/8810 [00:05<00:28, 261.94it/s] 16%|█▌        | 1430/8810 [00:05<00:32, 229.30it/s] 17%|█▋        | 1460/8810 [00:05<00:29, 245.38it/s] 17%|█▋        | 1486/8810 [00:05<00:32, 224.57it/s] 17%|█▋        | 1510/8810 [00:05<00:34, 209.15it/s] 17%|█▋        | 1537/8810 [00:05<00:32, 222.40it/s] 18%|█▊        | 1561/8810 [00:06<00:36, 198.75it/s] 18%|█▊        | 1582/8810 [00:06<00:36, 197.34it/s] 18%|█▊        | 1610/8810 [00:06<00:33, 215.79it/s] 19%|█▊        | 1633/8810 [00:06<00:33, 217.09it/s] 19%|█▉        | 1662/8810 [00:06<00:30, 234.38it/s] 19%|█▉        | 1698/8810 [00:06<00:26, 267.00it/s] 20%|█▉        | 1726/8810 [00:06<00:36, 193.16it/s] 20%|█▉        | 1755/8810 [00:06<00:33, 212.03it/s] 20%|██        | 1781/8810 [00:07<00:31, 220.91it/s] 20%|██        | 1806/8810 [00:07<00:31, 224.25it/s] 21%|██        | 1830/8810 [00:07<00:31, 224.02it/s] 21%|██        | 1855/8810 [00:07<00:30, 226.60it/s] 21%|██▏       | 1883/8810 [00:07<00:28, 240.03it/s] 22%|██▏       | 1915/8810 [00:07<00:26, 262.02it/s] 22%|██▏       | 1952/8810 [00:07<00:23, 290.67it/s] 23%|██▎       | 1986/8810 [00:07<00:22, 303.30it/s] 23%|██▎       | 2020/8810 [00:07<00:21, 313.64it/s] 23%|██▎       | 2052/8810 [00:08<00:26, 258.33it/s] 24%|██▎       | 2090/8810 [00:08<00:23, 288.11it/s] 24%|██▍       | 2121/8810 [00:08<00:22, 291.95it/s] 24%|██▍       | 2152/8810 [00:08<00:24, 273.93it/s] 25%|██▍       | 2195/8810 [00:08<00:21, 313.32it/s] 25%|██▌       | 2242/8810 [00:08<00:18, 354.86it/s] 26%|██▌       | 2286/8810 [00:08<00:17, 377.15it/s] 26%|██▋       | 2325/8810 [00:08<00:18, 353.94it/s] 42%|████▏     | 3688/8810 [00:08<00:01, 3987.62it/s] 47%|████▋     | 4118/8810 [00:10<00:07, 660.13it/s]  50%|█████     | 4426/8810 [00:12<00:10, 434.18it/s] 53%|█████▎    | 4648/8810 [00:13<00:11, 369.25it/s] 55%|█████▍    | 4810/8810 [00:14<00:12, 312.83it/s] 56%|█████▌    | 4929/8810 [00:14<00:12, 301.48it/s] 57%|█████▋    | 5020/8810 [00:15<00:13, 278.56it/s] 58%|█████▊    | 5090/8810 [00:15<00:14, 260.95it/s] 58%|█████▊    | 5144/8810 [00:16<00:16, 227.68it/s] 59%|█████▉    | 5228/8810 [00:16<00:13, 270.63it/s] 60%|█████▉    | 5281/8810 [00:16<00:15, 232.40it/s] 60%|██████    | 5323/8810 [00:16<00:17, 195.06it/s] 61%|██████    | 5355/8810 [00:17<00:17, 192.11it/s] 61%|██████    | 5383/8810 [00:17<00:21, 159.61it/s] 61%|██████▏   | 5405/8810 [00:17<00:23, 143.20it/s] 62%|██████▏   | 5424/8810 [00:18<00:29, 115.33it/s] 63%|██████▎   | 5524/8810 [00:18<00:15, 212.75it/s] 63%|██████▎   | 5558/8810 [00:18<00:19, 163.57it/s] 63%|██████▎   | 5584/8810 [00:18<00:19, 164.06it/s] 64%|██████▎   | 5608/8810 [00:18<00:20, 155.28it/s] 64%|██████▍   | 5628/8810 [00:19<00:20, 155.42it/s] 64%|██████▍   | 5648/8810 [00:19<00:19, 159.25it/s] 64%|██████▍   | 5669/8810 [00:19<00:18, 168.80it/s] 65%|██████▍   | 5692/8810 [00:19<00:17, 179.38it/s] 65%|██████▍   | 5712/8810 [00:19<00:22, 136.29it/s] 65%|██████▌   | 5729/8810 [00:19<00:27, 112.97it/s] 65%|██████▌   | 5743/8810 [00:20<00:37, 82.41it/s]  65%|██████▌   | 5759/8810 [00:20<00:32, 94.16it/s] 66%|██████▌   | 5779/8810 [00:20<00:26, 112.66it/s] 66%|██████▌   | 5795/8810 [00:20<00:25, 119.25it/s] 66%|██████▌   | 5811/8810 [00:20<00:23, 126.93it/s] 66%|██████▌   | 5831/8810 [00:20<00:20, 142.78it/s] 66%|██████▋   | 5849/8810 [00:20<00:19, 151.31it/s] 67%|██████▋   | 5869/8810 [00:20<00:18, 162.18it/s] 67%|██████▋   | 5887/8810 [00:21<00:17, 164.74it/s] 68%|██████▊   | 5965/8810 [00:21<00:08, 330.34it/s] 68%|██████▊   | 6000/8810 [00:21<00:10, 274.73it/s] 69%|██████▉   | 6081/8810 [00:21<00:06, 404.02it/s] 70%|██████▉   | 6126/8810 [00:22<00:15, 177.07it/s] 70%|██████▉   | 6160/8810 [00:22<00:17, 148.39it/s] 70%|███████   | 6187/8810 [00:22<00:18, 139.84it/s] 70%|███████   | 6209/8810 [00:22<00:17, 149.91it/s] 72%|███████▏  | 6332/8810 [00:22<00:07, 322.29it/s] 73%|███████▎  | 6461/8810 [00:22<00:04, 495.46it/s] 74%|███████▍  | 6534/8810 [00:24<00:12, 181.92it/s] 75%|███████▍  | 6587/8810 [00:24<00:17, 124.66it/s] 75%|███████▌  | 6626/8810 [00:25<00:18, 116.33it/s] 76%|███████▌  | 6656/8810 [00:25<00:18, 113.38it/s] 76%|███████▌  | 6680/8810 [00:25<00:21, 100.63it/s] 76%|███████▌  | 6699/8810 [00:26<00:21, 97.64it/s]  76%|███████▌  | 6715/8810 [00:26<00:21, 95.37it/s] 76%|███████▋  | 6729/8810 [00:26<00:21, 96.98it/s] 77%|███████▋  | 6742/8810 [00:26<00:21, 95.32it/s] 77%|███████▋  | 6754/8810 [00:26<00:20, 98.17it/s] 77%|███████▋  | 6766/8810 [00:26<00:20, 99.90it/s] 77%|███████▋  | 6778/8810 [00:27<00:19, 102.52it/s] 77%|███████▋  | 6790/8810 [00:27<00:20, 100.64it/s] 77%|███████▋  | 6801/8810 [00:27<00:28, 69.49it/s]  77%|███████▋  | 6811/8810 [00:27<00:27, 73.80it/s] 77%|███████▋  | 6820/8810 [00:27<00:26, 73.89it/s] 78%|███████▊  | 6829/8810 [00:27<00:32, 60.37it/s] 78%|███████▊  | 6837/8810 [00:28<00:47, 41.53it/s] 78%|███████▊  | 6843/8810 [00:28<00:53, 36.55it/s] 78%|███████▊  | 6855/8810 [00:28<00:40, 48.62it/s] 78%|███████▊  | 6862/8810 [00:28<00:44, 44.07it/s] 78%|███████▊  | 6869/8810 [00:28<00:40, 47.93it/s] 78%|███████▊  | 6879/8810 [00:29<00:34, 56.26it/s] 78%|███████▊  | 6890/8810 [00:29<00:28, 66.30it/s] 78%|███████▊  | 6901/8810 [00:29<00:25, 74.69it/s] 78%|███████▊  | 6912/8810 [00:29<00:26, 72.65it/s] 79%|███████▊  | 6920/8810 [00:29<00:27, 68.25it/s] 79%|███████▊  | 6930/8810 [00:29<00:24, 75.68it/s] 79%|███████▉  | 6941/8810 [00:29<00:22, 82.85it/s] 79%|███████▉  | 6950/8810 [00:29<00:23, 78.55it/s] 79%|███████▉  | 6961/8810 [00:30<00:22, 82.48it/s] 79%|███████▉  | 6970/8810 [00:30<00:44, 41.39it/s] 79%|███████▉  | 6981/8810 [00:30<00:36, 50.28it/s] 79%|███████▉  | 6990/8810 [00:30<00:33, 54.97it/s] 79%|███████▉  | 6998/8810 [00:30<00:31, 57.94it/s] 80%|███████▉  | 7006/8810 [00:31<00:33, 54.52it/s] 81%|████████  | 7141/8810 [00:31<00:05, 318.07it/s] 82%|████████▏ | 7183/8810 [00:31<00:08, 196.85it/s] 82%|████████▏ | 7216/8810 [00:32<00:17, 90.81it/s]  82%|████████▏ | 7240/8810 [00:32<00:16, 96.71it/s] 84%|████████▎ | 7359/8810 [00:32<00:06, 208.32it/s] 84%|████████▍ | 7409/8810 [00:33<00:06, 221.63it/s] 85%|████████▍ | 7452/8810 [00:33<00:06, 219.88it/s] 85%|████████▌ | 7489/8810 [00:33<00:05, 236.94it/s] 85%|████████▌ | 7525/8810 [00:33<00:05, 241.70it/s] 86%|████████▌ | 7558/8810 [00:33<00:04, 251.19it/s] 86%|████████▌ | 7590/8810 [00:33<00:04, 247.85it/s] 86%|████████▋ | 7619/8810 [00:33<00:05, 225.87it/s] 87%|████████▋ | 7645/8810 [00:34<00:05, 227.46it/s] 87%|████████▋ | 7670/8810 [00:34<00:06, 175.10it/s] 87%|████████▋ | 7691/8810 [00:34<00:07, 143.06it/s] 88%|████████▊ | 7710/8810 [00:34<00:07, 149.70it/s] 88%|████████▊ | 7728/8810 [00:34<00:07, 139.75it/s] 88%|████████▊ | 7757/8810 [00:34<00:06, 170.42it/s] 88%|████████▊ | 7783/8810 [00:34<00:05, 190.66it/s] 89%|████████▊ | 7805/8810 [00:35<00:06, 160.91it/s] 89%|████████▉ | 7828/8810 [00:35<00:05, 174.34it/s] 89%|████████▉ | 7848/8810 [00:35<00:05, 177.91it/s] 89%|████████▉ | 7875/8810 [00:35<00:04, 199.26it/s] 90%|████████▉ | 7901/8810 [00:35<00:04, 213.29it/s] 90%|████████▉ | 7925/8810 [00:35<00:04, 220.16it/s] 90%|█████████ | 7950/8810 [00:35<00:03, 226.49it/s] 91%|█████████ | 7974/8810 [00:36<00:06, 138.03it/s] 91%|█████████ | 7993/8810 [00:36<00:05, 142.69it/s] 91%|█████████ | 8013/8810 [00:36<00:05, 149.67it/s] 91%|█████████ | 8031/8810 [00:36<00:07, 107.17it/s] 91%|█████████▏| 8046/8810 [00:36<00:08, 91.12it/s]  91%|█████████▏| 8061/8810 [00:37<00:07, 97.80it/s] 92%|█████████▏| 8073/8810 [00:37<00:08, 88.98it/s] 92%|█████████▏| 8103/8810 [00:37<00:05, 128.65it/s] 92%|█████████▏| 8119/8810 [00:37<00:05, 134.57it/s] 92%|█████████▏| 8146/8810 [00:37<00:04, 165.55it/s] 93%|█████████▎| 8169/8810 [00:37<00:03, 179.90it/s] 93%|█████████▎| 8192/8810 [00:37<00:03, 190.80it/s] 93%|█████████▎| 8221/8810 [00:37<00:02, 216.22it/s] 94%|█████████▎| 8244/8810 [00:37<00:02, 193.10it/s] 94%|█████████▍| 8265/8810 [00:38<00:03, 163.82it/s] 94%|█████████▍| 8283/8810 [00:38<00:03, 137.04it/s] 94%|█████████▍| 8299/8810 [00:38<00:04, 125.22it/s] 94%|█████████▍| 8313/8810 [00:38<00:03, 126.74it/s] 95%|█████████▍| 8327/8810 [00:38<00:03, 128.29it/s] 95%|█████████▍| 8341/8810 [00:38<00:04, 113.87it/s] 95%|█████████▍| 8354/8810 [00:39<00:04, 102.02it/s] 95%|█████████▌| 8381/8810 [00:39<00:03, 138.63it/s] 95%|█████████▌| 8402/8810 [00:39<00:02, 154.08it/s] 96%|█████████▌| 8419/8810 [00:39<00:02, 158.00it/s] 96%|█████████▌| 8439/8810 [00:39<00:02, 158.26it/s] 96%|█████████▌| 8461/8810 [00:39<00:02, 174.16it/s] 96%|█████████▋| 8480/8810 [00:39<00:02, 162.21it/s] 97%|█████████▋| 8509/8810 [00:39<00:01, 193.14it/s] 97%|█████████▋| 8530/8810 [00:39<00:01, 177.09it/s] 97%|█████████▋| 8549/8810 [00:40<00:01, 172.49it/s] 97%|█████████▋| 8578/8810 [00:40<00:01, 202.12it/s] 98%|█████████▊| 8609/8810 [00:40<00:00, 231.00it/s] 98%|█████████▊| 8633/8810 [00:40<00:00, 226.76it/s] 98%|█████████▊| 8661/8810 [00:40<00:00, 239.99it/s] 99%|█████████▊| 8689/8810 [00:40<00:00, 249.00it/s] 99%|█████████▉| 8715/8810 [00:40<00:00, 252.03it/s] 99%|█████████▉| 8741/8810 [00:40<00:00, 188.52it/s]100%|█████████▉| 8770/8810 [00:41<00:00, 210.98it/s]100%|█████████▉| 8799/8810 [00:41<00:00, 228.79it/s]100%|██████████| 8810/8810 [00:41<00:00, 213.86it/s]
+-> Skipping missing solvable key! /mnt/d/skillMAS/alfworld_data/json_2.1.1/train/pick_heat_then_place_in_recep-Bread-None-Fridge-15/trial_T20190906_215400_394248/game.tw-pddl
+Overall we have 458 games in split=train
+Training with 458 games
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Client B Executor parse failure in pick_heat_then_place_in_recep: 'Thought: The task to heat the cup and put it on the countertop has been successfully completed as confirmed by the environment observation.\nStatus: COMPLETED'
+pick_heat_then_place_in_recep: FAIL (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+pick_heat_then_place_in_recep: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 30/50
+pick_heat_then_place_in_recep: SUCCESS (30 Executor calls, 5 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+pick_heat_then_place_in_recep: SUCCESS (15 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+pick_heat_then_place_in_recep: SUCCESS (17 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 22/50
+pick_heat_then_place_in_recep: SUCCESS (22 Executor calls, 4 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+pick_heat_then_place_in_recep: SUCCESS (13 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+pick_heat_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+pick_heat_then_place_in_recep: SUCCESS (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+pick_heat_then_place_in_recep: SUCCESS (14 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+pick_heat_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Client B Critic format failure after step 5; note not injected.
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Client B Critic format failure after step 20; note not injected.
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 32/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 33/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 34/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 36/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 37/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 38/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 39/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 40/50
+Calling Critic qwen3.6-flash: after environment step 40
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 41/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 42/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 43/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 44/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 45/50
+pick_heat_then_place_in_recep: SUCCESS (45 Executor calls, 8 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+pick_heat_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+pick_heat_then_place_in_recep: SUCCESS (17 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 32/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 33/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 34/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 36/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 37/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 38/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 39/50
+Client B Executor parse failure in pick_heat_then_place_in_recep: 'Thought: I have checked all visible surfaces and open cabinets without finding the hot plate. I will now check the remaining closed cabinet, cabinet 6, which was previously observed to be empty but might have been a misinterpretation or needs re-verification as a last resort before checking other potential hidden spots like the fridge or microwave if they weren\'t fully searched for items. However, looking at the initial state, cabinet 6 was listed in known discovered contents as "nothing". Let me re-read the ledger. "Known discovered contents: cabinet 6: nothing; cabinet 7: nothing". This implies they were already opened and checked. Wait, the recent history shows I opened cabinets 9, 10, 11. The ledger says cabinet 1, 2, 3, 4, 5, 8, 9, 10, 11 are open. Cabinet 6 and 7 are listed as having nothing. But were they opened? The ledger says "Known container states: ... cabinet 1=open ... cabinet 11=open". It doesn\'t explicitly say 6 and 7 are open, just that their contents are known. If their contents are known, they must have been opened. Let\'s assume they'
+pick_heat_then_place_in_recep: FAIL (39 Executor calls, 7 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Client B Executor parse failure in pick_heat_then_place_in_recep: 'Thought: The previous `put` action failed, likely because the coffeemachine is not a valid receptacle for placing items directly into it in this environment. I need to check if there is another location or if I should place it on a surface nearby. However, looking at the initial observation, there are countertops. Let\'s try placing it on countertop 1 which is near the kitchen appliances, or perhaps the task implies putting it *into* a specific part of the machine which might be represented differently. But wait, the task says "put it in coffeemachine". If `put ... in/on coffeemachine 1` fails, maybe I need to look for a mug already there? No, I have the heated cup. Let\'s re-read the skill T4_001: "place it without unnecessary intermediate steps... if a put fails, verify current location and navigate to the destination before retrying." I am at the coffeemachine. Maybe the coffeemachine isn\'t openable? Or maybe I need to put it in a different container? Let\'s look around again. Actually, often in these tasks, if `put in/on <appliance>` fails, it might be that the appliance doesn\'t accept items. But the goal'
+pick_heat_then_place_in_recep: FAIL (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 19/50
+pick_heat_then_place_in_recep: SUCCESS (19 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+pick_heat_then_place_in_recep: SUCCESS (7 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 17/50
+pick_heat_then_place_in_recep: SUCCESS (17 Executor calls, 3 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+pick_heat_then_place_in_recep: SUCCESS (12 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+pick_heat_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+pick_heat_then_place_in_recep: SUCCESS (10 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_heat_then_place_in_recep step 12/50
+pick_heat_then_place_in_recep: SUCCESS (12 Executor calls, 2 Critic calls)
+Initializing AlfredTWEnv...
+  0%|          | 0/8810 [00:00<?, ?it/s]  1%|          | 45/8810 [00:00<00:19, 443.39it/s]  1%|          | 92/8810 [00:00<00:19, 454.43it/s]  2%|▏         | 138/8810 [00:00<00:27, 314.14it/s]  2%|▏         | 177/8810 [00:00<00:25, 337.11it/s]  2%|▏         | 220/8810 [00:00<00:24, 350.72it/s]  3%|▎         | 258/8810 [00:00<00:25, 341.03it/s]  3%|▎         | 294/8810 [00:00<00:33, 252.25it/s]  4%|▎         | 323/8810 [00:01<00:44, 192.29it/s]  4%|▍         | 347/8810 [00:01<00:44, 189.07it/s]  4%|▍         | 378/8810 [00:01<00:39, 213.86it/s]  5%|▍         | 417/8810 [00:01<00:33, 252.99it/s]  5%|▌         | 446/8810 [00:01<00:32, 259.95it/s]  5%|▌         | 480/8810 [00:01<00:30, 275.78it/s]  6%|▌         | 520/8810 [00:01<00:27, 304.23it/s]  6%|▋         | 562/8810 [00:01<00:24, 335.38it/s]  7%|▋         | 598/8810 [00:02<00:26, 308.81it/s]  7%|▋         | 631/8810 [00:02<00:29, 281.07it/s]  8%|▊         | 669/8810 [00:02<00:26, 303.91it/s]  8%|▊         | 704/8810 [00:02<00:25, 315.98it/s]  8%|▊         | 737/8810 [00:02<00:26, 307.38it/s]  9%|▊         | 769/8810 [00:02<00:26, 303.45it/s]  9%|▉         | 802/8810 [00:02<00:26, 307.05it/s]  9%|▉         | 834/8810 [00:02<00:25, 309.46it/s] 10%|▉         | 866/8810 [00:03<00:27, 286.05it/s] 10%|█         | 900/8810 [00:03<00:26, 298.61it/s] 11%|█         | 931/8810 [00:03<00:29, 266.13it/s] 11%|█         | 961/8810 [00:03<00:28, 274.40it/s] 11%|█▏        | 998/8810 [00:03<00:26, 298.06it/s] 12%|█▏        | 1032/8810 [00:03<00:25, 308.38it/s] 12%|█▏        | 1064/8810 [00:03<00:30, 250.16it/s] 12%|█▏        | 1096/8810 [00:03<00:30, 250.05it/s] 13%|█▎        | 1123/8810 [00:04<00:31, 242.57it/s] 13%|█▎        | 1166/8810 [00:04<00:26, 288.96it/s] 14%|█▍        | 1212/8810 [00:04<00:22, 333.79it/s] 14%|█▍        | 1248/8810 [00:04<00:29, 259.06it/s] 15%|█▍        | 1289/8810 [00:04<00:25, 291.96it/s] 15%|█▌        | 1331/8810 [00:04<00:23, 322.06it/s] 16%|█▌        | 1374/8810 [00:04<00:21, 348.10it/s] 16%|█▌        | 1412/8810 [00:04<00:23, 314.38it/s] 16%|█▋        | 1446/8810 [00:04<00:23, 313.73it/s] 17%|█▋        | 1479/8810 [00:05<00:23, 316.31it/s] 17%|█▋        | 1512/8810 [00:05<00:25, 285.33it/s] 18%|█▊        | 1542/8810 [00:05<00:26, 270.83it/s] 18%|█▊        | 1571/8810 [00:05<00:26, 275.55it/s] 18%|█▊        | 1600/8810 [00:05<00:28, 254.35it/s] 18%|█▊        | 1627/8810 [00:05<00:28, 252.33it/s] 19%|█▉        | 1653/8810 [00:06<00:52, 135.27it/s] 19%|█▉        | 1690/8810 [00:06<00:41, 173.30it/s] 20%|█▉        | 1723/8810 [00:06<00:35, 202.05it/s] 20%|█▉        | 1751/8810 [00:06<00:32, 217.27it/s] 20%|██        | 1781/8810 [00:06<00:30, 232.09it/s] 21%|██        | 1809/8810 [00:06<00:31, 225.75it/s] 21%|██        | 1841/8810 [00:06<00:28, 248.53it/s] 21%|██        | 1869/8810 [00:06<00:31, 223.39it/s] 21%|██▏       | 1894/8810 [00:07<00:35, 193.55it/s] 22%|██▏       | 1916/8810 [00:07<00:38, 181.17it/s] 22%|██▏       | 1949/8810 [00:07<00:31, 214.91it/s] 22%|██▏       | 1978/8810 [00:07<00:29, 231.25it/s] 23%|██▎       | 2012/8810 [00:07<00:26, 257.04it/s] 23%|██▎       | 2046/8810 [00:07<00:24, 278.85it/s] 24%|██▎       | 2082/8810 [00:07<00:22, 298.40it/s] 24%|██▍       | 2113/8810 [00:07<00:22, 293.87it/s] 24%|██▍       | 2144/8810 [00:08<00:27, 244.81it/s] 25%|██▍       | 2177/8810 [00:08<00:25, 264.13it/s] 25%|██▌       | 2206/8810 [00:08<00:30, 215.30it/s] 25%|██▌       | 2243/8810 [00:08<00:26, 249.20it/s] 26%|██▌       | 2298/8810 [00:08<00:20, 322.16it/s] 42%|████▏     | 3688/8810 [00:08<00:01, 3811.99it/s] 47%|████▋     | 4121/8810 [00:10<00:07, 622.09it/s]  50%|█████     | 4431/8810 [00:12<00:09, 440.40it/s] 53%|█████▎    | 4655/8810 [00:13<00:10, 381.20it/s] 55%|█████▍    | 4819/8810 [00:13<00:11, 343.12it/s] 56%|█████▌    | 4941/8810 [00:14<00:14, 258.05it/s] 57%|█████▋    | 5030/8810 [00:15<00:14, 257.94it/s] 58%|█████▊    | 5100/8810 [00:16<00:21, 169.21it/s] 58%|█████▊    | 5151/8810 [00:16<00:22, 164.47it/s] 59%|█████▉    | 5228/8810 [00:17<00:18, 194.19it/s] 60%|█████▉    | 5275/8810 [00:17<00:23, 152.13it/s] 60%|██████    | 5310/8810 [00:18<00:26, 134.39it/s] 61%|██████    | 5337/8810 [00:18<00:32, 107.58it/s] 61%|██████    | 5357/8810 [00:19<00:32, 106.63it/s] 61%|██████    | 5374/8810 [00:19<00:32, 105.64it/s] 61%|██████    | 5389/8810 [00:19<00:35, 96.89it/s]  61%|██████▏   | 5402/8810 [00:19<00:34, 97.85it/s] 61%|██████▏   | 5414/8810 [00:19<00:34, 97.93it/s] 62%|██████▏   | 5426/8810 [00:19<00:38, 88.47it/s] 63%|██████▎   | 5520/8810 [00:20<00:15, 211.34it/s] 63%|██████▎   | 5546/8810 [00:20<00:24, 135.57it/s] 63%|██████▎   | 5566/8810 [00:20<00:29, 108.61it/s] 63%|██████▎   | 5582/8810 [00:20<00:29, 107.81it/s] 64%|██████▎   | 5596/8810 [00:21<00:29, 110.20it/s] 64%|██████▎   | 5610/8810 [00:21<00:28, 111.70it/s] 64%|██████▍   | 5623/8810 [00:21<00:31, 101.72it/s] 64%|██████▍   | 5635/8810 [00:21<00:32, 98.01it/s]  64%|██████▍   | 5646/8810 [00:21<00:32, 96.14it/s] 64%|██████▍   | 5657/8810 [00:21<00:33, 93.11it/s] 64%|██████▍   | 5669/8810 [00:21<00:32, 97.60it/s] 64%|██████▍   | 5680/8810 [00:21<00:31, 99.35it/s] 65%|██████▍   | 5691/8810 [00:22<00:30, 101.78it/s] 65%|██████▍   | 5702/8810 [00:22<00:31, 98.76it/s]  65%|██████▍   | 5713/8810 [00:22<00:33, 92.07it/s] 65%|██████▍   | 5723/8810 [00:22<00:34, 88.70it/s] 65%|██████▌   | 5732/8810 [00:22<00:37, 82.02it/s] 65%|██████▌   | 5741/8810 [00:22<00:37, 82.56it/s] 65%|██████▌   | 5752/8810 [00:22<00:35, 87.11it/s] 65%|██████▌   | 5763/8810 [00:22<00:33, 90.22it/s] 66%|██████▌   | 5773/8810 [00:23<00:34, 86.97it/s] 66%|██████▌   | 5782/8810 [00:23<00:35, 84.80it/s] 66%|██████▌   | 5791/8810 [00:23<00:41, 73.29it/s] 66%|██████▌   | 5799/8810 [00:23<00:41, 72.60it/s] 66%|██████▌   | 5809/8810 [00:23<00:38, 77.45it/s] 66%|██████▌   | 5820/8810 [00:23<00:37, 80.55it/s] 66%|██████▌   | 5829/8810 [00:23<00:38, 77.10it/s] 66%|██████▋   | 5841/8810 [00:23<00:34, 86.10it/s] 66%|██████▋   | 5853/8810 [00:24<00:31, 92.76it/s] 67%|██████▋   | 5864/8810 [00:24<00:30, 97.34it/s] 67%|██████▋   | 5876/8810 [00:24<00:29, 100.66it/s] 67%|██████▋   | 5887/8810 [00:24<00:28, 101.34it/s] 67%|██████▋   | 5898/8810 [00:24<00:41, 69.89it/s]  68%|██████▊   | 5965/8810 [00:24<00:14, 190.67it/s] 68%|██████▊   | 5989/8810 [00:25<00:21, 131.77it/s] 68%|██████▊   | 6008/8810 [00:25<00:23, 121.78it/s] 68%|██████▊   | 6024/8810 [00:25<00:26, 103.58it/s] 69%|██████▉   | 6088/8810 [00:25<00:14, 192.80it/s] 69%|██████▉   | 6116/8810 [00:26<00:21, 128.26it/s] 70%|██████▉   | 6138/8810 [00:26<00:22, 119.51it/s] 70%|██████▉   | 6156/8810 [00:26<00:23, 110.86it/s] 70%|███████   | 6172/8810 [00:26<00:25, 102.53it/s] 70%|███████   | 6185/8810 [00:26<00:31, 83.10it/s]  70%|███████   | 6196/8810 [00:27<00:29, 87.16it/s] 72%|███████▏  | 6335/8810 [00:27<00:07, 318.26it/s] 73%|███████▎  | 6470/8810 [00:27<00:07, 304.99it/s] 74%|███████▍  | 6514/8810 [00:27<00:09, 232.20it/s] 74%|███████▍  | 6548/8810 [00:28<00:10, 216.11it/s] 75%|███████▍  | 6577/8810 [00:28<00:11, 188.20it/s] 75%|███████▍  | 6601/8810 [00:28<00:12, 178.28it/s] 75%|███████▌  | 6622/8810 [00:28<00:12, 170.18it/s] 75%|███████▌  | 6641/8810 [00:28<00:14, 153.26it/s] 76%|███████▌  | 6660/8810 [00:29<00:13, 159.12it/s] 76%|███████▌  | 6677/8810 [00:29<00:14, 152.18it/s] 76%|███████▌  | 6695/8810 [00:29<00:13, 156.13it/s] 76%|███████▌  | 6712/8810 [00:29<00:13, 152.06it/s] 76%|███████▋  | 6728/8810 [00:29<00:13, 151.04it/s] 77%|███████▋  | 6744/8810 [00:29<00:13, 150.95it/s] 77%|███████▋  | 6766/8810 [00:29<00:12, 168.19it/s] 77%|███████▋  | 6788/8810 [00:29<00:11, 180.48it/s] 77%|███████▋  | 6807/8810 [00:30<00:15, 133.23it/s] 77%|███████▋  | 6824/8810 [00:30<00:14, 137.53it/s] 78%|███████▊  | 6840/8810 [00:30<00:15, 124.05it/s] 78%|███████▊  | 6861/8810 [00:30<00:13, 143.41it/s] 78%|███████▊  | 6879/8810 [00:30<00:12, 152.09it/s] 78%|███████▊  | 6897/8810 [00:30<00:12, 158.19it/s] 78%|███████▊  | 6914/8810 [00:30<00:13, 135.69it/s] 79%|███████▊  | 6930/8810 [00:30<00:13, 141.49it/s] 79%|███████▉  | 6949/8810 [00:30<00:12, 153.77it/s] 79%|███████▉  | 6966/8810 [00:31<00:13, 133.91it/s] 79%|███████▉  | 6983/8810 [00:31<00:13, 137.73it/s] 80%|███████▉  | 7004/8810 [00:31<00:11, 153.57it/s] 81%|████████  | 7150/8810 [00:31<00:03, 492.37it/s] 82%|████████▏ | 7204/8810 [00:32<00:09, 171.75it/s] 82%|████████▏ | 7244/8810 [00:32<00:08, 183.27it/s] 84%|████████▎ | 7359/8810 [00:32<00:04, 309.83it/s] 84%|████████▍ | 7417/8810 [00:32<00:04, 295.91it/s] 85%|████████▍ | 7465/8810 [00:33<00:05, 247.41it/s] 85%|████████▌ | 7504/8810 [00:33<00:05, 243.50it/s] 86%|████████▌ | 7538/8810 [00:33<00:05, 241.90it/s] 86%|████████▌ | 7569/8810 [00:33<00:06, 188.34it/s] 86%|████████▌ | 7595/8810 [00:33<00:06, 199.63it/s] 87%|████████▋ | 7622/8810 [00:33<00:05, 211.74it/s] 87%|████████▋ | 7649/8810 [00:33<00:05, 222.47it/s] 87%|████████▋ | 7682/8810 [00:34<00:04, 246.27it/s] 88%|████████▊ | 7710/8810 [00:34<00:04, 236.60it/s] 88%|████████▊ | 7736/8810 [00:34<00:06, 177.93it/s] 88%|████████▊ | 7758/8810 [00:34<00:06, 163.98it/s] 88%|████████▊ | 7779/8810 [00:34<00:05, 172.13it/s] 89%|████████▊ | 7799/8810 [00:34<00:05, 173.44it/s] 89%|████████▊ | 7818/8810 [00:34<00:05, 175.84it/s] 89%|████████▉ | 7837/8810 [00:35<00:08, 119.29it/s] 89%|████████▉ | 7852/8810 [00:35<00:09, 102.63it/s] 89%|████████▉ | 7870/8810 [00:35<00:08, 115.77it/s] 90%|████████▉ | 7890/8810 [00:35<00:07, 130.56it/s] 90%|████████▉ | 7906/8810 [00:35<00:07, 126.13it/s] 90%|█████████ | 7933/8810 [00:35<00:05, 157.08it/s] 90%|█████████ | 7957/8810 [00:36<00:04, 175.43it/s] 91%|█████████ | 7977/8810 [00:36<00:04, 176.93it/s] 91%|█████████ | 8000/8810 [00:36<00:04, 188.81it/s] 91%|█████████ | 8020/8810 [00:36<00:04, 184.31it/s] 91%|█████████▏| 8048/8810 [00:36<00:03, 209.41it/s] 92%|█████████▏| 8075/8810 [00:36<00:03, 225.81it/s] 92%|█████████▏| 8099/8810 [00:36<00:03, 220.45it/s] 92%|█████████▏| 8122/8810 [00:36<00:03, 182.74it/s] 92%|█████████▏| 8145/8810 [00:36<00:03, 191.84it/s] 93%|█████████▎| 8166/8810 [00:37<00:04, 159.11it/s] 93%|█████████▎| 8184/8810 [00:37<00:04, 154.28it/s] 93%|█████████▎| 8202/8810 [00:37<00:03, 159.69it/s] 93%|█████████▎| 8224/8810 [00:37<00:03, 172.26it/s] 94%|█████████▎| 8252/8810 [00:37<00:02, 195.67it/s] 94%|█████████▍| 8273/8810 [00:37<00:02, 190.88it/s] 94%|█████████▍| 8295/8810 [00:37<00:02, 197.03it/s] 94%|█████████▍| 8316/8810 [00:37<00:02, 184.53it/s] 95%|█████████▍| 8337/8810 [00:38<00:02, 189.90it/s] 95%|█████████▍| 8361/8810 [00:38<00:02, 203.12it/s] 95%|█████████▌| 8384/8810 [00:38<00:02, 209.12it/s] 95%|█████████▌| 8408/8810 [00:38<00:01, 216.80it/s] 96%|█████████▌| 8430/8810 [00:38<00:01, 208.68it/s] 96%|█████████▌| 8454/8810 [00:38<00:01, 215.93it/s] 96%|█████████▋| 8481/8810 [00:38<00:01, 228.75it/s] 97%|█████████▋| 8507/8810 [00:38<00:01, 236.24it/s] 97%|█████████▋| 8531/8810 [00:38<00:01, 209.23it/s] 97%|█████████▋| 8553/8810 [00:39<00:01, 147.25it/s] 97%|█████████▋| 8571/8810 [00:39<00:01, 129.49it/s] 97%|█████████▋| 8589/8810 [00:39<00:01, 139.59it/s] 98%|█████████▊| 8611/8810 [00:39<00:01, 156.39it/s] 98%|█████████▊| 8629/8810 [00:39<00:01, 141.36it/s] 98%|█████████▊| 8652/8810 [00:39<00:00, 160.68it/s] 98%|█████████▊| 8672/8810 [00:39<00:00, 166.70it/s] 99%|█████████▊| 8690/8810 [00:40<00:00, 162.92it/s] 99%|█████████▉| 8709/8810 [00:40<00:00, 167.75it/s] 99%|█████████▉| 8729/8810 [00:40<00:00, 175.58it/s] 99%|█████████▉| 8755/8810 [00:40<00:00, 170.88it/s]100%|█████████▉| 8774/8810 [00:40<00:00, 173.72it/s]100%|█████████▉| 8799/8810 [00:40<00:00, 191.58it/s]100%|██████████| 8810/8810 [00:40<00:00, 216.40it/s]
+Overall we have 533 games in split=train
+Training with 533 games
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 24/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 25/50
+Calling Critic qwen3.6-flash: after environment step 25
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 26/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 27/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 28/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 29/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 30/50
+Calling Critic qwen3.6-flash: after environment step 30
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 31/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 32/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 33/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 34/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 35/50
+Calling Critic qwen3.6-flash: after environment step 35
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 36/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 37/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 38/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 39/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 40/50
+Calling Critic qwen3.6-flash: after environment step 40
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 41/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 42/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 43/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 44/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 45/50
+pick_cool_then_place_in_recep: SUCCESS (45 Executor calls, 8 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+pick_cool_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 11/50
+pick_cool_then_place_in_recep: SUCCESS (11 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 14/50
+pick_cool_then_place_in_recep: SUCCESS (14 Executor calls, 2 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+pick_cool_then_place_in_recep: SUCCESS (8 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 9/50
+pick_cool_then_place_in_recep: SUCCESS (9 Executor calls, 1 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Calling Critic qwen3.6-flash: after environment step 5
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 6/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 7/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 8/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 9/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 10/50
+Calling Critic qwen3.6-flash: after environment step 10
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 11/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 12/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 13/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 14/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 15/50
+Calling Critic qwen3.6-flash: after environment step 15
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 16/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 17/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 18/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 19/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 20/50
+Calling Critic qwen3.6-flash: after environment step 20
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 21/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 22/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 23/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 24/50
+pick_cool_then_place_in_recep: FAIL (24 Executor calls, 4 Critic calls)
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 1/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 2/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 3/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 4/50
+Calling Executor qwen3.6-flash: pick_cool_then_place_in_recep step 5/50
+Traceback (most recent call last):
+  File "/mnt/d/skillMAS/client_code/alfworld_client_b.py", line 278, in run_episode
+    model_text, usage = call_model(
+  File "/mnt/d/skillMAS/client_code/alfworld_p0.py", line 454, in call_model
+    response = client.chat.completions.create(**kwargs)
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 1308, in create
+    return self._post(
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/site-packages/openai/_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/site-packages/openai/_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment', 'type': 'Arrearage', 'param': None, 'code': 'Arrearage'}, 'id': 'chatcmpl-39b4e908-97ed-9411-af54-f095516c5078', 'request_id': '39b4e908-97ed-9411-af54-f095516c5078'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/d/skillMAS/client_code/alfworld_client_b.py", line 528, in <module>
+    main()
+  File "/mnt/d/skillMAS/client_code/alfworld_client_b.py", line 515, in main
+    episode = run_episode(environment, client, args, task_type)
+  File "/mnt/d/skillMAS/client_code/alfworld_client_b.py", line 385, in run_episode
+    raise_if_api_error(exc)
+  File "/mnt/d/skillMAS/client_code/alfworld_p0.py", line 52, in raise_if_api_error
+    raise InfrastructureAPIError(
+alfworld_p0.InfrastructureAPIError: STAGE3_INFRASTRUCTURE_API_ERROR: BadRequestError: Error code: 400 - {'error': {'message': 'Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment', 'type': 'Arrearage', 'param': None, 'code': 'Arrearage'}, 'id': 'chatcmpl-39b4e908-97ed-9411-af54-f095516c5078', 'request_id': '39b4e908-97ed-9411-af54-f095516c5078'}

@@ -1,0 +1,119 @@
+{
+  "status": "complete",
+  "round_index": 2,
+  "input_skill_count": 280,
+  "output_skill_count": 40,
+  "global_skillbank": {
+    "path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/global_skillbank2.json",
+    "file_sha256": "sha256:f83d3e2dd65f574f4fdec9760070a360fbeb669a8e2c463a6ba9f04547efb221",
+    "live_global_hash": "sha256:5c9203e0021935072c8c5fc2684096d68fabe5ea0fcff0bef5fa8010e0b48da9"
+  },
+  "server_evaluation_performed": false,
+  "records": [
+    {
+      "bucket": "general",
+      "input_skill_count": 56,
+      "output_skill_count": 8,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/general.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 13952,
+        "completion_tokens": 5033,
+        "total_tokens": 18985,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "简单取放",
+      "input_skill_count": 7,
+      "output_skill_count": 1,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_01.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 1449,
+        "completion_tokens": 210,
+        "total_tokens": 1659,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "台灯观察",
+      "input_skill_count": 35,
+      "output_skill_count": 5,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_02.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 9453,
+        "completion_tokens": 4399,
+        "total_tokens": 13852,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "清洗后放置",
+      "input_skill_count": 42,
+      "output_skill_count": 6,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_03.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 9764,
+        "completion_tokens": 4211,
+        "total_tokens": 13975,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "加热后放置",
+      "input_skill_count": 49,
+      "output_skill_count": 7,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_04.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 10620,
+        "completion_tokens": 4459,
+        "total_tokens": 15079,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "冷却后放置",
+      "input_skill_count": 28,
+      "output_skill_count": 4,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_05.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 6552,
+        "completion_tokens": 3161,
+        "total_tokens": 9713,
+        "transport_attempts": 1
+      }
+    },
+    {
+      "bucket": "双物品放置",
+      "input_skill_count": 63,
+      "output_skill_count": 9,
+      "accepted_attempt_file": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/buckets/task_06.attempt_01.json",
+      "usage": {
+        "requested_model": "deepseek-flash",
+        "response_model": "deepseek-flash",
+        "finish_reason": "stop",
+        "prompt_tokens": 12715,
+        "completion_tokens": 6686,
+        "total_tokens": 19401,
+        "transport_attempts": 1
+      }
+    }
+  ]
+}

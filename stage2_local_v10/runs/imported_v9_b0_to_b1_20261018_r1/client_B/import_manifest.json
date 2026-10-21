@@ -1,0 +1,38 @@
+{
+  "schema_version": "stage2_local_v10.imported_v9_b0_b1_seed.v1",
+  "classification": "imported_v9_seed_not_native_v10_B1",
+  "client": "B",
+  "origin_experiment_id": "stage2-local-v9-client-b-v6-no-capacity-control",
+  "source_run": "D:\\skillMAS\\stage2_local_v9\\runs\\client_b_generation_01_20261013_r3",
+  "source_manifest": "D:\\skillMAS\\stage2_local_v9\\artifacts\\manifests\\client_b_generation_01.json",
+  "source_manifest_sha256": "sha256:66c1cfd111a286eaf2ff114d7ffb12eab23bebda4e65c224ee2f8e1f2af7e450",
+  "v10_manifest": "D:\\skillMAS\\stage2_local_v10\\artifacts\\manifests\\client_b_generation_01.json",
+  "v10_manifest_sha256": "sha256:a1940aed56c5648b46dc03a0cb3a5769a76a7b146825bd3760f99ea22147a8ce",
+  "cohort_equal": true,
+  "family_analysis_count": 12,
+  "add_candidate_count": 48,
+  "non_add_candidate_count": 0,
+  "role_skill_counts": {
+    "Executor": 22,
+    "Critic": 20
+  },
+  "validation_success": {
+    "B0_validation": 69,
+    "B1_validation": 110
+  },
+  "files": {
+    "B0_validation/result.json": "sha256:728e09ea9820e432223e29b219c26f2b49bbbd751a1fda7199375154c08bd6a9",
+    "B0_validation/summary.json": "sha256:18e05625fb0d5957049a8eb754512da71f0189b23fcd09704ae8d709b7532fa5",
+    "B0_validation/source_lock.json": "sha256:d58747f09536295661ae19cf653f527e51a05f77cda00f936cbd61f06ca2bf58",
+    "B0_training/result.json": "sha256:eaaed08bd53b7835f4830ec083aedb0faea209c3d1833f0442211c7e440d1dba",
+    "B0_training/summary.json": "sha256:61bee4a25e83532a05cfe0e8e71a3b75d8958eb1c3c38ccb5db17ae4cd42434c",
+    "B0_training/source_lock.json": "sha256:1438453933bfc7b944cb9b67d967146b21d80a0acd7efe3602b259b33d3e9643",
+    "B0_training/evidence.json": "sha256:a7c11e02d8f30c477af4ed2dc4bfc0b0932a269f05245fab02102c5a6514391e",
+    "B1_skillbank.json": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+    "B1_teacher_record.json": "sha256:bc268c05aedd733a25f94281cc8d16750783cf225529e368ef960b4590623f9a",
+    "B1_teacher_record.checkpoint.json": "sha256:49db59b64b52d6634bb6f25617e3f6227664b5f788a882dcafd15d3a5784a143",
+    "B1_validation/result.json": "sha256:fe3a3e969bde5db9021fb680046a78a7ca7f5be18ac4d2bb08834d18e6be9f38",
+    "B1_validation/summary.json": "sha256:ab95c3520441867272a0db6728114e507c7462c435f892e3b670520041595a7f",
+    "B1_validation/source_lock.json": "sha256:42f10a7023dcd73304ff9fe41c6bf4669806bc6780998182f6882b21e73ca856"
+  }
+}

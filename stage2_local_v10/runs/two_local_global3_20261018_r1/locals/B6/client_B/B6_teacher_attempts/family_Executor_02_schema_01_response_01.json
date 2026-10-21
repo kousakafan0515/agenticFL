@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Executor_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:9cbd9fc19791117da8a479e6cf1611e493a6106facf2cf106ebde64279f61613",
+  "message_character_count": 118202,
+  "started_at_utc": "2026-10-19T05:57:52.027689+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the target object is already on the same furniture as the desklamp, take it and immediately use the numbered desklamp without extra navigation; this is the dominant successful pattern.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_035\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_036\"]}, {\"recommendation\": \"When the target is on a different furniture than the desklamp, take it, navigate to the desklamp's furniture, then use the numbered desklamp; do not place the object down first unless required.\", \"affected_skill_ids\": [\"T2_001\", \"G_004\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_030\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_037\"]}, {\"recommendation\": \"Do not issue examine/look at on furniture or objects; these return no useful information or empty actions and can terminate the episode. Inspect by navigating and reading the observation instead.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\"]}, {\"recommendation\": \"If use desklamp returns Nothing happens, do not retry the same command or fall back to examine. Verify the current furniture's observation actually lists a desklamp; if not, move to the furniture where a desklamp was observed and use its numbered instance.\", \"affected_skill_ids\": [\"T2_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041\"]}, {\"recommendation\": \"When a desklamp is observed on a furniture, go directly there rather than continuing to check unrelated dressers or opening drawers; the successful episodes locate the lamp early and act on it.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033\"]}, {\"recommendation\": \"Do not attempt to open drawers or containers that are not part of the observed furniture set; open on a non-container or wrong target returns Nothing happens and wastes steps. Prefer visible surfaces for this task.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_028\"]}, {\"recommendation\": \"After a successful use desklamp observation, stop; do not add a redundant put or completion-only step. Placing the object on the lamp's furniture before using the lamp is unnecessary and can add failure risk.\", \"affected_skill_ids\": [\"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039\"]}, {\"recommendation\": \"Avoid declaring completion or emitting empty actions after turning on the lamp; the environment may treat this as an error. The terminal success condition is the use desklamp observation itself.\", \"affected_skill_ids\": [\"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_038\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_039\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 35961,
+    "completion_tokens": 1032,
+    "total_tokens": 36993
+  },
+  "completed_at_utc": "2026-10-19T05:57:57.323952+00:00"
+}

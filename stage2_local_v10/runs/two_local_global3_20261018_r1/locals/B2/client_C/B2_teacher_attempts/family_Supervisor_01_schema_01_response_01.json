@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:7902b2c224b4dc6fc4ca093ab9efb21e894f1704824394629e34f198390cb594",
+  "message_character_count": 64615,
+  "started_at_utc": "2026-10-18T11:51:44.569010+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a search mission fails because the target object was never found, do not declare failure after only searching closed drawers/surfaces; broaden to more receptacle types (cabinets, shelves, countertops, beds) and open closed containers before concluding. Episode 001 searched many closed drawers but never opened most, and episode 007/018 similarly failed to open candidate containers.\", \"affected_skill_ids\": [\"skill_004\", \"skill_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_018\"]},{\"recommendation\": \"Before dispatching a search bound to a single named receptacle (e.g., 'go to desk 1 and take creditcard'), verify the object is actually there; if the first location is empty, immediately reassign a broader multi-location search rather than repeating the same spot. Episode 018 dispatched 'go to desk 1 and take creditcard' though the creditcard was on shelf 2.\", \"affected_skill_ids\": [\"skill_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_018\"]},{\"recommendation\": \"Treat repeated 'Nothing happens' on open/go actions as evidence the receptacle is non-openable or unreachable, and change strategy (different receptacle or different object location) instead of re-issuing the same open. Episode 007 issued open drawer 1 twice and open drawer 2-4 with 'Nothing happens' before moving on.\", \"affected_skill_ids\": [\"skill_004\", \"skill_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_007\"]},{\"recommendation\": \"The two-phase search-then-operate decomposition is working well: successful episodes consistently dispatch a SEARCH MISSION ending in holding the object, then an OPERATION MISSION ending in a placement confirmation. Keep this pattern and keep the explicit 'RETURN WHEN holding X' and 'RETURN WHEN observation confirms put' conditions.\", \"affected_skill_ids\": [\"skill_001\", \"skill_002\", \"skill_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_003\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_011\"]},{\"recommendation\": \"When a worker's take action returns 'Nothing happens' (e.g., 'take soapbottle from countertop 1'), do not re-dispatch the same take; the object name may be ambiguous (soapbottle vs soapbottle 1). Re-dispatch with the specific instance id, as episode 012 eventually succeeded with 'take soapbottle 1 from countertop 1'.\", \"affected_skill_ids\": [\"skill_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_012\"]},{\"recommendation\": \"For placement into a closed container, prepend an explicit open step and confirm the container is open before the put. Episode 023 correctly opened cabinets first and placed into an open cabinet; episode 007 failed partly because drawer opens returned 'Nothing happens' and no valid open destination was secured.\", \"affected_skill_ids\": [\"skill_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_023\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_007\"]},{\"recommendation\": \"After an OPERATION MISSION handoff, verify the environment observation contains the placement confirmation before declaring success; the successful episodes all show 'You put the X in/on Y'. Do not accept a handoff without this predicate.\", \"affected_skill_ids\": [\"skill_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_009\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_020\"]},{\"recommendation\": \"Search missions should list multiple candidate receptacles rather than a single one, and should instruct opening closed containers. Episodes 002, 003, 006, 019 succeeded with multi-location search phrasing; episode 001's single-object search over many closed drawers failed.\", \"affected_skill_ids\": [\"skill_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_006\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_C/episode_001\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 18708,
+    "completion_tokens": 1158,
+    "total_tokens": 19866
+  },
+  "completed_at_utc": "2026-10-18T11:51:49.878527+00:00"
+}

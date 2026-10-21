@@ -1,0 +1,35 @@
+{
+  "decision": "D-126",
+  "kind": "single_field_human_reviewed_compression",
+  "bucket": "冷却后放置",
+  "source_attempt": "stage2_local_v10\\runs\\two_local_global3_20261018_r1\\globals\\Global3\\aggregation\\buckets\\task_05.attempt_03.json",
+  "source_attempt_hashes": [
+    "sha256:d7d9cf9992a486c3184d6f935f5c68ae1f55eb0749dc3c2c8489d4c05ea21bb4",
+    "sha256:6cd4175b3bab3d7037700de16deedd3a68891cbacad4477a5d957504de595d4d",
+    "sha256:c17eb5392b04d7d3ae6e1cb6fafbbf8833378fd0068e35e83991bf39595682cd"
+  ],
+  "input_manifest_sha256": "sha256:32f2d58bd62bd34f271c9ef1d5638326b35100ec6e288c3c4c39479847d4becc",
+  "uploaded_local_b3_sha256": "sha256:c2657e0e25d709639b84dff60e3c65803e87b3d87ce904d1be933aba1f76cde9",
+  "previous_accepted_bucket_hashes": {
+    "general.accepted.json": "sha256:e3f00631386f5019d6725c8ef080ff226e354a4316a87ec713c3adc6575dfaaf",
+    "task_01.accepted.json": "sha256:d82dfcac82728ee87fbee0ee2f67342f71c2e6f6af4ff6ab4dc631869ac2f2d0",
+    "task_02.accepted.json": "sha256:7ee99a9127465a21d4b331a966580ee41f876fe1c3da913598bb3c2241d27f20",
+    "task_03.accepted.json": "sha256:16d919ab6f9658b2986e54cb54aec1ac3fa858c70a93c8eadff36ae5b366a58d",
+    "task_04.accepted.json": "sha256:8b319d6614a550124c45af074c05107d6dbcba941c0e64c5c49224488cb066be"
+  },
+  "field_path": "skills[3].principle",
+  "old_text": "Search a few high-probability locations first, such as the cooling container, countertops, stove burners, dining table, cabinets, drawers, and shelves. Prefer open visible surfaces before exhaustive closed-container sweeps; open containers as needed and track visited locations to avoid redundant loops. Distinguish arriving at a closed container from having inspected it: contents remain unverified until opened. If the target is not in the first expected location, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only one check. If found on an accessible surface, take it directly and proceed. If it remains missing after a reasonable broad search, reassess goal feasibility or possible absence instead of searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+  "new_text": "Search high-probability locations first: the cooling container, countertops, stove burners, dining table, cabinets, drawers, and shelves. Prefer visible surfaces before closed-container sweeps; open containers as needed and track visited locations. Reaching a closed container is not inspection: its contents remain unverified until opened. If the target is absent from the first expected location, continue a bounded search of plausible surfaces and containers rather than declaring failure. When found on an accessible surface, take it and proceed. If a reasonable broad search finds nothing, reassess feasibility or absence instead of checking unrelated receptacles. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty when feasibility is doubtful.",
+  "old_length": 952,
+  "new_length": 798,
+  "original_validation_errors": [
+    "skills[3].principle exceeds 900 characters"
+  ],
+  "repaired_validation_errors": [],
+  "non_target_fields_unchanged": true,
+  "full_validation_passed": true,
+  "input_skill_count": 28,
+  "output_skill_count": 4,
+  "accepted_object_sha256": "sha256:eba92bdaafa46310f19446a93751f2657e9eb8028dc47b435ad009bfe5a5cd1b",
+  "prepared_at": "2026-10-19T07:49:39.252140+00:00"
+}

@@ -1,0 +1,87 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "End-to-end heat-then-place sequence",
+      "principle": "For a heat-then-place goal: locate and take the target object, go to the microwave, open it if closed, perform the heating operation using an observation-confirmed method, keep track of the same object instance, then go to the final destination, open it if needed, put the object there, and confirm placement. Treat heating as an intermediate milestone; the task is complete only after the object is placed at the destination. If the object is already held after acquisition, proceed to the heating stage rather than restarting unnecessarily.",
+      "when_to_apply": "Any task requiring an object to be heated and then placed at a specified destination.",
+      "source_skill_keys": [
+        "A/Planner/加热后放置/skill_014",
+        "A/Executor/加热后放置/skill_016",
+        "B/Executor/加热后放置/skill_016",
+        "C/Supervisor/加热后放置/skill_013",
+        "C/Supervisor/加热后放置/skill_014",
+        "C/Operation Worker/加热后放置/skill_017"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Microwave heating with observation-driven holding/placement recovery",
+      "principle": "Open the microwave before taking from or using it. Observations conflict on the required heating state: some successful runs heated the object while holding it, while others succeeded by placing the object in an open microwave and then heating. Treat the holding/placement requirement as observation-dependent. If heating while holding returns 'Nothing happens', place the object in the open microwave and retry. If heating with the object inside returns 'Nothing happens', take it out, ensure the microwave is open, and retry while holding it. Do not repeat an identical failing heat command without changing the object’s position or holding state.",
+      "when_to_apply": "When the target object must be heated with a microwave, especially if the first heat attempt fails or the object is inside the microwave.",
+      "source_skill_keys": [
+        "A/Planner/加热后放置/skill_015",
+        "A/Executor/加热后放置/skill_014",
+        "A/Executor/加热后放置/skill_015",
+        "B/Executor/加热后放置/skill_014",
+        "B/Critic/加热后放置/skill_012",
+        "C/Search Worker/加热后放置/skill_014",
+        "C/Operation Worker/加热后放置/skill_014",
+        "C/Operation Worker/加热后放置/skill_015"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Confirm heating before moving or placing",
+      "description": "A heat command can fail or return 'Nothing happens', and treating an unconfirmed attempt as success can lead to moving and placing a cold object. Do not infer heating success from merely holding or placing the object.",
+      "why_it_happens": "Heating may not change state unless the object’s position and the microwave state are suitable, and success is not guaranteed just because a command was issued.",
+      "how_to_avoid": "Proceed only after an explicit heating-success observation, such as a message that the object was heated, or another reliable confirmation that it is hot. If heating is not confirmed, repeat a valid heating attempt after correcting the object’s position or holding state, then verify again before moving it.",
+      "source_skill_keys": [
+        "A/Planner/加热后放置/skill_016",
+        "B/Executor/加热后放置/skill_015",
+        "B/Critic/加热后放置/skill_013"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Avoid blind substitution of heating appliances",
+      "description": "After microwave heating returns 'Nothing happens', switching to stoveburners, toasters, or other appliances without evidence can also fail or be blocked. Assumption-based substitution adds failed steps rather than recovering the task.",
+      "why_it_happens": "Some appliances may not support heating the target object, some surfaces may be occupied, and support for a given object or appliance is not guaranteed merely because an alternative exists.",
+      "how_to_avoid": "Correct the microwave interaction first: check that it is open, adjust whether the object is held or placed inside, and retry without repeating the identical failing command. Use another appliance only when current observations explicitly show that it supports heating this object and is available; otherwise do not treat stoveburner or toaster as a blind fallback.",
+      "source_skill_keys": [
+        "B/Critic/加热后放置/skill_014",
+        "C/Search Worker/加热后放置/skill_015"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Systematic search and continue after misses",
+      "principle": "When the target object is not in the first searched location, continue systematically checking other plausible containers and surfaces such as cabinets, drawers, countertops, fridge, dining table, sink basin, coffee machine, and stoveburners. Do not declare the task blocked or the object unavailable merely because the first location is empty.",
+      "when_to_apply": "During the acquisition phase of a heat-and-place task when the target object is not immediately visible or is absent from the first checked location.",
+      "source_skill_keys": [
+        "C/Search Worker/加热后放置/skill_013",
+        "C/Search Worker/加热后放置/skill_016"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Do not take a directly heated held object from the microwave",
+      "description": "When heating succeeds while the object is held, the object remains in inventory. Attempting afterward to take it from the microwave can return 'Nothing happens' because the direct heat action did not put it there.",
+      "why_it_happens": "The heating action confirmed while holding the object does not necessarily move the object into the microwave, so there is nothing to take out afterward.",
+      "how_to_avoid": "After a successful heat action performed while holding the object, verify by inventory or held-object state that it is still held, then proceed toward the destination. Do not issue a take-from-microwave action unless the object was actually placed inside.",
+      "source_skill_keys": [
+        "C/Operation Worker/加热后放置/skill_016"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Avoid unnecessary intermediate placements",
+      "description": "Inserting an extra countertop or other intermediate placement between heating and the final destination adds unnecessary actions and can cause tracking or placement failures.",
+      "why_it_happens": "The task may be over-decomposed so that an intermediate placement is introduced even though the goal only requires moving the heated object to its final destination.",
+      "how_to_avoid": "After heating, take or keep the object and move directly to the final destination, then place it there. Add an intermediate placement only if the environment explicitly requires it.",
+      "source_skill_keys": [
+        "A/Planner/加热后放置/skill_017"
+      ]
+    }
+  ]
+}

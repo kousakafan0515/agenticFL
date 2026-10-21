@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:f0e31d1382470791cd66330c77b0e7b968f846d50381c6fd4ee5d83ec78061b8",
+  "message_character_count": 121382,
+  "started_at_utc": "2026-10-18T17:18:38.665129+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the first searched location (e.g., fridge) lacks the target, continue systematically to other plausible surfaces/containers instead of declaring BLOCKED. Episode 083 stopped after opening the fridge and finding no egg, though other locations were unchecked; this violates the broad-search principle.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_088\"]}, {\"recommendation\": \"Do not substitute a similar object type for the goal object. In episode 081 the goal was a cup but the worker took a mug and handed off; the episode ultimately failed. Search for the exact named type (cup) and only use a confirmed equivalent.\", \"affected_skill_ids\": [\"G_005\", \"T3_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_081\"]}, {\"recommendation\": \"When a take attempt returns 'Nothing happens' (e.g., after moving away from the source), re-verify current location and re-issue the take from the correct receptacle rather than repeating blindly. Episode 095 shows a failed take followed by a successful one after repositioning.\", \"affected_skill_ids\": [\"G_004\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_095\"]}, {\"recommendation\": \"After heating succeeds while holding the object, do not attempt to take it from the microwave; the object remains in inventory. Proceed directly to the destination. Episode 084 shows a redundant take-from-fridge after heating, which is unnecessary and risks no-op.\", \"affected_skill_ids\": [\"T4_006\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_084\"]}, {\"recommendation\": \"When the destination cabinet is closed, open it before placing; if open returns 'Nothing happens' for many cabinets, treat them as non-openable and switch to a valid open destination rather than looping. Episode 096 opened cabinets 1-9 with no effect before finally using cabinet 10.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_096\"]}, {\"recommendation\": \"Avoid unbounded exhaustive container search. Episode 093 traversed many cabinets and drawers without finding a mug and timed out; after a reasonable set of likely locations, reassess or report blocked rather than opening every remaining container.\", \"affected_skill_ids\": [\"G_002\", \"T3_006\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_093\"]}, {\"recommendation\": \"Hand off only after the target object is actually held, not merely seen. Episode 079 handed off upon seeing plates on the dining table before taking one; the worker then had to take it. Confirm acquisition by holding the object before signaling HANDOFF.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_079\"]}, {\"recommendation\": \"Prioritize likely locations by object type and avoid revisiting confirmed-empty surfaces. Episodes 075 and 093 show long cabinet/drawer sweeps; track checked locations and move to unchecked plausible ones, and prefer open surfaces first for common items.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_093\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 36259,
+    "completion_tokens": 929,
+    "total_tokens": 37188
+  },
+  "completed_at_utc": "2026-10-18T17:18:43.534280+00:00"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:396406032fbe69ff54a62060bea9c31b6904c4af729b64252d07bcbb3ea3890c",
+  "message_character_count": 86655,
+  "started_at_utc": "2026-10-18T15:24:45.867591+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When a take fails with 'Nothing happens' despite the object being visible at the current location, retry using the exact instance identifier (e.g., 'take soapbottle 1 from countertop 1') rather than the bare object name. Episode 12 shows the bare-name take failed but the numbered take succeeded immediately.\", \"affected_skill_ids\": [\"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_012\"]}, {\"recommendation\": \"Never issue 'go to <object>' navigation; objects are not navigation targets. In episode 23 the supervisor repeatedly dispatched 'go to soapbottle 1' and 'go to countertop 1' after arrival, producing repeated no-ops and a loop-guard failure. After a no-op, change the approach (use exact take with instance id) instead of re-dispatching the same navigation.\", \"affected_skill_ids\": [\"G_006\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_023\"]}, {\"recommendation\": \"When a search mission returns empty from the first location, broaden to other plausible surfaces and containers rather than declaring failure. Episode 7 failed after checking only cabinets/drawers and never inspecting many open surfaces; episode 24 succeeded only after widening to armchairs and sidetable. Maintain a checked-location list and keep moving to unchecked plausible spots.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_024\"]}, {\"recommendation\": \"Do not substitute a similar object type for the named target. Episode 11 failed because only pots/kettles were found on stoveburners and no pan was located; the supervisor should have broadened search to other locations for a pan rather than concluding failure after only stoveburners. Confirm exact object type before taking.\", \"affected_skill_ids\": [\"G_005\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_011\"]}, {\"recommendation\": \"Decompose simple pick-and-place into an acquisition mission (return when the object is held) followed by an operation mission (go to destination, put, confirm). Episodes 3-6, 8-10, 13-22 show this two-phase dispatch works well; keep the operation mission's RETURN WHEN tied to the placement observation.\", \"affected_skill_ids\": [\"T1_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_003\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_008\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_019\"]}, {\"recommendation\": \"When a search mission's RETURN WHEN allows 'or all plausible locations checked', ensure the worker actually opens closed containers before treating them as searched. Episode 7 shows cabinets approached but several never opened, and episode 18 shows 'open drawer' returning no-op (drawers not openable) before success on a shelf. Instruct workers to open closed containers and to skip non-openable fixtures.\", \"affected_skill_ids\": [\"G_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_018\"]}, {\"recommendation\": \"After a worker HANDOFF, dispatch the operation mission with the exact instance id the worker reported (e.g., 'put book 3 in/on sofa 1') and require the placement observation as the return condition. Episodes 3-6, 8-10, 13-22 confirm this yields reliable success; avoid re-dispatching search once the object is held.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_004\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_016\"]}, {\"recommendation\": \"When a worker declares failure, verify the search was genuinely exhaustive before accepting it. Episode 7's worker stopped after cabinets/drawers without checking many open surfaces; the supervisor should re-dispatch a broadened search (open surfaces first, then remaining containers) rather than terminating.\", \"affected_skill_ids\": [\"G_002\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_007\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 24487,
+    "completion_tokens": 1127,
+    "total_tokens": 25614
+  },
+  "completed_at_utc": "2026-10-18T15:24:52.203877+00:00"
+}

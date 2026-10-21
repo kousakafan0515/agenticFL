@@ -1,0 +1,260 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "A",
+  "generation": 4,
+  "parent_bank_file_sha256": "sha256:c39354e8e4a3c5658ebd7e259ff706076a3576154f4eed191bc03d8a968e15ce",
+  "per_role": {
+    "Planner": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_025",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_027",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_029",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_031"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物与台灯并在台灯所在家具处使用台灯",
+            "principle": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器或盲目开抽屉。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。若在台灯所在家具处已取得目标物，不要再次 go to 同一位置，直接 use desklamp <id>。成功开启台灯即为终止条件，不要在其后追加 use/look。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T3_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_049",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_053",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_068"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place ordered workflow with clean-state check",
+            "principle": "For goals requiring a clean object to be placed, execute distinct stages: locate and acquire the target object; bring it to a compatible cleaning fixture, preferring a sinkbasin; clean it; confirm from the observation that cleaning succeeded; then go to the destination, open it if closed, and place the object. Do not place before cleaning, and do not treat the clean step as done unless the observation confirms it. If cleaning has not succeeded, return to the cleaning stage before attempting placement. If the chosen object repeatedly fails to clean, treat it as unsuitable and switch to a likely-cleanable candidate rather than looping. Treat placement confirmation as the terminal condition, not the clean step.",
+            "when_to_apply": "When the goal is to put a clean object in or on a specified receptacle and the object is not already clean."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_077",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_080",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_086",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_089"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Microwave heating with observation-driven holding/placement recovery",
+            "principle": "Open the microwave before taking from or using it, and keep it open until heating is confirmed. Use the explicit heat action form heat <object> with microwave <id> rather than generic use <object> or use microwave. Observations conflict on the required heating state: some successful runs heated the object while holding it, while others succeeded by placing the object in an open microwave and then heating. Treat the holding/placement requirement as observation-dependent. If heating while holding returns 'Nothing happens', place the object in the open microwave and retry. If heating with the object inside returns 'Nothing happens', take it out, ensure the microwave is open, and retry while holding it. Do not repeat an identical failing heat command without changing the object’s position or holding state. Only proceed to the destination after an observation confirms the object was heated.",
+            "when_to_apply": "When the target object must be heated with a microwave, especially if the first heat attempt fails or the object is inside the microwave."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T4_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_091",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_074"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "End-to-end heat-then-place sequence",
+            "principle": "For a heat-then-place goal: locate and take the target object, go to the microwave, open it if closed, perform the heating operation using an observation-confirmed method, keep track of the same object instance, then go to the final destination, open it if needed, put the object there, and confirm placement. Treat heating as an intermediate milestone; the task is complete only after the object is placed at the destination. If the object is already held after acquisition, proceed to the heating stage rather than restarting unnecessarily. Only take the object from the microwave if it was actually placed inside; if heating was done while holding, keep holding and go directly to the destination.",
+            "when_to_apply": "Any task requiring an object to be heated and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_103",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_116",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_098"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling workflow with confirmed cool state before placement",
+            "principle": "Inputs differ on whether cooling requires placing the object in the fridge and taking it out or issuing an explicit cool action while holding it at an open fridge. Use environment feedback as authority: perform or verify cooling explicitly, and do not treat mere containment or brief placement as confirmed cooling. A reliable sequence is: acquire the exact target; go to the fridge; open it; if an explicit cool action is available, issue it while holding the object, otherwise use the available cooling interaction and wait for a cooled-state confirmation; then go to the destination; open it if closed; put the object there; confirm placement. Do not issue a cool action before the object is actually held. Do not add a take-from-fridge step when cooling was done while holding, and do not immediately re-take an object already held; check inventory before re-taking.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T6_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_119",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_127"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Sequential two-item placement with per-item confirmation",
+            "principle": "Treat a two-item placement goal as two search-and-place cycles. Locate and take one target object, navigate to the destination, open the destination if it is closed, place the object, and confirm the placement before starting the second cycle. Track how many items are placed and which object was already placed; never take an already-placed object again. If both instances are visible on the same surface or receptacle, place the first then return to that same location for the second. Continue until both instances are confirmed placed; do not stop after placing only one. If the final destination is temporarily unavailable, only use a safe recoverable holding location when necessary and move both objects to the final destination afterward.",
+            "when_to_apply": "When the goal requires placing two instances of the same object type at one target location and only one object can be carried at a time."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Planner",
+          "target_skill_id": "T6_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_123",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_134",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_118"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Systematic search across receptacle types and visible surfaces",
+            "principle": "When target objects are not immediately visible, search broadly instead of checking only one receptacle type. Inspect visible surfaces such as counters, tables, shelves, sofas, dressers, and similar open surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. Do not conclude the task is blocked prematurely, and do not accept a similar-named substitute for the exact target object type.",
+            "when_to_apply": "When one or both target objects are not visible and must be located in the environment."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 7,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Executor": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_076",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_077",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_080",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_088"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Microwave heating with explicit heat command and observation-driven recovery",
+            "principle": "Open the microwave before taking from or using it. Use the explicit heating command form 'heat <object> <id> with microwave <id>' while holding the object at an open microwave; bare 'use <object>' or 'use microwave <id>' are invalid forms that return 'Nothing happens'. If the explicit heat command fails while holding, place the object in the open microwave and retry the explicit heat command. If heating with the object inside fails, take it out, ensure the microwave is open, and retry while holding it. Do not repeat an identical failing heat command without changing the object's position, holding state, or command form.",
+            "when_to_apply": "When the target object must be heated with a microwave, especially if the first heat attempt fails or the object is inside the microwave."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_099",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_101",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_111",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_103"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling workflow with explicit cool command and confirmed cool state before placement",
+            "principle": "Use environment feedback as authority and perform cooling explicitly. A reliable sequence is: acquire the exact target; go to the fridge; open it; issue the explicit cool command 'cool <object> <id> with fridge <id>' while holding the object; wait for a cooled-state confirmation; then go to the destination; open it if closed; put the object there; confirm placement. Do not treat mere containment or brief placement in the fridge as confirmed cooling, and do not immediately re-take an object already held; check inventory before re-taking. After a successful cool action while holding the object, the object remains in inventory, so proceed directly to the destination rather than trying to take it from the fridge.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T2_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_036",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_029"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Failed trajectories show that examine X with desklamp, examine the target, examine desklamp, bare-name use desklamp, use desklamp on X, and use X on desklamp often return 'There's nothing special about X' or 'Nothing happens' and cannot substitute for the observation condition. Merely placing the target on the desk or desklamp without triggering the lamp interaction also leaves the environment goal unmet. The working form is the numbered lamp instance, e.g. 'use desklamp 1'; bare 'use desklamp', 'use lamp', 'use desk 1', and 'open desk 1' all returned Nothing happens before the numbered form succeeded.",
+            "why_it_happens": "The environment does not support the desklamp as an examine tool argument, nor bare-name or compound syntax; placement actions alone do not trigger the observation success condition.",
+            "how_to_avoid": "After locating and bringing the target to the lamp's furniture, execute 'use desklamp <id>' with the observed numbered lamp instance. Do not use examine X with desklamp or compound use syntax; if an invalid syntax was tried, verify the lamp instance name and retry with the numbered form rather than repeatedly examining the target or lamp."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T3_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_049",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_053"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A clean action can return no effect when the object is not held, the current location is not a valid cleaning fixture, or the chosen object is not cleanable (e.g., a towel or cloth may not support cleaning at a sinkbasin). Cleaning is reliably supported at a sinkbasin; alternative fixtures such as bathtubbasin or fridge should not be assumed equivalent. Repeated identical attempts waste steps, and attempting to take another object while still holding the failed one produces repeated no-ops.",
+            "why_it_happens": "The environment validates that the object is held and that cleaning occurs at a compatible fixture; some fixtures or object types do not support cleaning.",
+            "how_to_avoid": "Hold the target object, navigate to a sinkbasin, then clean. If no effect, verify the held object and current location; try a different sinkbasin or confirm the object is cleanable. After a failed clean, either try a different cleanable candidate or release the held object at a valid surface before acquiring another. Treat bathtubbasin as unverified and switch to sinkbasin if it fails; do not loop on an invalid fixture."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T3_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_055",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_093",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_108"
+          ],
+          "bucket": "清洗后放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Placement can fail when the destination container is closed, has no available space, or is not a valid receptacle; for example, fixtures such as toilets or coffeemachines may reject placement, and repeated put/open/use on a coffeemachine all return 'Nothing happens'. An open action may also return no effect if the container is already open or not openable; in that case proceed to put rather than retrying open.",
+            "why_it_happens": "Containers may require opening or have capacity limits; some fixtures are not valid placement targets. Repeating put or open without changing conditions may waste steps.",
+            "how_to_avoid": "Before placing, open a closed destination; if open returns no effect, do not retry it—proceed or reassess. Check for space or availability when possible. If the destination is invalid or put repeatedly has no effect, treat it as invalid and seek an alternative valid destination or report blocked rather than looping."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Executor",
+          "target_skill_id": "T6_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_125",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_128",
+            "stage2-local-v10-role-partitioned-patch3/generation_04/client_A/episode_130"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "Attempting to put an object into, or take an object from, a closed cabinet, drawer, or similar container may produce no effect. Conversely, if the container is already open, an open action returns 'Nothing happens' and should not be retried; proceed to put.",
+            "why_it_happens": "The environment requires the container to be open before its contents can be accessed or modified, and reports no change when opening an already-open container.",
+            "how_to_avoid": "Open the container first with the appropriate open action. If it is already open or open returns no effect, proceed directly to put rather than retrying open; after opening, verify access before taking or placing."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:19cae0546db75ea33e4c10bcaf10816ba605243d7682aa744ac6a084dee15b80"
+}

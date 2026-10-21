@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:597a67cc346bc8d1431b8fb9a181f1c84c95a4fc4e85650919940ff77b47b036",
+  "message_character_count": 131882,
+  "started_at_utc": "2026-10-19T05:56:34.740094+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the goal names a specific object type (e.g., 'mug'), do not silently substitute a similar type (e.g., 'cup'). In episode_075 the worker took cup 2 for a 'mug' goal and the episode failed; in episode_088 it took cup 1 for a 'mug' goal and also failed. Search for the exact named type first, and only use a confirmed equivalent.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_088\"]},{\"recommendation\": \"After a successful take, hand off immediately and do not emit extra empty actions. Several episodes show the worker signaling HANDOFF then continuing to act (e.g., episode_082 and episode_083 re-issued go/take after a HANDOFF). Once the take observation confirms holding, stop and report acquisition.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_082\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_083\"]},{\"recommendation\": \"Do not declare HANDOFF merely because the target is visible; acquisition ends only when the take observation confirms holding. In episode_082 and episode_083 the worker signaled HANDOFF on sighting the object before taking it, then had to re-issue the take. Take first, confirm holding, then hand off.\", \"affected_skill_ids\": [\"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_082\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_083\"]},{\"recommendation\": \"When a take from the microwave returns 'Nothing happens' after a heat, check inventory before retrying. In episode_094 the worker tried to take cup 2 from the microwave after heating it while held; the take failed because the cup was still in inventory. Confirm held state and proceed to the destination instead of re-taking.\", \"affected_skill_ids\": [\"T4_006\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_094\"]},{\"recommendation\": \"When a heat attempt returns 'Nothing happens', change the object's position/holding state and retry rather than repeating. In episode_078 the first heat failed, then the worker took the apple from the microwave and re-heated successfully. Follow this recovery pattern: if held-heat fails, place in open microwave and retry, and vice versa.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_078\"]},{\"recommendation\": \"Search open surfaces broadly before concluding the target is absent, and track checked locations. Episode_093 exhausted many countertops and cabinets without finding a mug and ended without success; episode_080 succeeded only after checking four countertops. Keep a checked-location list and prioritize likely surfaces by object type rather than opening every cabinet.\", \"affected_skill_ids\": [\"G_001\", \"G_002\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_093\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_080\"]},{\"recommendation\": \"Open closed containers before taking from them, and do not retry open on an already-open container. Episode_085 correctly opened the fridge before taking the potato; episode_093 shows repeated go-to-cabinet without opening, wasting steps. Navigate to the container, open it, then inspect/take.\", \"affected_skill_ids\": [\"G_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_085\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_093\"]},{\"recommendation\": \"After acquiring the target, proceed directly to the microwave and then the destination without redundant intermediate steps. Episodes 074, 076, 077, 079, 084, 086, 089, 090, 091, 092, 095, 096 show the clean acquire-heat-place sequence; follow it and avoid extra inventory or re-take actions unless a failure is observed.\", \"affected_skill_ids\": [\"T4_001\", \"T4_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_077\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_096\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 40914,
+    "completion_tokens": 1161,
+    "total_tokens": 42075
+  },
+  "completed_at_utc": "2026-10-19T05:56:40.557920+00:00"
+}

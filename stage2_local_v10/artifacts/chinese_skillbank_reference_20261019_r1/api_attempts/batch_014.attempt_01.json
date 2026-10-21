@@ -1,0 +1,47 @@
+{
+  "batch": 14,
+  "attempt": 1,
+  "input_ids": [
+    "Z0261",
+    "Z0262",
+    "Z0263",
+    "Z0264",
+    "Z0265",
+    "Z0266",
+    "Z0267",
+    "Z0268",
+    "Z0269",
+    "Z0270",
+    "Z0271",
+    "Z0272",
+    "Z0273",
+    "Z0274",
+    "Z0275",
+    "Z0276",
+    "Z0277",
+    "Z0278",
+    "Z0279",
+    "Z0280"
+  ],
+  "input_text_sha256": "sha256:26e6e0484a54f6bc17cc2ef05611395b10da1d84e9d3da43e92385b2f7ad3b2d",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0261\",\"chinese\":\"如果某个动作失败（例如显示 'Nothing happens'），不要在没有改变状态或方法的情况下重复它；重新评估并尝试不同的动作或位置。\"},{\"id\":\"Z0262\",\"chinese\":\"智能体可能会卡住并重复同一个无效动作，浪费步数并导致失败或交接循环。\"},{\"id\":\"Z0263\",\"chinese\":\"动作失败后，检查库存、位置和物体状态；尝试不同的动作或移动到不同的位置。\"},{\"id\":\"Z0264\",\"chinese\":\"确保被拿起或转换的物体与目标物体类型匹配；相似但不同的物体（例如 cup 与 mug、towel 与 handtowel）不会满足目标。\"},{\"id\":\"Z0265\",\"chinese\":\"智能体可能会混淆相似物体或误读观察结果，浪费时间并导致任务失败。\"},{\"id\":\"Z0266\",\"chinese\":\"在拿起或转换物体之前，仔细阅读观察结果并确认物体名称与目标匹配。\"},{\"id\":\"Z0267\",\"chinese\":\"如果在搜索相关位置后仍找不到目标物体，应声明失败，而不是无限期地继续。\"},{\"id\":\"Z0268\",\"chinese\":\"该物体可能不存在于环境中，或者可能位于无法到达的位置。\"},{\"id\":\"Z0269\",\"chinese\":\"搜索可能的容器和表面；如果找不到该物体，报告失败。\"},{\"id\":\"Z0270\",\"chinese\":\"简单的拿起并放置执行\"},{\"id\":\"Z0271\",\"chinese\":\"对于简单的拿起并放置任务，定位目标物体，take 它，导航到目的地，然后 put 它 down。\"},{\"id\":\"Z0272\",\"chinese\":\"当目标是将单个物体移动到指定目的地，且不需要清洁、加热、冷却或照明时。\"},{\"id\":\"Z0273\",\"chinese\":\"对于先清洁再放置的目标，先获取目标物体，然后 go to 一个 sinkbasin 并 clean 它，再 go to 目的地并放置它。如果目的地是关闭的容器，在放置前先 open 它。\"},{\"id\":\"Z0274\",\"chinese\":\"当目标是将一个干净的物体放到目的地，而该物体尚未干净时。\"},{\"id\":\"Z0275\",\"chinese\":\"不要用非 sinkbasin 的设施清洁\"},{\"id\":\"Z0276\",\"chinese\":\"清洁只对 sinkbasin 有效。尝试用 fridge、bathtubbasin 或其他设施清洁会产生 'Nothing happens' 并浪费步数。\"},{\"id\":\"Z0277\",\"chinese\":\"当拿着需要清洁的物体并选择清洁位置时。\"},{\"id\":\"Z0278\",\"chinese\":\"不要放入非容器设施\"},{\"id\":\"Z0279\",\"chinese\":\"某些设施（如 toilets 和 coffeemachines）不是有效的放置容器。反复尝试 put 会产生 'Nothing happens'；如果目的地无效，报告 blocked，而不是循环。\"},{\"id\":\"Z0280\",\"chinese\":\"当目的地是 toilet、coffeemachine 或其他拒绝放置的设施时。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 632,
+    "prompt_tokens": 889,
+    "total_tokens": 1521,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 889
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

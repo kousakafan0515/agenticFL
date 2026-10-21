@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_04_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:8dbf15ff390acf493143eac2668cd6006e8c414a998a392f6cb21ca21d70180e",
+  "message_character_count": 130604,
+  "started_at_utc": "2026-10-19T03:56:57.863142+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the goal names a specific object type (e.g., 'mug'), do not silently substitute a similar type (e.g., 'cup') just because it is visible. In episode_075 the worker took cup 2 for a 'mug' goal and the episode ended in handoff_loop_guard; episode_088 similarly took cup 1 for a 'mug' goal and was declared failed. Search for the exact named type first, and only substitute a confirmed equivalent.\", \"affected_skill_ids\": [\"T3_005\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_088\"]},{\"recommendation\": \"After a heat attempt returns 'Nothing happens' while holding the object, change the object's position (put it into the open microwave) and retry, as episode_075 and episode_080 did successfully. Do not repeat the identical held-heat command; verify the heat observation before proceeding to placement.\", \"affected_skill_ids\": [\"T4_002\", \"T4_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_075\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_080\"]},{\"recommendation\": \"When a closed container's open action returns 'Nothing happens' (e.g., cabinet 1 in episode_096, cabinet 8 in episode_093), treat it as non-openable and move to another valid open destination rather than retrying. Episode_096 recovered by opening cabinet 2; episode_093 looped on cabinet 8 and exhausted the budget.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_096\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_093\"]},{\"recommendation\": \"Maintain a checked-location record and stop revisiting confirmed-empty surfaces. In episode_093 the worker opened/visited cabinets 1-12 sequentially and repeatedly hit 'Nothing happens' on cabinet 8, never finding the mug; after several likely locations fail, reassess rather than opening every remaining container.\", \"affected_skill_ids\": [\"G_002\", \"T4_005\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_093\"]},{\"recommendation\": \"Search open surfaces broadly before concluding absence: episode_079 checked countertop 1, countertop 2, then diningtable 1 to find the plate, and episode_085 checked multiple countertops and a shelf before opening the fridge for the potato. Continue to new unchecked plausible surfaces after an empty look rather than declaring blocked.\", \"affected_skill_ids\": [\"G_001\", \"T4_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_079\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_085\"]},{\"recommendation\": \"After a successful held-heat, proceed directly to the destination and place; do not add a take-from-microwave step. Episodes 074, 076, 082, 084, 086, 090, 091, 092, 094, 095 all heated while holding and then went straight to the destination, confirming the object stayed in hand.\", \"affected_skill_ids\": [\"T4_006\", \"T4_007\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_074\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_076\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_090\"]},{\"recommendation\": \"Open the destination container before placing when it is closed, and confirm placement from the observation. Episode_078 and episode_084 opened the fridge before putting the heated object; episode_096 opened cabinet 2 before placing the plate. Treat the confirming put observation as terminal and stop.\", \"affected_skill_ids\": [\"G_003\", \"G_008\", \"T4_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_078\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_084\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_096\"]},{\"recommendation\": \"When the target is not in the first checked location, broaden to other plausible surfaces and containers rather than assuming one receptacle holds it. Episode_083 checked fridge, countertop 1, then diningtable 1 to find the egg; episode_089 checked countertop 1 then opened the fridge for the egg. Keep moving to new unchecked locations after an empty look.\", \"affected_skill_ids\": [\"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_083\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_089\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 40446,
+    "completion_tokens": 1246,
+    "total_tokens": 41692
+  },
+  "completed_at_utc": "2026-10-19T03:57:03.585141+00:00"
+}

@@ -1,0 +1,278 @@
+{
+  "display_only": true,
+  "source_manifest_sha256": "sha256:3299d89c23617f985e121cf0e6115b93b8ff039a95896be037d7faeb82b13f76",
+  "translation_map_sha256": "sha256:e9bf29ef01e04b7a966cc8b8875c5e55eff8d7d417a8a345d4ec76695e77ba12",
+  "postedit_audit_sha256": "sha256:a081d4ef36392e4597e52d8787bbc03bfbe2dd4e8466b1c677851d650a53e37f",
+  "files": [
+    {
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.json",
+      "source_sha256": "sha256:84218a56b828fe08b81bd476c62d32950f61764b13390e957fd22c430bf24db4",
+      "reference_json": "banks/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:5d6c216996b5460574e60b50dfed84540872b272f201d4d442a9ac5c784cdbe0",
+      "english_view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:b73a6a49f6c02b0330f7e7373739e8c41aaff972bf8fb666bf65b7784ac466dd",
+      "translated_field_occurrences": 37
+    },
+    {
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json",
+      "source_sha256": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+      "reference_json": "banks/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:0e47c5238a6411d5bacd4f4186b93f9b4cea5100b49b44743a9f43681db9d231",
+      "english_view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:4189a26602c1ea30b6c4e2c18f9e073c5d6e363e4d2ac5196713bb37b036a4d7",
+      "translated_field_occurrences": 64
+    },
+    {
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.json",
+      "source_sha256": "sha256:4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d",
+      "reference_json": "banks/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:4044422be7e87e3a5a808b9de5def579d6e25f83219b13b11a3df936840c785c",
+      "english_view": "views/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:58cfa6453e0e55416d86808ba3c1b2f68680d9a0e36d3834cd4e8e2405a58108",
+      "translated_field_occurrences": 45
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_A/B2_skillbank.json",
+      "source_sha256": "sha256:53cfe05175c64c62d37f908ce6a3c72abff7702b46e5d0e83f3c94decb99df9b",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_A/B2_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:cfb6180842f135e65721fb6960f9600f92f010f0e736941195332e6b4b3d027e",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_A/B2_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:850bf251eadeab2e9c50290cb8ef43d2008efadebbcc6529100809c8dfd7eb8f",
+      "translated_field_occurrences": 36
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.json",
+      "source_sha256": "sha256:16b80dc9e4821546e70778b5119247f9d7880856780c2a418d0e2c34add3d088",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:f354d4a877c0fb69e3085e280eb062a87e318b97b5e52c5eb125ebacb1ebb668",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:e99e87ad70f52e36bbd9ebec558443a069759fb751a40069411073e7a78edb33",
+      "translated_field_occurrences": 55
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_C/B2_skillbank.json",
+      "source_sha256": "sha256:5217225311b1cf6e06cf88d3b4bd675b190c14c15a4c8a01bc561c067ac7c031",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_C/B2_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:f1f2c61c246b346f989c3b92a381850cd343151b481f13e5fda6f14eeba06eec",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_C/B2_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:e57540f459de6294bbf57937b2619dd72940c8496e677ed7376ff03162fb8f87",
+      "translated_field_occurrences": 45
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_A/B3_skillbank.json",
+      "source_sha256": "sha256:c39354e8e4a3c5658ebd7e259ff706076a3576154f4eed191bc03d8a968e15ce",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_A/B3_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:13501afe1d464721d69a9bc823a5ad22a219a5cb300bcd8fdf87dc52d972d656",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_A/B3_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:e3b050aa11283225225b02c6914127b6b8d7e07b0357fe1c81a3b4750ef60d97",
+      "translated_field_occurrences": 30
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_B/B3_skillbank.json",
+      "source_sha256": "sha256:38c66e220ce3b6871e3b1e6376e933f5e57e71c4e2223ddb5ffbcfcf738a7fcc",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_B/B3_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:e798acb7d3f2c39512a77c09f349bcb419e07cc3642faacea058af332d3507e0",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_B/B3_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:7066a89b821601e47d5b3d96f852b9250141a2b1657b3f0bee2f127f71805afc",
+      "translated_field_occurrences": 27
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_C/B3_skillbank.json",
+      "source_sha256": "sha256:337acc2f028beae177d74d76311c5a9c6b3cf0716317d307fb49de65767afffd",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_C/B3_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:bc8cc452162bd0e766dc9e3abb450a7bf41219add6b0d766eca16702d4c08bd2",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_C/B3_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:e230bc28701c607237a09b1fa993d4db1ba69f308867230794d78d3174a07a4a",
+      "translated_field_occurrences": 45
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_A/B4_skillbank.json",
+      "source_sha256": "sha256:9e11c375fb45621368f8054bb0b3c982de24c001fe1647f6688e6b3340747a0c",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_A/B4_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:d14201b34712e839196566ba37d380fea20ff53170090a886884321355d17e09",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_A/B4_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:142854152cf17198da687e3c063827442989e2e11765f202e9a65d4bac1e39da",
+      "translated_field_occurrences": 27
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_B/B4_skillbank.json",
+      "source_sha256": "sha256:935d7f3bde46e7d2736f4316289547814fce202f6d993a4ebe0afeb5aa76da52",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_B/B4_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:4e94495fe3dc4248ab9362c9bb3ac5a189ba89c5d23a16092edee2dadc561220",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_B/B4_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:b9e3130bf2e4e80b4f9e1fb1ee52be8a8f645ed85eebef25a6c52c058b176e6b",
+      "translated_field_occurrences": 27
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_C/B4_skillbank.json",
+      "source_sha256": "sha256:e7d1d3515c88f4490901ea15ff89b08c97f26c2bde0bca78dd46b9167c7aad98",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_C/B4_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:d19ab702fd84a5e90fa72f2f73088d820821da9a9d7686f9f426ed784f5b1b96",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B4/client_C/B4_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:94b8663191b3cf5e74b7df4ce322866765cdb4ae9b8dbccfbb56097e252eac36",
+      "translated_field_occurrences": 45
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_A/B5_skillbank.json",
+      "source_sha256": "sha256:b623beadf1d875cd58ea0fec7a0682380386ff022866fbdd279beb3025794e3f",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_A/B5_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:62ca825e029c68aceccbce5e9d63284952bd765fbaa56df249e61d07970503b4",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_A/B5_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:e77c3e9472f03020dc20382ea95f229e248f31f6a4e1865a92dbfdb5ba93fc25",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_B/B5_skillbank.json",
+      "source_sha256": "sha256:4b4de2a7ceaa738968aef425feaaff3046fb677f49f04dc8c2fe1f7b310ef03e",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_B/B5_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:882b121af01b439f76f70ee30c7df7de0028d98b27590b51357878f5214c829e",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_B/B5_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:0be1e6e426a90de43bc7941672aa482c43c04c81dbe71b5035f6c39180cedca9",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_C/B5_skillbank.json",
+      "source_sha256": "sha256:92a16af0dc83552e8eb6dc053c5dbe96fde029477d31bdb970a63ebb79c64149",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_C/B5_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:14bb6551510fd962785e2abc12a9b36d4e9ea3df363ce4c5c31e75419dc683eb",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B5/client_C/B5_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:c09b4d4ac5265984ff5ae3b5299353f825465a27b33d59cf064a9f8dfdb03b0a",
+      "translated_field_occurrences": 108
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.json",
+      "source_sha256": "sha256:3666aa8a722428baa7e35b273bef428ce40d2231796a99a75b53839471c93ab8",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:f73dd713c643b64d1f1784bbc4b263a96bf99b732732f79c5a38bae891fd70ad",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:c083446e178428c131f9f6682875cf9d5975360bffdb0ab3797292cf19d447a4",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.json",
+      "source_sha256": "sha256:bc71c47a7db9c86929eed15d8904a0f39d186a90489c5d17d641cf66d488aa18",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:26cc3fb858b3177b5cb91cb55876cddafd254bcf72dbafe015d4aee8eeca57b7",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:4ac1bb644afed3bec76d0944e45ca55bfa68267a07262f1ddc0c392afb7809fc",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.json",
+      "source_sha256": "sha256:215b94614a039d3efafb08107cce3d7042e92ba9b1580cf5f64385c9fabc388c",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:a52d62c2fe6d134ceabd2ce268a4b694908c6948fa173fc1cd552db1dac846b7",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:a962fc85b33b89995a30ce7301ca95a541549b343cd3434daee2ca858ac34e10",
+      "translated_field_occurrences": 108
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/aggregation/global_skillbank1.json",
+      "source_sha256": "sha256:b38074b08cb21b8c3d956b7fb5b3304e074db5f2e6b6aaaea1bebbd21fbedc7e",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/aggregation/global_skillbank1.reference.en.json",
+      "reference_json_sha256": "sha256:5712097d68e84057ab3419d0a6aed90f003a8c4838c413c180406dff1fb4d54a",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/aggregation/global_skillbank1.reference.en.md",
+      "english_view_sha256": "sha256:ce154501335c77da2e56e3d5ba1d4c877fdb9c507ae57c79d3eb6f6c02d5bc85",
+      "translated_field_occurrences": 18
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/global_skillbank2.json",
+      "source_sha256": "sha256:f83d3e2dd65f574f4fdec9760070a360fbeb669a8e2c463a6ba9f04547efb221",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/global_skillbank2.reference.en.json",
+      "reference_json_sha256": "sha256:70fe2d5fbc12bdade5be95d7444de8ca84ea864fb57130cecc9e8c65fb2f288b",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/aggregation/global_skillbank2.reference.en.md",
+      "english_view_sha256": "sha256:a1ea736ef1073ccc6f8f897a4791cef8d606b4d56a697abf374d15d046824a8f",
+      "translated_field_occurrences": 43
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/global_skillbank3.json",
+      "source_sha256": "sha256:ae306273790f699bd467ad47eaf0662f9541674fbd1fe55d61ce2688944224b8",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/global_skillbank3.reference.en.json",
+      "reference_json_sha256": "sha256:ca38f2d4935f1c93a88a7c916df280b836ac718008c94bbbf0f218f682a8f0b1",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation/global_skillbank3.reference.en.md",
+      "english_view_sha256": "sha256:df0ed3d4fa49c5768d9dd770b62cdb2cf181e0abc87303560aa584bfc8da8810",
+      "translated_field_occurrences": 43
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_A/replacement_skillbank.json",
+      "source_sha256": "sha256:2c44e896545c26e5f6e932b4f1d94a00c52bf57014650cf72c10c8fb0b76c774",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_A/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:8ce773c9a87f2e1bafbf2c3417cc1b35186159b67082e0fe4523135c024ce8cc",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_A/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:f3d20003300d12210e7384e1ee6b49cd418fac5026be708b3495612392a83064",
+      "translated_field_occurrences": 30
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_B/replacement_skillbank.json",
+      "source_sha256": "sha256:5100ab8d019b48578cceb498cc7a69fcbea26bd0f01f6e23e869e096164a5eb9",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_B/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:62638f68309e88f590e147b0968121f31eec76f7f3d1711f37fa5ddeaa11653a",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_B/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:42059969fdc759e0587cdb0e85ec9bb5233cf7a50a28435495ee0cb70b1a27a5",
+      "translated_field_occurrences": 30
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_C/replacement_skillbank.json",
+      "source_sha256": "sha256:4c4ecd6cf6980ebc566283bcd4310d450c5fa201edc5ccb52c21045341d4a19c",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_C/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:310a9de19f6c858f453882240a6373e5746ca68dac3e8c9f2ff6f1de55d31896",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global1/validation/client_C/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:f3cb051966f0894210239ab2fd5e5ce7658f6b40679f6dcda56974507aab5c26",
+      "translated_field_occurrences": 45
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.json",
+      "source_sha256": "sha256:a56be43d601b4b4bc77f246d584cce035215e7d6eb40c7e54eba443bd0dd4f94",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:6cff3b729fb1f5fcdbbbcd7f292011796161575a3fdc8ea2e876c006fbec4e2c",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_A/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:63781216bb78e5bca2c732b245047afacfdf17492149ab174328931f291ad2e4",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.json",
+      "source_sha256": "sha256:a27d2873c3cb7296597ddb446010e353ea6273533ae471df936c7ffe4aa0471b",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:07265fab0e7c5135c076b7b5ccc93cb7b1c13176ff9dfbb01978b3379507fcaa",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_B/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:d41aae131a65c62efc93de15c90d97e75044eac4041df877ac67385683c2db52",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.json",
+      "source_sha256": "sha256:e4d5f9688e61913c75779f32eba34369bb89547124c331573579073e589257c8",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:5f5453a355b52ad8b82fae57c83e7052b73178a4d8dd66bee80e973a193f3489",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global2/validation/client_C/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:3b94b5fc1af119c39cc2f229165b968906428760cd6b059d188c286cdcd2eaf1",
+      "translated_field_occurrences": 108
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_A/replacement_skillbank.json",
+      "source_sha256": "sha256:85531c07ed9e8125aa68aaa6c2e5b983a08f019d9dd552dc0d73eb5256b6f329",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_A/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:2f38c32a455500d2ab18ffc05217c57bc68104f53e44fa25c04fd1af82bd1b6d",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_A/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:1cadb62b98ae492f0a91299829abcf9fc0d1f91eceaad9d49b17d4e2bd118511",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_B/replacement_skillbank.json",
+      "source_sha256": "sha256:a02a2eb617516ab2d938ac2afef03af439d04c5f5fedd1bbbf5fbeddd42a0052",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_B/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:1e0c8f7401f3782851a432a1543a2e62dac8bbabaee67fb8309b6890b804374f",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_B/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:eb993d9b91de8bc9cb1cef2aae0c88c883a8c321577867d681bc4af279a066e4",
+      "translated_field_occurrences": 72
+    },
+    {
+      "source": "stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_C/replacement_skillbank.json",
+      "source_sha256": "sha256:ca09b73f43f6d1c0bcfa860b701f1dfd5b34dbadd64a3ea7704cd9932b57dafd",
+      "reference_json": "banks/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_C/replacement_skillbank.reference.en.json",
+      "reference_json_sha256": "sha256:09103573a6a659ca3bab5dbd205fdf7dd9c682cec366b4d6b5023d43222e174e",
+      "english_view": "views/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/validation/client_C/replacement_skillbank.reference.en.md",
+      "english_view_sha256": "sha256:4d3ae2cb0f73ea583cf4dca0e5306893a6f0ba5432d70e3c0899c0980714b20e",
+      "translated_field_occurrences": 108
+    }
+  ]
+}

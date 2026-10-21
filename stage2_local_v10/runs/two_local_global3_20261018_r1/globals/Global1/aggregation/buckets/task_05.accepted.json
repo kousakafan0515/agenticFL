@@ -1,0 +1,59 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Cooling workflow with confirmed cool state before placement",
+      "principle": "Inputs differ on whether cooling requires placing the object in the fridge and taking it out or issuing an explicit cool action while holding it at an open fridge. Use environment feedback as authority: perform or verify cooling explicitly, and do not treat mere containment or brief placement as confirmed cooling. A reliable sequence is: acquire the exact target; go to the fridge; open it; if an explicit cool action is available, issue it while holding the object, otherwise use the available cooling interaction and wait for a cooled-state confirmation; then go to the destination; open it if closed; put the object there; confirm placement. Do not immediately re-take an object already held; check inventory before re-taking.",
+      "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/skill_018",
+        "A/Executor/冷却后放置/skill_017",
+        "B/Executor/冷却后放置/skill_017",
+        "B/Critic/冷却后放置/skill_015",
+        "C/Supervisor/冷却后放置/skill_015",
+        "C/Search Worker/冷却后放置/skill_017",
+        "C/Operation Worker/冷却后放置/skill_018",
+        "C/Operation Worker/冷却后放置/skill_020"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Do not infer cooled state from fridge location or containment alone",
+      "description": "An object found in the fridge, or briefly placed into it, is not guaranteed to be in the required cooled state. Cooling should be performed or verified explicitly before the object is taken to the destination.",
+      "why_it_happens": "The agent may conflate storage location or containment with temperature state, or may assume that a fridge round-trip is sufficient cooling. The environment may only change temperature through an explicit cool interaction.",
+      "how_to_avoid": "Do not immediately retrieve and place an object after putting it into the fridge. While holding the target at an open fridge, use the environment's cool interaction and wait for a confirmation. If no cooled-state confirmation occurs, do not assume success.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/skill_021",
+        "A/Executor/冷却后放置/skill_018",
+        "B/Executor/冷却后放置/skill_018",
+        "B/Critic/冷却后放置/skill_016",
+        "C/Operation Worker/冷却后放置/skill_019"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Bounded systematic search and early feasibility reassessment",
+      "principle": "Check a few high-probability locations first, including the fridge, countertops, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. If the target is not found after a reasonable broad search, reassess the goal or whether the object may be absent rather than continuing through every unrelated receptacle. Do not repeat an identical broad search after all obvious receptacles have been exhausted; report or escalate early when feasibility is doubtful.",
+      "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/skill_020",
+        "A/Executor/冷却后放置/skill_019",
+        "B/Executor/冷却后放置/skill_019",
+        "C/Supervisor/冷却后放置/skill_016",
+        "C/Search Worker/冷却后放置/skill_018"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Cooling alone or opening the fridge does not complete the task",
+      "description": "Omitting the cooling phase and placing the object directly, or stopping after opening the fridge or cooling the object without final placement, leaves the goal incomplete. The task requires both a cooled object and placement at the required destination.",
+      "why_it_happens": "The goal may be misread as a simple placement task, or the cooling step may be treated as the whole mission. Premature handoff after a partial step also causes failure.",
+      "how_to_avoid": "Treat cooling and final placement as separate checkpoints. Include an explicit cooling step before placement when the goal requires a cool object, and after cooling continue to the destination and place the object. Do not declare success or hand off until both the cooled state and destination placement have been confirmed.",
+      "source_skill_keys": [
+        "A/Planner/冷却后放置/skill_019",
+        "C/Search Worker/冷却后放置/skill_019",
+        "C/Operation Worker/冷却后放置/skill_021"
+      ]
+    }
+  ]
+}

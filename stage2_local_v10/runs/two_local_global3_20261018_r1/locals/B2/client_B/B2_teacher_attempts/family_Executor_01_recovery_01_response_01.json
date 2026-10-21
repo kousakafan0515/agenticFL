@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Executor_01_recovery_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:88daf1b65b0ba74c8170f7f4fa66a961b8dc4bd3e83c656da9c244dd003e7fc3",
+  "message_character_count": 97002,
+  "started_at_utc": "2026-10-18T11:51:44.546997+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When searching for a target object, use `go to <receptacle>` to navigate and read the observation; never use `examine` or `look at` as search actions since they return 'Nothing happens'.\", \"affected_skill_ids\": [\"skill_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_010\"]}, {\"recommendation\": \"If a `go to <receptacle>` action returns 'Nothing happens', do not repeat it; instead move to a different known location or re-approach the area, since the target may not be navigable from the current spot.\", \"affected_skill_ids\": [\"skill_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_007\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_017\"]}, {\"recommendation\": \"When many closed containers have been checked without finding the target, switch to checking open surfaces (sidetables, beds, countertops, diningtables) rather than continuing to open more drawers/cabinets.\", \"affected_skill_ids\": [\"skill_003\", \"skill_019\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_017\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_024\"]}, {\"recommendation\": \"Do not declare the task FAILED or stop after exhausting a subset of locations; the target may be on an unchecked open surface. Continue systematic search across all visible surfaces before concluding failure.\", \"affected_skill_ids\": [\"skill_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_009\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_007\"]}, {\"recommendation\": \"For simple pick-and-place, follow the stable loop: locate object on a surface, `take <object> from <surface>`, `go to <destination>`, then `put <object> in/on <destination>`; this pattern succeeded in most episodes.\", \"affected_skill_ids\": [\"skill_001\", \"skill_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_008\", \"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_022\"]}, {\"recommendation\": \"If the destination container is closed, `open <container>` before `put`; if it is already open or a surface, put directly.\", \"affected_skill_ids\": [\"skill_013\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_02/client_B/episode_023\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 30502,
+    "completion_tokens": 684,
+    "total_tokens": 31186
+  },
+  "completed_at_utc": "2026-10-18T11:51:48.456821+00:00"
+}

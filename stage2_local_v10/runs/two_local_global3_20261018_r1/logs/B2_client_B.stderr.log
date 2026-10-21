@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 321, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 317, in main
+    print(json.dumps(evolve(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 222, in evolve
+    raise EvolutionError(f"{role}/{label}: finding attempt limit reached")
+stage3_2_role_agnostic_semantic_merge.local_round2_evolver.EvolutionError: Executor/简单取放: finding attempt limit reached
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 157, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 153, in main
+    print(json.dumps(run(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 114, in run
+    subprocess.run([str(args.python), "-m", "stage2_local_v10.role_evolver", "--client", args.client, "--generation", str(args.generation), "--parent-kind", args.parent_kind, "--parent-bank", str(args.parent_bank), "--evidence", str(training_root / "evidence.json"), "--output", str(output_bank), "--patch-output", str(patch), "--record-output", str(record), "--experiment-id", args.experiment_id], cwd=ROOT, check=True)
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.role_evolver', '--client', 'B', '--generation', '2', '--parent-kind', 'independent', '--parent-bank', '/mnt/d/skillMAS/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json', '--evidence', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/training/evidence.json', '--output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.json', '--patch-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_patch.json', '--record-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_teacher_record.json', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 336, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 332, in main
+    print(json.dumps(evolve(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/role_evolver.py", line 262, in evolve
+    raise EvolutionError(f"{role}: DELETE/UPDATE attempt limit reached")
+stage3_2_role_agnostic_semantic_merge.local_round2_evolver.EvolutionError: Executor: DELETE/UPDATE attempt limit reached
+Traceback (most recent call last):
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 157, in <module>
+    main()
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 153, in main
+    print(json.dumps(run(args), ensure_ascii=False, indent=2))
+  File "/mnt/d/skillMAS/stage2_local_v10/run_local_round.py", line 114, in run
+    subprocess.run([str(args.python), "-m", "stage2_local_v10.role_evolver", "--client", args.client, "--generation", str(args.generation), "--parent-kind", args.parent_kind, "--parent-bank", str(args.parent_bank), "--evidence", str(training_root / "evidence.json"), "--output", str(output_bank), "--patch-output", str(patch), "--record-output", str(record), "--experiment-id", args.experiment_id], cwd=ROOT, check=True)
+  File "/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.role_evolver', '--client', 'B', '--generation', '2', '--parent-kind', 'independent', '--parent-bank', '/mnt/d/skillMAS/stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json', '--evidence', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/training/evidence.json', '--output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_skillbank.json', '--patch-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_patch.json', '--record-output', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B2/client_B/B2_teacher_record.json', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3']' returned non-zero exit status 1.

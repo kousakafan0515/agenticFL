@@ -1,0 +1,417 @@
+{
+  "bank_schema_version": "stage2_local_v10.role_partitioned_bank.v1",
+  "schema_version": "stage2_local_v10.role_partitioned_bank.v1",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "source_client": "B",
+  "target_client": "B",
+  "client": "B",
+  "generation": 2,
+  "parent_kind": "independent",
+  "parent_bank_file_sha256": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+  "evidence_file_sha256": "sha256:9f988899469b42345713c680e17899f9093ef258685fb1d33f058957b5bfd488",
+  "active_skillbanks": {
+    "Executor": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "先定位目标物体，再定位目标容器",
+          "principle": "对于取放类任务，先搜索并取得目标物体，再前往目标容器执行放置。",
+          "when_to_apply": "当任务要求把某物体放到某容器/家具上，且初始位置未知时。"
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "放置前必须位于目标容器处",
+          "principle": "执行 put 前，必须已经通过 go to 到达目标容器/家具位置；否则 put 可能无效。",
+          "when_to_apply": "当已取得目标物体并准备放置时。"
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "优先检查常见承载面，再检查封闭容器",
+          "principle": "搜索目标物体时，优先检查桌子、台面、架子、床、沙发等开放承载面；若未找到，再检查抽屉、柜子等封闭容器。",
+          "when_to_apply": "当目标物体初始位置未知且房间中有多种家具/容器时。"
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "避免无效 examine 与盲目穷举",
+          "principle": "不要使用 examine 作为搜索动作；若已检查大量容器仍未找到目标，应重新评估可见承载面或目标是否存在，而不是继续盲目穷举。",
+          "when_to_apply": "当搜索目标物体遇到失败或长时间未找到时。"
+        },
+        {
+          "skill_id": "skill_005",
+          "version": 2,
+          "type": "Procedure or Local Strategy",
+          "title": "避免重复无效动作",
+          "principle": "当动作返回“Nothing happens”时，不要重复同一动作；应改变状态（如打开/关闭容器、移动位置、取出物体）后再重试。若 `go to <location>` 返回“Nothing happens”，将该位置视为不可达并切换到其他候选位置；若 `open` 返回“Nothing happens”，容器可能已打开，直接继续 put。",
+          "when_to_apply": "当任何动作返回“Nothing happens”且未改变环境状态时。"
+        },
+        {
+          "skill_id": "skill_006",
+          "version": 2,
+          "type": "Procedure or Local Strategy",
+          "title": "避免在未确认成功前声明完成",
+          "principle": "不要输出完成状态或停止行动，直到环境观察确认最终放置动作成功；成功后立即停止，不要再发出 inventory 或空动作。若最终 put 返回“Nothing happens”，先确认已到达目标位置再重试，而不是过早声明完成或失败。",
+          "when_to_apply": "在执行最终放置动作后。"
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_007",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察任务执行流程",
+            "principle": "对于“examine/look at X with/under the desklamp”类任务，先定位目标物体和台灯，若目标可携带则拿起目标，移动到台灯所在位置，然后使用台灯（use desklamp <id>）完成观察。若目标物体已在台灯所在家具上，先拿起目标物体再使用台灯；若第一张桌子没有台灯，继续搜索其他承载面（sidetable、shelf、dresser）同时保持持有目标物体。",
+            "when_to_apply": "当任务目标为观察某物体与台灯的关系（examine X with desklamp 或 look at X under desklamp）时。"
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在台灯观察任务中，不要使用 `examine X with desklamp` 动作，该动作通常返回“Nothing happens”；应改为拿起目标物体后使用 `use desklamp`。",
+            "why_it_happens": "ALFWorld 环境不支持将台灯作为工具参数传递给 examine 动作，台灯是固定物体，只能通过 use 动作开启。",
+            "how_to_avoid": "若需要观察物体与台灯的关系，先确保目标物体在手中或附近，然后执行 `use desklamp` 开启台灯，而非 `examine X with desklamp`。"
+          },
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "台灯是固定在桌面或边桌上的物体，不是可导航的位置；执行 `go to desklamp 1` 会返回“Nothing happens”，应直接在当前台灯所在位置使用 `use desklamp`。",
+            "why_it_happens": "ALFWorld 中只有家具和容器可作为导航目标，台灯等小物体不能作为 go to 的目标。",
+            "how_to_avoid": "当已经位于台灯所在的家具位置时，直接执行 `use desklamp`，不要尝试 `go to desklamp`。"
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "台灯是固定物体，无法被拿起；执行 `take desklamp 1` 会返回“Nothing happens”，应改为将目标物体带到台灯处或直接使用台灯。",
+            "why_it_happens": "ALFWorld 中台灯被标记为固定物体，不可携带。",
+            "how_to_avoid": "不要尝试拿起台灯；若目标物体可携带，拿起目标物体并移动到台灯所在位置，然后使用台灯。"
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_011",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place execution loop",
+            "principle": "For clean-then-place goals, execute a stable loop: locate the exact target object named in the goal (do not substitute a similar object such as butterknife for knife or pan for pot), take it, go to a sinkbasin or bathtubbasin, clean it, then go to the destination receptacle, open it if closed, and put the object in/on it. If the destination already contains a similar object, still take the correct object, clean it, and place it back rather than swapping.",
+            "when_to_apply": "Use when the goal is to put a clean object into a specified receptacle and the object is not already clean."
+          },
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "A clean action can fail with 'Nothing happens' if the agent is not at the sinkbasin or bathtubbasin. If cleaning fails, go to the cleaning receptacle and retry the clean action.",
+            "why_it_happens": "The environment requires the agent to be co-located with the cleaning fixture before the clean action is valid.",
+            "how_to_avoid": "After taking the object, explicitly go to sinkbasin 1 or bathtubbasin 1, then issue clean <object> with <fixture>."
+          },
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "If the destination receptacle is closed, open it before attempting to put the clean object in/on it.",
+            "why_it_happens": "Closed containers such as drawers, cabinets, fridges, and microwaves must be opened before items can be placed inside.",
+            "how_to_avoid": "When arriving at the destination, check whether it is closed; if so, issue open <receptacle>, then put <object> in/on <receptacle>."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_014",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "Heat held object with microwave",
+            "principle": "For heat-and-place tasks, after locating the target object and the microwave, take the object, go to the microwave, open it if closed, then execute `heat <object> with microwave 1` while holding the object. If the first heat attempt returns 'Nothing happens', take the object out of the microwave and retry `heat <object> with microwave 1` while holding it. Do not attempt to heat using non-microwave appliances (stoveburner, toaster, coffeemachine); these return 'Nothing happens'.",
+            "when_to_apply": "When the goal requires heating an object and a microwave is available, especially if initial heat attempts fail while the object is inside or on the microwave."
+          },
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Do not assume heating succeeded without confirmation",
+            "principle": "Only proceed to the placement step after an observation explicitly confirms heating, such as 'You heat the <object> using the microwave 1.' If heating has not been confirmed, continue trying valid heating methods rather than placing the object.",
+            "when_to_apply": "After attempting to heat an object and before placing it at the destination."
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Move to destination before placing heated object",
+            "principle": "After successfully heating the object, go to the target receptacle/location, open it if needed, and then execute `put <object> in/on <destination>`. If the put action returns 'Nothing happens', verify current location and move to the destination before retrying.",
+            "when_to_apply": "When the object is hot and the goal requires placing it in or on a specific location."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling requires an open fridge and direct cool action",
+            "principle": "To cool an object, first go to the fridge and open it, then use the cool action with the fridge while holding the object; do not rely on putting the object into the fridge and taking it out as a substitute for cooling. A cool attempt while not co-located with an open fridge returns 'Nothing happens'.",
+            "when_to_apply": "When the task requires cooling an object and a fridge is available."
+          },
+          {
+            "skill_id": "skill_018",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Do not assume a cool object is already in the fridge",
+            "principle": "If the task requires a cool object, verify the object is actually cooled by using the cool action; merely finding an object in the fridge does not guarantee it is cool, and taking it out without cooling may fail the task.",
+            "when_to_apply": "When searching for a cool object and finding a candidate inside the fridge."
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Search efficiently by opening containers and tracking visited locations",
+            "principle": "When the target object is not in the first few locations, systematically open and check cabinets, drawers, countertops, and other receptacles, keeping track of which have been checked to avoid redundant loops.",
+            "when_to_apply": "When the target object is not immediately found and many storage locations exist."
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_020",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "双物品放置：先取第一件并暂存，再取第二件并最终放置",
+            "principle": "在双物品放置任务中，若一次只能携带一件物品，先找到并拿起第一件目标物品；若目标容器可达则直接放入最终目标容器，否则暂存到安全开放承载面，再寻找并拿起第二件目标物品，最后将两件物品都放入目标容器。优先在开放承载面（桌子、台面、架子、沙发）搜索，两件物品常在同一承载面上。",
+            "when_to_apply": "当任务要求将两个同类物品放入同一目标容器，且环境限制一次只能携带一件物品时。"
+          },
+          {
+            "skill_id": "skill_021",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，若已持有一件物品，直接尝试 take 第二件同类物品通常会失败并返回“Nothing happens”。",
+            "why_it_happens": "环境限制一次只能携带一件物品，因此必须先放下或暂存当前物品，才能拿取第二件。",
+            "how_to_avoid": "在拿取第二件物品前，先将第一件物品放入目标容器或临时容器，确保 inventory 为空。"
+          },
+          {
+            "skill_id": "skill_022",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，将物品放入 garbagecan 等非目标容器可能导致后续无法取回或任务失败。",
+            "why_it_happens": "部分容器可能不接受物品，或放入后物品状态改变，导致无法继续完成任务。",
+            "how_to_avoid": "优先将暂存物品放入最终目标容器；若必须临时存放，选择可正常取回的容器，并避免使用 garbagecan 等可能不可逆的容器。"
+          }
+        ]
+      }
+    },
+    "Critic": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Search visible surfaces before opening closed containers",
+          "principle": "For object-location tasks, first scan visible surfaces (tables, dressers, beds, countertops, shelves) for the target object before opening drawers, cabinets, or other closed containers.",
+          "when_to_apply": "At the start of a task when the target object has not yet been located."
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Open closed containers before inspecting or taking",
+          "principle": "When a drawer, cabinet, fridge, microwave, or other closed container may hold the target object, open it before attempting to inspect or take an item from it; closed containers cannot be searched directly.",
+          "when_to_apply": "When the target object may be inside a closed drawer, cabinet, safe, fridge, or microwave."
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "After picking up the target, go directly to the destination and put it there",
+          "principle": "Once the target object is held, navigate to the specified destination receptacle and execute the put action without unnecessary intermediate steps.",
+          "when_to_apply": "Immediately after successfully taking the target object."
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 2,
+          "type": "Failure Lesson",
+          "description": "If an action returns 'Nothing happens', do not repeat the same invalid command; verify the current location and choose a valid reachable receptacle or action instead. This applies to moves, opens, takes, and examines alike.",
+          "why_it_happens": "The agent may issue commands for locations or objects that are not currently accessible or valid, or use a bare object name instead of the exact identifier, causing no state change.",
+          "how_to_avoid": "After a 'Nothing happens' observation, re-check the current location and available objects, confirm exact object identifiers from the observation, then select a different valid action rather than retrying the same command."
+        },
+        {
+          "skill_id": "skill_011",
+          "version": 2,
+          "type": "Failure Lesson",
+          "description": "Several failed or budget-exhausted episodes show the Executor repeatedly moving to invalid or already-searched locations, or arriving at closed receptacles without opening them. This wastes steps and prevents finding the target object.",
+          "why_it_happens": "The environment may return 'Nothing happens' for invalid moves, and the Executor may loop on the same location or command without updating its search strategy.",
+          "how_to_avoid": "Track visited receptacles and their contents. If a move returns 'Nothing happens', do not repeat it; verify the current location and choose a different unsearched receptacle. Open closed receptacles before checking them. Prioritize likely object locations based on object type."
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_005",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察任务：先定位并携带目标物，再在台灯处开启台灯",
+            "principle": "对于“examine/look at X with/under the desklamp”类目标，先找到目标物并拿到手中，再移动到台灯所在位置，最后开启台灯完成观察。",
+            "when_to_apply": "目标要求用台灯观察某物，且目标物不在台灯所在位置时。"
+          },
+          {
+            "skill_id": "skill_006",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察任务：目标物与台灯同处时直接开启台灯",
+            "principle": "如果目标物和台灯已经在同一位置，直接使用台灯即可完成观察，无需先拿取目标物。",
+            "when_to_apply": "到达台灯所在位置后，观察到目标物也在同一表面或容器中。"
+          },
+          {
+            "skill_id": "skill_007",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "台灯是固定物体，take desklamp 会返回“Nothing happens”，浪费步骤。",
+            "why_it_happens": "环境将台灯建模为不可携带的固定设备。",
+            "how_to_avoid": "不要执行 take desklamp；应移动到台灯所在位置并直接 use desklamp。"
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "If 'use desklamp' returns 'Nothing happens', the agent is likely not at the desklamp's location; the Critic should advise verifying position and navigating to the desklamp before retrying, rather than repeating the same command.",
+            "why_it_happens": "The use action requires the agent to be co-located with the desklamp; issuing it from elsewhere produces no state change.",
+            "how_to_avoid": "After a failed use desklamp, advise checking current location and moving to the desklamp, then using it. Do not repeat the same command from the same spot."
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place workflow for 清洗后放置",
+            "principle": "For tasks of the form 'put a clean X in/on Y', first locate X, take it, go to a sinkbasin, clean X with the sinkbasin, then go to the target receptacle Y and put X in/on Y.",
+            "when_to_apply": "When the goal explicitly requires an object to be clean before placement, such as 'put a clean dishsponge in drawer', 'put a clean cup in shelf', or 'clean some egg and put it in diningtable'."
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "Cleaning attempts can fail with 'Nothing happens' when the Executor is not at a valid sinkbasin or is not holding the object. The Critic should advise verifying both conditions before retrying, and try a different sinkbasin if needed.",
+            "why_it_happens": "The clean action requires the agent to be at a valid cleaning receptacle, typically a sinkbasin, while holding the object; some receptacles do not support cleaning for certain objects.",
+            "how_to_avoid": "Advise: hold the object, go to a sinkbasin, then clean. If cleaning returns 'Nothing happens', verify the current location and try a different sinkbasin. Do not repeatedly attempt the same invalid clean action."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Heat held object by placing it in an open microwave, then heating",
+            "principle": "For heat-then-place tasks, first navigate to the microwave, open it, put the held object inside, and then issue the heat command.",
+            "when_to_apply": "When the goal requires heating an object and the object is currently held in inventory."
+          },
+          {
+            "skill_id": "skill_013",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "Heating an object directly from inventory fails with 'Nothing happens'; success requires putting the object into the open microwave, then heating. The Critic must not declare the object heated while it is merely held.",
+            "why_it_happens": "The heating action requires the target object to be inside the microwave, not in the agent's inventory; the Critic may misread a failed heat as success.",
+            "how_to_avoid": "Advise: go to microwave, open it, put the object inside, then heat. Verify the observation text before declaring success; do not claim an item was heated while in inventory."
+          },
+          {
+            "skill_id": "skill_014",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "Recommending unsupported heating appliances such as stoveburners or toasters after a microwave failure leads to 'Nothing happens'; the reliable path is the open microwave with put-then-heat.",
+            "why_it_happens": "The environment may not support heating on stoveburners or toasters for the target object, and occupied stoveburners cannot accept another object.",
+            "how_to_avoid": "Do not advise stoveburner or toaster heating as a recovery. Direct the Executor back to the open microwave: put the object inside, then heat."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_015",
+            "version": 2,
+            "type": "Procedure or Local Strategy",
+            "title": "Cool held item at an open fridge, then go straight to destination",
+            "principle": "To cool an item, hold it, navigate to the fridge, open the fridge, and issue the cool command on the held item; after a confirmed cool, go directly to the destination receptacle and put the item there without retrieving it from the fridge.",
+            "when_to_apply": "When the goal requires a cooled item and the agent is holding the target object."
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "Advising the Executor to put the item into the open fridge before cooling is wrong; in successful cooling episodes the Executor holds the item, opens the fridge, and issues 'cool X with fridge' directly, keeping the item in inventory.",
+            "why_it_happens": "The cooling mechanic works on a held item when the agent is at an open fridge; the item does not need to be placed inside and retrieved.",
+            "how_to_avoid": "Advise: go to fridge, open fridge, cool the held item directly, then go to the destination and put it there. Do not instruct put-into-fridge-then-take."
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "双物品放置：先放置第一件再取第二件",
+            "principle": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品。",
+            "when_to_apply": "当任务要求将两件相同类型的物品放入同一目标容器，且已找到并拿起第一件物品时。"
+          },
+          {
+            "skill_id": "skill_018",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "In dual-item placement, issuing a put action before arriving at the destination receptacle returns 'Nothing happens'; the Critic should confirm arrival before advising put.",
+            "why_it_happens": "The put action requires the agent to be co-located with the target container; putting from a distance cannot take effect.",
+            "how_to_avoid": "Before advising put, confirm the Executor has navigated to the destination receptacle; if a put fails, advise moving to the destination and retrying there."
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 2,
+            "type": "Failure Lesson",
+            "description": "In dual-item placement, attempting to take the second item while already holding the first returns 'Nothing happens'; the Critic should advise placing the held item in the destination first to free the hands.",
+            "why_it_happens": "The agent can typically hold only one item at a time, so a take while holding fails.",
+            "how_to_avoid": "Before advising the take of the second item, direct the Executor to put the first item into the destination receptacle, then return for the second."
+          },
+          {
+            "skill_id": "skill_020",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，若已打开多个容器但未找到目标物品，应优先检查已打开容器和可见表面（如台面、架子），避免重复访问已确认无目标物品的位置。",
+            "why_it_happens": "重复访问已检查位置会浪费动作预算，导致任务因预算耗尽而失败。",
+            "how_to_avoid": "维护已检查位置列表，优先检查未检查的已打开容器和可见表面；若目标物品在可见表面上，直接拾取。"
+          }
+        ]
+      }
+    }
+  },
+  "capacity_policy": {
+    "scope": "per_role_per_round",
+    "per_role": {
+      "Executor": {
+        "base": 22,
+        "delete": 0,
+        "update": 7,
+        "add": 0,
+        "candidate": 22,
+        "max_add": 0,
+        "quota_passed": true
+      },
+      "Critic": {
+        "base": 20,
+        "delete": 0,
+        "update": 10,
+        "add": 0,
+        "candidate": 20,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "quota_passed": true
+  },
+  "teacher": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "endpoint_path": "/",
+    "model": "deepseek-flash",
+    "api_key_present": true,
+    "api_key_value_recorded": false
+  },
+  "live_repository_sha256": "sha256:04fd27009a862e03f93f2481e82024b95aca7fda89d419baec6e201c43d84a19"
+}

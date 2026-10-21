@@ -1,0 +1,33 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "A",
+  "generation": 5,
+  "parent_bank_file_sha256": "sha256:a56be43d601b4b4bc77f246d584cce035215e7d6eb40c7e54eba443bd0dd4f94",
+  "per_role": {
+    "Planner": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Executor": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:7498e99b31796bea5d73ac6e0fb815506e61686c52fe72c325680d3c7a1a8e7e"
+}

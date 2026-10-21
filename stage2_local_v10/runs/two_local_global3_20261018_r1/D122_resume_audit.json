@@ -1,0 +1,57 @@
+{
+  "schema_version": "stage2_local_v10.d122_resume_audit.v1",
+  "created_at": "2026-10-18 19:39 Asia/Shanghai",
+  "status_before_resume": "failed",
+  "entries": [
+    {
+      "relative_path": "locals/B2/client_A/training/result.json",
+      "sha256": "b73cd57e89294097e269ba38848111f6d321cd4ce0b570b64dbf6c4297e72f4b",
+      "bytes": 5592439
+    },
+    {
+      "relative_path": "locals/B2/client_A/training/source_lock.json",
+      "sha256": "803e2806f6ef78c5533d557a4896f6e636fb661a1a4e5ac4c0e2312137345a3a",
+      "bytes": 618
+    },
+    {
+      "relative_path": "locals/B2/client_C/training/result.json",
+      "sha256": "22878696685cd16b619e261d0d08c851cfa5ba1252bd009b11f55b83d1e35799",
+      "bytes": 11611263
+    },
+    {
+      "relative_path": "locals/B2/client_C/training/source_lock.json",
+      "sha256": "4e2afbfb866d01991587ec7431b7f8ebf18f2249ca9afead63b32994b87dc96d",
+      "bytes": 618
+    },
+    {
+      "relative_path": "locals/B2/client_B/training/result.json",
+      "sha256": "8e507bfce7d428198cf922e1788931dd3c2ee3869ef3a4f970856f830954e1d7",
+      "bytes": 9872258
+    },
+    {
+      "relative_path": "locals/B2/client_B/training/summary.json",
+      "sha256": "d83217dacaaf65ed9b9da18a2c723ff35b6ed64e11fbe82e31dd6425e1f4244f",
+      "bytes": 380
+    },
+    {
+      "relative_path": "locals/B2/client_B/B2_teacher_record.checkpoint.json",
+      "sha256": "69a8e955cfece955f7425f5d76f5e8c46dbe09a717a2ae7ddad7d168a9149913",
+      "bytes": 15886
+    },
+    {
+      "relative_path": "locals/B2/client_B/B2_teacher_attempts/family_Executor_01_schema_01_response_01.json",
+      "sha256": "4c092066acc2d48da12057bcbb7b21575ea7136260e6afbe5cd47144b66cd752",
+      "bytes": 5424
+    },
+    {
+      "relative_path": "locals/B2/client_B/B2_teacher_attempts/family_Executor_01_schema_02_response_01.json",
+      "sha256": "8e36eacbeb270ae9870312b846610505fb5c84c756e233bb429725453e86c741",
+      "bytes": 4493
+    },
+    {
+      "relative_path": "locals/B2/client_B/B2_teacher_attempts/family_Executor_01_schema_03_response_01.json",
+      "sha256": "9238bb19b3005b7fb65e049080fa2bbc877b28c75e5c793d9746bad56c9abfd4",
+      "bytes": 5330
+    }
+  ]
+}

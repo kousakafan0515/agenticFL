@@ -1,0 +1,101 @@
+{
+  "schema_version": "stage2_local_v10.d123_resume_audit.v1",
+  "created_at": "2026-10-18 20:34 Asia/Shanghai",
+  "files": [
+    {
+      "path": "locals/B2/client_A/training/result.json",
+      "sha256": "84d52b8dec9144ec7a22adfd9e8143082dcad64dda202dfc879de36411563357",
+      "bytes": 6483339
+    },
+    {
+      "path": "locals/B2/client_A/training/summary.json",
+      "sha256": "a9209179d28e424b9d72d7cbe0f88880b3ca9e7fa9d18c42c3c9f46ef717b41e",
+      "bytes": 379
+    },
+    {
+      "path": "locals/B2/client_A/training/evidence.json",
+      "sha256": "f4bf37e2c101830686d9cdaa5bb843fc7dd8438872124b8da82a8a6495479a10",
+      "bytes": 2163278
+    },
+    {
+      "path": "locals/B2/client_A/B2_teacher_record.checkpoint.json",
+      "sha256": "fdfd080dd3e2b0fe00b8c7f2cbb85414ce107262ea27881458ed9034ded105c2",
+      "bytes": 91514
+    },
+    {
+      "path": "locals/B2/client_A/B2_teacher_attempts/base_Planner_schema_01_response_01.json",
+      "sha256": "d990ba42d2889dbc277a3434762ab8f7270b2301902037ee10e5d7275af5a5c9",
+      "bytes": 17817
+    },
+    {
+      "path": "locals/B2/client_A/B2_teacher_attempts/base_Planner_schema_02_response_01.json",
+      "sha256": "350cb532d619cf6020f316408a3f1cf9e923b1cf8f505263d68f0c0860f808e6",
+      "bytes": 16123
+    },
+    {
+      "path": "locals/B2/client_B/training/result.json",
+      "sha256": "8e507bfce7d428198cf922e1788931dd3c2ee3869ef3a4f970856f830954e1d7",
+      "bytes": 9872258
+    },
+    {
+      "path": "locals/B2/client_B/training/summary.json",
+      "sha256": "d83217dacaaf65ed9b9da18a2c723ff35b6ed64e11fbe82e31dd6425e1f4244f",
+      "bytes": 380
+    },
+    {
+      "path": "locals/B2/client_B/training/evidence.json",
+      "sha256": "9f988899469b42345713c680e17899f9093ef258685fb1d33f058957b5bfd488",
+      "bytes": 2070145
+    },
+    {
+      "path": "locals/B2/client_B/B2_teacher_record.checkpoint.json",
+      "sha256": "70d973fb5941e89086939fb06efcfa549b58401eb8e4d068ac3331ae7c2ea8e9",
+      "bytes": 100757
+    },
+    {
+      "path": "locals/B2/client_B/B2_teacher_attempts/base_Executor_schema_01_response_01.json",
+      "sha256": "68e14bfda92de1ee4ba06ac3184ffadb9b6b7303208e09aa9f9f1fac750f8bcc",
+      "bytes": 11046
+    },
+    {
+      "path": "locals/B2/client_B/B2_teacher_attempts/base_Executor_schema_02_response_01.json",
+      "sha256": "13923c5870f2195cba16bd22615c7f4dfdc36defc462e9d333ffa818f365ac1f",
+      "bytes": 7332
+    },
+    {
+      "path": "locals/B2/client_B/B2_teacher_attempts/base_Executor_schema_03_response_01.json",
+      "sha256": "598783cdf1c11187f78cf968c176ea03fc538df4bca8eb7ec3fe9a9863447f42",
+      "bytes": 10183
+    },
+    {
+      "path": "locals/B2/client_C/training/result.json",
+      "sha256": "48c0da153ff729a747c2ae88adda6846e231dd9b92a9f2c341996a4698f3a06e",
+      "bytes": 11950275
+    },
+    {
+      "path": "locals/B2/client_C/training/summary.json",
+      "sha256": "695d4547205b528d2ff13bc343173d9bf4464c6f0eb59c601809e23424c9e933",
+      "bytes": 379
+    },
+    {
+      "path": "locals/B2/client_C/training/evidence.json",
+      "sha256": "2108b4c9b454150b26f4c820ffa0f41eb929f10d56fea3da3b13c464d0d90d0d",
+      "bytes": 2684546
+    },
+    {
+      "path": "locals/B2/client_C/B2_teacher_record.checkpoint.json",
+      "sha256": "8829110740640a69d0ae0b6291a7439e5c0dff4e90e933a3398a22b6e324d84d",
+      "bytes": 93349
+    },
+    {
+      "path": "locals/B2/client_C/B2_teacher_attempts/base_Supervisor_schema_01_response_01.json",
+      "sha256": "57ef9e3c70dbf4377d8cfdf1f9b602cc95f9ebcd8fe8ae50dd9e2445f99bda6b",
+      "bytes": 8239
+    },
+    {
+      "path": "locals/B2/client_C/B2_teacher_attempts/base_Supervisor_schema_02_response_01.json",
+      "sha256": "99721d8a1217a59740811bca3acbff76d2cd33a0003e069f2a9d343b97d1d14f",
+      "bytes": 10716
+    }
+  ]
+}

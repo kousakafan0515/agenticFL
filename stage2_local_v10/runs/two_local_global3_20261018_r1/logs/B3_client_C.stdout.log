@@ -1,0 +1,85 @@
+{
+  "status": "complete",
+  "phase": "training",
+  "generation": 3,
+  "client": "C",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 96,
+  "api_clean": true,
+  "result_file_sha256": "sha256:4f164981e5ea521d0aaec1f0ffa85d773febcb2f5c8dfd9200bd7ac88a5328c5",
+  "evidence_file_sha256": "sha256:cf3df25432d19e401cf14069b646c118c0f26e7cb3b748299659b711d1f4a76f"
+}
+{
+  "status": "complete",
+  "client": "C",
+  "generation": 3,
+  "capacity_policy": {
+    "scope": "per_role_per_round",
+    "per_role": {
+      "Supervisor": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      },
+      "Search Worker": {
+        "base": 40,
+        "delete": 0,
+        "update": 8,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      },
+      "Operation Worker": {
+        "base": 40,
+        "delete": 0,
+        "update": 8,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "quota_passed": true
+  },
+  "bank": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B3/client_C/B3_skillbank.json"
+}
+{
+  "status": "complete",
+  "phase": "validation",
+  "generation": 3,
+  "client": "C",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 105,
+  "api_clean": true,
+  "result_file_sha256": "sha256:fb52042654fd43d3a910c1f42da5c2f78423922a3596f06c84b1d499b2396bf1"
+}
+{
+  "schema_version": "stage2_local_v10.local_round_controller.v1",
+  "client": "C",
+  "generation": 3,
+  "parent_kind": "global",
+  "parent_bank_file_sha256": "sha256:4c4ecd6cf6980ebc566283bcd4310d450c5fa201edc5ccb52c21045341d4a19c",
+  "parent_validation_summary_sha256": "sha256:286d51fc185a4a6e7ea141aa260cd895615b12f90789d3c27f5458f58788c63a",
+  "stop_after": "B3_validation",
+  "status": "complete",
+  "current_step": null,
+  "completed_steps": [
+    "training",
+    "teacher",
+    "validation"
+  ],
+  "started_at": "2026-10-18T14:45:20.318363+00:00",
+  "completed_at": "2026-10-18T16:09:56.118237+00:00",
+  "training_success": 96,
+  "validation_success": 105,
+  "output_bank_file_sha256": "sha256:337acc2f028beae177d74d76311c5a9c6b3cf0716317d307fb49de65767afffd",
+  "patch_file_sha256": "sha256:1aaeb3ba547e3883ee30ef4afe4ea4701cf7418e667582dfe5bb9c1dfe1a6921",
+  "validation_result_sha256": "sha256:fb52042654fd43d3a910c1f42da5c2f78423922a3596f06c84b1d499b2396bf1"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "phase": "training",
+  "generation": 1,
+  "client": "B",
+  "model": "qwen3.6-flash",
+  "task_count": 134,
+  "success_count": 76,
+  "api_clean": true,
+  "result_file_sha256": "sha256:eaaed08bd53b7835f4830ec083aedb0faea209c3d1833f0442211c7e440d1dba",
+  "evidence_file_sha256": "sha256:a7c11e02d8f30c477af4ed2dc4bfc0b0932a269f05245fab02102c5a6514391e"
+}

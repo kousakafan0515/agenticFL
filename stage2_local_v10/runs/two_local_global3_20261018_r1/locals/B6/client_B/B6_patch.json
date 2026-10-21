@@ -1,0 +1,133 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "B",
+  "generation": 6,
+  "parent_bank_file_sha256": "sha256:4b4de2a7ceaa738968aef425feaaff3046fb677f49f04dc8c2fe1f7b310ef03e",
+  "per_role": {
+    "Executor": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Critic": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T2_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_041",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_029"
+          ],
+          "bucket": "台灯观察",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：定位目标物并在台灯所在家具处使用带编号台灯",
+            "principle": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。若 use desklamp 返回 Nothing happens，应判断当前家具观察中并无台灯，改为前往观察中列出 desklamp 的其他家具，而不是在同一位置重试。",
+            "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T4_002",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_074",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_083",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_095"
+          ],
+          "bucket": "加热后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "微波加热的显式命令与位置切换恢复",
+            "principle": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+            "when_to_apply": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。"
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_001",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_102",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Cool an object and confirm its state before placement",
+            "principle": "Use environment feedback as authority. Acquire the exact target; go to the fridge and open it; while holding the target at the open fridge, issue the explicit cooling interaction cool <object> with fridge <id>. Do not place the object into the fridge and re-take it as a substitute for cooling. Wait for a cooled-state confirmation before leaving. Then go to the destination, open it if closed, put the object there, and confirm placement. Do not treat mere containment, brief placement, or a fridge round-trip as confirmed cooling. Do not re-take an object already held; check inventory first. After successful cooling while holding, proceed directly to the destination rather than adding a take-from-fridge step.",
+            "when_to_apply": "When the goal requires an object to be cooled and then placed at a specified destination."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. Distinguish 'arrived at a closed container' from 'inspected and empty': a closed container's contents are unverified until opened. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_004",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_131",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_129"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.",
+            "why_it_happens": "Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.",
+            "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked."
+          }
+        },
+        {
+          "operation": "UPDATE",
+          "target_role": "Critic",
+          "target_skill_id": "T6_008",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_098",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_109",
+            "stage2-local-v10-role-partitioned-patch3/generation_06/client_B/episode_114"
+          ],
+          "bucket": "双物品放置",
+          "skill": {
+            "type": "Failure Lesson",
+            "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Critic should not assert a specific unseen location contains the target or that a failed action was 'transient' without observed evidence.",
+            "why_it_happens": "Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help; speculation about unseen contents or transient failures drives further wasted steps.",
+            "how_to_avoid": "Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 6,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:946be54fa962ded1a58d0ce62571aa17f9e2d957e9ce0de012885ede7cbe16bf"
+}

@@ -1,0 +1,47 @@
+{
+  "batch": 2,
+  "attempt": 1,
+  "input_ids": [
+    "T0016",
+    "T0017",
+    "T0018",
+    "T0019",
+    "T0020",
+    "T0021",
+    "T0022",
+    "T0023",
+    "T0024",
+    "T0025",
+    "T0026",
+    "T0027",
+    "T0028",
+    "T0029",
+    "T0030"
+  ],
+  "input_text_sha256": "sha256:83a676e063a50179bf09efa6cfaf1a9afdbeb2bbd33f886a7c264bc2803b8ce5",
+  "raw_response": "{\"translations\":[{\"id\":\"T0016\",\"english\":\"Some items (such as towel, cloth) will not succeed when performing the clean action on sinkbasin, causing the plan to fail.\"},{\"id\":\"T0017\",\"english\":\"Not all items in the environment support the clean action, or the target item may not be the cleanable item required by the task.\"},{\"id\":\"T0018\",\"english\":\"When making a plan, prioritize common cleanable items (such as cup, bowl, plate, knife, pot, pan, kettle, soapbar, lettuce, tomato, potato, egg, dishsponge, ladle, mug, etc.); if the clean action fails, try other candidate items or check whether the item is cleanable.\"},{\"id\":\"T0019\",\"english\":\"When the target container (such as drawer, cabinet, coffeemachine) is full, closed, or does not exist, direct placement will fail.\"},{\"id\":\"T0020\",\"english\":\"Containers in the environment have capacity limits or need to be opened first; some target locations may have no available free space.\"},{\"id\":\"T0021\",\"english\":\"Before placing, first check whether the target container is open and has free space; if the target container is unavailable, find an alternative container or first empty/open the target container.\"},{\"id\":\"T0022\",\"english\":\"When looking for the target item, prioritize checking common locations such as fridge, countertop, cabinet, drawer, shelf, and avoid wasting steps in irrelevant locations.\"},{\"id\":\"T0023\",\"english\":\"Item distribution in the environment follows patterns, and common locations are more likely to contain the target item; blind searching can exhaust steps or cause the plan to fail.\"},{\"id\":\"T0024\",\"english\":\"Choose priority search locations based on item type: for food items, prioritize fridge; for tableware, prioritize countertop, cabinet, drawer; for cleaning supplies, prioritize sinkbasin, countertop, shelf.\"},{\"id\":\"T0025\",\"english\":\"Desklamp observation task: first locate and carry the target object, then go to the desklamp's location and use the desklamp\"},{\"id\":\"T0026\",\"english\":\"In the 'desklamp observation' task, first search for and obtain the target object, then go to the desklamp's location, and finally use the desklamp to complete the observation.\"},{\"id\":\"T0027\",\"english\":\"When the task requires examine/look at an object with/under the desklamp.\"},{\"id\":\"T0028\",\"english\":\"desklamp is usually fixed on a desk or side table; take desklamp will fail and return Nothing happens.\"},{\"id\":\"T0029\",\"english\":\"In ALFWorld, the desklamp is a fixed light source, not a carryable item.\"},{\"id\":\"T0030\",\"english\":\"Do not attempt take desklamp; go to the desklamp's location and use use desklamp to turn it on.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 2064,
+    "prompt_tokens": 779,
+    "total_tokens": 2843,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1440,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 779
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

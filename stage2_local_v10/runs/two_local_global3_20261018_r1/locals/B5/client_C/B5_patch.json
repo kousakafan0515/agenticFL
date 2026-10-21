@@ -1,0 +1,82 @@
+{
+  "schema_version": "stage2_local_v10.role_patches.v1",
+  "client": "C",
+  "generation": 5,
+  "parent_bank_file_sha256": "sha256:e4d5f9688e61913c75779f32eba34369bb89547124c331573579073e589257c8",
+  "per_role": {
+    "Supervisor": {
+      "operations": [],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 0,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Search Worker": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Search Worker",
+          "target_skill_id": "G_005",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_035",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_131"
+          ],
+          "bucket": "general",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Use supported action forms, exact identifiers, and matching object instances",
+            "principle": "Use only supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, open a container before accessing it, and use a fixture with its numbered instance when applicable. Refer to exact object and receptacle identifiers from observations, including instance numbers, and track the specific instance taken so later actions use the same one. Prefer navigating to locations, furniture, or receptacles rather than to a takeable object when the action form requires it. Do not use examine, look at, or open on non-container surfaces; open only applies to openable containers. Before taking or transforming, confirm the object name matches the goal, because similar types may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.",
+            "when_to_apply": "Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    },
+    "Operation Worker": {
+      "operations": [
+        {
+          "operation": "UPDATE",
+          "target_role": "Operation Worker",
+          "target_skill_id": "T5_003",
+          "evidence_refs": [
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_097",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_100",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_104",
+            "stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_106"
+          ],
+          "bucket": "冷却后放置",
+          "skill": {
+            "type": "Procedure or Local Strategy",
+            "title": "Bounded search with early feasibility reassessment",
+            "principle": "Search a few high-probability locations first, such as the fridge, countertops, stove burners, dining table, cabinets, drawers, and shelves. Open containers as needed and track visited locations to avoid redundant loops. If the target is not in the fridge, continue a bounded systematic search across other plausible surfaces and containers rather than declaring failure after only opening the fridge. If the target is found on an accessible surface, take it directly and proceed. If it is not found after a reasonable broad search, reassess goal feasibility or possible absence rather than searching every unrelated receptacle. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty early when feasibility is doubtful.",
+            "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist."
+          }
+        }
+      ],
+      "counts": {
+        "base": 40,
+        "delete": 0,
+        "update": 1,
+        "add": 0,
+        "candidate": 40,
+        "max_add": 0,
+        "quota_passed": true
+      }
+    }
+  },
+  "candidate_live_repository_sha256": "sha256:8d69723f28406bddd497ba8f7ce53a5b9971285fec08a81d6b05f848825a50cb"
+}

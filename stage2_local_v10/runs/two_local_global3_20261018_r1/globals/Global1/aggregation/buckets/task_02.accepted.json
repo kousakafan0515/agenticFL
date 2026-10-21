@@ -1,0 +1,74 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "台灯观察：定位目标物与台灯并在台灯所在家具处使用台灯",
+      "principle": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。",
+      "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。",
+      "source_skill_keys": [
+        "A/Planner/台灯观察/skill_006",
+        "A/Executor/台灯观察/skill_006",
+        "B/Executor/台灯观察/skill_007",
+        "B/Critic/台灯观察/skill_005",
+        "B/Critic/台灯观察/skill_006",
+        "C/Supervisor/台灯观察/skill_009",
+        "C/Search Worker/台灯观察/skill_005",
+        "C/Operation Worker/台灯观察/skill_007",
+        "C/Operation Worker/台灯观察/skill_008"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "不要拿取、移动或直接导航到台灯本身",
+      "description": "多条失败轨迹显示，take desklamp、go to desklamp 或重复 go to 台灯/桌面通常返回 Nothing happens，浪费步骤并可能阻断后续观察。台灯是固定在家具上的交互点，不是可携带物或可导航位置。",
+      "why_it_happens": "环境把台灯建模为固定光源或固定设备，只有其所在家具可作为导航目标，台灯本身不能作为 take 或 go to 的目标。",
+      "how_to_avoid": "不要尝试拿取、移动或导航到台灯。先到达承载台灯的家具（desk、sidetable、dresser、coffeetable 等），在已到达后直接使用带编号的 use desklamp <id>；若已在台灯处，不要重复 go to 同一位置。",
+      "source_skill_keys": [
+        "A/Planner/台灯观察/skill_007",
+        "A/Executor/台灯观察/skill_007",
+        "A/Executor/台灯观察/skill_008",
+        "B/Executor/台灯观察/skill_009",
+        "B/Executor/台灯观察/skill_010",
+        "B/Critic/台灯观察/skill_007",
+        "C/Operation Worker/台灯观察/skill_010"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "无效台灯交互：避免错误 examine/use 语法并完成最终观察",
+      "description": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会导致任务看似完成但环境目标未达成。",
+      "why_it_happens": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法；放置动作本身不会触发观察成功条件。",
+      "how_to_avoid": "把目标物定位并带到台灯所在家具后，使用观察到的带编号 lamp 实例执行 use desklamp <id>。不要用 examine X with desklamp 或复合 use 语法；若已尝试无效语法，核对台灯实例名后重试，而不是反复 examine 目标物或台灯。",
+      "source_skill_keys": [
+        "A/Planner/台灯观察/skill_009",
+        "B/Executor/台灯观察/skill_008",
+        "C/Search Worker/台灯观察/skill_006",
+        "C/Search Worker/台灯观察/skill_007",
+        "C/Operation Worker/台灯观察/skill_009"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "空结果后先核对位置并改变策略，避免重复同一指令",
+      "description": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置或交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。",
+      "why_it_happens": "使用台灯要求与台灯所在家具同处，且错误语法或位置不会产生状态变化；把空观察误当作可重试信号会重复无效动作。",
+      "how_to_avoid": "失败后先核对目标物与台灯是否在当前家具处，必要时移动到已观察到的台灯家具，改用带编号 use desklamp <id> 或先取得或保持目标物后重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令。",
+      "source_skill_keys": [
+        "B/Critic/台灯观察/skill_008",
+        "C/Supervisor/台灯观察/skill_010"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "台灯观察搜索策略：优先开放表面并系统检查容器",
+      "principle": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "when_to_apply": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物或台灯不在该处、连续观察无新信息时。",
+      "source_skill_keys": [
+        "A/Planner/台灯观察/skill_008",
+        "A/Executor/台灯观察/skill_009",
+        "C/Supervisor/台灯观察/skill_011",
+        "C/Search Worker/台灯观察/skill_008"
+      ]
+    }
+  ]
+}

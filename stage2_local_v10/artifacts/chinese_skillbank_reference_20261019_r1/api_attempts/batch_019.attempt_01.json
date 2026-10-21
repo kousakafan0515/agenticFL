@@ -1,0 +1,47 @@
+{
+  "batch": 19,
+  "attempt": 1,
+  "input_ids": [
+    "Z0361",
+    "Z0362",
+    "Z0363",
+    "Z0364",
+    "Z0365",
+    "Z0366",
+    "Z0367",
+    "Z0368",
+    "Z0369",
+    "Z0370",
+    "Z0371",
+    "Z0372",
+    "Z0373",
+    "Z0374",
+    "Z0375",
+    "Z0376",
+    "Z0377",
+    "Z0378",
+    "Z0379",
+    "Z0380"
+  ],
+  "input_text_sha256": "sha256:fa46521e0cdc52a66933116e649cc73f144324e69f68f0976c364dcbf218e83a",
+  "raw_response": "{\"translations\":[{\"id\":\"Z0361\",\"chinese\":\"建议：go to fridge、open fridge，直接冷却手持物品，然后 go to 目的地并将其 put 在那里。不要指示先 put-into-fridge 再 take。\"},{\"id\":\"Z0362\",\"chinese\":\"在双物品放置中，在到达目的地容器之前发出 put 动作会返回 'Nothing happens'；Critic 应在建议 put 之前确认已到达。\"},{\"id\":\"Z0363\",\"chinese\":\"put 动作要求智能体与目标容器处于同一位置；从远处 put 无法生效。\"},{\"id\":\"Z0364\",\"chinese\":\"在建议 put 之前，确认 Executor 已导航到目的地容器；如果 put 失败，建议移动到目的地并在那里重试。\"},{\"id\":\"Z0365\",\"chinese\":\"在双物品放置中，在已拿着第一个物品时尝试 take 第二个物品会返回 'Nothing happens'；Critic 应建议先将手持物品 put 到目的地以腾出双手。\"},{\"id\":\"Z0366\",\"chinese\":\"智能体通常一次只能拿一个物品，因此手持物品时 take 会失败。\"},{\"id\":\"Z0367\",\"chinese\":\"在建议 take 第二个物品之前，指示 Executor 先将第一个物品 put 到目的地容器，然后返回取第二个。\"},{\"id\":\"Z0368\",\"chinese\":\"如果 worker 在未达成任务的返回条件时返回 HANDOFF 或报告失败，不要将同一任务重新派发到同一位置；改变搜索位置、对象描述或策略。将 open/go/take/use/clean 动作上反复出现的 'Nothing happens' 视为当前方法已耗尽的证据并切换策略。\"},{\"id\":\"Z0369\",\"chinese\":\"当 worker 的失败未被视作当前计划已耗尽的证据时，supervisor 可能重复相同的 ASSIGN，并可能重新发出不断返回 'Nothing happens' 的相同 open/take/use/clean 动作。\"},{\"id\":\"Z0370\",\"chinese\":\"在搜索失败或为空后，派发下一个候选位置，或让 worker 确认该位置为空后再继续。在某个动作反复出现 'Nothing happens' 后，通过核实对象位置、打开电器、使用具体实例 id（例如 'soapbottle 1'）或切换到不同方法来改变策略；在一两次 examine/use 尝试失败后，停止并改变策略或宣布失败。\"},{\"id\":\"Z0371\",\"chinese\":\"除非已知某个特定容器包含该对象，否则不要派发绑定到该容器的搜索任务；将搜索表述为对台面和可打开容器的广泛多位置搜索，如果第一个位置为空，则扩大范围而不是重复。\"},{\"id\":\"Z0372\",\"chinese\":\"将任务表述为 'search cabinets, drawers, countertops, shelves, beds, and other reachable receptacles for X'，并指示打开关闭的容器。如果第一次搜索返回为空，立即重新分配更广泛的多位置搜索，而不是重复同一地点；将穷尽且为空的搜索视为该对象可能不存在的证据。\"},{\"id\":\"Z0373\",\"chinese\":\"在派发放置任务之前，确认目的地是打开的或可以被打开。如果目的地是关闭的容器，在前面加上 open 步骤。如果 open 返回 'Nothing happens'，将该容器视为不可打开，并重新分配到有效的打开目的地或台面。\"},{\"id\":\"Z0374\",\"chinese\":\"supervisor 分配一个 OPERATION MISSION，将对象 put 到一个关闭或不支持打开的容器（例如 coffeemachine、armchair）。worker 反复尝试 'put' 和 'open'，观察到 'Nothing happens'，耗尽步数并失败。\"},{\"id\":\"Z0375\",\"chinese\":\"在派发放置任务之前，确认目的地是打开的或可以被打开。如果目的地是关闭的容器，在前面加上 open 步骤并确认 open 成功。如果 open 返回 'Nothing happens'，将该容器视为不可打开，并重新分配到有效的打开目的地；对于像 armchair 这样不可打开的固定设施，只发出 go-then-put。\"},{\"id\":\"Z0376\",\"chinese\":\"在每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态。只有当观察确认目标谓词时才宣布成功；只有当观察显示无效/被阻止的动作或对象不可达时才宣布失败。在放置观察已确认目标后，不要派发验证任务。\"},{\"id\":\"Z0377\",\"chinese\":\"supervisor 有时在 worker HANDOFF 后宣布 FAILED，即使环境事件显示对象已成功放置或冷却；有时在成功后发出多余的验证任务，导致交接循环。\"},{\"id\":\"Z0378\",\"chinese\":\"在每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态（例如 'You put the X in/on Y'、'You clean the X'、'You cool the X'）。只有当观察确认目标谓词时才宣布成功；只有当观察显示无效/被阻止的动作或对象不可达时才宣布失败。将放置观察视为终态，之后不要派发验证任务。\"},{\"id\":\"Z0379\",\"chinese\":\"将 desklamp 用作其观察位置处的固定设施\"},{\"id\":\"Z0380\",\"chinese\":\"当目标要求用 desklamp 或在 desklamp 下 examine 或 look at 某个对象，且观察到 desklamp 在 desk、sidetable、dresser 或其他台面上时。\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 1148,
+    "prompt_tokens": 1408,
+    "total_tokens": 2556,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1408
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official",
+  "request_max_tokens": 8500
+}

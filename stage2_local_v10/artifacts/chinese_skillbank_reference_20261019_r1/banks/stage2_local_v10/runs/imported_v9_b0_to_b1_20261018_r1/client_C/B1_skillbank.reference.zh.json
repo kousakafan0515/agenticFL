@@ -1,0 +1,580 @@
+{
+  "bank_schema_version": "patchFL.role_repository.v3",
+  "experiment_id": "stage2-local-v9-client-c-v6-no-capacity-control",
+  "source_client": "C",
+  "target_client": "C",
+  "generation": 1,
+  "parent_bank": "B0",
+  "parent_bank_file_sha256": "sha256:0b4bf4e9a3bb381be4cb218e92517f1dd1cce7652fc75ffc9b39073a2f25c518",
+  "parent_live_repository_sha256": null,
+  "teacher_model": "deepseek-flash",
+  "teacher_endpoint": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "endpoint_path": "/",
+    "model": "deepseek-flash",
+    "api_key_present": true,
+    "api_key_value_recorded": false
+  },
+  "maximum_skill_field_characters": 900,
+  "active_skillbanks": {
+    "Supervisor": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "两阶段“先搜索、后操作”分解",
+          "principle": "对于必须先获取对象、再对其进行操作或放置的任务，将任务拆分为 SEARCH MISSION（搜索任务），在目标对象进入库存时结束；随后是 OPERATION MISSION（操作任务），在环境观察确认所需最终状态时结束。",
+          "when_to_apply": "当目标要求先找到对象，然后使用、清洁、加热、冷却、检查或放置该对象，且该对象尚未被持有时。"
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "搜索任务返回条件：持有目标对象",
+          "principle": "将 SEARCH MISSION 的返回条件定义为 worker 持有目标对象，而不仅仅是看到它或打开过容器。",
+          "when_to_apply": "当派发 worker 为任何任务族寻找并拿取对象时。"
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "操作任务返回条件：环境观察确认最终状态",
+          "principle": "将 OPERATION MISSION 的返回条件定义为环境观察确认所需最终状态（例如对象已放置在目的地、对象已清洁、对象已加热、对象已冷却），而不仅仅是 worker 尝试了该动作。",
+          "when_to_apply": "当派发 worker 为任何任务族操作已持有的对象时。"
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "如果 worker 返回 HANDOFF 但未达成任务的返回条件，或报告失败，不要将同一任务重新派发到同一位置；应更改搜索位置、对象描述或策略。",
+          "why_it_happens": "当 worker 的失败不被视为当前计划已穷尽的证据时，supervisor 可以重复相同的 ASSIGN。",
+          "how_to_avoid": "搜索失败或结果为空后，派发下一个候选位置，或让 worker 确认该位置为空后再继续。某个动作反复出现 'Nothing happens' 后，应改变策略：核实对象位置、打开电器，或改用不同方法。"
+        },
+        {
+          "skill_id": "skill_005",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "不要派发要求在某个特定容器中找到对象的搜索任务，除非已知该容器包含该对象；如果第一个位置失败，应将搜索扩大到其他可到达的容器。",
+          "why_it_happens": "supervisor 可能根据目标模板而非观察到的环境状态，假设目标在某个命名容器中，但环境可能将其放在别处，导致 worker 耗尽指定位置并失败。",
+          "how_to_avoid": "在派发搜索任务前，要求 worker 先报告候选容器的内容，或将任务表述为 'search cabinets/drawers/countertops for X'，而不是绑定到某个未经验证的特定位置。如果第一次搜索返回为空，应重新分配更广泛的搜索，而不是重复同一位置。"
+        },
+        {
+          "skill_id": "skill_006",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "在派发放置任务前，核实目的地是打开的或可以被打开。如果目的地是关闭的容器，应在前面加上打开步骤。如果打开返回 'Nothing happens'，则将该容器视为不可打开，并重新分配到有效的开放目的地。",
+          "why_it_happens": "supervisor 分配了一个 OPERATION MISSION，要求将对象放入一个关闭或不支持打开的容器中。worker 反复尝试 'put' 和 'open'，观察到 'Nothing happens'，耗尽步数并失败。",
+          "how_to_avoid": "在派发放置任务前，核实目的地是打开的或可以被打开。如果目的地是关闭的容器，应在前面加上打开步骤。如果打开返回 'Nothing happens'，则将该容器视为不可打开，并重新分配到有效的开放目的地。"
+        },
+        {
+          "skill_id": "skill_007",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态。仅当观察确认目标谓词时才宣布成功；仅当观察显示动作无效/被阻止或对象不可达时才宣布失败。",
+          "why_it_happens": "即使环境事件显示对象已成功放置，主管有时也会在 worker HANDOFF 后宣布 FAILED。反之，它也可能在未验证清洁状态或最终放置的情况下接受交接。",
+          "how_to_avoid": "每次 OPERATION MISSION 交接后，检查环境观察中目标对象的最终状态（例如 'You put the X in/on Y' 或 'You clean the X'）。仅当观察确认目标谓词时才宣布成功；仅当观察显示动作无效/被阻止或对象不可达时才宣布失败。"
+        },
+        {
+          "skill_id": "skill_008",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "只有在 worker 已确认持有该对象后，才应派发将对象放到目的地的 OPERATION MISSION；否则放置动作将失败或无效。",
+          "why_it_happens": "主管可能基于预期对象而非 worker 的实际库存状态来发布放置任务。",
+          "how_to_avoid": "在分配相应的放置任务之前，要求 worker 的 HANDOFF 明确报告持有目标对象。"
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "将 desklamp 视为固定设施，而非可拿取对象",
+            "principle": "In 台灯观察 tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's location and use it (turn it on) while holding the target object.",
+            "when_to_apply": "当目标要求借助 desklamp 检查或查看某对象，且观察到 desklamp 在 desk、sidetable 或 dresser 上时。"
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在环境已返回 'There's nothing special about X' 或 'Nothing happens' 后，反复为同一对象派发 examine 或 look 任务会导致交接循环和任务失败。在一两次 examine 尝试失败后，改变策略：验证对象位置，尝试不同的交互（take/put/use），或宣布失败。",
+            "why_it_happens": "主管可能不会将空观察视为当前 examine 策略已耗尽的证据。",
+            "how_to_avoid": "在一两次 examine 尝试失败后，改变策略：验证对象位置，尝试不同的交互（take/put/use），或宣布失败。"
+          },
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "The phrase 'under the desklamp' in 台灯观察 goals does not guarantee the target object is physically under the lamp. If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure.",
+            "why_it_happens": "主管可能按字面理解目标短语，即使对象不在那里也反复向 desklamp 派发 look 任务。",
+            "how_to_avoid": "如果对象在 desklamp 位置不可见，在宣布失败前搜索其他表面和容器。当对象在别处时反复派发 'look under desklamp' 任务会浪费步骤并导致失败。"
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "带显式清洁状态验证的清洁后放置流水线",
+            "principle": "For 清洗后放置 tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation.",
+            "when_to_apply": "Any 清洗后放置 goal where the target object may be dirty and the destination is a fixed receptacle."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "获取对象后的加热任务",
+            "principle": "在 worker 返回并持有目标对象后，派发 OPERATION MISSION，使用微波炉 1 等热源加热它。当环境确认对象已加热时返回。",
+            "when_to_apply": "在 worker 持有目标对象的成功 SEARCH MISSION 交接后。"
+          },
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "加热后的放置任务",
+            "principle": "在 worker 带着已加热对象返回后，派发 OPERATION MISSION 将其放置到指定目的地。当环境确认对象在目的地时返回。",
+            "when_to_apply": "在对象已加热的成功 HEAT MISSION 交接后。"
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "冷却需要专门的 cool 动作，而不仅仅是放入冰箱",
+            "principle": "对于冷却任务，在获得目标物体后，先明确对冰箱执行 cool 动作（例如 'cool X with fridge 1'），再尝试放置它。不要假设把物体放进冰箱再拿出来就算冷却。",
+            "when_to_apply": "当目标是冷却一个物体并将其放到别处，且该物体当前正被持有时。"
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在派出搜索特定物体之前，确认该物体类型存在且可冷却。如果在合理搜索后仍未找到该物体，考虑任务可能无法完成并尽早报告失败。",
+            "why_it_happens": "监督者可能未经检查就假设物体存在，导致穷尽式搜索浪费时间并以失败告终。",
+            "how_to_avoid": "在初始探索期间，记录物体的位置。如果在可能的容器中未找到目标物体，重新评估任务可行性。"
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "单件容量下的顺序两件放置",
+            "principle": "For 双物品放置 tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination.",
+            "when_to_apply": "当目标要求将同一物体类型的两个实例放到目的地，且工作者一次只能持有一个物体时。"
+          }
+        ]
+      }
+    },
+    "Search Worker": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "在打开封闭容器之前先搜索可见表面",
+          "principle": "对于找物体任务，先扫描所有可见表面（桌子、书桌、梳妆台、床、架子、台面、沙发、扶手椅等）寻找目标物体，然后再打开抽屉、柜子、保险箱、冰箱和微波炉等封闭容器。",
+          "when_to_apply": "当目标物体在当前地点不能立即看到且任务要求找到它时。"
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "在尝试从封闭容器中取物之前先打开它",
+          "principle": "当目标物体预期在封闭容器（抽屉、柜子、保险箱、冰箱、微波炉）内时，先导航到该容器，然后使用 open 动作，再从打开的容器中 take 该物体。",
+          "when_to_apply": "当目标物体在表面上不可见且封闭容器是可能的位置时。"
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "拿到目标物体后，导航到目的地并将其放在那里",
+          "principle": "一旦目标物体在物品栏中，直接前往指定的目的地容器或表面，并使用 put 动作将物体放在那里。",
+          "when_to_apply": "在成功拿到目标物体之后、宣布交接或完成之前。"
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "避免重复失败动作，并在穷尽搜索后宣布受阻",
+          "principle": "如果 go to 或 open 等动作反复返回 'Nothing happens'，不要继续重试同一动作。在检查所有可能的位置和容器仍未找到目标物体后，宣布任务受阻，而不是循环重试。",
+          "when_to_apply": "当重复的导航或 open 动作失败时，或当所有已知容器和表面都已搜索过仍未找到目标物体时。"
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_005",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：先定位目标物，再将其带到台灯处并开启台灯",
+            "principle": "对于“look at/examine X under the desklamp”类任务，先搜索并取得目标物 X；若目标物不在台灯所在位置，则将其带到有 desklamp 的桌面/台面，放置或保持持有，然后使用 desklamp 开启照明，以完成观察条件。",
+            "when_to_apply": "任务目标为观察某物在台灯下，且环境中存在可交互的 desklamp；目标物与 desklamp 不在同一位置，或目标物需要从其他容器/表面取得。"
+          },
+          {
+            "skill_id": "skill_006",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：desklamp 通常不可拿取，应使用而非 take",
+            "principle": "在台灯观察任务中，desklamp 通常是固定物体，take desklamp 会返回“Nothing happens.”；正确交互是 use desklamp 来开启它，或把目标物放到 desklamp 所在表面后再 use desklamp。",
+            "when_to_apply": "需要与 desklamp 交互时；若 take desklamp 失败，不要反复尝试拿取，应改为 use desklamp 或将目标物带到 desklamp 处。"
+          },
+          {
+            "skill_id": "skill_007",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：不要依赖 examine 目标物或 examine desklamp 来满足观察条件",
+            "principle": "examine 目标物通常只返回“There's nothing special about X.”或“Nothing happens.”，examine desklamp 也常无效果；这些动作不能替代“在台灯下观察”的环境成功条件。应优先完成目标物定位、取得/放置、开启台灯等可改变环境状态的动作。",
+            "when_to_apply": "当任务要求 look at/examine X under the desklamp，而 examine X 或 examine desklamp 没有产生有效观察结果时。"
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：避免重复 look/examine 同一位置，应继续搜索目标物",
+            "principle": "反复执行 look 或 examine 同一桌面/台灯不会改变状态，容易导致 blocked 或 handoff_loop_guard。若当前表面没有目标物，应转向其他容器或家具搜索目标物，找到后再回到 desklamp 处完成观察。",
+            "when_to_apply": "在台灯观察任务中，已到达 desklamp 所在位置但目标物不在该表面，且连续 look/examine 没有新信息时。"
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place workflow for 清洗后放置",
+            "principle": "对于清洁并放置任务，先定位并 take 目标物体，然后前往 sinkbasin 并 clean 它，再前往目的地容器并将其 put 在那里。",
+            "when_to_apply": "当目标是把一个干净的物体放到指定位置，而该物体尚未干净时。"
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "如果目标要求物体干净，在清洁前放置该物体会无法满足任务，并可能导致失败。",
+            "why_it_happens": "智能体可能跳过清洁步骤或尝试在放置后清洁，但环境可能不允许物体放置后再清洁，或可能将任务标记为失败。",
+            "how_to_avoid": "始终先在 sinkbasin 清洁物体，再将其放入最终目的地。"
+          },
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "如果在检查合理数量的位置后仍未找到目标物体，不要继续打开每个剩余容器；而应重新评估或移交。",
+            "why_it_happens": "智能体可能陷入反复打开柜子/抽屉的循环，浪费步数并最终因超时或监督者失败而失败。",
+            "how_to_avoid": "在检查几个可能的位置后，考虑物体可能在异常位置或任务可能无法完成；报告受阻或移交，而不是无限继续。"
+          },
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "清洁动作仅在 sinkbasin 有效；使用 bathtubbasin 或 fridge 等其他容器会失败。",
+            "why_it_happens": "智能体可能尝试其他水源或容器，但环境仅支持在 sinkbasin 清洁。",
+            "how_to_avoid": "在发出 clean 动作前，始终先导航到 sinkbasin。"
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "在常见容器中搜索目标物体",
+            "principle": "当目标物体不在第一个搜索位置时，系统地检查其他可能容器（cabinets、drawers、countertops、fridge、diningtable、sinkbasin、coffeemachine、stoveburners），直到找到该物体。",
+            "when_to_apply": "在加热并放置任务的搜索阶段，当目标物体不立即可见或不在第一个检查位置时。"
+          },
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "使用 microwave 加热物体",
+            "principle": "要加热物体，前往 microwave，若关闭则打开，将物体放入，然后使用 'heat <object> with microwave 1' 动作。如果物体已在 microwave 中，先取出，再在持有它时加热。",
+            "when_to_apply": "在加热并放置任务中，获取目标物体后、将其放到最终目的地之前。"
+          },
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "如果 heat 动作失败，不要重复同一动作。而应确认物体在正确位置（例如 microwave 内），并在需要时确认你正持有它，然后尝试不同的加热器具或调整物体位置。",
+            "why_it_happens": "如果物体不在正确容器中、容器关闭，或环境要求持有物体时未持有，heat 动作可能失败。",
+            "how_to_avoid": "加热前检查物体位置和容器状态。如果加热失败，尝试打开容器、将物体放入，或使用 stoveburner 等替代器具。"
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "如果目标物体不在第一个搜索位置，继续搜索其他可能位置，而不是宣布任务受阻或失败。",
+            "why_it_happens": "该物体可能位于尚未检查过的另一个容器或表面上。",
+            "how_to_avoid": "在断定物体不可用之前，应系统地搜索所有可能的容器和表面。"
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "冷却流程：定位目标，用冰箱冷却，然后放置",
+            "principle": "对于冷却任务，先找到目标物体，take 它，go to 一个打开的冰箱，对冰箱 use 冷却动作，然后导航到最终目的地并把物体 put 在那里。",
+            "when_to_apply": "当目标是冷却一个物体并将其放入指定的容器中时。"
+          },
+          {
+            "skill_id": "skill_018",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "冰箱不保证包含目标物体；在断定物体不可用之前，应搜索其他位置，如台面、橱柜、餐桌和架子。",
+            "why_it_happens": "智能体通常先检查冰箱，因为冷却需要冰箱，但物体可能在别处。",
+            "how_to_avoid": "检查冰箱后，在宣布失败之前应系统地搜索其他常见的物体位置。"
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "打开冰箱不足以完成冷却任务；智能体必须定位目标物体、take 它、冷却它，并在交接前把它 put 到目的地。",
+            "why_it_happens": "智能体可能将任务误解为只需打开冰箱，或在完成部分步骤后过早交接。",
+            "how_to_avoid": "在宣布成功或交接之前，验证完整的冷却和放置序列是否已完成。"
+          },
+          {
+            "skill_id": "skill_020",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "当目标指定了特定物体类型（例如 cup、bowl）时，不要 take 或 use 不同但相似的物体类型（例如 mug），除非环境明确将它们视为等价。",
+            "why_it_happens": "智能体可能泛化物体类别并拿起附近相似的物体。",
+            "how_to_avoid": "匹配目标中要求的精确物体类型；如果只有相似类型可用，继续搜索或报告不匹配。"
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_021",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "双物品放置：先放置第一件再取第二件",
+            "principle": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品，最后将第二件也放到目标容器。",
+            "when_to_apply": "当任务要求将两个同类物品放入同一目标容器，且智能体一次只能携带一件物品时。"
+          },
+          {
+            "skill_id": "skill_022",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，当智能体已经持有一件物品时，尝试移动到其他位置或取另一件物品通常会失败（返回“Nothing happens”），因为智能体一次只能携带一件物品。",
+            "why_it_happens": "ALFWorld 环境限制智能体一次只能持有一件物品，持有物品时移动或取物操作会被阻止。",
+            "how_to_avoid": "在尝试移动或取第二件物品之前，先将当前持有的物品放到目标容器或临时位置，释放双手后再继续。"
+          },
+          {
+            "skill_id": "skill_023",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，如果只在一种类型的容器（如仅搜索架子或仅搜索柜子）中寻找目标物品，可能无法找到第二件物品，导致任务失败。",
+            "why_it_happens": "目标物品可能分散在不同的容器类型中，如柜台、桌子、架子、柜子等。",
+            "how_to_avoid": "系统性地搜索多种类型的容器和表面，包括柜台、桌子、架子、柜子、抽屉等，直到找到两件目标物品。"
+          },
+          {
+            "skill_id": "skill_024",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "在双物品放置任务中，如果智能体在已经持有物品或已完成部分任务时反复声明 HANDOFF 而不执行实际动作，会导致 handoff_loop_guard 终止，任务失败。",
+            "why_it_happens": "智能体可能错误地认为当前状态已满足交接条件，但实际任务尚未完成，导致反复声明交接而不推进任务。",
+            "how_to_avoid": "仅在确实完成当前子目标（如已取到物品或已放置物品）时声明 HANDOFF，并在声明后继续执行必要的后续动作，避免重复声明。"
+          }
+        ]
+      }
+    },
+    "Operation Worker": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "在放入之前打开关闭的容器",
+          "principle": "如果目的地是关闭的容器，在尝试将持有的物体 put 进去之前先 open 它。",
+          "when_to_apply": "当目的地是橱柜、抽屉、冰箱、微波炉、保险箱或类似容器，且观察表明它是关闭的时。"
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "如果 put 动作返回 'Nothing happens'，验证当前位置并导航到目的地，然后重试 put。",
+          "why_it_happens": "智能体可能未在目的位置就尝试放置物体，导致 put 动作静默失败。",
+          "how_to_avoid": "put 失败后，检查智能体是否在目的地；如果不在，go to 目的地，然后重试 put。"
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "如果某个动作失败（例如显示 'Nothing happens'），不要在没有改变状态或方法的情况下重复它；重新评估并尝试不同的动作或位置。",
+          "why_it_happens": "智能体可能会卡住并重复同一个无效动作，浪费步数并导致失败或交接循环。",
+          "how_to_avoid": "动作失败后，检查库存、位置和物体状态；尝试不同的动作或移动到不同的位置。"
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "确保被拿起或转换的物体与目标物体类型匹配；相似但不同的物体（例如 cup 与 mug、towel 与 handtowel）不会满足目标。",
+          "why_it_happens": "智能体可能会混淆相似物体或误读观察结果，浪费时间并导致任务失败。",
+          "how_to_avoid": "在拿起或转换物体之前，仔细阅读观察结果并确认物体名称与目标匹配。"
+        },
+        {
+          "skill_id": "skill_005",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "如果在搜索相关位置后仍找不到目标物体，应声明失败，而不是无限期地继续。",
+          "why_it_happens": "该物体可能不存在于环境中，或者可能位于无法到达的位置。",
+          "how_to_avoid": "搜索可能的容器和表面；如果找不到该物体，报告失败。"
+        }
+      ],
+      "task_specific": {
+        "简单取放": [
+          {
+            "skill_id": "skill_006",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "简单的拿起并放置执行",
+            "principle": "对于简单的拿起并放置任务，定位目标物体，take 它，导航到目的地，然后 put 它 down。",
+            "when_to_apply": "当目标是将单个物体移动到指定目的地，且不需要清洁、加热、冷却或照明时。"
+          }
+        ],
+        "台灯观察": [
+          {
+            "skill_id": "skill_007",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：先定位台灯所在家具，再携带目标物前往",
+            "principle": "在台灯观察任务中，不要直接尝试 go to desklamp；台灯是固定在家具上的对象，应先通过探索或已知位置找到承载台灯的家具（如 desk、sidetable、dresser、coffeetable），再携带目标物前往该家具并使用台灯。",
+            "when_to_apply": "当目标物已取得或已在手，且需要将其置于台灯下观察时。"
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：到达台灯所在家具后使用台灯完成观察",
+            "principle": "携带目标物到达台灯所在家具后，执行 use desklamp 即可完成台灯观察；不需要对目标物执行 examine、use 或 look 来触发观察。",
+            "when_to_apply": "当已携带目标物并位于台灯所在家具处，且任务要求 examine/look at 目标物 with/under the desklamp 时。"
+          },
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：避免对目标物反复 examine/use/look 而不使用台灯",
+            "principle": "在台灯观察任务中，反复对目标物执行 examine、use 或 look 通常不会触发成功条件；成功路径是到达台灯所在家具后使用台灯。若已尝试多次无效，应停止重复并转向寻找/使用台灯。",
+            "when_to_apply": "当任务要求 look at/examine 目标物 under/with the desklamp，且对目标物直接 examine/use/look 返回 Nothing happens 或普通描述时。"
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "台灯观察：不要尝试拿起或移动台灯",
+            "principle": "台灯是固定对象，take desklamp 或 go to desklamp 通常无效；应把台灯视为家具上的固定交互点，通过前往其所在家具并使用它来完成观察。",
+            "when_to_apply": "当任务涉及 desklamp，且尝试 take desklamp 或 go to desklamp 返回 Nothing happens 时。"
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place sequence for 清洗后放置",
+            "principle": "对于先清洁再放置的目标，先获取目标物体，然后 go to 一个 sinkbasin 并 clean 它，再 go to 目的地并放置它。如果目的地是关闭的容器，在放置前先 open 它。",
+            "when_to_apply": "当目标是将一个干净的物体放到目的地，而该物体尚未干净时。"
+          },
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "不要用非 sinkbasin 的设施清洁",
+            "principle": "清洁只对 sinkbasin 有效。尝试用 fridge、bathtubbasin 或其他设施清洁会产生 'Nothing happens' 并浪费步数。",
+            "when_to_apply": "当拿着需要清洁的物体并选择清洁位置时。"
+          },
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "不要放入非容器设施",
+            "principle": "某些设施（如 toilets 和 coffeemachines）不是有效的放置容器。反复尝试 put 会产生 'Nothing happens'；如果目的地无效，报告 blocked，而不是循环。",
+            "when_to_apply": "当目的地是 toilet、coffeemachine 或其他拒绝放置的设施时。"
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "用微波炉直接加热手持物体",
+            "principle": "当手持目标物体且微波炉已打开时，使用直接加热动作，而不是先把物体放进去。",
+            "when_to_apply": "Task type 加热后放置; target object is held; microwave is open; goal requires heating the object."
+          },
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "当物体在微波炉内时，反复使用 'use microwave' 或 'heat object with microwave' 可能失败且不改变状态。",
+            "why_it_happens": "环境可能要求手持物体或微波炉打开，加热动作才能成功。",
+            "how_to_avoid": "如果加热失败，取出物体，确保微波炉打开，并在手持物体时尝试直接加热动作。"
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "加热后，如果微波炉关闭或物体不在里面，从微波炉中取物体可能失败。",
+            "why_it_happens": "take 动作要求物体在打开的微波炉内可触及。",
+            "how_to_avoid": "在尝试取加热后的物体前先打开微波炉，并确认物体在里面。"
+          },
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "将加热后的物体放到目的地",
+            "principle": "加热并取走物体后，前往目的地位置并将物体放在那里。",
+            "when_to_apply": "Task type 加热后放置; object is heated and held; destination is known."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_018",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "用打开的冰箱冷却手持物体",
+            "principle": "当目标要求冷却物体时，先获取物体，然后手持它前往打开的冰箱，并对冰箱使用 cool 命令。",
+            "when_to_apply": "手持目标物体并站在打开的冰箱前，且目标要求物体是冷的。"
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "将物体放入冰箱不会冷却它；必须在冰箱前手持物体时使用 cool 命令。",
+            "why_it_happens": "环境仅通过显式的 cool 动作改变物体温度，而不是通过盛放。",
+            "how_to_avoid": "手持物体到达冰箱后，发出 'cool <object> with fridge'，而不是将物体放入冰箱。"
+          },
+          {
+            "skill_id": "skill_020",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "如果目的地关闭或智能体不在目的地，put 动作会静默失败；放置前先打开目的地并导航到那里。",
+            "why_it_happens": "环境要求智能体位于打开的容器处才能放置物体。",
+            "how_to_avoid": "冷却后，前往目的地，如果关闭则打开它，然后将手持物体放在那里。"
+          },
+          {
+            "skill_id": "skill_021",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "仅冷却物体不够；只有将冷却后的物体放到要求的目的地后任务才完成。",
+            "why_it_happens": "任务目标同时包含冷却和放置，因此仅在冷却后就宣布交接会使任务不完整。",
+            "how_to_avoid": "冷却后，继续前往目的地并放置物体，然后再宣布成功。"
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_022",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "两件物品放置：依次拾取、运输和放置",
+            "principle": "对于需要将两个相同或同类型物体放置到目的地的任务，先拾取一个物体，将其运到目的地，放置它，然后返回取第二个物体并重复。",
+            "when_to_apply": "当目标是将两个同类型物体放到目标位置，且智能体无法同时持有两者时。"
+          }
+        ]
+      }
+    }
+  },
+  "evidence_file_sha256": "sha256:3036feffb86454acbd3fa269740200c6c5b80cb1f24ea28f143beb943bc05772",
+  "live_repository_sha256": "sha256:b178fbb409f8db06f36e77aa121782a5914ce51c4daebb8f10eb152041ecdfaa"
+}

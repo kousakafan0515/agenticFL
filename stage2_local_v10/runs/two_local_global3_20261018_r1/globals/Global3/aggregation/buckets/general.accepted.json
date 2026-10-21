@@ -1,0 +1,127 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Search observable surfaces before closed containers",
+      "principle": "When an object's location is unknown, locate it before manipulation. First check open, directly observable surfaces and common holding places such as tables, countertops, desks, dressers, shelves, beds, sofas, chairs, and other plausible visible surfaces; then open closed containers such as drawers, cabinets, fridges, and microwaves. Treat search as a broad multi-location search rather than assuming a named receptacle contains the target. If an early location is empty, broaden to other plausible unchecked locations. If the target or a needed fixture is already visible on a surface, go directly to that furniture instead of continuing unrelated container checks.",
+      "when_to_apply": "When the target location is unknown, when the first checked location is empty, or when the target or a required fixture is already visible on a surface.",
+      "source_skill_keys": [
+        "A/Planner/general/G_001",
+        "A/Executor/general/G_001",
+        "B/Executor/general/G_001",
+        "B/Critic/general/G_001",
+        "C/Supervisor/general/G_001",
+        "C/Search Worker/general/G_001",
+        "C/Operation Worker/general/G_001"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Avoid repeated or incomplete search bookkeeping",
+      "description": "Failed searches often repeat the same empty surfaces or failed take attempts, revisit locations already confirmed empty, or conclude the object is unavailable before all plausible open surfaces and relevant containers have been checked.",
+      "why_it_happens": "Search may be treated as an unconstrained sequence without bookkeeping, so empty locations are revisited and plausible locations are missed; failure may also be declared after checking only a subset.",
+      "how_to_avoid": "Record each checked location and result. After a failed take or empty look, mark that location checked and move to another plausible unchecked location. Do not revisit confirmed empty surfaces unless the state changed. Open closed receptacles before treating them as searched, and prioritize locations by object type. If the object remains absent after relevant locations are exhausted, report failure rather than continuing indefinitely; do not declare blocked while plausible unchecked locations remain.",
+      "source_skill_keys": [
+        "A/Planner/general/G_002",
+        "A/Executor/general/G_002",
+        "B/Executor/general/G_002",
+        "B/Critic/general/G_002",
+        "C/Supervisor/general/G_002",
+        "C/Search Worker/general/G_002",
+        "C/Operation Worker/general/G_002"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Open closed containers before access and verify destination openability",
+      "principle": "When a closed drawer, cabinet, safe, fridge, microwave, or similar container may hold the target or is the placement destination, navigate to it and open it before attempting to take from it or put into it. Closed containers cannot be inspected or used directly. Before placing, confirm the destination is already open or can be opened; if opening returns no change, treat it as non-openable and choose a valid open destination or surface. For non-openable fixtures, use only a go-then-put sequence.",
+      "when_to_apply": "When the target may be inside a closed container, or when the placement destination is closed or its openability is uncertain.",
+      "source_skill_keys": [
+        "A/Planner/general/G_003",
+        "A/Executor/general/G_003",
+        "B/Executor/general/G_003",
+        "B/Critic/general/G_003",
+        "C/Supervisor/general/G_003",
+        "C/Search Worker/general/G_003",
+        "C/Operation Worker/general/G_003"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Position at the source receptacle before take and at the destination before put",
+      "principle": "A take action succeeds only when at the receptacle where the object is present, and a put action succeeds only when at the destination. When retrieving, first locate the object and position at its receptacle before taking. Once the target is held, travel directly to the specified destination and place it without unnecessary intermediate steps; if a put fails, verify current location and navigate to the destination before retrying.",
+      "when_to_apply": "When retrieving an object whose location is not current, when moving a held object to a destination, or after a failed put.",
+      "source_skill_keys": [
+        "A/Planner/general/G_004",
+        "A/Executor/general/G_004",
+        "B/Executor/general/G_004",
+        "B/Critic/general/G_004",
+        "C/Supervisor/general/G_004",
+        "C/Search Worker/general/G_004",
+        "C/Operation Worker/general/G_004"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Use supported actions, exact identifiers, and matching object instances",
+      "principle": "Use only supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, open a container before accessing it, and use a fixture with its numbered instance when applicable. Refer to exact object and receptacle identifiers from observations, including instance numbers, and track the specific instance taken so later actions use the same one. Prefer navigating to locations, furniture, or receptacles rather than to a takeable object when the action form requires it. Do not use examine, look at, or open on non-container surfaces; open only applies to openable containers. Before taking or transforming, confirm the object name matches the goal, because similar types may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.",
+      "when_to_apply": "Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous.",
+      "source_skill_keys": [
+        "A/Planner/general/G_005",
+        "A/Executor/general/G_005",
+        "B/Executor/general/G_005",
+        "B/Critic/general/G_005",
+        "C/Supervisor/general/G_005",
+        "C/Search Worker/general/G_005",
+        "C/Operation Worker/general/G_005"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Change the approach after a no-change action result",
+      "description": "When an action such as go to, open, take, put, use, or clean returns no change, do not repeat the same command. Failed attempts can come from being at the wrong location, using an inexact or invalid identifier, targeting a closed or non-openable receptacle, or trying an inaccessible location.",
+      "why_it_happens": "The same invalid action may be retried without updating the inferred state, and a failed task segment may be reissued identically instead of changing the search location, object description, or strategy.",
+      "how_to_avoid": "After a no-change observation, re-check location, inventory, exact identifiers, and object or container state. Change at least one relevant condition: move to a different reachable location, open a closed container, use the specific instance id, or switch to another strategy. After one or two identical failures, stop retrying. If a task segment fails or returns without meeting its condition, do not repeat it unchanged; broaden the search or change the approach. Before declaring blocked, ensure every plausible closed container was actually opened and inspected, not merely approached, and avoid revisiting surfaces already confirmed empty.",
+      "source_skill_keys": [
+        "A/Planner/general/G_006",
+        "A/Executor/general/G_006",
+        "B/Executor/general/G_006",
+        "B/Critic/general/G_006",
+        "C/Supervisor/general/G_006",
+        "C/Search Worker/general/G_006",
+        "C/Operation Worker/general/G_006"
+      ]
+    },
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Separate acquisition from operation with observable completion conditions",
+      "principle": "For tasks that require an object to be found and then manipulated, cleaned, heated, cooled, examined, or placed, split the task into an acquisition phase and an operation phase. The acquisition phase ends only when the target object is actually held, not merely seen and not merely because a container was opened. The operation phase ends only when the environment observation confirms the required final state, such as the object being at the destination, cleaned, heated, or cooled. Begin placement only after acquisition is confirmed by holding the target object. If a subsequent phase or handoff follows, report acquisition only after the take observation confirms holding and note any remaining operation.",
+      "when_to_apply": "When a goal requires an object to be acquired before it is used, transformed, or placed, and the object is not already held.",
+      "source_skill_keys": [
+        "A/Planner/general/G_007",
+        "A/Executor/general/G_007",
+        "B/Executor/general/G_007",
+        "B/Critic/general/G_007",
+        "C/Supervisor/general/G_007",
+        "C/Search Worker/general/G_007",
+        "C/Operation Worker/general/G_007"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Verify goal state after critical actions and stop on confirmation",
+      "description": "Do not declare completion or stop based on an attempted action alone. After critical actions such as take, put, clean, heat, or cool, inspect the observation for the goal predicate. Declare success only when the observation confirms the required final state; declare failure only when the observation shows an invalid or blocked action, an unreachable object, or exhaustion of plausible locations. If the placement observation already confirms the goal, treat it as terminal and do not run a redundant verification step.",
+      "why_it_happens": "An action may be assumed successful without checking feedback, failure may be declared after a successful sequence, or an unnecessary verification step may be added after success, causing loops.",
+      "how_to_avoid": "After each critical action, compare the observation with the expected state. If the action failed, retry only after adjusting the approach; if it succeeded, stop issuing extra actions. Treat a confirming placement, cleaning, heating, or cooling observation as the terminal success condition. Do not declare completion before the final placement is confirmed; after confirmation, stop and do not send empty or inventory-only actions.",
+      "source_skill_keys": [
+        "A/Planner/general/G_008",
+        "A/Executor/general/G_008",
+        "B/Executor/general/G_008",
+        "B/Critic/general/G_008",
+        "C/Supervisor/general/G_008",
+        "C/Search Worker/general/G_008",
+        "C/Operation Worker/general/G_008"
+      ]
+    }
+  ]
+}

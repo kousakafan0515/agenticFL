@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:437e3fafd64e6291dbf855f89cbf582935a2cf9968f87c067a42c11d8a5df49a",
+  "message_character_count": 106097,
+  "started_at_utc": "2026-10-19T05:56:21.852815+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\": [{\"recommendation\": \"When the target object is already visible on the same furniture as the desklamp, take it and immediately use the numbered lamp without extra navigation. Episodes 026, 027, 030, 035, 036, 038 show this efficient pattern; reinforce it as the preferred path.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\", \"G_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_026\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_035\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_036\"]}, {\"recommendation\": \"Do not attempt to open drawers from the parent furniture location; open drawer 1/2/3 at desk 1 returned Nothing happens repeatedly (episodes 028, 037, 042). Navigate to the drawer itself before opening, and after one no-change open, stop retrying sibling drawers from the same spot.\", \"affected_skill_ids\": [\"G_003\", \"G_006\", \"T2_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_028\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_042\"]}, {\"recommendation\": \"Avoid bare-name use desklamp and examine-style actions; both returned Nothing happens (episodes 031, 041). Always use the numbered instance use desklamp <id> observed on the furniture, and do not substitute examine desk/object for the lamp interaction.\", \"affected_skill_ids\": [\"T2_003\", \"T2_004\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_041\"]}, {\"recommendation\": \"When the assumed desk lacks a desklamp, broaden to other open surfaces (dresser, sidetable, shelf) rather than looping on drawers. Episodes 031, 038, 040 show successful recovery by moving to dresser/sidetable where desklamp 1 was visible.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_031\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_038\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_040\"]}, {\"recommendation\": \"Do not put the target onto the lamp furniture as a substitute for the observation interaction; episode 040 placed bowl 1 on sidetable 2 then used the lamp and was declared failed. Carry the target to the lamp furniture and use the numbered lamp while holding it.\", \"affected_skill_ids\": [\"T2_003\", \"T2_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_040\"]}, {\"recommendation\": \"After a failed put or redundant go to the same location, do not repeat the identical command; episode 042 issued put pillow on desk 1 twice and go to desk 1 with no change. Re-check inventory and current location, then use the numbered lamp directly.\", \"affected_skill_ids\": [\"G_006\", \"T2_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_042\"]}, {\"recommendation\": \"Handoff after acquisition is acceptable only when the target is actually held; episodes 027, 029, 033, 034, 037, 039 show correct take-then-handoff. But episode 036 handed off after only turning on the lamp without confirming the creditcard was held, causing a parse-error failure; require a confirmed take before handoff.\", \"affected_skill_ids\": [\"G_007\", \"G_008\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_036\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_034\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_039\"]}, {\"recommendation\": \"When the target is not on the first surface, continue systematic open-surface search (coffeetable, diningtable, sofa, armchair, bed) and take the visible instance; episodes 025, 033, 037, 039 demonstrate this succeeds. Track checked locations to avoid revisiting confirmed-empty surfaces.\", \"affected_skill_ids\": [\"T2_005\", \"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_025\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_033\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_037\", \"stage2-local-v10-role-partitioned-patch3/generation_06/client_C/episode_039\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 32539,
+    "completion_tokens": 1288,
+    "total_tokens": 33827
+  },
+  "completed_at_utc": "2026-10-19T05:56:27.983812+00:00"
+}

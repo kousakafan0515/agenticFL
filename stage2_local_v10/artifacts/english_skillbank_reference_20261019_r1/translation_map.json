@@ -1,0 +1,1479 @@
+{
+  "entries": [
+    {
+      "id": "T0001",
+      "original": "台灯观察：先定位并点亮台灯，再取目标物",
+      "english": "Desklamp observation: first locate and turn on the desklamp, then take the target object."
+    },
+    {
+      "id": "T0002",
+      "original": "在台灯观察任务中，先找到并打开 desklamp，再获取待观察物体，最后执行 examine/look。",
+      "english": "In the desklamp observation task, first find and turn on the desklamp, then acquire the object to be observed, and finally execute examine/look."
+    },
+    {
+      "id": "T0003",
+      "original": "目标为 examine/look at X under/with the desklamp，且环境中存在可用的 desklamp。",
+      "english": "The goal is examine/look at X under/with the desklamp, and a usable desklamp exists in the environment."
+    },
+    {
+      "id": "T0004",
+      "original": "多个失败轨迹显示，计划先 take desklamp 会导致后续 take/examine 失败或无法完成观察。",
+      "english": "Multiple failed trajectories show that a plan to take desklamp first causes subsequent take/examine to fail or prevents completion of the observation."
+    },
+    {
+      "id": "T0005",
+      "original": "desklamp 可能不可携带或需要留在原位作为观察光源；先取台灯会破坏后续 examine/look 条件。",
+      "english": "desklamp may not be carryable or may need to remain in place as the observation light source; taking the desklamp first will break the subsequent examine/look conditions."
+    },
+    {
+      "id": "T0006",
+      "original": "优先在目标物所在位置附近寻找并打开 desklamp；若必须移动目标物，则将目标物带到台灯处，而不是先取走台灯。",
+      "english": "Prefer to find and turn on the desklamp near the target object's location; if the target object must be moved, bring the target object to the desklamp instead of taking the desklamp away first."
+    },
+    {
+      "id": "T0007",
+      "original": "多个失败轨迹在未找到目标物时反复开关抽屉或盲目移动，导致 plan_failed。",
+      "english": "Multiple failed trajectories repeatedly open and close drawers or move blindly when the target object has not been found, resulting in plan_failed."
+    },
+    {
+      "id": "T0008",
+      "original": "目标物可能位于抽屉、柜子等容器中；未系统搜索就尝试取物会失败。",
+      "english": "The target object may be in containers such as drawers or cabinets; attempting to take the object without a systematic search will fail."
+    },
+    {
+      "id": "T0009",
+      "original": "先按容器类型（drawer/cabinet）系统搜索目标物，找到后再执行 take 和 examine/look。",
+      "english": "First systematically search for the target object by container type (drawer/cabinet), and after finding it, execute take and examine/look."
+    },
+    {
+      "id": "T0010",
+      "original": "部分轨迹将目标物放到 desk 或 desklamp 上，但未执行 examine/look，导致 plan_completed_without_environment_win。",
+      "english": "Some trajectories put the target object on the desk or desklamp but did not execute examine/look, resulting in plan_completed_without_environment_win."
+    },
+    {
+      "id": "T0011",
+      "original": "任务目标是观察，不是放置；put 动作不会触发观察成功条件。",
+      "english": "The task goal is observation, not placement; the put action does not trigger the observation success condition."
+    },
+    {
+      "id": "T0012",
+      "original": "在目标物与 desklamp 同处后，必须执行 examine X 或 look at X under the desklamp。",
+      "english": "After the target object and the desklamp are in the same place, you must execute examine X or look at X under the desklamp."
+    },
+    {
+      "id": "T0013",
+      "original": "清洗后放置标准三步计划",
+      "english": "Standard three-step plan for cleaning then placing."
+    },
+    {
+      "id": "T0014",
+      "original": "对于“清洗后放置”任务，初始计划应分解为三个有序子任务：S1 找到并拿起目标物品；S2 在 sinkbasin 清洗该物品；S3 将清洗后的物品放到目标容器或表面。",
+      "english": "For the \"clean then place\" task, the initial plan should be decomposed into three ordered subtasks: S1 find and pick up the target item; S2 clean the item in the sinkbasin; S3 put the cleaned item into or on the target container or surface."
+    },
+    {
+      "id": "T0015",
+      "original": "当目标为“put a clean X in/on Y”或“clean some X and put it in/on Y”时。",
+      "english": "When the goal is \"put a clean X in/on Y\" or \"clean some X and put it in/on Y\"."
+    },
+    {
+      "id": "T0016",
+      "original": "部分物品（如 towel、cloth）在 sinkbasin 上执行 clean 动作时不会成功，导致计划失败。",
+      "english": "Some items (such as towel, cloth) will not succeed when performing the clean action on sinkbasin, causing the plan to fail."
+    },
+    {
+      "id": "T0017",
+      "original": "环境中并非所有物品都支持 clean 动作，或目标物品可能不是任务要求的可清洗物品。",
+      "english": "Not all items in the environment support the clean action, or the target item may not be the cleanable item required by the task."
+    },
+    {
+      "id": "T0018",
+      "original": "在制定计划时，优先选择常见可清洗物品（如 cup、bowl、plate、knife、pot、pan、kettle、soapbar、lettuce、tomato、potato、egg、dishsponge、ladle、mug 等）；若 clean 动作失败，应尝试其他候选物品或检查物品是否可清洗。",
+      "english": "When making a plan, prioritize common cleanable items (such as cup, bowl, plate, knife, pot, pan, kettle, soapbar, lettuce, tomato, potato, egg, dishsponge, ladle, mug, etc.); if the clean action fails, try other candidate items or check whether the item is cleanable."
+    },
+    {
+      "id": "T0019",
+      "original": "当目标容器（如 drawer、cabinet、coffeemachine）已满、关闭或不存在时，直接放置会失败。",
+      "english": "When the target container (such as drawer, cabinet, coffeemachine) is full, closed, or does not exist, direct placement will fail."
+    },
+    {
+      "id": "T0020",
+      "original": "环境中容器有容量限制或需要先打开；某些目标位置可能没有可用的空位。",
+      "english": "Containers in the environment have capacity limits or need to be opened first; some target locations may have no available free space."
+    },
+    {
+      "id": "T0021",
+      "original": "在放置前先检查目标容器是否打开且有空位；若目标容器不可用，应寻找替代容器或先清空/打开目标容器。",
+      "english": "Before placing, first check whether the target container is open and has free space; if the target container is unavailable, find an alternative container or first empty/open the target container."
+    },
+    {
+      "id": "T0022",
+      "original": "在寻找目标物品时，应优先检查 fridge、countertop、cabinet、drawer、shelf 等常见位置，避免在无关位置浪费步骤。",
+      "english": "When looking for the target item, prioritize checking common locations such as fridge, countertop, cabinet, drawer, shelf, and avoid wasting steps in irrelevant locations."
+    },
+    {
+      "id": "T0023",
+      "original": "环境中物品分布有规律，常见位置更可能包含目标物品；盲目搜索会导致步数耗尽或计划失败。",
+      "english": "Item distribution in the environment follows patterns, and common locations are more likely to contain the target item; blind searching can exhaust steps or cause the plan to fail."
+    },
+    {
+      "id": "T0024",
+      "original": "根据物品类型选择优先搜索位置：食物类优先 fridge；餐具类优先 countertop、cabinet、drawer；清洁用品优先 sinkbasin、countertop、shelf。",
+      "english": "Choose priority search locations based on item type: for food items, prioritize fridge; for tableware, prioritize countertop, cabinet, drawer; for cleaning supplies, prioritize sinkbasin, countertop, shelf."
+    },
+    {
+      "id": "T0025",
+      "original": "台灯观察任务：先定位并携带目标物，再到台灯所在位置使用台灯",
+      "english": "Desklamp observation task: first locate and carry the target object, then go to the desklamp's location and use the desklamp"
+    },
+    {
+      "id": "T0026",
+      "original": "在“台灯观察”任务中，先搜索并取得目标物体，然后前往台灯所在位置，最后使用台灯完成观察。",
+      "english": "In the 'desklamp observation' task, first search for and obtain the target object, then go to the desklamp's location, and finally use the desklamp to complete the observation."
+    },
+    {
+      "id": "T0027",
+      "original": "当任务要求 examine/look at 某物体 with/under the desklamp 时。",
+      "english": "When the task requires examine/look at an object with/under the desklamp."
+    },
+    {
+      "id": "T0028",
+      "original": "desklamp 通常固定在桌面或边桌上，take desklamp 会失败并返回 Nothing happens。",
+      "english": "desklamp is usually fixed on a desk or side table; take desklamp will fail and return Nothing happens."
+    },
+    {
+      "id": "T0029",
+      "original": "ALFWorld 中台灯属于固定光源，不是可携带物品。",
+      "english": "In ALFWorld, the desklamp is a fixed light source, not a carryable item."
+    },
+    {
+      "id": "T0030",
+      "original": "不要尝试 take desklamp；应前往台灯所在位置并使用 use desklamp 打开它。",
+      "english": "Do not attempt take desklamp; go to the desklamp's location and execute the command use desklamp to turn it on."
+    },
+    {
+      "id": "T0031",
+      "original": "在已经位于台灯所在位置后，重复 go to desklamp 或 go to desk 会返回 Nothing happens，浪费步骤。",
+      "english": "After already being at the desklamp location, repeating go to desklamp or go to desk returns Nothing happens, wasting steps."
+    },
+    {
+      "id": "T0032",
+      "original": "台灯不是可导航位置，desk 也可能因已到达而无法再次导航。",
+      "english": "The desklamp is not a navigable location, and desk may also be unable to be navigated to again because it has already been reached."
+    },
+    {
+      "id": "T0033",
+      "original": "到达台灯所在表面后，直接使用 use desklamp；若需要观察物体，先确保已携带目标物或目标物在台灯附近。",
+      "english": "After reaching the surface where the desklamp is, directly execute the command use desklamp; if you need to observe an object, first ensure the target object is carried or is near the desklamp."
+    },
+    {
+      "id": "T0034",
+      "original": "在寻找目标物时，若目标物更可能出现在桌面、边桌、床等表面，不应优先或反复遍历大量抽屉。",
+      "english": "When searching for the target object, if the target object is more likely to appear on surfaces such as desktops, side tables, beds, etc., do not prioritize or repeatedly traverse a large number of drawers."
+    },
+    {
+      "id": "T0035",
+      "original": "抽屉搜索成本高，且很多台灯观察任务的目标物在开放表面上。",
+      "english": "Drawer search is costly, and in many desklamp observation tasks the target object is on open surfaces."
+    },
+    {
+      "id": "T0036",
+      "original": "先检查与台灯相关的桌面、边桌、床头柜等表面；只有在合理位置未找到时才检查抽屉。",
+      "english": "First check surfaces related to the desklamp, such as desktops, side tables, nightstands, etc.; check drawers only when not found in reasonable locations."
+    },
+    {
+      "id": "T0037",
+      "original": "Clean-then-place sequence for 清洗后放置",
+      "english": "Clean-then-place sequence for cleaning followed by placing"
+    },
+    {
+      "id": "T0038",
+      "original": "先定位目标物体，再定位目标容器",
+      "english": "First locate the target object, then locate the target container."
+    },
+    {
+      "id": "T0039",
+      "original": "对于取放类任务，先搜索并取得目标物体，再前往目标容器执行放置。",
+      "english": "For pick-and-place tasks, first search for and obtain the target object, then go to the target container to execute placement."
+    },
+    {
+      "id": "T0040",
+      "original": "当任务要求把某物体放到某容器/家具上，且初始位置未知时。",
+      "english": "When the task requires placing an object on a container/furniture and the initial location is unknown."
+    },
+    {
+      "id": "T0041",
+      "original": "放置前必须位于目标容器处",
+      "english": "Must be at the target container before placing."
+    },
+    {
+      "id": "T0042",
+      "original": "执行 put 前，必须已经通过 go to 到达目标容器/家具位置；否则 put 可能无效。",
+      "english": "Before executing put, you must have already reached the target container/furniture location via go to; otherwise put may be ineffective."
+    },
+    {
+      "id": "T0043",
+      "original": "当已取得目标物体并准备放置时。",
+      "english": "When the target object has been obtained and you are ready to place it."
+    },
+    {
+      "id": "T0044",
+      "original": "优先检查常见承载面，再检查封闭容器",
+      "english": "Prioritize checking common support surfaces, then check closed containers."
+    },
+    {
+      "id": "T0045",
+      "original": "搜索目标物体时，优先检查桌子、台面、架子、床、沙发等开放承载面；若未找到，再检查抽屉、柜子等封闭容器。",
+      "english": "When searching for the target object, prioritize checking open support surfaces such as tables, countertops, shelves, beds, sofas, etc.; if not found, then check closed containers such as drawers, cabinets, etc."
+    },
+    {
+      "id": "T0046",
+      "original": "当目标物体初始位置未知且房间中有多种家具/容器时。",
+      "english": "When the target object's initial location is unknown and the room contains multiple types of furniture/containers."
+    },
+    {
+      "id": "T0047",
+      "original": "避免无效 examine 与盲目穷举",
+      "english": "Avoid invalid examine and blind exhaustive search"
+    },
+    {
+      "id": "T0048",
+      "original": "不要使用 examine 作为搜索动作；若已检查大量容器仍未找到目标，应重新评估可见承载面或目标是否存在，而不是继续盲目穷举。",
+      "english": "Do not use examine as a search action; if many containers have been checked and the target still has not been found, reassess visible support surfaces or whether the target exists, rather than continuing blind exhaustive search."
+    },
+    {
+      "id": "T0049",
+      "original": "当搜索目标物体遇到失败或长时间未找到时。",
+      "english": "When searching for the target object fails or the target has not been found for a long time."
+    },
+    {
+      "id": "T0050",
+      "original": "避免重复无效动作",
+      "english": "Avoid repeating invalid actions"
+    },
+    {
+      "id": "T0051",
+      "original": "当动作返回“Nothing happens”时，不要重复同一动作；应改变状态（如打开/关闭容器、移动位置、取出物体）后再重试。",
+      "english": "When an action returns \"Nothing happens\", do not repeat the same action; change the state (e.g., open/close a container, move location, take out an object) before retrying."
+    },
+    {
+      "id": "T0052",
+      "original": "当任何动作返回“Nothing happens”且未改变环境状态时。",
+      "english": "When any action returns \"Nothing happens\" and does not change the environment state."
+    },
+    {
+      "id": "T0053",
+      "original": "避免在未确认成功前声明完成",
+      "english": "Avoid declaring completion before success is confirmed"
+    },
+    {
+      "id": "T0054",
+      "original": "不要输出完成状态或停止行动，直到环境观察确认最终放置动作成功；过早声明完成可能导致任务失败。",
+      "english": "Do not output a completion status or stop acting until the environment observation confirms the final placement action succeeded; declaring completion too early may cause the task to fail."
+    },
+    {
+      "id": "T0055",
+      "original": "在执行最终放置动作后。",
+      "english": "After executing the final placement action."
+    },
+    {
+      "id": "T0056",
+      "original": "台灯观察任务执行流程",
+      "english": "Desklamp observation task execution flow"
+    },
+    {
+      "id": "T0057",
+      "original": "对于“examine/look at X with/under the desklamp”类任务，先定位目标物体和台灯，若目标可携带则拿起目标，移动到台灯所在位置，然后使用台灯（use desklamp）完成观察。",
+      "english": "For tasks of the type \"examine/look at X with/under the desklamp\", first locate the target object and the desklamp; if the target is portable, pick up the target, move to the desklamp's location, and then use the desklamp (use desklamp) to complete the observation."
+    },
+    {
+      "id": "T0058",
+      "original": "当任务目标为观察某物体与台灯的关系（examine X with desklamp 或 look at X under desklamp）时。",
+      "english": "When the task goal is to observe the relationship between an object and the desklamp (examine X with desklamp or look at X under desklamp)."
+    },
+    {
+      "id": "T0059",
+      "original": "在台灯观察任务中，不要使用 `examine X with desklamp` 动作，该动作通常返回“Nothing happens”；应改为拿起目标物体后使用 `use desklamp`。",
+      "english": "In desklamp observation tasks, do not use the `examine X with desklamp` action; this action usually returns \"Nothing happens\"; instead, pick up the target object and then use `use desklamp`."
+    },
+    {
+      "id": "T0060",
+      "original": "ALFWorld 环境不支持将台灯作为工具参数传递给 examine 动作，台灯是固定物体，只能通过 use 动作开启。",
+      "english": "The ALFWorld environment does not support passing the desklamp as a tool parameter to the examine action; the desklamp is a fixed object and can only be turned on via the use action."
+    },
+    {
+      "id": "T0061",
+      "original": "若需要观察物体与台灯的关系，先确保目标物体在手中或附近，然后执行 `use desklamp` 开启台灯，而非 `examine X with desklamp`。",
+      "english": "If you need to observe the relationship between the object and the desk lamp, first ensure the target object is in hand or nearby, then execute `use desklamp` to turn on the desk lamp, rather than `examine X with desklamp`."
+    },
+    {
+      "id": "T0062",
+      "original": "台灯是固定在桌面或边桌上的物体，不是可导航的位置；执行 `go to desklamp 1` 会返回“Nothing happens”，应直接在当前台灯所在位置使用 `use desklamp`。",
+      "english": "The desk lamp is an object fixed on a desk or side table, not a navigable location; executing `go to desklamp 1` will return \"Nothing happens\"; you should directly use `use desklamp` at the current location of the desk lamp."
+    },
+    {
+      "id": "T0063",
+      "original": "ALFWorld 中只有家具和容器可作为导航目标，台灯等小物体不能作为 go to 的目标。",
+      "english": "In ALFWorld, only furniture and containers can be navigation targets; small objects such as desk lamps cannot be targets for go to."
+    },
+    {
+      "id": "T0064",
+      "original": "当已经位于台灯所在的家具位置时，直接执行 `use desklamp`，不要尝试 `go to desklamp`。",
+      "english": "When already at the furniture location where the desk lamp is, directly execute `use desklamp`; do not attempt `go to desklamp`."
+    },
+    {
+      "id": "T0065",
+      "original": "台灯是固定物体，无法被拿起；执行 `take desklamp 1` 会返回“Nothing happens”，应改为将目标物体带到台灯处或直接使用台灯。",
+      "english": "The desk lamp is a fixed object and cannot be picked up; executing `take desklamp 1` will return \"Nothing happens\"; instead, bring the target object to the desk lamp or directly use the desk lamp."
+    },
+    {
+      "id": "T0066",
+      "original": "ALFWorld 中台灯被标记为固定物体，不可携带。",
+      "english": "In ALFWorld, desk lamps are marked as fixed objects and cannot be carried."
+    },
+    {
+      "id": "T0067",
+      "original": "不要尝试拿起台灯；若目标物体可携带，拿起目标物体并移动到台灯所在位置，然后使用台灯。",
+      "english": "Do not attempt to pick up the desk lamp; if the target object is carryable, pick up the target object and move to the location of the desk lamp, then use the desk lamp."
+    },
+    {
+      "id": "T0068",
+      "original": "双物品放置：先取第一件并暂存，再取第二件并最终放置",
+      "english": "Dual-item placement: first take the first item and temporarily store it, then take the second item and perform the final placement."
+    },
+    {
+      "id": "T0069",
+      "original": "在双物品放置任务中，若一次只能携带一件物品，先找到并拿起第一件目标物品，将其暂存到目标容器或临时容器，再寻找并拿起第二件目标物品，最后将两件物品都放入目标容器。",
+      "english": "In dual-item placement tasks, if only one item can be carried at a time, first find and pick up the first target item, temporarily store it in the target container or a temporary container, then find and pick up the second target item, and finally put both items into the target container."
+    },
+    {
+      "id": "T0070",
+      "original": "当任务要求将两个同类物品放入同一目标容器，且环境限制一次只能携带一件物品时。",
+      "english": "When the task requires putting two items of the same type into the same target container, and the environment restricts carrying to one item at a time."
+    },
+    {
+      "id": "T0071",
+      "original": "在双物品放置任务中，若已持有一件物品，直接尝试 take 第二件同类物品通常会失败并返回“Nothing happens”。",
+      "english": "In dual-item placement tasks, if you already hold one item, directly attempting to take the second item of the same type usually fails and returns \"Nothing happens\"."
+    },
+    {
+      "id": "T0072",
+      "original": "环境限制一次只能携带一件物品，因此必须先放下或暂存当前物品，才能拿取第二件。",
+      "english": "The environment restricts carrying to one item at a time, so you must first put down or temporarily store the current item before you can take the second item."
+    },
+    {
+      "id": "T0073",
+      "original": "在拿取第二件物品前，先将第一件物品放入目标容器或临时容器，确保 inventory 为空。",
+      "english": "Before taking the second item, first put the first item into the target container or a temporary container to ensure the inventory is empty."
+    },
+    {
+      "id": "T0074",
+      "original": "在双物品放置任务中，将物品放入 garbagecan 等非目标容器可能导致后续无法取回或任务失败。",
+      "english": "In dual-item placement tasks, putting an item into a non-target container such as garbagecan may cause it to be irretrievable later or cause the task to fail."
+    },
+    {
+      "id": "T0075",
+      "original": "部分容器可能不接受物品，或放入后物品状态改变，导致无法继续完成任务。",
+      "english": "Some containers may not accept items, or the item's state may change after being put in, making it impossible to continue completing the task."
+    },
+    {
+      "id": "T0076",
+      "original": "优先将暂存物品放入最终目标容器；若必须临时存放，选择可正常取回的容器，并避免使用 garbagecan 等可能不可逆的容器。",
+      "english": "Prioritize placing temporarily held items into the final target container; if temporary storage is necessary, choose a container from which they can be retrieved normally, and avoid using containers such as garbagecan that may be irreversible."
+    },
+    {
+      "id": "T0077",
+      "original": "台灯观察任务：先定位并携带目标物，再在台灯处开启台灯",
+      "english": "Desklamp observation task: first locate and carry the target object, then turn on the desklamp at the desklamp location."
+    },
+    {
+      "id": "T0078",
+      "original": "对于“examine/look at X with/under the desklamp”类目标，先找到目标物并拿到手中，再移动到台灯所在位置，最后开启台灯完成观察。",
+      "english": "For goals of the type “examine/look at X with/under the desklamp”, first find the target object and take it in hand, then move to the desklamp’s location, and finally turn on the desklamp to complete the observation."
+    },
+    {
+      "id": "T0079",
+      "original": "目标要求用台灯观察某物，且目标物不在台灯所在位置时。",
+      "english": "When the goal requires observing something with the desklamp, and the target object is not at the desklamp’s location."
+    },
+    {
+      "id": "T0080",
+      "original": "台灯观察任务：目标物与台灯同处时直接开启台灯",
+      "english": "Desklamp observation task: when the target object and the desklamp are in the same place, directly turn on the desklamp."
+    },
+    {
+      "id": "T0081",
+      "original": "如果目标物和台灯已经在同一位置，直接使用台灯即可完成观察，无需先拿取目标物。",
+      "english": "If the target object and the desklamp are already in the same location, directly use the desklamp to complete the observation; there is no need to first take the target object."
+    },
+    {
+      "id": "T0082",
+      "original": "到达台灯所在位置后，观察到目标物也在同一表面或容器中。",
+      "english": "After arriving at the desklamp’s location, observe that the target object is also on the same surface or in the same container."
+    },
+    {
+      "id": "T0083",
+      "original": "台灯是固定物体，take desklamp 会返回“Nothing happens”，浪费步骤。",
+      "english": "The desklamp is a fixed object; take desklamp returns “Nothing happens”, wasting steps."
+    },
+    {
+      "id": "T0084",
+      "original": "环境将台灯建模为不可携带的固定设备。",
+      "english": "The environment models the desklamp as a fixed device that cannot be carried."
+    },
+    {
+      "id": "T0085",
+      "original": "不要执行 take desklamp；应移动到台灯所在位置并直接 use desklamp。",
+      "english": "Do not execute take desklamp; instead move to the desklamp’s location and directly use desklamp."
+    },
+    {
+      "id": "T0086",
+      "original": "examine X with desklamp 常返回“Nothing happens”，不能完成观察；应改为 use desklamp 或 examine X。",
+      "english": "examine X with desklamp often returns “Nothing happens” and cannot complete the observation; instead use desklamp or examine X."
+    },
+    {
+      "id": "T0087",
+      "original": "环境可能不支持“with”工具语法，或台灯不是可持有的工具。",
+      "english": "The environment may not support the “with” tool syntax, or the desklamp is not a holdable tool."
+    },
+    {
+      "id": "T0088",
+      "original": "在台灯处优先使用 use desklamp；若需检查目标物，使用 examine X，而不是 examine X with desklamp。",
+      "english": "At the desklamp, prioritize using use desklamp; if you need to inspect the target object, use examine X rather than examine X with desklamp."
+    },
+    {
+      "id": "T0089",
+      "original": "Clean-then-place workflow for 清洗后放置",
+      "english": "Clean-then-place workflow for placing after cleaning."
+    },
+    {
+      "id": "T0090",
+      "original": "双物品放置：先放置第一件再取第二件",
+      "english": "Two-item placement: first place the first item, then take the second item."
+    },
+    {
+      "id": "T0091",
+      "original": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品。",
+      "english": "In a two-object placement task, after finding the first target object, first place it in the target container, then find and retrieve the second target object."
+    },
+    {
+      "id": "T0092",
+      "original": "当任务要求将两件相同类型的物品放入同一目标容器，且已找到并拿起第一件物品时。",
+      "english": "When the task requires placing two objects of the same type into the same target container, and the first object has already been found and picked up."
+    },
+    {
+      "id": "T0093",
+      "original": "在双物品放置任务中，若未先移动到目标容器位置就执行放置动作，环境会返回“Nothing happens”，导致动作无效并浪费步骤。",
+      "english": "In a two-object placement task, if the place action is executed without first moving to the target container's location, the environment returns 'Nothing happens', making the action invalid and wasting steps."
+    },
+    {
+      "id": "T0094",
+      "original": "放置动作要求智能体与目标容器处于同一位置；未移动时放置命令无法生效。",
+      "english": "The place action requires the agent to be at the same location as the target container; if not moved, the place command cannot take effect."
+    },
+    {
+      "id": "T0095",
+      "original": "在执行放置动作前，先确认已通过“go to”到达目标容器位置，再执行“put”命令。",
+      "english": "Before executing the place action, first confirm that you have reached the target container's location via 'go to', then execute the 'put' command."
+    },
+    {
+      "id": "T0096",
+      "original": "在双物品放置任务中，若已持有一件物品，直接尝试拾取第二件物品通常会失败并返回“Nothing happens”。",
+      "english": "In a two-object placement task, if already holding one object, directly attempting to pick up the second object usually fails and returns 'Nothing happens'."
+    },
+    {
+      "id": "T0097",
+      "original": "智能体通常只能同时持有一件物品，持有状态下无法再拾取另一件。",
+      "english": "The agent can usually hold only one object at a time; while holding one, it cannot pick up another."
+    },
+    {
+      "id": "T0098",
+      "original": "在拾取第二件物品前，先将已持有的物品放入目标容器或临时放置点，腾空双手后再拾取。",
+      "english": "Before picking up the second object, first place the object already held into the target container or a temporary placement point; after freeing the hands, then pick up the second object."
+    },
+    {
+      "id": "T0099",
+      "original": "在双物品放置任务中，若已打开多个容器但未找到目标物品，应优先检查已打开容器和可见表面（如台面、架子），避免重复访问已确认无目标物品的位置。",
+      "english": "In a two-object placement task, if multiple containers have been opened but the target object has not been found, prioritize checking opened containers and visible surfaces (such as countertops and shelves), and avoid repeatedly visiting locations already confirmed to contain no target object."
+    },
+    {
+      "id": "T0100",
+      "original": "重复访问已检查位置会浪费动作预算，导致任务因预算耗尽而失败。",
+      "english": "Repeatedly visiting already checked locations wastes the action budget, causing the task to fail when the budget is exhausted."
+    },
+    {
+      "id": "T0101",
+      "original": "维护已检查位置列表，优先检查未检查的已打开容器和可见表面；若目标物品在可见表面上，直接拾取。",
+      "english": "Maintain a list of checked locations and prioritize checking unchecked opened containers and visible surfaces; if the target object is on a visible surface, pick it up directly."
+    },
+    {
+      "id": "T0102",
+      "original": "In 台灯观察 tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's location and use it (turn it on) while holding the target object.",
+      "english": "In desklamp observation tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's location and use it (turn it on) while holding the target object."
+    },
+    {
+      "id": "T0103",
+      "original": "The phrase 'under the desklamp' in 台灯观察 goals does not guarantee the target object is physically under the lamp. If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure.",
+      "english": "The phrase 'under the desklamp' in desklamp observation goals does not guarantee the target object is physically under the lamp. If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure."
+    },
+    {
+      "id": "T0104",
+      "original": "For 清洗后放置 tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation.",
+      "english": "For clean-then-place tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation."
+    },
+    {
+      "id": "T0105",
+      "original": "Any 清洗后放置 goal where the target object may be dirty and the destination is a fixed receptacle.",
+      "english": "Any clean-then-place goal where the target object may be dirty and the destination is a fixed receptacle."
+    },
+    {
+      "id": "T0106",
+      "original": "For 双物品放置 tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination.",
+      "english": "For two-object placement tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination."
+    },
+    {
+      "id": "T0107",
+      "original": "台灯观察：先定位目标物，再将其带到台灯处并开启台灯",
+      "english": "Desklamp observation: first locate the target object, then bring it to the desklamp and turn on the desklamp."
+    },
+    {
+      "id": "T0108",
+      "original": "对于“look at/examine X under the desklamp”类任务，先搜索并取得目标物 X；若目标物不在台灯所在位置，则将其带到有 desklamp 的桌面/台面，放置或保持持有，然后使用 desklamp 开启照明，以完成观察条件。",
+      "english": "For tasks of the type “look at/examine X under the desklamp”, first search for and take the target object X; if the target object is not at the location of the desklamp, bring it to the desktop/table surface with the desklamp, place it or keep holding it, then use the desklamp to turn on the light, so as to complete the observation condition."
+    },
+    {
+      "id": "T0109",
+      "original": "任务目标为观察某物在台灯下，且环境中存在可交互的 desklamp；目标物与 desklamp 不在同一位置，或目标物需要从其他容器/表面取得。",
+      "english": "The task goal is to observe something under the desklamp, and there is an interactable desklamp in the environment; the target object and the desklamp are not in the same location, or the target object needs to be obtained from another container/surface."
+    },
+    {
+      "id": "T0110",
+      "original": "台灯观察：desklamp 通常不可拿取，应使用而非 take",
+      "english": "Desklamp observation: the desklamp is usually not takeable; use it rather than take."
+    },
+    {
+      "id": "T0111",
+      "original": "在台灯观察任务中，desklamp 通常是固定物体，take desklamp 会返回“Nothing happens.”；正确交互是 use desklamp 来开启它，或把目标物放到 desklamp 所在表面后再 use desklamp。",
+      "english": "In desklamp observation tasks, the desklamp is usually a fixed object; take desklamp returns “Nothing happens.”; the correct interaction is use desklamp to turn it on, or place the target object on the surface where the desklamp is and then use desklamp."
+    },
+    {
+      "id": "T0112",
+      "original": "需要与 desklamp 交互时；若 take desklamp 失败，不要反复尝试拿取，应改为 use desklamp 或将目标物带到 desklamp 处。",
+      "english": "When interaction with the desklamp is needed; if take desklamp fails, do not repeatedly try to take it; instead switch to use desklamp or bring the target object to the desklamp."
+    },
+    {
+      "id": "T0113",
+      "original": "台灯观察：不要依赖 examine 目标物或 examine desklamp 来满足观察条件",
+      "english": "Desklamp observation: do not rely on examine target object or examine desklamp to satisfy the observation condition."
+    },
+    {
+      "id": "T0114",
+      "original": "examine 目标物通常只返回“There's nothing special about X.”或“Nothing happens.”，examine desklamp 也常无效果；这些动作不能替代“在台灯下观察”的环境成功条件。应优先完成目标物定位、取得/放置、开启台灯等可改变环境状态的动作。",
+      "english": "examine target object usually only returns “There's nothing special about X.” or “Nothing happens.”, and examine desklamp also often has no effect; these actions cannot replace the environment success condition of “observing under the desklamp”. Prioritize actions that can change the environment state, such as locating the target object, taking/placing it, and turning on the desklamp."
+    },
+    {
+      "id": "T0115",
+      "original": "当任务要求 look at/examine X under the desklamp，而 examine X 或 examine desklamp 没有产生有效观察结果时。",
+      "english": "When the task requires look at/examine X under the desklamp, and examine X or examine desklamp does not produce a valid observation result."
+    },
+    {
+      "id": "T0116",
+      "original": "台灯观察：避免重复 look/examine 同一位置，应继续搜索目标物",
+      "english": "Desklamp observation: avoid repeatedly look/examine the same location; continue searching for the target object."
+    },
+    {
+      "id": "T0117",
+      "original": "反复执行 look 或 examine 同一桌面/台灯不会改变状态，容易导致 blocked 或 handoff_loop_guard。若当前表面没有目标物，应转向其他容器或家具搜索目标物，找到后再回到 desklamp 处完成观察。",
+      "english": "Repeatedly executing look or examine on the same desktop/desklamp will not change the state and can easily lead to blocked or handoff_loop_guard. If the current surface has no target object, turn to other containers or furniture to search for the target object, and after finding it, return to the desklamp to complete the observation."
+    },
+    {
+      "id": "T0118",
+      "original": "在台灯观察任务中，已到达 desklamp 所在位置但目标物不在该表面，且连续 look/examine 没有新信息时。",
+      "english": "In desklamp observation tasks, when you have reached the location of the desklamp but the target object is not on that surface, and consecutive look/examine produces no new information."
+    },
+    {
+      "id": "T0119",
+      "original": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品，最后将第二件也放到目标容器。",
+      "english": "In two-object placement tasks, after finding the first target item, first place it in the target container, then search for and take the second target item, and finally place the second item also in the target container."
+    },
+    {
+      "id": "T0120",
+      "original": "当任务要求将两个同类物品放入同一目标容器，且智能体一次只能携带一件物品时。",
+      "english": "When the task requires placing two items of the same type into the same target container, and the agent can carry only one item at a time."
+    },
+    {
+      "id": "T0121",
+      "original": "在双物品放置任务中，当智能体已经持有一件物品时，尝试移动到其他位置或取另一件物品通常会失败（返回“Nothing happens”），因为智能体一次只能携带一件物品。",
+      "english": "In two-item placement tasks, when the agent already holds an item, trying to move to another location or pick up another item usually fails (returns \"Nothing happens\"), because the agent can carry only one item at a time."
+    },
+    {
+      "id": "T0122",
+      "original": "ALFWorld 环境限制智能体一次只能持有一件物品，持有物品时移动或取物操作会被阻止。",
+      "english": "The ALFWorld environment restricts the agent to holding only one item at a time; while holding an item, move or pick up operations are blocked."
+    },
+    {
+      "id": "T0123",
+      "original": "在尝试移动或取第二件物品之前，先将当前持有的物品放到目标容器或临时位置，释放双手后再继续。",
+      "english": "Before attempting to move or pick up the second item, first put the currently held item into the target container or a temporary location, free both hands, then continue."
+    },
+    {
+      "id": "T0124",
+      "original": "在双物品放置任务中，如果只在一种类型的容器（如仅搜索架子或仅搜索柜子）中寻找目标物品，可能无法找到第二件物品，导致任务失败。",
+      "english": "In two-item placement tasks, if you search for target items only in one type of container (e.g., only search shelves or only search cabinets), you may not find the second item, causing task failure."
+    },
+    {
+      "id": "T0125",
+      "original": "目标物品可能分散在不同的容器类型中，如柜台、桌子、架子、柜子等。",
+      "english": "Target items may be scattered across different container types, such as counters, tables, shelves, cabinets, etc."
+    },
+    {
+      "id": "T0126",
+      "original": "系统性地搜索多种类型的容器和表面，包括柜台、桌子、架子、柜子、抽屉等，直到找到两件目标物品。",
+      "english": "Systematically search multiple types of containers and surfaces, including counters, tables, shelves, cabinets, drawers, etc., until both target items are found."
+    },
+    {
+      "id": "T0127",
+      "original": "在双物品放置任务中，如果智能体在已经持有物品或已完成部分任务时反复声明 HANDOFF 而不执行实际动作，会导致 handoff_loop_guard 终止，任务失败。",
+      "english": "In two-item placement tasks, if the agent repeatedly declares HANDOFF without executing actual actions while already holding an item or after partially completing the task, handoff_loop_guard will terminate it and the task fails."
+    },
+    {
+      "id": "T0128",
+      "original": "智能体可能错误地认为当前状态已满足交接条件，但实际任务尚未完成，导致反复声明交接而不推进任务。",
+      "english": "The agent may incorrectly believe the current state already satisfies the handoff condition, but the actual task is not yet complete, causing repeated handoff declarations without advancing the task."
+    },
+    {
+      "id": "T0129",
+      "original": "仅在确实完成当前子目标（如已取到物品或已放置物品）时声明 HANDOFF，并在声明后继续执行必要的后续动作，避免重复声明。",
+      "english": "Declare HANDOFF only when the current subgoal is truly completed (e.g., the item has been picked up or placed), and after declaring it continue executing necessary follow-up actions to avoid repeated declarations."
+    },
+    {
+      "id": "T0130",
+      "original": "台灯观察：先定位台灯所在家具，再携带目标物前往",
+      "english": "Desklamp observation: first locate the furniture where the desklamp is, then carry the target object there."
+    },
+    {
+      "id": "T0131",
+      "original": "在台灯观察任务中，不要直接尝试 go to desklamp；台灯是固定在家具上的对象，应先通过探索或已知位置找到承载台灯的家具（如 desk、sidetable、dresser、coffeetable），再携带目标物前往该家具并使用台灯。",
+      "english": "In the desklamp observation task, do not directly try to go to desklamp; the desklamp is an object fixed to furniture. First find the furniture carrying the desklamp (e.g., desk, sidetable, dresser, coffeetable) through exploration or known location, then carry the target object to that furniture and use the desklamp."
+    },
+    {
+      "id": "T0132",
+      "original": "当目标物已取得或已在手，且需要将其置于台灯下观察时。",
+      "english": "When the target object has been obtained or is already in hand, and it needs to be placed under the desklamp for observation."
+    },
+    {
+      "id": "T0133",
+      "original": "台灯观察：到达台灯所在家具后使用台灯完成观察",
+      "english": "Desklamp observation: after reaching the furniture where the desklamp is, use the desklamp to complete observation."
+    },
+    {
+      "id": "T0134",
+      "original": "携带目标物到达台灯所在家具后，执行 use desklamp 即可完成台灯观察；不需要对目标物执行 examine、use 或 look 来触发观察。",
+      "english": "After carrying the target object to the furniture where the desklamp is, execute use desklamp to complete the desklamp observation; there is no need to execute examine, use, or look on the target object to trigger observation."
+    },
+    {
+      "id": "T0135",
+      "original": "当已携带目标物并位于台灯所在家具处，且任务要求 examine/look at 目标物 with/under the desklamp 时。",
+      "english": "When the target object is already carried and the agent is at the furniture where the desklamp is, and the task requires examine/look at the target object with/under the desklamp."
+    },
+    {
+      "id": "T0136",
+      "original": "台灯观察：避免对目标物反复 examine/use/look 而不使用台灯",
+      "english": "Desklamp observation: avoid repeatedly using examine/use/look on the target object without using the desklamp."
+    },
+    {
+      "id": "T0137",
+      "original": "在台灯观察任务中，反复对目标物执行 examine、use 或 look 通常不会触发成功条件；成功路径是到达台灯所在家具后使用台灯。若已尝试多次无效，应停止重复并转向寻找/使用台灯。",
+      "english": "In desklamp observation tasks, repeatedly executing examine, use, or look on the target object usually does not trigger the success condition; the successful path is to reach the furniture where the desklamp is located and then use the desklamp. If multiple attempts have been ineffective, stop repeating and switch to finding/using the desklamp."
+    },
+    {
+      "id": "T0138",
+      "original": "当任务要求 look at/examine 目标物 under/with the desklamp，且对目标物直接 examine/use/look 返回 Nothing happens 或普通描述时。",
+      "english": "When the task requires look at/examine the target object under/with the desklamp, and directly performing examine/use/look on the target object returns \"Nothing happens\" or an ordinary description."
+    },
+    {
+      "id": "T0139",
+      "original": "台灯观察：不要尝试拿起或移动台灯",
+      "english": "Desklamp observation: do not attempt to pick up or move the desklamp."
+    },
+    {
+      "id": "T0140",
+      "original": "台灯是固定对象，take desklamp 或 go to desklamp 通常无效；应把台灯视为家具上的固定交互点，通过前往其所在家具并使用它来完成观察。",
+      "english": "The desklamp is a fixed object; take desklamp or go to desklamp is usually ineffective; treat the desklamp as a fixed interaction point on furniture, and complete the observation by going to the furniture where it is located and using it."
+    },
+    {
+      "id": "T0141",
+      "original": "当任务涉及 desklamp，且尝试 take desklamp 或 go to desklamp 返回 Nothing happens 时。",
+      "english": "When the task involves the desklamp, and attempting take desklamp or go to desklamp returns \"Nothing happens\"."
+    },
+    {
+      "id": "T0142",
+      "original": "Task type 加热后放置; target object is held; microwave is open; goal requires heating the object.",
+      "english": "Task type heat then place; target object is held; microwave is open; goal requires heating the object."
+    },
+    {
+      "id": "T0143",
+      "original": "Task type 加热后放置; object is heated and held; destination is known.",
+      "english": "Task type heat then place; object is heated and held; destination is known."
+    },
+    {
+      "id": "T0144",
+      "original": "台灯观察任务：先取得目标物，再前往台灯所在表面并使用台灯",
+      "english": "Desklamp observation task: first acquire the target object, then go to the surface where the desklamp is located and use the desklamp."
+    },
+    {
+      "id": "T0145",
+      "original": "在“台灯观察”任务中，先搜索并取得目标物体；若台灯已在某表面被观察到，直接前往该表面并使用台灯，不要继续搜索其他容器。到达后使用 use desklamp 完成观察。",
+      "english": "In \"desklamp observation\" tasks, first search for and acquire the target object; if the desklamp has already been observed on a surface, go directly to that surface and use the desklamp, and do not continue searching other containers. After arriving, execute the command use desklamp to complete the observation."
+    },
+    {
+      "id": "T0146",
+      "original": "在寻找目标物或台灯时，若目标物更可能出现在桌面、边桌、床等开放表面，不应优先或反复遍历大量抽屉；且当台灯已在某表面可见时，继续搜索抽屉会浪费步骤并导致失败。",
+      "english": "When searching for the target object or desklamp, if the target object is more likely to appear on open surfaces such as desks, side tables, or beds, do not prioritize or repeatedly iterate through many drawers; and when the desklamp is already visible on a surface, continuing to search drawers wastes steps and leads to failure."
+    },
+    {
+      "id": "T0147",
+      "original": "抽屉搜索成本高，很多台灯观察任务的目标物和台灯都在开放表面上；忽略已观察到的台灯会错过完成时机。",
+      "english": "Drawer searches are costly; in many desklamp observation tasks, the target object and the desklamp are both on open surfaces; ignoring an already observed desklamp will miss the opportunity to complete the task."
+    },
+    {
+      "id": "T0148",
+      "original": "先检查与台灯相关的桌面、边桌、床头柜等开放表面；一旦观察到台灯，直接前往其表面并使用台灯，只有在合理位置未找到时才检查抽屉。",
+      "english": "First check open surfaces related to the desklamp, such as desks, side tables, and nightstands; once the desklamp is observed, go directly to its surface and use the desklamp, and check drawers only when it has not been found in reasonable locations."
+    },
+    {
+      "id": "T0149",
+      "original": "当动作返回“Nothing happens”时，不要重复同一动作；应改变状态（如打开/关闭容器、移动位置、取出物体）后再重试。若 `go to <location>` 返回“Nothing happens”，将该位置视为不可达并切换到其他候选位置；若 `open` 返回“Nothing happens”，容器可能已打开，直接继续 put。",
+      "english": "When an action returns \"Nothing happens\", do not repeat the same action; change the state (such as opening/closing a container, moving location, taking out an object) and then retry. If `go to <location>` returns \"Nothing happens\", treat that location as unreachable and switch to another candidate location; if `open` returns \"Nothing happens\", the container may already be open, so directly continue put."
+    },
+    {
+      "id": "T0150",
+      "original": "不要输出完成状态或停止行动，直到环境观察确认最终放置动作成功；成功后立即停止，不要再发出 inventory 或空动作。若最终 put 返回“Nothing happens”，先确认已到达目标位置再重试，而不是过早声明完成或失败。",
+      "english": "Do not output a completion state or stop acting until environmental observation confirms the final placement action succeeded; stop immediately after success and do not issue inventory or empty actions again. If the final put returns \"Nothing happens\", first confirm that the target location has been reached and then retry, rather than prematurely declaring completion or failure."
+    },
+    {
+      "id": "T0151",
+      "original": "对于“examine/look at X with/under the desklamp”类任务，先定位目标物体和台灯，若目标可携带则拿起目标，移动到台灯所在位置，然后使用台灯（use desklamp <id>）完成观察。若目标物体已在台灯所在家具上，先拿起目标物体再使用台灯；若第一张桌子没有台灯，继续搜索其他承载面（sidetable、shelf、dresser）同时保持持有目标物体。",
+      "english": "For tasks of the “examine/look at X with/under the desklamp” type, first locate the target object and the desklamp; if the target is portable, pick up the target, move to the desklamp's location, then use the desklamp (use desklamp <id>) to complete the observation. If the target object is already on the furniture where the desklamp is, pick up the target object first and then use the desklamp; if the first table has no desklamp, continue searching other support surfaces (sidetable, shelf, dresser) while keeping the target object held."
+    },
+    {
+      "id": "T0152",
+      "original": "在双物品放置任务中，若一次只能携带一件物品，先找到并拿起第一件目标物品；若目标容器可达则直接放入最终目标容器，否则暂存到安全开放承载面，再寻找并拿起第二件目标物品，最后将两件物品都放入目标容器。优先在开放承载面（桌子、台面、架子、沙发）搜索，两件物品常在同一承载面上。",
+      "english": "In two-object placement tasks, if only one object can be carried at a time, first find and pick up the first target object; if the target container is reachable, place it directly into the final target container; otherwise temporarily store it on a safe open support surface, then find and pick up the second target object, and finally place both objects into the target container. Prefer searching open support surfaces (table, countertop, shelf, sofa); the two objects are often on the same support surface."
+    },
+    {
+      "id": "T0153",
+      "original": "In 台灯观察 tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's observed location and use it (turn it on) while holding the target object. Bind the operation to the lamp's observed location, not a guessed one, and if the target object is already visible at the lamp's location, a single combined take-then-use mission suffices.",
+      "english": "In desklamp observation tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's observed location and use it (turn it on) while holding the target object. Bind the operation to the lamp's observed location, not a guessed one, and if the target object is already visible at the lamp's location, a single combined take-then-use mission suffices."
+    },
+    {
+      "id": "T0154",
+      "original": "The phrase 'under the desklamp' in 台灯观察 goals does not guarantee the target object is physically under the lamp, nor that the lamp is at the assumed location. If the object or lamp is not visible at the assumed location, search other surfaces and containers before declaring failure.",
+      "english": "The phrase 'under the desklamp' in desklamp observation goals does not guarantee the target object is physically under the lamp, nor that the lamp is at the assumed location. If the object or lamp is not visible at the assumed location, search other surfaces and containers before declaring failure."
+    },
+    {
+      "id": "T0155",
+      "original": "For 清洗后放置 tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation. Keep clean and place as distinct missions with distinct return conditions.",
+      "english": "For clean-then-place tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation. Keep clean and place as distinct missions with distinct return conditions."
+    },
+    {
+      "id": "T0156",
+      "original": "For 双物品放置 tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination. Track placed-item state so the second search targets a location observed to hold a second instance and never re-takes an already-placed item.",
+      "english": "For two-object placement tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination. Track placed-item state so the second search targets a location observed to hold a second instance and never re-takes an already-placed item."
+    },
+    {
+      "id": "T0157",
+      "original": "对于“look at/examine X under the desklamp”类任务，先搜索并取得目标物 X；若目标物不在台灯所在位置，则将其带到有 desklamp 的桌面/台面，放置或保持持有，然后使用带编号的 desklamp 开启照明。若目标物已在台灯所在表面，取得后立即 use desklamp N，不要仅取物后就交接，因为观察目标要求台灯开启。",
+      "english": "For tasks of the “look at/examine X under the desklamp” type, first search for and obtain the target object X; if the target object is not at the desklamp's location, bring it to a desktop/countertop that has a desklamp, place it or keep holding it, then use the numbered desklamp to turn on the light. If the target object is already on the surface where the desklamp is, immediately use desklamp N after obtaining it; do not hand off after merely taking the object, because the observation goal requires the desklamp to be on."
+    },
+    {
+      "id": "T0158",
+      "original": "台灯观察：desklamp 通常不可拿取，应使用带编号的 use desklamp",
+      "english": "Desklamp observation: the desklamp is usually not takeable; use the numbered use desklamp."
+    },
+    {
+      "id": "T0159",
+      "original": "在台灯观察任务中，desklamp 通常是固定物体，take desklamp 会返回“Nothing happens.”；正确交互是持有目标物后使用观察中看到的带编号标识执行 use desklamp N 来开启它。不要尝试 'use desklamp on X' 或 'use X on desklamp' 组合，这些通常无效。",
+      "english": "In desklamp observation tasks, the desklamp is usually a fixed object; take desklamp returns “Nothing happens.”; the correct interaction is, after holding the target object, use the numbered identifier seen in the observation to execute use desklamp N to turn it on. Do not attempt the 'use desklamp on X' or 'use X on desklamp' combinations; these are usually invalid."
+    },
+    {
+      "id": "T0160",
+      "original": "需要与 desklamp 交互时；若 take desklamp 失败，不要反复尝试拿取，应改为 use desklamp N 或将目标物带到 desklamp 处后再 use desklamp N。",
+      "english": "When interaction with the desklamp is needed; if take desklamp fails, do not repeatedly try to take it; instead switch to use desklamp N or bring the target object to the desklamp and then use desklamp N."
+    },
+    {
+      "id": "T0161",
+      "original": "在双物品放置任务中，找到第一件目标物品后，先将其放到目标容器，再寻找并取回第二件目标物品，最后将第二件也放到目标容器。若第一件物品所在表面有多个同类实例，放置第一件后返回同一表面取第二件，而不是去别处搜索。",
+      "english": "In two-object placement tasks, after finding the first target object, first place it into the target container, then find and retrieve the second target object, and finally place the second one into the target container as well. If the surface where the first object is located has multiple instances of the same type, after placing the first object return to the same surface to take the second, rather than searching elsewhere."
+    },
+    {
+      "id": "T0162",
+      "original": "目标物品可能分散在不同的容器类型中，如柜台、桌子、架子、柜子、抽屉等。",
+      "english": "The target objects may be scattered across different container types, such as counters, tables, shelves, cabinets, drawers, etc."
+    },
+    {
+      "id": "T0163",
+      "original": "系统性地搜索多种类型的容器和表面，包括柜台、桌子、架子、柜子、抽屉等，直到找到两件目标物品；不要过早声明 BLOCKED。",
+      "english": "Systematically search multiple types of containers and surfaces, including counters, tables, shelves, cabinets, drawers, etc., until both target objects are found; do not declare BLOCKED prematurely."
+    },
+    {
+      "id": "T0164",
+      "original": "台灯观察：到达台灯所在家具后使用台灯实例完成观察",
+      "english": "Desklamp observation: after arriving at the furniture where the desklamp is, use the desklamp instance to complete the observation."
+    },
+    {
+      "id": "T0165",
+      "original": "携带目标物到达台灯所在家具后，执行 use desklamp <id>（使用具体实例编号，如 use desklamp 1）即可完成台灯观察；不要使用裸名 use desklamp，也不要对目标物执行 examine、use 或 look 来触发观察。",
+      "english": "After carrying the target object to the furniture where the desklamp is, execute use desklamp <id> (use the specific instance number, such as use desklamp 1) to complete the desklamp observation; do not use the bare name use desklamp, and do not execute examine, use, or look on the target object to trigger the observation."
+    },
+    {
+      "id": "T0166",
+      "original": "台灯观察：避免裸名或复合语法，改用 use desklamp <id>",
+      "english": "Desklamp observation: avoid bare names or compound syntax; instead execute the command use desklamp <id>"
+    },
+    {
+      "id": "T0167",
+      "original": "在台灯观察任务中，裸名 use desklamp、复合语法 use desklamp on X / use X on desklamp，以及对目标物反复 examine/use/look 通常返回 Nothing happens；成功路径是到达台灯所在家具后执行 use desklamp <id>。若已尝试多次无效，应停止重复并核对台灯实例名后重试。",
+      "english": "In a desklamp observation task, bare-name use desklamp, compound syntax use desklamp on X / use X on desklamp, and repeated examine/use/look on the target object usually return Nothing happens; the successful path is to reach the furniture where the desklamp is located and then execute use desklamp <id>. If multiple attempts have been invalid, stop repeating and verify the desklamp instance name before retrying."
+    },
+    {
+      "id": "T0168",
+      "original": "当任务要求 look at/examine 目标物 under/with the desklamp，且裸名或复合语法返回 Nothing happens 时。",
+      "english": "When the task requires look at/examine the target object under/with the desklamp, and bare-name or compound syntax returns Nothing happens."
+    },
+    {
+      "id": "T0169",
+      "original": "台灯观察：定位目标物与台灯并在台灯所在家具处使用台灯",
+      "english": "Desklamp observation: locate the target object and the desklamp, and use the desklamp at the furniture where the desklamp is located"
+    },
+    {
+      "id": "T0170",
+      "original": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器或盲目开抽屉。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。成功开启台灯即为终止条件，不要在其后追加 use/look。",
+      "english": "First confirm the locations of the target object and the desklamp; the desklamp is usually fixed on a furniture surface. If the desklamp has already been observed on a surface such as a desk, side table, or dresser, go directly to that furniture and do not continue searching unrelated containers or blindly opening drawers. If the target object is not at the desklamp, first obtain and carry the target object to that furniture; if the target object is already at the desklamp, directly try to use the desklamp, and if the interaction is not accepted, ensure the target object is in hand and retry. After arriving, execute the command use desklamp <id> with the instance ID to trigger the observation; do not use bare names or compound syntax, and do not treat the desklamp as a carryable object or navigation point. Successfully turning on the desklamp is the termination condition; do not append use/look afterward."
+    },
+    {
+      "id": "T0171",
+      "original": "当任务要求 examine/look at 某物 with/under the desklamp，且环境中存在可交互的 desklamp 时。",
+      "english": "When the task requires examine/look at something with/under the desklamp, and an interactable desklamp exists in the environment."
+    },
+    {
+      "id": "T0172",
+      "original": "多条失败轨迹显示，take desklamp、go to desklamp 或重复 go to 台灯/桌面通常返回 Nothing happens，浪费步骤并可能阻断后续观察。台灯是固定在家具上的交互点，不是可携带物或可导航位置。",
+      "english": "Multiple failed trajectories show that take desklamp, go to desklamp, or repeatedly going to the desklamp/desk usually returns Nothing happens, wastes steps, and may block subsequent observation. The desklamp is an interaction point fixed on furniture, not a carryable object or navigable location."
+    },
+    {
+      "id": "T0173",
+      "original": "环境把台灯建模为固定光源或固定设备，只有其所在家具可作为导航目标，台灯本身不能作为 take 或 go to 的目标。",
+      "english": "The environment models the desklamp as a fixed light source or fixed device; only the furniture where it is located can be a navigation target, and the desklamp itself cannot be the target of take or go to."
+    },
+    {
+      "id": "T0174",
+      "original": "不要尝试拿取、移动或导航到台灯。先到达承载台灯的家具（desk、sidetable、dresser、coffeetable 等），在已到达后直接使用带编号的 use desklamp <id>；若已在台灯处，不要重复 go to 同一位置。",
+      "english": "Do not try to take, move, or navigate to the desklamp. First reach the furniture that holds the desklamp (desk, sidetable, dresser, coffeetable, etc.), and after arriving, directly execute the command use desklamp <id> with the ID; if already at the desklamp, do not repeatedly go to the same location."
+    },
+    {
+      "id": "T0175",
+      "original": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会导致任务看似完成但环境目标未达成。",
+      "english": "In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, bare-name use desklamp, use desklamp on X, and use X on desklamp often return There's nothing special about X or Nothing happens, and cannot replace the observation condition. Merely placing the target object on the desk or desklamp without triggering the desklamp interaction also makes the task appear complete while the environment goal is not achieved."
+    },
+    {
+      "id": "T0176",
+      "original": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法；放置动作本身不会触发观察成功条件。",
+      "english": "The environment does not support using the desklamp as a tool parameter for examine, nor does it support bare names or compound syntax; the placement action itself does not trigger the observation success condition."
+    },
+    {
+      "id": "T0177",
+      "original": "把目标物定位并带到台灯所在家具后，使用观察到的带编号 lamp 实例执行 use desklamp <id>。不要用 examine X with desklamp 或复合 use 语法；若已尝试无效语法，核对台灯实例名后重试，而不是反复 examine 目标物或台灯。",
+      "english": "After locating the target object and bringing it to the furniture where the desklamp is located, use the observed numbered lamp instance to execute use desklamp <id>. Do not use examine X with desklamp or compound use syntax; if invalid syntax has been tried, verify the desklamp instance name and retry, rather than repeatedly examining the target object or desklamp."
+    },
+    {
+      "id": "T0178",
+      "original": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置或交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。",
+      "english": "If use desklamp returns Nothing happens, it usually means you are not currently at the desklamp location or the interaction conditions are not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating."
+    },
+    {
+      "id": "T0179",
+      "original": "使用台灯要求与台灯所在家具同处，且错误语法或位置不会产生状态变化；把空观察误当作可重试信号会重复无效动作。",
+      "english": "Using the desklamp requires being at the same furniture where the desklamp is located, and incorrect syntax or location will not produce a state change; mistaking an empty observation for a retryable signal will repeat ineffective actions."
+    },
+    {
+      "id": "T0180",
+      "original": "失败后先核对目标物与台灯是否在当前家具处，必要时移动到已观察到的台灯家具，改用带编号 use desklamp <id> 或先取得或保持目标物后重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令。",
+      "english": "After a failure, first check whether the target object and desklamp are at the current furniture; if necessary, move to the observed desklamp furniture, switch to use desklamp <id> with the ID, or first obtain or keep the target object and retry; if there is still no change, switch to searching other locations or declare that it cannot be completed, and do not repeat the same command."
+    },
+    {
+      "id": "T0181",
+      "original": "台灯观察搜索策略：优先开放表面并系统检查容器",
+      "english": "Desklamp observation search strategy: prioritize open surfaces and systematically check containers"
+    },
+    {
+      "id": "T0182",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、扶手椅、咖啡桌、架子等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or desklamp, prioritize open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, armchair, coffee table, shelves, etc.; once the desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed; do not continue traversing many drawers. If the reasonable open surfaces do not contain the target object, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine at the same location; when there is no new information, move to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0183",
+      "original": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物或台灯不在该处、连续观察无新信息时。",
+      "english": "When searching for the target object or desklamp in a desklamp observation task, or when you have reached the assumed desklamp location but the target object or desklamp is not there and repeated observations yield no new information."
+    },
+    {
+      "id": "T0184",
+      "original": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。",
+      "english": "First confirm the locations of the target object and desklamp; the desklamp is usually fixed on a furniture surface. If the desklamp has already been observed on a surface such as a desktop, side table, or dresser, go directly to that furniture; do not continue searching unrelated containers. When the target object is not at the desklamp, first obtain the target object and carry it to that furniture; when the target object is already at the desklamp, you can directly try to use the desklamp; if the interaction is not accepted, ensure the target object is in hand and retry. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use a bare name or compound syntax, and do not treat the desklamp as a carryable object or navigation point."
+    },
+    {
+      "id": "T0185",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or desklamp, prioritize open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, etc.; once the desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed; do not continue traversing many drawers. If the reasonable open surfaces do not contain the target object, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine at the same location; when there is no new information, move to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0186",
+      "original": "台灯观察：定位目标物与台灯并在台灯所在家具处使用带编号台灯",
+      "english": "Desklamp observation: locate the target object and desklamp and use the numbered desklamp at the furniture where the desklamp is located"
+    },
+    {
+      "id": "T0187",
+      "original": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器或抽屉。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。",
+      "english": "First confirm the locations of the target object and desklamp; the desklamp is usually fixed on a furniture surface. If the desklamp has already been observed on a surface such as a desktop, side table, or dresser, go directly to that furniture; do not continue searching unrelated containers or drawers. When the target object is not at the desklamp, first obtain the target object and carry it to that furniture; when the target object is already at the desklamp, you can directly try to use the desklamp; if the interaction is not accepted, ensure the target object is in hand and retry. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use a bare name or compound syntax, and do not treat the desklamp as a carryable object or navigation point."
+    },
+    {
+      "id": "T0188",
+      "original": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、examine 家具（如 examine desk 1）、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会导致任务看似完成但环境目标未达成。",
+      "english": "In failure trajectories, examine X with desklamp, examine the target object, examine desklamp, examine furniture (such as examine desk 1), bare-name use desklamp, use desklamp on X, and use X on desklamp often return 'There's nothing special about X' or 'Nothing happens', and cannot replace the observation condition. Merely placing the target object on the desk or desklamp without triggering the desklamp interaction also causes the task to appear complete while the environment goal is not achieved."
+    },
+    {
+      "id": "T0189",
+      "original": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法，examine 家具也不提供有效信息；放置动作本身不会触发观察成功条件。",
+      "english": "The environment does not support using the desklamp as a tool argument to examine, nor does it support bare names or compound syntax; examining furniture also does not provide effective information; the placement action itself does not trigger the observation success condition."
+    },
+    {
+      "id": "T0190",
+      "original": "把目标物定位并带到台灯所在家具后，使用观察到的带编号 lamp 实例执行 use desklamp <id>。不要用 examine X with desklamp、examine 家具或复合 use 语法；若已尝试无效语法，核对台灯实例名后重试，而不是反复 examine 目标物、台灯或家具。",
+      "english": "After locating the target object and bringing it to the furniture where the desklamp is located, use the observed numbered lamp instance to execute use desklamp <id>. Do not use examine X with desklamp, examine furniture, or compound use syntax; if invalid syntax has been tried, verify the desklamp instance name and retry, rather than repeatedly examining the target object, desklamp, or furniture."
+    },
+    {
+      "id": "T0191",
+      "original": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、使用了裸名而非带编号实例，或交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。",
+      "english": "If use desklamp returns 'Nothing happens', it usually means you are not currently at the desklamp's location, used a bare name instead of a numbered instance, or the interaction conditions are not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating."
+    },
+    {
+      "id": "T0192",
+      "original": "使用台灯要求与台灯所在家具同处，且错误语法（如裸名 use desklamp）或位置不会产生状态变化；把空观察误当作可重试信号会重复无效动作。",
+      "english": "Using the desklamp requires being at the same location as the furniture where the desklamp is located, and incorrect syntax (such as bare-name use desklamp) or location will not produce a state change; mistaking an empty observation for a retry signal will repeat ineffective actions."
+    },
+    {
+      "id": "T0193",
+      "original": "失败后先核对目标物与台灯是否在当前家具处，必要时移动到已观察到的台灯家具，改用带编号 use desklamp <id> 或先取得或保持目标物后重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令或回退到 examine。",
+      "english": "After a failure, first check whether the target object and desklamp are at the current furniture; if necessary, move to the observed desklamp furniture, switch to numbered use desklamp <id>, or obtain or keep the target object and retry; if there is still no change, switch to searching other locations or state that the task cannot be completed; do not repeat the same command or fall back to examine."
+    },
+    {
+      "id": "T0194",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、沙发、扶手椅等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or desklamp, prioritize open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, sofa, armchair, etc.; once the desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed; do not continue traversing many drawers. If the reasonable open surfaces do not contain the target object, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine at the same location; when there is no new information, move to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0195",
+      "original": "先确认目标物和台灯位置；台灯通常固定在家具表面。若台灯已在桌面、边桌、梳妆台等表面被观察到，直接前往该家具，不要继续搜索无关容器或盲目开抽屉。目标物不在台灯处时，先取得并携带目标物到该家具；目标物已在台灯处时，可直接尝试使用台灯，若交互未被接受再确保目标物在手中并重试。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。若在台灯所在家具处已取得目标物，不要再次 go to 同一位置，直接 use desklamp <id>。成功开启台灯即为终止条件，不要在其后追加 use/look。",
+      "english": "First confirm the locations of the target object and desklamp; the desklamp is usually fixed on a furniture surface. If the desklamp has already been observed on a surface such as a desktop, side table, or dresser, go directly to that furniture; do not continue searching unrelated containers or blindly opening drawers. When the target object is not at the desklamp, first obtain the target object and carry it to that furniture; when the target object is already at the desklamp, you can directly try to use the desklamp; if the interaction is not accepted, ensure the target object is in hand and retry. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use a bare name or compound syntax, and do not treat the desklamp as a carryable object or navigation point. If the target object has already been obtained at the furniture where the desklamp is located, do not go to the same location again; directly use desklamp <id>. Successfully turning on the desklamp is the termination condition; do not append use/look after it."
+    },
+    {
+      "id": "T0196",
+      "original": "台灯观察：先取得目标物，再到台灯所在家具使用带编号台灯",
+      "english": "Desklamp observation: first obtain the target object, then go to the furniture where the desklamp is located and use the numbered desklamp."
+    },
+    {
+      "id": "T0197",
+      "original": "先确认目标物和台灯位置；台灯通常固定在家具表面。若目标物与台灯在同一表面被观察到，先 take 目标物，再使用带实例编号的 use desklamp <id>；不要在未持有目标物时先 use desklamp，否则常返回 Nothing happens。若目标物不在台灯处，先取得并携带目标物到承载台灯的家具。到达后使用 use desklamp <id> 触发观察；不要用裸名或复合语法，也不要把台灯当作可携带物或导航点。",
+      "english": "First confirm the locations of the target object and the desklamp; the desklamp is usually fixed on a furniture surface. If the target object and the desklamp are observed on the same surface, first take the target object, then use the numbered instance with use desklamp <id>; do not use desklamp before holding the target object, otherwise it often returns Nothing happens. If the target object is not at the desklamp, first obtain and carry the target object to the furniture bearing the desklamp. Upon arrival, execute the command use desklamp <id> to trigger observation; do not use the bare name or compound syntax, and do not treat the desklamp as a carryable item or navigation point."
+    },
+    {
+      "id": "T0198",
+      "original": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、当前家具观察中并无台灯，或交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。",
+      "english": "If use desklamp returns Nothing happens, it usually means you are not currently at the desklamp's location, the current furniture observation does not include a desklamp, or the interaction conditions are not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating."
+    },
+    {
+      "id": "T0199",
+      "original": "失败后先核对当前家具观察中是否确实列出 desklamp；若没有，移动到已观察到台灯的其他家具，而不是重试同一 use。若台灯在场，确保目标物已取得或保持后改用带编号 use desklamp <id> 重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令。",
+      "english": "After a failure, first check whether the current furniture observation actually lists desklamp; if not, move to another furniture where a desklamp has been observed, rather than retrying the same use. If the desklamp is present, ensure the target object has been obtained or is held, then retry with the numbered use desklamp <id>; if there is still no change, search other locations or declare that it cannot be completed, and do not repeat the same command."
+    },
+    {
+      "id": "T0200",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable 等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or desklamp, prioritize checking open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, dresser, sofa, coffeetable, etc.; once a desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed, rather than continuing to traverse many drawers. If the target object is not on reasonable open surfaces, then systematically search by container type (drawer/cabinet), and return to the desklamp after finding it. Avoid repeatedly look/examine at the same location; when there is no new information, move on to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0201",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、coffeetable 等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉或无关容器。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or desklamp, prioritize checking open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, coffeetable, etc.; once a desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed, rather than continuing to traverse many drawers or unrelated containers. If the target object is not on reasonable open surfaces, then systematically search by container type (drawer/cabinet), and return to the desklamp after finding it. Avoid repeatedly look/examine at the same location; when there is no new information, move on to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0202",
+      "original": "台灯观察：定位目标物并在台灯所在家具处使用带编号台灯",
+      "english": "Desklamp observation: locate the target object and use the numbered desklamp at the furniture where the desklamp is located."
+    },
+    {
+      "id": "T0203",
+      "original": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。",
+      "english": "First confirm the locations of the target object and the desklamp. The desklamp is usually fixed on a furniture surface; after observing the desklamp, go directly to the furniture where it is located, do not continue searching unrelated containers or blindly open drawers, and do not treat the desklamp as a carryable item or navigation point. If the target object is not at the desklamp, first obtain it and carry it to that furniture; if the target object is already at the desklamp, first ensure the target object is in hand before interacting. Upon arrival, use the numbered instance with use desklamp <id> to trigger observation; do not use the bare name or compound syntax. Successfully turning on the desklamp is the termination condition; do not append use/look after it; if the target object has already been obtained at that furniture, do not go to the same location again."
+    },
+    {
+      "id": "T0204",
+      "original": "多条失败轨迹显示，take desklamp、go to desklamp 或重复 go to 台灯/桌面通常返回 Nothing happens，浪费步骤并可能阻断后续观察；台灯是固定在家具上的交互点，不是可携带物或可导航位置。",
+      "english": "Multiple failed trajectories show that take desklamp, go to desklamp, or repeatedly going to the desklamp/desktop usually returns Nothing happens, wasting steps and possibly blocking subsequent observation; the desklamp is an interaction point fixed on furniture, not a carryable item or navigable location."
+    },
+    {
+      "id": "T0205",
+      "original": "不要尝试拿取、移动或导航到台灯。先到达承载台灯的家具（desk、sidetable、dresser、coffeetable 等），已到达后直接使用带编号的 use desklamp <id>；若已在台灯处，不要重复 go to 同一位置。",
+      "english": "Do not attempt to take, move, or navigate to the desklamp. First reach the furniture bearing the desklamp (desk, sidetable, dresser, coffeetable, etc.); once there, directly use the numbered use desklamp <id>; if already at the desklamp, do not go to the same location again."
+    },
+    {
+      "id": "T0206",
+      "original": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、examine 家具（如 examine desk 1）、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会导致任务看似完成但环境目标未达成。有效交互形式是使用观察到的带编号 lamp 实例，例如 use desklamp 1。",
+      "english": "In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, examine furniture (such as examine desk 1), bare-name use desklamp, use desklamp on X, use X on desklamp often return There's nothing special about X or Nothing happens, and cannot substitute for the observation condition. Merely placing the target object on the desk or desklamp without triggering the desklamp interaction also causes the task to appear complete while the environment goal is not achieved. The valid interaction form is to use the observed numbered lamp instance, for example use desklamp 1."
+    },
+    {
+      "id": "T0207",
+      "original": "把目标物定位并带到台灯所在家具后，使用观察到的带编号 lamp 实例执行 use desklamp <id>。不要用 examine X with desklamp、examine 目标物/台灯/家具或复合 use 语法；若已尝试无效语法，核对台灯实例名后重试，而不是反复 examine。",
+      "english": "After locating the target object and bringing it to the furniture where the desklamp is located, use the observed numbered lamp instance to execute use desklamp <id>. Do not use examine X with desklamp, examine the target object/desklamp/furniture, or compound use syntax; if invalid syntax has been attempted, verify the desklamp instance name and retry, rather than repeatedly examining."
+    },
+    {
+      "id": "T0208",
+      "original": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、当前家具观察中并无台灯、使用了裸名而非带编号实例，或目标物未取得/交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。",
+      "english": "If use desklamp returns Nothing happens, it usually means you are not currently at the desklamp's location, the current furniture observation does not include a desklamp, a bare name was used instead of a numbered instance, or the target object has not been obtained/the interaction conditions are not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating."
+    },
+    {
+      "id": "T0209",
+      "original": "使用台灯要求与台灯所在家具同处，且错误语法（如裸名 use desklamp）、位置或未持有目标物不会产生状态变化；把空观察误当作可重试信号会重复无效动作。",
+      "english": "Using the desklamp requires being at the same location as the furniture where the desklamp is located, and incorrect syntax (such as bare-name use desklamp), location, or not holding the target object will not produce a state change; mistaking an empty observation for a retry signal will repeat invalid actions."
+    },
+    {
+      "id": "T0210",
+      "original": "失败后先核对当前家具观察中是否确实列出 desklamp；若没有，移动到已观察到台灯的其他家具，而不是重试同一 use。若台灯在场，确保目标物已取得或保持后改用带编号 use desklamp <id> 重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令或回退到 examine。",
+      "english": "After a failure, first check whether the current furniture observation actually lists desklamp; if not, move to another furniture where a desklamp has been observed, rather than retrying the same use. If the desklamp is present, ensure the target object has been obtained or is held, then retry with the numbered use desklamp <id>; if there is still no change, search other locations or declare that it cannot be completed, and do not repeat the same command or fall back to examine."
+    },
+    {
+      "id": "T0211",
+      "original": "台灯观察搜索策略：优先开放表面，再系统检查容器",
+      "english": "Desklamp observation search strategy: prioritize open surfaces, then systematically check containers."
+    },
+    {
+      "id": "T0212",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable、扶手椅、架子等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉或无关容器。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器。",
+      "english": "When searching for the target object or the desklamp, prioritize checking open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, dresser, sofa, coffeetable, armchair, shelf, etc.; once the desklamp is observed, go directly to the furniture where it is located and use the desklamp if needed, do not continue traversing many drawers or irrelevant containers. If the target object is not on reasonable open surfaces, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine the same location; when there is no new information, turn to other furniture or containers. 'under the desklamp' does not guarantee that the target object or the desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers."
+    },
+    {
+      "id": "T0213",
+      "original": "先加热后放置的端到端流程",
+      "english": "End-to-end process of heating first, then placing."
+    },
+    {
+      "id": "T0214",
+      "original": "对于先加热后放置的目标：定位并拿取目标物体，前往微波炉，若关闭则打开，用观察确认可行的方式完成加热，并持续跟踪同一物体实例；随后前往最终目的地，必要时打开容器，将物体放入并确认放置。加热只是中间里程碑，只有物体已在目的地放置后才算完成。若拿取后物体已在手中，应直接进入加热阶段，不必无谓重启。加热后，若物体确实被放入过微波炉，则从中取出；若加热是在手持状态下完成的，则保持手持并直接前往目的地。",
+      "english": "For a target that is heated first and then placed: locate and take the target object, go to the microwave, open it if closed, complete heating in a way confirmed feasible by observation, and continuously track the same object instance; then go to the final destination, open the container if necessary, put the object in, and confirm placement. Heating is only an intermediate milestone; it counts as complete only after the object has been placed at the destination. If the object is already in hand after taking, go directly to the heating stage without unnecessary restarting. After heating, if the object was indeed put into the microwave, take it out; if heating was completed while held in hand, keep holding it and go directly to the destination."
+    },
+    {
+      "id": "T0215",
+      "original": "任何要求先将物体加热、再放置到指定目的地的任务。",
+      "english": "Any task that requires first heating an object and then placing it at a specified destination."
+    },
+    {
+      "id": "T0216",
+      "original": "微波加热的显式命令与位置切换恢复",
+      "english": "Explicit commands for microwave heating and recovery by switching position."
+    },
+    {
+      "id": "T0217",
+      "original": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中，因此手持/放入要求应按观察条件处理。若手持加热返回 Nothing happens，可将物体放入打开的微波炉后重试；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+      "english": "Open the microwave before using it, and confirm by observation that it is open. Use a heating form that explicitly specifies the object and the microwave, for example heat <object> with microwave <id>; bare generic forms such as use <object> or use microwave may return Nothing happens. Observations show that when heating, the object may be held in hand or may be placed in the open microwave, so the held/placed requirement should be handled according to observed conditions. If heating while held returns Nothing happens, you may put the object into the open microwave and retry; if heating the object inside the microwave fails, take the object out, confirm the microwave is open, and retry while holding it. After the first failure, change the object position or held state; do not repeat the exact same failed command; if there is still no confirmation after switching, switch back to the other state and retry once. Continue to the destination only after an explicit heating success is observed."
+    },
+    {
+      "id": "T0218",
+      "original": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。",
+      "english": "When the target object needs to be heated with the microwave, especially when the first heating attempt fails or the object is inside the microwave."
+    },
+    {
+      "id": "T0219",
+      "original": "加热命令可能失败或返回 Nothing happens；若把未确认的尝试当作成功，可能导致移动并放置一个仍然冷的物体。不能仅因物体被手持或被放入微波炉就推断加热成功。",
+      "english": "The heating command may fail or return Nothing happens; if an unconfirmed attempt is treated as success, this may lead to moving and placing an object that is still cold. Heating success cannot be inferred merely because the object is held in hand or placed in the microwave."
+    },
+    {
+      "id": "T0220",
+      "original": "只有当物体位置与微波炉状态合适时，加热才可能改变状态；命令已发出并不保证成功。缺少明确成功观测时，后续移动和放置可能基于错误前提。",
+      "english": "Heating can change state only when the object position and microwave state are suitable; issuing the command does not guarantee success. Without an explicit success observation, subsequent movement and placement may be based on a false premise."
+    },
+    {
+      "id": "T0221",
+      "original": "只有在出现明确的加热成功观测后才继续，例如提示物体已被加热，或其他可靠的热状态确认。若未确认成功，应修正物体位置或手持状态后重新执行有效加热尝试，并再次验证，然后再移动物体。",
+      "english": "Continue only after an explicit heating success observation appears, such as a prompt that the object has been heated, or other reliable confirmation of the hot state. If success is not confirmed, correct the object position or held state, execute a valid heating attempt again, verify again, and then move the object."
+    },
+    {
+      "id": "T0222",
+      "original": "微波炉加热返回 Nothing happens 后，若无证据就改用炉灶、烤面包机或其他电器，也可能失败或被阻止；基于假设的替换只会增加失败步骤。接受未加热物体的放置，或以普通降温/无加热动作代替热状态目标，也不能满足任务要求。",
+      "english": "After microwave heating returns Nothing happens, switching without evidence to a stove, toaster, or other appliance may also fail or be blocked; substitutions based on assumptions only add failed steps. Accepting placement of an unheated object, or replacing the hot-state goal with ordinary cooling/no-heating actions, also cannot satisfy the task requirements."
+    },
+    {
+      "id": "T0223",
+      "original": "某些电器可能不支持加热目标物体，某些表面可能被占用，而且某个替代电器存在并不保证它支持该物体。若没有确认热状态就认可放置，即使发出了动作，任务仍可能失败。",
+      "english": "Some appliances may not support heating the target object, some surfaces may be occupied, and the existence of an alternative appliance does not guarantee that it supports the object. If placement is accepted without a confirmed hot state, the task may still fail even if the action was issued."
+    },
+    {
+      "id": "T0224",
+      "original": "先修正微波炉交互：检查是否打开，调整物体是手持还是放入其中，并在不重复完全相同失败命令的情况下重试。只有在当前观察明确显示某替代电器支持加热该物体且可用时，才使用其他电器；否则不要把炉灶或烤面包机当作盲目后备。不要把普通放置或无加热动作当作已确认热状态的替代。",
+      "english": "First correct the microwave interaction: check whether it is open, adjust whether the object is held in hand or placed inside it, and retry without repeating the exact same failed command. Use another appliance only when the current observation explicitly shows that some alternative appliance supports heating the object and is available; otherwise do not treat the stove or toaster as a blind fallback. Do not treat ordinary placement or no-heating actions as a substitute for a confirmed hot state."
+    },
+    {
+      "id": "T0225",
+      "original": "目标缺失时的系统搜索",
+      "english": "Systematic search when the target is missing."
+    },
+    {
+      "id": "T0226",
+      "original": "当目标物体不在首个搜索位置时，继续系统检查其他可能容器和表面，例如橱柜、抽屉、台面、餐桌、炉灶、冰箱、水槽盆、咖啡机、边桌等。维护已检查位置记录，优先转向尚未检查且已打开的容器和可见表面，避免重复回到已确认空的位置。不要仅因首个位置为空就宣布任务受阻或物体不存在。若连续几个容器为空，应扩大到开放表面和其他容器类型，而不是无限逐抽屉搜索；对盘碟类物体可优先查看餐桌、台面和边桌等开放表面，同时兼顾容器。经过合理范围的广泛搜索后，应重新评估而不是继续打开每一个剩余容器。",
+      "english": "When the target object is not at the first search location, continue systematically checking other possible containers and surfaces, such as cabinets, drawers, countertops, dining tables, stoves, refrigerators, sink basins, coffee machines, side tables, etc. Maintain a record of checked locations, prioritize turning to unchecked and already-open containers and visible surfaces, and avoid repeatedly returning to locations confirmed empty. Do not declare the task blocked or the object nonexistent merely because the first location is empty. If several consecutive containers are empty, expand to open surfaces and other container types rather than endlessly searching drawer by drawer; for dish-type objects, prioritize open surfaces such as dining tables, countertops, and side tables while also considering containers. After a broad search of reasonable scope, reassess rather than continuing to open every remaining container."
+    },
+    {
+      "id": "T0227",
+      "original": "在先加热后放置任务的获取阶段，目标物体未立即出现或不在首个检查位置时。",
+      "english": "In the acquisition phase of a heat-then-place task, when the target object does not appear immediately or is not at the first checked location."
+    },
+    {
+      "id": "T0228",
+      "original": "当加热在物体被手持时成功，物体仍留在持有状态。此后尝试从微波炉取物可能返回 Nothing happens，因为该加热动作并未把物体放入微波炉。",
+      "english": "When heating succeeds while the object is held, the object remains in the held state. Attempting to take the object from the microwave afterward may return Nothing happens, because that heating action did not put the object into the microwave."
+    },
+    {
+      "id": "T0229",
+      "original": "手持状态下的加热成功并不一定移动物体进入微波炉，因此微波炉里没有可取的该物体。若按错误位置假设继续操作，就会产生无效取物步骤。",
+      "english": "Heating successfully while held does not necessarily move the object into the microwave, so the object is not in the microwave to be taken. Continuing to act on the wrong location assumption produces invalid take steps."
+    },
+    {
+      "id": "T0230",
+      "original": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作。",
+      "english": "After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually put into the microwave, do not issue an action to take the object from the microwave."
+    },
+    {
+      "id": "T0231",
+      "original": "在加热与最终目的地之间插入额外台面或其他中间放置，会增加不必要的动作，并可能导致物体跟踪或最终放置失败。",
+      "english": "Inserting an extra countertop or other intermediate placement between heating and the final destination adds unnecessary actions and may cause object tracking or final placement to fail."
+    },
+    {
+      "id": "T0232",
+      "original": "任务可能被过度分解，即使目标只要求把加热后的物体移动到最终目的地，也引入了中间放置步骤。中间放置会改变物体位置并增加需要跟踪的状态。",
+      "english": "The task may be over-decomposed, introducing an intermediate placement step even though the goal only requires moving the heated object to the final destination. Intermediate placement changes the object's location and adds state that must be tracked."
+    },
+    {
+      "id": "T0233",
+      "original": "加热后，拿起或保持物体，直接前往最终目的地并在那里放置。只有在环境明确要求中间放置时，才添加此类步骤。",
+      "english": "After heating, pick up or keep holding the object, go directly to the final destination, and place it there. Add such intermediate placement steps only when the environment explicitly requires them."
+    },
+    {
+      "id": "T0234",
+      "original": "使用微波炉前先打开，并通过观察确认其已打开。使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。观测显示加热时物体可被手持，也可被放入打开的微波炉中。若手持加热返回 Nothing happens，可靠恢复是把物体放入打开的微波炉，再从中取回，然后手持重试加热；若物体在微波炉内加热失败，则取出物体、确认微波炉打开后改为手持重试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；若切换后仍无确认，再切回另一状态重试一次。只有在观察到明确加热成功后，才继续前往目的地。",
+      "english": "Before using the microwave, open it first and confirm by observation that it is open. Use a heating form that explicitly specifies the object and microwave, e.g. heat <object> with microwave <id>; bare generic forms such as use <object> or use microwave may return Nothing happens. Observations show that heating can occur while the object is held or after it is placed in the open microwave. If held heating returns Nothing happens, a reliable recovery is to put the object into the open microwave, take it back out, then retry heating while held; if heating fails while the object is inside the microwave, take the object out, confirm the microwave is open, and retry while held. After a first failure, change the object's location or held state; do not repeat the exact same failing command; if there is still no confirmation after switching, switch back to the other state and retry once. Proceed to the destination only after observing explicit heating success."
+    },
+    {
+      "id": "T0235",
+      "original": "加热命令可能失败或返回 Nothing happens；若把未确认的尝试当作成功，可能导致移动并放置一个仍然冷的物体。Critic 常误判物体“已被放入微波炉”或“现在在微波炉内”，而观察只显示微波炉被打开或物体仍被手持；这种误判会驱动错误的下一步。不能仅因物体被手持或被放入微波炉就推断加热成功。",
+      "english": "The heating command may fail or return Nothing happens; treating an unconfirmed attempt as success may lead to moving and placing an object that is still cold. The Critic often misjudges that the object \"has been put into the microwave\" or \"is now in the microwave,\" while observations only show the microwave was opened or the object is still held; this misjudgment drives wrong next steps. Heating success cannot be inferred merely from the object being held or placed in the microwave."
+    },
+    {
+      "id": "T0236",
+      "original": "只有当物体位置与微波炉状态合适时，加热才可能改变状态；命令已发出并不保证成功。缺少明确成功观测时，后续移动和放置可能基于错误前提，而把“已打开微波炉”或“仍手持”误读为“已放入/已加热”会进一步放大错误。",
+      "english": "Heating can change state only when the object's location and the microwave's state are suitable; issuing the command does not guarantee success. Without explicit success observation, subsequent moving and placing may rest on a false premise, and misreading \"microwave opened\" or \"still held\" as \"placed/heated\" further amplifies the error."
+    },
+    {
+      "id": "T0237",
+      "original": "在给出下一步建议前，先引用实际观察谓词（held 还是 in-container）。只有在出现明确的加热成功观测后才继续，例如提示物体已被加热，或其他可靠的热状态确认。若未确认成功，应修正物体位置或手持状态后重新执行有效加热尝试，并再次验证，然后再移动物体。",
+      "english": "Before giving the next-step suggestion, cite the actual observation predicate (held or in-container). Continue only after an explicit heating-success observation appears, such as a prompt that the object has been heated, or other reliable heat-state confirmation. If success is unconfirmed, correct the object's location or held state, re-execute a valid heating attempt, verify again, and then move the object."
+    },
+    {
+      "id": "T0238",
+      "original": "当加热在物体被手持时成功，物体仍留在持有状态。此后尝试从微波炉取物可能返回 Nothing happens，因为该加热动作并未把物体放入微波炉。Critic 应据此诊断：take from microwave 失败意味着物体从未在微波炉内，而不是需要再次取物。",
+      "english": "When heating succeeds while the object is held, the object remains in the held state. Attempting to take the object from the microwave afterward may return Nothing happens, because that heating action did not put the object into the microwave. The Critic should diagnose accordingly: a failed take from microwave means the object was never in the microwave, not that another take is needed."
+    },
+    {
+      "id": "T0239",
+      "original": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作；若 take from microwave 返回 Nothing happens，应检查持有状态而非重复取物。",
+      "english": "After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually put into the microwave, do not issue an action to take the object from the microwave; if take from microwave returns Nothing happens, check the held state rather than repeating the take."
+    },
+    {
+      "id": "T0240",
+      "original": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。若目标物与台灯在同一家具上，直接取得目标物后立即使用带编号台灯，不要再次 go to 同一家具（重复 go to 常返回 Nothing happens）。若目标物不在台灯处，先取得并携带到该家具；不要先把目标物放到台灯家具上再使用台灯，应在手持目标物状态下交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look/examine。",
+      "english": "First confirm the locations of the target object and the desk lamp. The desk lamp is usually fixed on a furniture surface; once the desk lamp is observed, go directly to the furniture it is on, do not continue searching unrelated containers or blindly opening drawers, and do not treat the desk lamp as a carryable object or navigation point. If the target object and the desk lamp are on the same furniture, take the target object directly and then immediately use the numbered desk lamp; do not go to the same furniture again (repeated go to often returns Nothing happens). If the target object is not at the desk lamp, first take it and carry it to that furniture; do not first place the target object on the desk lamp furniture and then use the desk lamp—interact while holding the target object. Upon arrival, execute the command use desklamp <id> with the instance number to trigger observation; do not use a bare name or compound syntax. Successfully turning on the desk lamp is the termination condition; do not append use/look/examine after it."
+    },
+    {
+      "id": "T0241",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable、扶手椅、架子等；一旦观察到台灯，应直接前往其所在家具并在需要时使用台灯，不要继续遍历大量抽屉或无关容器。若合理开放表面没有目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；没有新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯一定在假定位置，因此假定位置不可见时应搜索其他表面和容器；若台灯实际在 sidetable/dresser 等其他家具上，应前往该家具而非反复检查原假定 desk。",
+      "english": "When searching for the target object or the desklamp, first check open surfaces associated with the desklamp, such as desk, sidetable, nightstand, bed, dresser, sofa, coffeetable, armchair, shelf, etc.; once the desklamp is observed, go directly to the furniture it is on and use the desklamp if needed, do not keep iterating through many drawers or unrelated containers. If the target object is not on a reasonable open surface, then systematically search by container type (drawer/cabinet), and after finding it return to the desklamp. Avoid repeatedly look/examine the same location; when there is no new information, turn to other furniture or containers. 'under the desklamp' does not guarantee the target object or the desklamp is necessarily at the assumed location, so when the assumed location is not visible, search other surfaces and containers; if the desklamp is actually on other furniture such as sidetable/dresser, go to that furniture rather than repeatedly checking the original assumed desk."
+    },
+    {
+      "id": "T0242",
+      "original": "当目标物体不在首个搜索位置时，继续系统检查其他可能容器和表面，例如橱柜、抽屉、台面、餐桌、炉灶、冰箱、水槽盆、咖啡机、边桌等。维护已检查位置记录，优先转向尚未检查且已打开的容器和可见表面，避免重复回到已确认空的位置或重复打开已打开的容器。不要仅因首个位置为空就宣布任务受阻或物体不存在。若连续几个容器为空，应扩大到开放表面和其他容器类型，而不是无限逐抽屉搜索；对盘碟类物体可优先查看餐桌、台面和边桌等开放表面，同时兼顾容器。经过合理范围的广泛搜索后，应重新评估而不是继续打开每一个剩余容器。",
+      "english": "When the target object is not at the first search location, continue systematically checking other possible containers and surfaces, such as cabinet, drawer, countertop, diningtable, stove, fridge, sinkbasin, coffeemachine, sidetable, etc. Maintain a record of checked locations, prioritize turning to not-yet-checked and already-open containers and visible surfaces, and avoid repeatedly returning to locations confirmed empty or repeatedly opening already-open containers. Do not declare the task blocked or the object nonexistent merely because the first location is empty. If several consecutive containers are empty, expand to open surfaces and other container types rather than endlessly searching drawer by drawer; for dish-type objects, prioritize open surfaces such as diningtable, countertop, and sidetable while also covering containers. After a broad search over a reasonable range, reassess rather than continuing to open every remaining container."
+    },
+    {
+      "id": "T0243",
+      "original": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look；若已在该家具处取得目标物，不要再次 go to 同一位置。若 use desklamp 返回 Nothing happens，应判断当前家具观察中并无台灯，改为前往观察中列出 desklamp 的其他家具，而不是在同一位置重试。",
+      "english": "First confirm the locations of the target object and the desklamp. The desklamp is usually fixed on a furniture surface; after observing the desklamp, go directly to the furniture it is on, do not continue searching unrelated containers or blindly opening drawers, and do not treat the desklamp as a carryable object or navigation point. When the target object is not at the desklamp, first take it and carry it to that furniture; when the target object is already at the desklamp, first ensure the target object is in hand before interacting. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use the bare name or compound syntax. Successfully turning on the desklamp is the termination condition, do not append use/look after it; if the target object has already been taken at that furniture, do not go to the same location again. If use desklamp returns Nothing happens, determine that there is no desklamp in the current furniture observation, and instead go to other furniture whose observation lists desklamp, rather than retrying at the same location."
+    },
+    {
+      "id": "T0244",
+      "original": "先确认目标物与台灯位置。台灯通常固定在家具表面；观察到台灯后直接前往其所在家具，不继续搜索无关容器或盲目开抽屉，也不要把台灯当作可携带物或导航点。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，先确保目标物在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察；不要用裸名或复合语法。成功开启台灯即为终止条件，不要在其后追加 use/look/take/go；若已在该家具处取得目标物，不要再次 go to 同一位置。若目标物无法放到台灯所在家具上（put 反复无变化），不要反复尝试放置，保持手持并直接 use desklamp <id>。",
+      "english": "First confirm the locations of the target object and the desklamp. The desklamp is usually fixed on a furniture surface; after observing the desklamp, go directly to the furniture it is on, do not continue searching unrelated containers or blindly opening drawers, and do not treat the desklamp as a carryable object or navigation point. When the target object is not at the desklamp, first take it and carry it to that furniture; when the target object is already at the desklamp, first ensure the target object is in hand before interacting. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use the bare name or compound syntax. Successfully turning on the desklamp is the termination condition, do not append use/look/take/go after it; if the target object has already been taken at that furniture, do not go to the same location again. If the target object cannot be placed on the furniture where the desklamp is (put repeatedly shows no change), do not repeatedly attempt to place it, keep holding it and directly use desklamp <id>."
+    },
+    {
+      "id": "T0245",
+      "original": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、examine 家具（如 examine desk 1）、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会导致任务看似完成但环境目标未达成；若放置本身反复返回 Nothing happens，更不应继续尝试放置。有效交互形式是使用观察到的带编号 lamp 实例，例如 use desklamp 1。",
+      "english": "In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, examine furniture (such as examine desk 1), bare-name use desklamp, use desklamp on X, use X on desklamp often return There's nothing special about X or Nothing happens, and cannot substitute for the observation condition. Merely placing the target object on the desk or desklamp without triggering the desklamp interaction also causes the task to appear complete while the environment goal is not achieved; if the placement itself repeatedly returns Nothing happens, all the more should you not continue attempting to place. The valid interaction form is to use the observed numbered lamp instance, for example use desklamp 1."
+    },
+    {
+      "id": "T0246",
+      "original": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法，examine 家具也不提供有效信息；放置动作本身不会触发观察成功条件，且某些家具可能拒绝放置。",
+      "english": "The environment does not support using the desklamp as a tool argument to examine, nor bare names or compound syntax, and examine furniture also does not provide valid information; the placement action itself does not trigger the observation success condition, and some furniture may refuse placement."
+    },
+    {
+      "id": "T0247",
+      "original": "把目标物定位并带到台灯所在家具后，使用观察到的带编号 lamp 实例执行 use desklamp <id>。不要用 examine X with desklamp、examine 目标物/台灯/家具或复合 use 语法；若已尝试无效语法，核对台灯实例名后重试，而不是反复 examine。若 put 到台灯所在家具反复无变化，保持手持并直接 use desklamp <id>，不要继续放置。",
+      "english": "After locating the target object and bringing it to the furniture where the desklamp is, use the observed numbered lamp instance to execute use desklamp <id>. Do not use examine X with desklamp, examine the target object/desklamp/furniture, or compound use syntax; if invalid syntax has been attempted, verify the desklamp instance name and retry, rather than repeatedly examine. If put to the furniture where the desklamp is repeatedly shows no change, keep holding it and directly use desklamp <id>, do not continue placing."
+    },
+    {
+      "id": "T0248",
+      "original": "如果 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、当前家具观察中并无台灯、使用了裸名而非带编号实例，或目标物未取得/交互条件未满足；同一位置重复同一 use/examine/look 指令不会改变状态，并可能形成循环或触发保护。连续一两次失败后应停止重复。若目标物无法放到台灯所在家具上，put 反复无变化也不应继续尝试放置，而应保持手持并直接使用台灯。",
+      "english": "If use desklamp returns Nothing happens, it usually means you are not at the desklamp's location, the current furniture observation does not list a desklamp, a bare name was used instead of a numbered instance, or the target object has not been taken/the interaction condition is not met; repeating the same use/examine/look command at the same location will not change the state and may form a loop or trigger protection. After one or two consecutive failures, stop repeating. If the target object cannot be placed on the furniture where the desklamp is, and put repeatedly shows no change, do not continue attempting to place, but keep holding it and directly use the desklamp."
+    },
+    {
+      "id": "T0249",
+      "original": "使用台灯要求与台灯所在家具同处，且错误语法（如裸名 use desklamp）、位置或未持有目标物不会产生状态变化；把空观察误当作可重试信号会重复无效动作。放置动作本身不触发观察条件，因此反复 put 失败不代表无法使用台灯。",
+      "english": "Using the desklamp requires being at the same location as the furniture where the desklamp is, and wrong syntax (such as bare-name use desklamp), wrong location, or not holding the target object will not produce a state change; mistaking an empty observation for a retry signal will repeat invalid actions. The placement action itself does not trigger the observation condition, so repeated put failures do not mean the desklamp cannot be used."
+    },
+    {
+      "id": "T0250",
+      "original": "失败后先核对当前家具观察中是否确实列出 desklamp；若没有，移动到已观察到台灯的其他家具，而不是重试同一 use。若台灯在场，确保目标物已取得或保持后改用带编号 use desklamp <id> 重试；若仍无变化，改为搜索其他位置或声明无法完成，不要重复相同指令或回退到 examine。若 put 到台灯所在家具反复无变化，停止放置并保持手持直接 use desklamp <id>。",
+      "english": "After a failure, first verify whether the current furniture observation actually lists desklamp; if not, move to other furniture where the desklamp has been observed, rather than retrying the same use. If the desklamp is present, ensure the target object has been taken or is held, then retry with the numbered use desklamp <id>; if there is still no change, switch to searching other locations or declare that it cannot be completed, do not repeat the same command or fall back to examine. If put to the furniture where the desklamp is repeatedly shows no change, stop placing and keep holding it to directly use desklamp <id>."
+    },
+    {
+      "id": "T0251",
+      "original": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后直接前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作。",
+      "english": "After successfully heating while holding, confirm via inventory or held status that the object is still in hand, then go directly to the destination. Unless the object was actually placed into the microwave, do not issue an action to take the object from the microwave."
+    },
+    {
+      "id": "T0252",
+      "original": "不要拿取、移动或直接导航到台灯本身",
+      "english": "Do not take, move, or directly navigate to the desklamp itself"
+    },
+    {
+      "id": "T0253",
+      "original": "无效台灯交互：避免错误 examine/use 语法并完成最终观察",
+      "english": "Invalid desklamp interaction: avoid wrong examine/use syntax and complete the final observation"
+    },
+    {
+      "id": "T0254",
+      "original": "空结果后先核对位置并改变策略，避免重复同一指令",
+      "english": "After an empty result, first verify the location and change strategy, avoid repeating the same command"
+    },
+    {
+      "id": "T0255",
+      "original": "不要把台灯当作可拿取或可导航目标",
+      "english": "Do not treat the desklamp as a takeable or navigable target"
+    },
+    {
+      "id": "T0256",
+      "original": "台灯观察须用带编号实例交互，无效语法和仅放置不触发",
+      "english": "Desklamp observation must use the numbered instance for interaction; invalid syntax and placing alone do not trigger it."
+    },
+    {
+      "id": "T0257",
+      "original": "use desklamp 返回 Nothing happens 后避免原地重复",
+      "english": "After use desklamp returns Nothing happens, avoid repeating in place."
+    },
+    {
+      "id": "T0258",
+      "original": "未确认加热成功就移动或放置",
+      "english": "Move or place before confirming heating succeeded."
+    },
+    {
+      "id": "T0259",
+      "original": "加热失败后盲目改用其他电器",
+      "english": "After heating fails, blindly switch to another appliance."
+    },
+    {
+      "id": "T0260",
+      "original": "手持加热后仍从微波炉取物",
+      "english": "Still take items from the microwave after handheld heating."
+    },
+    {
+      "id": "T0261",
+      "original": "加热后插入额外中间放置",
+      "english": "Insert an extra intermediate placement after heating."
+    },
+    {
+      "id": "T0262",
+      "original": "台灯观察：在台灯所在家具处手持目标物并使用带编号台灯",
+      "english": "Desklamp observation: at the furniture where the desklamp is located, hold the target object and use the numbered desklamp."
+    },
+    {
+      "id": "T0263",
+      "original": "先定位目标物与台灯。台灯通常固定在家具表面，不应作为可携带物或导航目标；观察到台灯后前往其所在家具。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，确认其在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察，不要使用裸名或复合语法。成功开启台灯即视为达到观察条件，不再追加 use/look/take/go。若已在该家具处取得目标物，不要重复 go to 同一家具。若 use 返回 Nothing happens，先核对当前家具观察中是否列出台灯；没有则改去列出台灯的其他家具，而不是原地重试。若放置目标物反复无变化，保持手持并直接 use desklamp <id>。",
+      "english": "First locate the target object and the desklamp. The desklamp is usually fixed on a furniture surface and should not be treated as a carryable item or navigation target; after observing the desklamp, go to the furniture where it is located. If the target object is not at the desklamp, first obtain it and carry it to that furniture; if the target object is already at the desklamp, confirm it is in hand before interacting. After arriving, execute the command use desklamp <id> with the instance number to trigger observation; do not use the bare name or compound syntax. Successfully turning on the desklamp is considered meeting the observation condition; do not add use/look/take/go afterward. If the target object has already been obtained at that furniture, do not repeat go to the same furniture. If use returns Nothing happens, first check whether the desklamp is listed in the current furniture observation; if not, go to another furniture where the desklamp is listed instead of retrying in place. If placing the target object repeatedly produces no change, keep holding it and directly use desklamp <id>."
+    },
+    {
+      "id": "T0264",
+      "original": "当任务要求 examine/look at 某物 with/under the desklamp，环境中存在可交互台灯，或到达台灯所在家具后需要触发观察时。",
+      "english": "When the task requires examine/look at something with/under the desklamp, an interactable desklamp exists in the environment, or observation needs to be triggered after arriving at the furniture where the desklamp is located."
+    },
+    {
+      "id": "T0265",
+      "original": "不要拿取或导航到台灯",
+      "english": "Do not take or navigate to the desklamp."
+    },
+    {
+      "id": "T0266",
+      "original": "失败轨迹中，take desklamp、go to desklamp 或反复 go to 台灯/桌面常返回 Nothing happens，浪费步骤并可能阻断后续观察；台灯是固定在家具上的交互点。",
+      "english": "In failed trajectories, take desklamp, go to desklamp, or repeatedly go to the desklamp/desk often returns Nothing happens, wasting steps and possibly blocking subsequent observation; the desklamp is an interaction point fixed on furniture."
+    },
+    {
+      "id": "T0267",
+      "original": "环境将台灯建模为固定光源或固定设备，只有承载台灯的家具可作为导航目标，台灯本身不能作为 take 或 go to 的目标。",
+      "english": "The environment models the desklamp as a fixed light source or fixed device; only the furniture carrying the desklamp can be a navigation target, and the desklamp itself cannot be a target of take or go to."
+    },
+    {
+      "id": "T0268",
+      "original": "不要尝试拿取、移动或导航到台灯。先到达承载台灯的家具（如 desk、sidetable、dresser、coffeetable 等），已到达后直接使用带编号的 use desklamp <id>；已在台灯处时不要重复 go to 同一位置。",
+      "english": "Do not attempt to take, move, or navigate to the desklamp. First arrive at the furniture carrying the desklamp (such as desk, sidetable, dresser, coffeetable, etc.); after arriving, directly execute the command use desklamp <id> with the number; when already at the desklamp, do not repeat go to the same location."
+    },
+    {
+      "id": "T0269",
+      "original": "不要用 examine 或复合语法替代台灯交互，放置不等于观察",
+      "english": "Do not use examine or compound syntax as a substitute for desklamp interaction; placing does not equal observation."
+    },
+    {
+      "id": "T0270",
+      "original": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、examine 家具、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会造成看似完成但未达成目标；若放置反复无变化，不应继续尝试放置。有效形式是使用观察到的带编号台灯实例，例如 use desklamp <id>。",
+      "english": "In failed trajectories, examine X with desklamp, examine the target object, examine desklamp, examine furniture, bare-name use desklamp, use desklamp on X, use X on desklamp often return There's nothing special about X or Nothing happens and cannot substitute for the observation condition. Merely placing the target object on the desk or desklamp without triggering desklamp interaction also creates the appearance of completion without achieving the goal; if placing repeatedly produces no change, do not continue trying to place. The valid form is to use the observed numbered desklamp instance, for example use desklamp <id>."
+    },
+    {
+      "id": "T0271",
+      "original": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法；examine 家具不提供有效信息，放置动作本身不触发观察成功条件，部分家具可能拒绝放置。",
+      "english": "The environment does not support using the desklamp as an examine tool argument, nor bare names or compound syntax; examining furniture does not provide valid information, the put action itself does not trigger the observation success condition, and some furniture may refuse placement."
+    },
+    {
+      "id": "T0272",
+      "original": "将目标物定位并带到台灯所在家具后，使用观察到的带编号实例执行 use desklamp <id>。不要用 examine X with desklamp、examine 目标物/台灯/家具或复合 use 语法；无效语法后核对台灯实例名再重试，而不是反复 examine。若 put 到该家具反复无变化，保持手持并直接 use desklamp <id>。",
+      "english": "After locating the target object and bringing it to the furniture where the desklamp is, use the observed numbered instance to execute use desklamp <id>. Do not use examine X with desklamp, examine target/desklamp/furniture, or compound use syntax; after invalid syntax, verify the desklamp instance name and retry rather than repeatedly examining. If put to that furniture repeatedly produces no change, keep holding it and directly use desklamp <id>."
+    },
+    {
+      "id": "T0273",
+      "original": "use 台灯无变化时先核对位置、实例名与手持状态",
+      "english": "When use desklamp produces no change, first verify position, instance name, and held state"
+    },
+    {
+      "id": "T0274",
+      "original": "若 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、当前家具观察中无台灯、使用裸名而非带编号实例，或目标物未取得、交互条件未满足；同一位置重复同一 use/examine/look 不会改变状态，连续一两次失败后应停止重复，避免循环或保护。若目标物无法放到台灯所在家具上，put 反复无变化也不应继续放置。",
+      "english": "If use desklamp returns Nothing happens, it usually means you are not at the location of the desklamp, the current furniture observation does not list a desklamp, you used a bare name rather than a numbered instance, or the target object has not been obtained and interaction conditions are not met; repeating the same use/examine/look at the same location will not change state, and after one or two consecutive failures you should stop repeating to avoid loops or protection. If the target object cannot be placed on the furniture where the desklamp is, and put repeatedly produces no change, you should also not continue placing."
+    },
+    {
+      "id": "T0275",
+      "original": "使用台灯要求与台灯所在家具同处，并满足实例名、手持目标物等条件；错误语法、错误位置或未持有目标物不会产生状态变化，空观察不是可重试信号。放置动作本身不触发观察条件。",
+      "english": "Using the desklamp requires being at the same location as the furniture where the desklamp is, and satisfying conditions such as the instance name and holding the target object; wrong syntax, wrong location, or not holding the target object will not produce a state change, and an empty observation is not a retry signal. The put action itself does not trigger the observation condition."
+    },
+    {
+      "id": "T0276",
+      "original": "失败后先核对当前家具观察中是否列出 desklamp；没有则移动到列出台灯的其他家具，而不是重试同一 use。台灯在场时，确认目标物已取得或保持手持，改用带编号 use desklamp <id> 重试；仍无变化则改搜其他位置或声明无法完成，不要重复相同指令或回退到 examine。若 put 反复无变化，停止放置并保持手持直接使用台灯。",
+      "english": "After failure, first verify whether the current furniture observation lists desklamp; if not, move to other furniture that lists a desklamp rather than retrying the same use. When the desklamp is present, confirm the target object has been obtained or is being held, and retry with the numbered use desklamp <id>; if there is still no change, search other locations or declare inability to complete, do not repeat the same command or fall back to examine. If put repeatedly produces no change, stop placing and keep holding it to directly use the desklamp."
+    },
+    {
+      "id": "T0277",
+      "original": "台灯观察搜索：优先开放表面，再系统检查容器",
+      "english": "Desklamp observation search: prioritize open surfaces, then systematically check containers"
+    },
+    {
+      "id": "T0278",
+      "original": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable、扶手椅、架子等；一旦观察到台灯，直接前往其所在家具并在需要时使用台灯，不继续遍历大量抽屉或无关容器。若合理开放表面未发现目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；无新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯在假定位置；假定位置不可见时应搜索其他表面和容器，若台灯实际在其他家具上，应前往该家具而不是反复检查原位置。",
+      "english": "When searching for the target object or desklamp, prioritize checking open surfaces related to the desklamp, such as desk, sidetable, nightstand, bed, dresser, sofa, coffeetable, armchair, shelf, etc.; once a desklamp is observed, go directly to the furniture where it is and use the desklamp if needed, without continuing to traverse many drawers or unrelated containers. If the target object is not found on reasonable open surfaces, then systematically search by container type (drawer/cabinet), and return to the desklamp after finding it. Avoid repeatedly look/examine at the same location; when there is no new information, turn to other furniture or containers. 'under the desklamp' does not guarantee that the target object or desklamp is at the assumed location; when the assumed location is not visible, search other surfaces and containers, and if the desklamp is actually on other furniture, go to that furniture rather than repeatedly checking the original location."
+    },
+    {
+      "id": "T0279",
+      "original": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物/台灯不在该处、连续观察无新信息时。",
+      "english": "In the desklamp observation task, when searching for the target object or desklamp, or when you have arrived at the assumed desklamp location but the target object/desklamp is not there and consecutive observations yield no new information."
+    },
+    {
+      "id": "T0280",
+      "original": "目标为先加热后放置时：定位并拿取目标物体；若已在手中则直接进入加热；前往微波炉，若关闭则打开；用观察确认可行的方式完成加热；持续跟踪同一物体实例。加热只是中间里程碑，只有物体已在目的地放置后才算完成。加热后，若物体确实被放入过微波炉，则取出；若加热是在手持状态下完成，则保持手持并直接前往目的地。前往最终目的地，必要时打开容器，将物体放入并确认放置。不要把加热成功当作任务完成，也不要无谓重启已完成的获取步骤。",
+      "english": "When the goal is to heat first and then place: locate and take the target object; if it is already in hand, proceed directly to heating; go to the microwave, open it if closed; complete heating in a way confirmed feasible by observation; keep tracking the same object instance. Heating is only an intermediate milestone; the task is complete only after the object has been placed at the destination. After heating, if the object was actually put into the microwave, take it out; if heating was completed while holding it, keep holding it and go directly to the destination. Go to the final destination, open the container if necessary, put the object in, and confirm placement. Do not treat successful heating as task completion, and do not needlessly restart already completed acquisition steps."
+    },
+    {
+      "id": "T0281",
+      "original": "任务要求先将物体加热，再放置到指定目的地时。",
+      "english": "When the task requires first heating the object, then placing it at the specified destination."
+    },
+    {
+      "id": "T0282",
+      "original": "微波加热的显式命令与状态切换恢复",
+      "english": "Explicit commands for microwave heating and state-switch recovery"
+    },
+    {
+      "id": "T0283",
+      "original": "使用微波炉前先打开，并通过观察确认已打开。优先使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。加热时物体可被手持，也可被放入打开的微波炉中，应按当前观察确认实际状态。若手持加热返回 Nothing happens，可将物体放入打开的微波炉后重试；若微波炉内尝试失败，则取出物体、确认微波炉打开后改为手持重试；也可在放入并取回后再次手持尝试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；切换后仍无确认时，可在两种状态间再切换一次。只有观察到明确加热成功后，才继续前往目的地。",
+      "english": "Before using the microwave, open it first and confirm via observation that it is open. Prefer a heating form that explicitly specifies the object and microwave, such as heat <object> with microwave <id>; generic forms such as bare use <object> or use microwave may return Nothing happens. During heating the object may be held or placed in the opened microwave; confirm the actual state according to the current observation. If held heating returns Nothing happens, you may put the object into the opened microwave and retry; if the attempt inside the microwave fails, take the object out, confirm the microwave is open, and switch to holding it to retry; you may also try holding it again after putting it in and taking it back out. After the first failure, change the object's position or held state; do not repeat the exact same failed command; if there is still no confirmation after switching, you may switch between the two states once more. Only after observing explicit heating success should you continue to the destination."
+    },
+    {
+      "id": "T0284",
+      "original": "未确认加热成功不得继续放置",
+      "english": "Do not continue placing without confirmed heating success"
+    },
+    {
+      "id": "T0285",
+      "original": "加热命令可能失败或返回 Nothing happens；把未确认的尝试当作成功，可能导致移动并放置仍然冷的物体。不能仅因物体被手持或被放入微波炉就推断加热成功。观察只显示微波炉被打开或物体仍被手持时，也不能判断为已放入或已加热。",
+      "english": "The heating command may fail or return Nothing happens; treating an unconfirmed attempt as success may cause you to move and place an object that is still cold. You cannot infer heating success merely because the object is held or placed in the microwave. When observation only shows the microwave is open or the object is still held, you also cannot judge that it has been placed or heated."
+    },
+    {
+      "id": "T0286",
+      "original": "只有当物体位置与微波炉状态合适时，加热才可能改变状态；命令已发出并不保证成功。缺少明确成功观测时，后续移动和放置会基于错误前提。",
+      "english": "Heating can change state only when the object position and microwave state are suitable; issuing the command does not guarantee success. Without an explicit success observation, subsequent moves and placements will be based on a false premise."
+    },
+    {
+      "id": "T0287",
+      "original": "在继续下一步前先核对实际观察状态（held 还是 in-container）。只有出现明确的加热成功观测后才继续，例如提示物体已被加热或其他可靠热状态确认。若未确认成功，应修正物体位置或手持状态后重新执行有效加热尝试，并再次验证，然后再移动物体。",
+      "english": "Before continuing to the next step, first verify the actual observed state (held or in-container). Continue only after an explicit heating success observation appears, such as a prompt that the object has been heated or other reliable confirmation of the hot state. If success is not confirmed, correct the object position or held state, re-execute a valid heating attempt, and verify again before moving the object."
+    },
+    {
+      "id": "T0288",
+      "original": "加热失败后避免盲目替换电器或接受未加热结果",
+      "english": "After heating failure, avoid blindly substituting appliances or accepting an unheated result"
+    },
+    {
+      "id": "T0289",
+      "original": "微波炉加热返回 Nothing happens 后，若无证据改用炉灶、烤面包机或其他电器，也可能失败或被阻止；基于假设的替换只会增加失败步骤。接受未加热物体的放置，或以普通降温/无加热动作代替热状态目标，也不能满足任务要求。",
+      "english": "After microwave heating returns Nothing happens, switching to the stove, toaster, or another appliance without evidence may also fail or be blocked; substitution based on assumption only adds failed steps. Accepting placement of an unheated object, or replacing the hot-state goal with ordinary cooling/no-heating actions, also cannot satisfy the task requirement."
+    },
+    {
+      "id": "T0290",
+      "original": "某些电器可能不支持加热目标物体，某些表面可能被占用，而且替代电器存在并不保证支持该物体。若没有确认热状态就认可放置，即使发出了动作，任务仍可能失败。",
+      "english": "Some appliances may not support heating the target object, some surfaces may be occupied, and the existence of an alternative appliance does not guarantee it supports that object. If placement is accepted without confirming the hot state, the task may still fail even if the action was issued."
+    },
+    {
+      "id": "T0291",
+      "original": "当目标物体不在首个搜索位置时，继续系统检查其他可能容器和表面，例如橱柜、抽屉、台面、餐桌、炉灶、冰箱、水槽盆、咖啡机、边桌等。维护已检查位置记录，优先转向尚未检查且已打开的容器与可见表面，避免重复回到已确认空的位置或重复打开已打开的容器。不要仅因首个位置为空就宣布任务受阻或物体不存在。若连续几个容器为空，应扩大到开放表面和其他容器类型，而不是无限逐抽屉搜索；对盘碟类物体可优先查看餐桌、台面和边桌等开放表面，同时兼顾容器。经过合理范围的广泛搜索后，应重新评估而不是继续打开每一个剩余容器。",
+      "english": "When the target object is not at the first search location, continue systematically checking other possible containers and surfaces, such as cabinets, drawers, countertops, dining tables, stoves, refrigerators, sink basins, coffee machines, side tables, etc. Maintain a record of checked locations, prioritize unchecked and already-open containers and visible surfaces, and avoid repeatedly returning to locations confirmed empty or repeatedly opening already-open containers. Do not declare the task blocked or the object nonexistent merely because the first location is empty. If several consecutive containers are empty, expand to open surfaces and other container types rather than searching drawer by drawer indefinitely; for dish-type objects, prioritize open surfaces such as dining tables, countertops, and side tables while also considering containers. After a broad search of reasonable scope, reassess rather than continuing to open every remaining container."
+    },
+    {
+      "id": "T0292",
+      "original": "手持加热成功后不要误从微波炉取物",
+      "english": "After successful held heating, do not mistakenly take the object from the microwave"
+    },
+    {
+      "id": "T0293",
+      "original": "当加热在物体被手持时成功，物体仍留在持有状态。此后尝试从微波炉取物可能返回 Nothing happens，因为该加热动作并未把物体放入微波炉；从微波炉取物失败意味着物体未在微波炉内，而不是需要再次取物。",
+      "english": "When heating succeeds while the object is held, the object remains in the held state. Subsequently attempting to take the object from the microwave may return Nothing happens, because that heating action did not put the object into the microwave; failure to take from the microwave means the object is not in the microwave, not that another take is needed."
+    },
+    {
+      "id": "T0294",
+      "original": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作；若从微波炉取物返回 Nothing happens，应检查持有状态而非重复取物。",
+      "english": "After successful held heating, confirm via inventory or held state that the object is still in hand, then go to the destination. Unless the object was actually placed into the microwave, do not issue a take-from-microwave action; if take-from-microwave returns Nothing happens, check the held state rather than repeating the take."
+    },
+    {
+      "id": "T0295",
+      "original": "避免加热与目的地之间的多余中间放置",
+      "english": "Avoid extra intermediate placements between heating and the destination"
+    }
+  ]
+}

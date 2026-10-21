@@ -1,0 +1,231 @@
+{
+  "schema_version": "stage2_local_v10.two_local_to_global3.v1",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "seed_b1_hashes": {
+    "A": "sha256:84218a56b828fe08b81bd476c62d32950f61764b13390e957fd22c430bf24db4",
+    "B": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+    "C": "sha256:4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d"
+  },
+  "manifest_hashes": {
+    "A": "sha256:bf6e368f688ccdbe7f9d6d43809ba7571a17910f4ef44e7468d4229dca88cee9",
+    "B": "sha256:a1940aed56c5648b46dc03a0cb3a5769a76a7b146825bd3760f99ea22147a8ce",
+    "C": "sha256:fcce17dfeeac800fe76a47e3efcc1baee1238e4e36d16a8c6ebd20bbdb6b9535"
+  },
+  "plan": [
+    "local_2",
+    "aggregate_1",
+    "validate_1",
+    "local_3",
+    "local_4",
+    "aggregate_2",
+    "validate_2",
+    "local_5",
+    "local_6",
+    "aggregate_3",
+    "validate_3"
+  ],
+  "stop_after": "Global3_three_client_validation",
+  "status": "complete",
+  "started_at": "2026-10-18T10:43:31.301899+00:00",
+  "current_step": null,
+  "completed_steps": [
+    "local_2",
+    "aggregate_1",
+    "validate_1",
+    "local_3",
+    "local_4",
+    "aggregate_2",
+    "validate_2",
+    "local_5",
+    "local_6",
+    "aggregate_3",
+    "validate_3"
+  ],
+  "results": {
+    "local_2": {
+      "A": {
+        "success_count": 98,
+        "bank_file_sha256": "sha256:53cfe05175c64c62d37f908ce6a3c72abff7702b46e5d0e83f3c94decb99df9b",
+        "result_file_sha256": "sha256:f9a499df1b671c3e8c907ced504b6c56608ed62be20c2e5de6466561e84fc719"
+      },
+      "B": {
+        "success_count": 119,
+        "bank_file_sha256": "sha256:16b80dc9e4821546e70778b5119247f9d7880856780c2a418d0e2c34add3d088",
+        "result_file_sha256": "sha256:6e003dea2b7fa5af7cb6dc8ccb7f4e737f48930956b43bb1a71a1983e2bcb755"
+      },
+      "C": {
+        "success_count": 116,
+        "bank_file_sha256": "sha256:5217225311b1cf6e06cf88d3b4bd675b190c14c15a4c8a01bc561c067ac7c031",
+        "result_file_sha256": "sha256:7a1ca95055958f3979ec596eff93c9c8a3a323bd5e7abbe00b167200e53ceef4"
+      }
+    },
+    "aggregate_1": {
+      "skill_count": 40,
+      "bank_file_sha256": "sha256:b38074b08cb21b8c3d956b7fb5b3304e074db5f2e6b6aaaea1bebbd21fbedc7e"
+    },
+    "validate_1": {
+      "pooled_success_count": 304,
+      "clients": {
+        "C": {
+          "success_count": 102,
+          "result_file_sha256": "sha256:0a5e85013d9669dde0e36d3a893f3ccbdb8c4d0afd0dc4b39367fb7f0514063b",
+          "replacement_bank_file_sha256": "sha256:4c4ecd6cf6980ebc566283bcd4310d450c5fa201edc5ccb52c21045341d4a19c"
+        },
+        "B": {
+          "success_count": 109,
+          "result_file_sha256": "sha256:be0a7bc20d8fa304a6db69323af0d990dcbf004cc17dc6470c6e4a27afb18004",
+          "replacement_bank_file_sha256": "sha256:5100ab8d019b48578cceb498cc7a69fcbea26bd0f01f6e23e869e096164a5eb9"
+        },
+        "A": {
+          "success_count": 93,
+          "result_file_sha256": "sha256:db2b6fab107f0a4915599c1f80646df64724b8e57c0463b43442a0a686d9146e",
+          "replacement_bank_file_sha256": "sha256:2c44e896545c26e5f6e932b4f1d94a00c52bf57014650cf72c10c8fb0b76c774"
+        }
+      }
+    },
+    "local_3": {
+      "A": {
+        "success_count": 89,
+        "bank_file_sha256": "sha256:c39354e8e4a3c5658ebd7e259ff706076a3576154f4eed191bc03d8a968e15ce",
+        "result_file_sha256": "sha256:546cde2c9ab117711e3cbcc7fd4a93d552295c8a81117b04a76d77aa19cc2bca"
+      },
+      "B": {
+        "success_count": 113,
+        "bank_file_sha256": "sha256:38c66e220ce3b6871e3b1e6376e933f5e57e71c4e2223ddb5ffbcfcf738a7fcc",
+        "result_file_sha256": "sha256:6f70e9b095fb5c361927e3d2d34ef22da4953b105426e017bacf7ab58f12ea5d"
+      },
+      "C": {
+        "success_count": 105,
+        "bank_file_sha256": "sha256:337acc2f028beae177d74d76311c5a9c6b3cf0716317d307fb49de65767afffd",
+        "result_file_sha256": "sha256:fb52042654fd43d3a910c1f42da5c2f78423922a3596f06c84b1d499b2396bf1"
+      }
+    },
+    "local_4": {
+      "A": {
+        "success_count": 108,
+        "bank_file_sha256": "sha256:9e11c375fb45621368f8054bb0b3c982de24c001fe1647f6688e6b3340747a0c",
+        "result_file_sha256": "sha256:f8ea824471f9c7c0425da6ffde880d5af0f13da03170e3e21718ab4475e33518"
+      },
+      "B": {
+        "success_count": 114,
+        "bank_file_sha256": "sha256:935d7f3bde46e7d2736f4316289547814fce202f6d993a4ebe0afeb5aa76da52",
+        "result_file_sha256": "sha256:f677c3db805c2a323e6afaa0a5dd6e789f849e6d69be83ca658b553a81a355f6"
+      },
+      "C": {
+        "success_count": 108,
+        "bank_file_sha256": "sha256:e7d1d3515c88f4490901ea15ff89b08c97f26c2bde0bca78dd46b9167c7aad98",
+        "result_file_sha256": "sha256:fa5e49fc4c2679a51ab05cbe798d74e6d940528f36470037896136b5a689a2f3"
+      }
+    },
+    "aggregate_2": {
+      "skill_count": 40,
+      "bank_file_sha256": "sha256:f83d3e2dd65f574f4fdec9760070a360fbeb669a8e2c463a6ba9f04547efb221"
+    },
+    "validate_2": {
+      "pooled_success_count": 336,
+      "clients": {
+        "C": {
+          "success_count": 109,
+          "result_file_sha256": "sha256:8c96f30fd3e90a665ad7a45e9cfe124a6c6784902c91645125caf7d848945451",
+          "replacement_bank_file_sha256": "sha256:e4d5f9688e61913c75779f32eba34369bb89547124c331573579073e589257c8"
+        },
+        "A": {
+          "success_count": 110,
+          "result_file_sha256": "sha256:d399f36be45637e6b68c54a05e5e505b990af63c25c001ed8095da56ca9518a6",
+          "replacement_bank_file_sha256": "sha256:a56be43d601b4b4bc77f246d584cce035215e7d6eb40c7e54eba443bd0dd4f94"
+        },
+        "B": {
+          "success_count": 117,
+          "result_file_sha256": "sha256:c7430f72d1ee94653d124d341c847999f1c6ad8ba79bde495767e513ffff0a83",
+          "replacement_bank_file_sha256": "sha256:a27d2873c3cb7296597ddb446010e353ea6273533ae471df936c7ffe4aa0471b"
+        }
+      }
+    },
+    "local_5": {
+      "A": {
+        "success_count": 105,
+        "bank_file_sha256": "sha256:b623beadf1d875cd58ea0fec7a0682380386ff022866fbdd279beb3025794e3f",
+        "result_file_sha256": "sha256:48405e52bcfbc5a57991c5af5c2f6db733d72b35b3a2cccbc79dfc92fe741576"
+      },
+      "B": {
+        "success_count": 111,
+        "bank_file_sha256": "sha256:4b4de2a7ceaa738968aef425feaaff3046fb677f49f04dc8c2fe1f7b310ef03e",
+        "result_file_sha256": "sha256:59ffba3626991271540d4c696f67c3d752b2202c0c459c7655a22532def53d85"
+      },
+      "C": {
+        "success_count": 109,
+        "bank_file_sha256": "sha256:92a16af0dc83552e8eb6dc053c5dbe96fde029477d31bdb970a63ebb79c64149",
+        "result_file_sha256": "sha256:3a75300693b8a97cf497b246ab3835468c6952e483617b966ae5ebd9da09ea23"
+      }
+    },
+    "local_6": {
+      "A": {
+        "success_count": 108,
+        "bank_file_sha256": "sha256:3666aa8a722428baa7e35b273bef428ce40d2231796a99a75b53839471c93ab8",
+        "result_file_sha256": "sha256:b8416f42a8fae9af267c610db475557980ad6ea2030714dba84a2925a24c098c"
+      },
+      "B": {
+        "success_count": 116,
+        "bank_file_sha256": "sha256:bc71c47a7db9c86929eed15d8904a0f39d186a90489c5d17d641cf66d488aa18",
+        "result_file_sha256": "sha256:c5c09c00d1f5e338f76e4256796b2068c4eb888945e6552d6e55070592d31ed1"
+      },
+      "C": {
+        "success_count": 109,
+        "bank_file_sha256": "sha256:215b94614a039d3efafb08107cce3d7042e92ba9b1580cf5f64385c9fabc388c",
+        "result_file_sha256": "sha256:efa70cdec96e93243e6b9be57c54e41ea26005d3d397d735e5bd2e3705c0fc97"
+      }
+    },
+    "aggregate_3": {
+      "skill_count": 39,
+      "bank_file_sha256": "sha256:ae306273790f699bd467ad47eaf0662f9541674fbd1fe55d61ce2688944224b8"
+    },
+    "validate_3": {
+      "pooled_success_count": 319,
+      "clients": {
+        "C": {
+          "success_count": 103,
+          "result_file_sha256": "sha256:a235aab74ea99dc0497db5f840f59ecdc082160f8f6be14c2f0b9b945e9b5ac8",
+          "replacement_bank_file_sha256": "sha256:ca09b73f43f6d1c0bcfa860b701f1dfd5b34dbadd64a3ea7704cd9932b57dafd"
+        },
+        "B": {
+          "success_count": 113,
+          "result_file_sha256": "sha256:7047ac3b212ed405f933c68e9f9b9e2a75493668718b085c4d51690668adc2f2",
+          "replacement_bank_file_sha256": "sha256:a02a2eb617516ab2d938ac2afef03af439d04c5f5fedd1bbbf5fbeddd42a0052"
+        },
+        "A": {
+          "success_count": 103,
+          "result_file_sha256": "sha256:f3ec8c42b6a810307a70abc7f136bceec7311af7efcec436b2dba8a24035abbc",
+          "replacement_bank_file_sha256": "sha256:85531c07ed9e8125aa68aaa6c2e5b983a08f019d9dd552dc0d73eb5256b6f329"
+        }
+      }
+    }
+  },
+  "processes": {},
+  "error_type": "CalledProcessError",
+  "error": "Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.server_aggregate', '--round-index', '3', '--source-generation', '6', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation', '--bank-a', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.json', '--validation-a', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/validation/summary.json', '--bank-b', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.json', '--validation-b', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/validation/summary.json', '--bank-c', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.json', '--validation-c', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/validation/summary.json']' returned non-zero exit status 1.",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py\", line 226, in run\n    run_single(args, kind, index)\n  File \"/mnt/d/skillMAS/stage2_local_v10/run_two_local_to_global3.py\", line 195, in run_single\n    subprocess.run(command, cwd=ROOT, stdout=out, stderr=err, check=True)\n  File \"/home/user0515/miniconda3/envs/stage3-alfworld/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/home/user0515/miniconda3/envs/stage3-alfworld/bin/python', '-m', 'stage2_local_v10.server_aggregate', '--round-index', '3', '--source-generation', '6', '--experiment-id', 'stage2-local-v10-role-partitioned-patch3', '--output-root', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/globals/Global3/aggregation', '--bank-a', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.json', '--validation-a', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/validation/summary.json', '--bank-b', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.json', '--validation-b', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/validation/summary.json', '--bank-c', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.json', '--validation-c', '/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/validation/summary.json']' returned non-zero exit status 1.\n",
+  "failed_at": "2026-10-19T07:09:22.819129+00:00",
+  "resume_events": [
+    {
+      "time": "2026-10-18T11:51:41.606766+00:00",
+      "step": "local_2"
+    },
+    {
+      "time": "2026-10-18T12:33:15.609925+00:00",
+      "step": "local_2"
+    },
+    {
+      "time": "2026-10-18T13:44:42.832271+00:00",
+      "step": "aggregate_1"
+    },
+    {
+      "time": "2026-10-19T03:11:05.983034+00:00",
+      "step": "validate_2"
+    },
+    {
+      "time": "2026-10-19T07:52:34.567904+00:00",
+      "step": "aggregate_3"
+    }
+  ],
+  "completed_at": "2026-10-19T08:57:17.199430+00:00"
+}

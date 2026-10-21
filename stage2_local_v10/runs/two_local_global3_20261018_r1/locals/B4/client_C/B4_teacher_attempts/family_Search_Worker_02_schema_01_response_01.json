@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_02_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:e522b43263a5cbb0170b804f18ce2fc578829a3bc81190d75a920c9d240bb678",
+  "message_character_count": 98004,
+  "started_at_utc": "2026-10-18T17:18:28.089790+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When the desklamp is already visible on a surface, go directly to that furniture and use the numbered lamp; do not continue searching unrelated containers. In episode_025 the worker saw desklamp 1 on coffeetable 1 at step 1 but searched two more surfaces before returning.\", \"affected_skill_ids\": [\"T2_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_025\"]},{\"recommendation\": \"Do not emit 'look at X' or other unsupported action forms; use only go to, take, put, open, use, and inventory. Episode_026 failed with a parse error on 'look at bed 2' before any environment action.\", \"affected_skill_ids\": [\"G_005\", \"T2_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_026\"]},{\"recommendation\": \"After taking the target, hand off promptly rather than continuing to search for the lamp; the operation phase belongs to the next role. Episodes 027, 030, 032, 035, 036, 038 show correct take-then-handoff behavior.\", \"affected_skill_ids\": [\"G_007\", \"T2_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_027\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_030\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_032\"]},{\"recommendation\": \"When the target is not on the first surface, broaden systematically across open surfaces (desk, bed, shelf, sidetable, dresser) before opening containers. Episodes 028, 032, 034, 038 demonstrate this successful pattern.\", \"affected_skill_ids\": [\"G_001\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_028\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_034\", \"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_038\"]},{\"recommendation\": \"Do not repeat an identical failing 'use desklamp' command; after one or two no-change results, change location or state. Episode_029 issued use desklamp 1 three times plus a compound form, all returning Nothing happens, then declared failure.\", \"affected_skill_ids\": [\"G_006\", \"T2_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_029\"]},{\"recommendation\": \"Do not use compound or bare-name lamp syntax such as 'use desklamp 1 on pencil 1' or 'use desklamp'; these return Nothing happens. Episode_031 shows repeated invalid forms and a bare-name use before eventually taking the alarmclock.\", \"affected_skill_ids\": [\"T2_003\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_031\"]},{\"recommendation\": \"When the target is not found after checking open surfaces, open closed containers (drawers, cabinets) and inspect them rather than declaring blocked. Episode_037 declared failure after only approaching closed drawers without opening most of them.\", \"affected_skill_ids\": [\"G_003\", \"G_002\", \"T2_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_037\"]},{\"recommendation\": \"Avoid using non-lamp fixtures like 'use desk 1' as a substitute for the lamp; these always return Nothing happens. Episode_041 looped on use desk 1 and bare use desklamp instead of locating the actual desklamp instance.\", \"affected_skill_ids\": [\"G_006\", \"T2_003\", \"T2_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_04/client_C/episode_041\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 28922,
+    "completion_tokens": 962,
+    "total_tokens": 29884
+  },
+  "completed_at_utc": "2026-10-18T17:18:32.639067+00:00"
+}

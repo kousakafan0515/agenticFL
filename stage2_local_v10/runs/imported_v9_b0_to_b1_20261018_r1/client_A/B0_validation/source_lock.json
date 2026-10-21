@@ -1,0 +1,14 @@
+{
+  "experiment_id": "stage2-local-v9-v6-no-capacity-control",
+  "client": "A",
+  "phase": "validation",
+  "generation": 0,
+  "manifest_file_sha256": "sha256:f2ff004126692a04629b92198f8979ad0b451359fab8ba61b96de73409b81733",
+  "manifest_content_hash": "sha256:603ebf5db622616502e5bd7dc1df7b55c6b6f320c1df42e67d522d9cf4760b69",
+  "bank_file_sha256": null,
+  "bank_live_repository_sha256": null,
+  "model": "qwen3.6-flash",
+  "temperature": 0,
+  "seed": 1234,
+  "thinking": false
+}

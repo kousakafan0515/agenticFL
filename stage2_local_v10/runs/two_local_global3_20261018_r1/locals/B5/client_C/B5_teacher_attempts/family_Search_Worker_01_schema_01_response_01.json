@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Search_Worker_01_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:2c71189b9b56f0d465756824bdea0a04bddd70990f6a6bbc0d7ca69b4cf5d2bb",
+  "message_character_count": 118726,
+  "started_at_utc": "2026-10-19T03:56:42.645556+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a take fails with 'Nothing happens' on a visible object, retry using the exact instance id (e.g., 'take soapbottle 2 from countertop 2') rather than the bare name; the bare-name take failed while the numbered take succeeded.\", \"affected_skill_ids\": [\"G_005\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_012\"]},{\"recommendation\": \"After a no-change navigation to a container (e.g., 'go to drawer 2' returning Nothing happens), stop retrying that target and move to a different unchecked location; repeated failed navigations to drawers/dresser wasted many steps before finding the candle on the toilet.\", \"affected_skill_ids\": [\"G_006\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_007\"]},{\"recommendation\": \"Do not issue 'open drawer N' from the parent desk location; navigate to the drawer itself first. Opening drawers while at desk 1 returned Nothing happens repeatedly, and 'examine drawer 1' is unsupported.\", \"affected_skill_ids\": [\"G_003\", \"G_005\", \"T6_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_018\"]},{\"recommendation\": \"Search open surfaces before exhaustively opening closed containers: in episode 010 the creditcard was found on the dresser only after checking all drawers and cabinets, whereas prioritizing visible surfaces would have found it sooner.\", \"affected_skill_ids\": [\"G_001\", \"T3_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_010\"]},{\"recommendation\": \"When the target is not on the expected fixture (e.g., no pan on any stoveburner), broaden to other plausible surfaces like countertops rather than concluding absence; the pan was found on countertop 1.\", \"affected_skill_ids\": [\"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_011\"]},{\"recommendation\": \"After confirming the target is held, hand off immediately and do not add redundant navigation or verification; the successful episodes consistently end with a HANDOFF once the take observation confirms holding.\", \"affected_skill_ids\": [\"G_007\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_002\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_013\"]},{\"recommendation\": \"Track checked locations to avoid revisiting confirmed-empty surfaces; in episode 007 the agent returned to dresser 1 multiple times with no new information, wasting steps.\", \"affected_skill_ids\": [\"G_002\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_007\"]},{\"recommendation\": \"Prefer checking likely open surfaces first (sidetable, desk, shelf, bed) for small items like cellphones and books; the successful searches found targets on these surfaces within a few steps.\", \"affected_skill_ids\": [\"G_001\", \"T1_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_001\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_022\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 36141,
+    "completion_tokens": 829,
+    "total_tokens": 36970
+  },
+  "completed_at_utc": "2026-10-19T03:56:46.655420+00:00"
+}

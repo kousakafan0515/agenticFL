@@ -1,0 +1,47 @@
+{
+  "batch": 10,
+  "attempt": 1,
+  "input_ids": [
+    "T0136",
+    "T0137",
+    "T0138",
+    "T0139",
+    "T0140",
+    "T0141",
+    "T0142",
+    "T0143",
+    "T0144",
+    "T0145",
+    "T0146",
+    "T0147",
+    "T0148",
+    "T0149",
+    "T0150"
+  ],
+  "input_text_sha256": "sha256:3bea167e5cb028bcfe869e5eeee19c07b880ee0fa25983cfe83b7c0283b8815e",
+  "raw_response": "{\"translations\":[{\"id\":\"T0136\",\"english\":\"Desklamp observation: avoid repeatedly using examine/use/look on the target object without using the desklamp.\"},{\"id\":\"T0137\",\"english\":\"In desklamp observation tasks, repeatedly executing examine, use, or look on the target object usually does not trigger the success condition; the successful path is to reach the furniture where the desklamp is located and then use the desklamp. If multiple attempts have been ineffective, stop repeating and switch to finding/using the desklamp.\"},{\"id\":\"T0138\",\"english\":\"When the task requires look at/examine the target object under/with the desklamp, and directly performing examine/use/look on the target object returns \\\"Nothing happens\\\" or an ordinary description.\"},{\"id\":\"T0139\",\"english\":\"Desklamp observation: do not attempt to pick up or move the desklamp.\"},{\"id\":\"T0140\",\"english\":\"The desklamp is a fixed object; take desklamp or go to desklamp is usually ineffective; treat the desklamp as a fixed interaction point on furniture, and complete the observation by going to the furniture where it is located and using it.\"},{\"id\":\"T0141\",\"english\":\"When the task involves the desklamp, and attempting take desklamp or go to desklamp returns \\\"Nothing happens\\\".\"},{\"id\":\"T0142\",\"english\":\"Task type heat then place; target object is held; microwave is open; goal requires heating the object.\"},{\"id\":\"T0143\",\"english\":\"Task type heat then place; object is heated and held; destination is known.\"},{\"id\":\"T0144\",\"english\":\"Desklamp observation task: first acquire the target object, then go to the surface where the desklamp is located and use the desklamp.\"},{\"id\":\"T0145\",\"english\":\"In \\\"desklamp observation\\\" tasks, first search for and acquire the target object; if the desklamp has already been observed on a surface, go directly to that surface and use the desklamp, and do not continue searching other containers. After arriving, use use desklamp to complete the observation.\"},{\"id\":\"T0146\",\"english\":\"When searching for the target object or desklamp, if the target object is more likely to appear on open surfaces such as desks, side tables, or beds, do not prioritize or repeatedly iterate through many drawers; and when the desklamp is already visible on a surface, continuing to search drawers wastes steps and leads to failure.\"},{\"id\":\"T0147\",\"english\":\"Drawer searches are costly; in many desklamp observation tasks, the target object and the desklamp are both on open surfaces; ignoring an already observed desklamp will miss the opportunity to complete the task.\"},{\"id\":\"T0148\",\"english\":\"First check open surfaces related to the desklamp, such as desks, side tables, and nightstands; once the desklamp is observed, go directly to its surface and use the desklamp, and check drawers only when it has not been found in reasonable locations.\"},{\"id\":\"T0149\",\"english\":\"When an action returns \\\"Nothing happens\\\", do not repeat the same action; change the state (such as opening/closing a container, moving location, taking out an object) and then retry. If `go to <location>` returns \\\"Nothing happens\\\", treat that location as unreachable and switch to another candidate location; if `open` returns \\\"Nothing happens\\\", the container may already be open, so directly continue put.\"},{\"id\":\"T0150\",\"english\":\"Do not output a completion state or stop acting until environmental observation confirms the final placement action succeeded; stop immediately after success and do not issue inventory or empty actions again. If the final put returns \\\"Nothing happens\\\", first confirm that the target location has been reached and then retry, rather than prematurely declaring completion or failure.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 2465,
+    "prompt_tokens": 904,
+    "total_tokens": 3369,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1641,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 904
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

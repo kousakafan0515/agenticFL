@@ -1,0 +1,580 @@
+{
+  "bank_schema_version": "patchFL.role_repository.v3",
+  "experiment_id": "stage2-local-v9-client-c-v6-no-capacity-control",
+  "source_client": "C",
+  "target_client": "C",
+  "generation": 1,
+  "parent_bank": "B0",
+  "parent_bank_file_sha256": "sha256:0b4bf4e9a3bb381be4cb218e92517f1dd1cce7652fc75ffc9b39073a2f25c518",
+  "parent_live_repository_sha256": null,
+  "teacher_model": "deepseek-flash",
+  "teacher_endpoint": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "endpoint_path": "/",
+    "model": "deepseek-flash",
+    "api_key_present": true,
+    "api_key_value_recorded": false
+  },
+  "maximum_skill_field_characters": 900,
+  "active_skillbanks": {
+    "Supervisor": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Two-phase search-then-operate decomposition",
+          "principle": "For tasks where an object must be acquired and then manipulated or placed, split the mission into a SEARCH MISSION that ends when the target object is in inventory, followed by an OPERATION MISSION that ends when the environment observation confirms the required final state.",
+          "when_to_apply": "When the goal requires an object to be found and then used, cleaned, heated, cooled, examined, or placed, and the object is not already held."
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Search mission return condition: holding the target object",
+          "principle": "Define the SEARCH MISSION return condition as the worker holding the target object, not merely having seen it or opened a container.",
+          "when_to_apply": "When dispatching a worker to find and take an object for any task family."
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Operation mission return condition: environment observation confirms final state",
+          "principle": "Define the OPERATION MISSION return condition as the environment observation confirming the required final state (e.g., object placed at destination, object cleaned, object heated, object cooled), not merely that the worker attempted the action.",
+          "when_to_apply": "When dispatching a worker to manipulate a held object for any task family."
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "If a worker returns HANDOFF without achieving the mission's return condition or reports failure, do not re-dispatch the same mission to the same location; change the search location, object description, or strategy.",
+          "why_it_happens": "The supervisor may repeat the same ASSIGN when the worker's failure is not treated as evidence that the current plan is exhausted.",
+          "how_to_avoid": "After a failed or empty search, dispatch the next candidate location or ask the worker to confirm the location is empty before moving on. After repeated 'Nothing happens' for an action, change strategy by verifying object location, opening the appliance, or switching to a different approach."
+        },
+        {
+          "skill_id": "skill_005",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "Do not dispatch a search mission that requires finding the object in one specific receptacle unless that receptacle is known to contain it; if the first location fails, broaden the search to other reachable receptacles.",
+          "why_it_happens": "The supervisor may assume the target is in a named container based on the goal template rather than observed environment state, but the environment may place it elsewhere, causing the worker to exhaust the specified location and fail.",
+          "how_to_avoid": "Before dispatching a search mission, require the worker to first report the contents of candidate receptacles, or phrase the mission as 'search cabinets/drawers/countertops for X' rather than binding to a specific unverified location. If the first search returns empty, reassign a broader search instead of repeating the same location."
+        },
+        {
+          "skill_id": "skill_006",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "Before dispatching a placement mission, verify the destination is open or can be opened. If the destination is a closed container, prepend an open step. If opening returns 'Nothing happens', treat the receptacle as non-openable and reassign to a valid open destination.",
+          "why_it_happens": "The supervisor assigns an OPERATION MISSION to put an object into a receptacle that is closed or does not support opening. The worker repeatedly attempts 'put' and 'open' with 'Nothing happens' observations, exhausting steps and failing.",
+          "how_to_avoid": "Before dispatching a placement mission, verify the destination is open or can be opened. If the destination is a closed container, prepend an open step. If opening returns 'Nothing happens', treat the receptacle as non-openable and reassign to a valid open destination."
+        },
+        {
+          "skill_id": "skill_007",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "After each OPERATION MISSION handoff, inspect the environment observation for the target object's final state. Only declare success when the observation confirms the goal predicate; only declare failure when the observation shows an invalid/blocked action or the object is unreachable.",
+          "why_it_happens": "The supervisor sometimes declares FAILED after a worker HANDOFF even when the environment events show the object was successfully placed. Conversely, it may accept a handoff without verifying the clean state or final placement.",
+          "how_to_avoid": "After each OPERATION MISSION handoff, inspect the environment observation for the target object's final state (e.g., 'You put the X in/on Y' or 'You clean the X'). Only declare success when the observation confirms the goal predicate; only declare failure when the observation shows an invalid/blocked action or the object is unreachable."
+        },
+        {
+          "skill_id": "skill_008",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "An OPERATION MISSION to put an object at the destination should be dispatched only after the worker has confirmed holding that object; otherwise the placement action will fail or be invalid.",
+          "why_it_happens": "The supervisor may issue a placement mission based on the intended object rather than the worker's actual inventory state.",
+          "how_to_avoid": "Require the worker's HANDOFF to explicitly report holding the target object before assigning the corresponding placement mission."
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Use desklamp as a fixed fixture, not a takeable object",
+            "principle": "In desklamp observation tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's location and use it (turn it on) while holding the target object.",
+            "when_to_apply": "When the goal requires examining or looking at an object with/under the desklamp and the desklamp is observed on a desk, sidetable, or dresser."
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Repeatedly dispatching examine or look missions for the same object after the environment has already returned 'There's nothing special about X' or 'Nothing happens' causes handoff loops and task failure. After one or two failed examine attempts, change strategy: verify object location, try a different interaction (take/put/use), or declare failure.",
+            "why_it_happens": "The supervisor may not treat a null observation as evidence that the current examine strategy is exhausted.",
+            "how_to_avoid": "After one or two failed examine attempts, change strategy: verify object location, try a different interaction (take/put/use), or declare failure."
+          },
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "The phrase 'under the desklamp' in desklamp observation goals does not guarantee the target object is physically under the lamp. If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure.",
+            "why_it_happens": "The supervisor may interpret the goal phrase literally and repeatedly dispatch look missions at the desklamp even when the object is not there.",
+            "how_to_avoid": "If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure."
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place pipeline with explicit clean-state verification",
+            "principle": "For clean-then-place tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation.",
+            "when_to_apply": "Any clean-then-place goal where the target object may be dirty and the destination is a fixed receptacle."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Heat mission after object acquisition",
+            "principle": "After the worker returns holding the target object, dispatch an OPERATION MISSION to heat it using a heat source such as microwave 1. Return when the environment confirms the object is heated.",
+            "when_to_apply": "After a successful SEARCH MISSION handoff where the worker holds the target object."
+          },
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Placement mission after heating",
+            "principle": "After the worker returns with the object heated, dispatch an OPERATION MISSION to place it at the specified destination. Return when the environment confirms the object is at the destination.",
+            "when_to_apply": "After a successful HEAT MISSION handoff where the object is heated."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling requires a dedicated cool action, not just fridge placement",
+            "principle": "For cooling tasks, after obtaining the target object, explicitly perform the cool action with the fridge (e.g., 'cool X with fridge 1') before attempting to place it. Do not assume that putting the object into the fridge and taking it out constitutes cooling.",
+            "when_to_apply": "When the goal is to cool an object and place it elsewhere, and the object is currently held."
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Before dispatching a search for a specific object, confirm that the object type is present and coolable. If the object is not found after a reasonable search, consider that the task may be impossible and report failure early.",
+            "why_it_happens": "The supervisor may assume the object exists without checking, leading to exhaustive searches that waste time and end in failure.",
+            "how_to_avoid": "During initial exploration, note the locations of objects. If the target object is not found in likely receptacles, reassess the task feasibility."
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Sequential two-item placement with single-item capacity",
+            "principle": "For two-object placement tasks, treat the mission as two independent search-and-place cycles: locate and take the first target object, place it at the destination, then locate and take the second target object and place it at the destination.",
+            "when_to_apply": "When the goal requires placing two instances of the same object type at a destination and the worker can hold only one object at a time."
+          }
+        ]
+      }
+    },
+    "Search Worker": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Search visible surfaces before opening closed containers",
+          "principle": "For object-finding tasks, first scan all visible surfaces (tables, desks, dressers, beds, shelves, countertops, sofas, armchairs, etc.) for the target object before opening closed containers such as drawers, cabinets, safes, fridges, and microwaves.",
+          "when_to_apply": "When the target object is not immediately visible in the current location and the task requires finding it."
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Open closed containers before attempting to take from them",
+          "principle": "When a target object is expected inside a closed container (drawer, cabinet, safe, fridge, microwave), first navigate to the container, then use the open action, then take the object from the opened container.",
+          "when_to_apply": "When the target object is not visible on surfaces and a closed container is a likely location."
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "After taking the target object, navigate to the destination and put it there",
+          "principle": "Once the target object is in inventory, go directly to the specified destination receptacle or surface and use the put action to place the object there.",
+          "when_to_apply": "After successfully taking the target object and before declaring handoff or completion."
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Avoid repeated failed actions and declare blocked after exhaustive search",
+          "principle": "If an action such as go to or open returns 'Nothing happens' repeatedly, do not keep retrying the same action. After checking all plausible locations and containers without finding the target object, declare the task blocked rather than looping.",
+          "when_to_apply": "When repeated navigation or open actions fail, or when all known containers and surfaces have been searched without finding the target object."
+        }
+      ],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [
+          {
+            "skill_id": "skill_005",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: first locate the target object, then bring it to the desklamp and turn on the desklamp.",
+            "principle": "For tasks of the type “look at/examine X under the desklamp”, first search for and take the target object X; if the target object is not at the location of the desklamp, bring it to the desktop/table surface with the desklamp, place it or keep holding it, then use the desklamp to turn on the light, so as to complete the observation condition.",
+            "when_to_apply": "The task goal is to observe something under the desklamp, and there is an interactable desklamp in the environment; the target object and the desklamp are not in the same location, or the target object needs to be obtained from another container/surface."
+          },
+          {
+            "skill_id": "skill_006",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: the desklamp is usually not takeable; use it rather than take.",
+            "principle": "In desklamp observation tasks, the desklamp is usually a fixed object; take desklamp returns “Nothing happens.”; the correct interaction is use desklamp to turn it on, or place the target object on the surface where the desklamp is and then use desklamp.",
+            "when_to_apply": "When interaction with the desklamp is needed; if take desklamp fails, do not repeatedly try to take it; instead switch to use desklamp or bring the target object to the desklamp."
+          },
+          {
+            "skill_id": "skill_007",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: do not rely on examine target object or examine desklamp to satisfy the observation condition.",
+            "principle": "examine target object usually only returns “There's nothing special about X.” or “Nothing happens.”, and examine desklamp also often has no effect; these actions cannot replace the environment success condition of “observing under the desklamp”. Prioritize actions that can change the environment state, such as locating the target object, taking/placing it, and turning on the desklamp.",
+            "when_to_apply": "When the task requires look at/examine X under the desklamp, and examine X or examine desklamp does not produce a valid observation result."
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: avoid repeatedly look/examine the same location; continue searching for the target object.",
+            "principle": "Repeatedly executing look or examine on the same desktop/desklamp will not change the state and can easily lead to blocked or handoff_loop_guard. If the current surface has no target object, turn to other containers or furniture to search for the target object, and after finding it, return to the desklamp to complete the observation.",
+            "when_to_apply": "In desklamp observation tasks, when you have reached the location of the desklamp but the target object is not on that surface, and consecutive look/examine produces no new information."
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place workflow for placing after cleaning.",
+            "principle": "For clean-and-place tasks, first locate and take the target object, then go to a sinkbasin and clean it, then go to the destination receptacle and put it there.",
+            "when_to_apply": "When the goal is to put a clean object in a specified location and the object is not already clean."
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "If the goal requires a clean object, placing the object before cleaning it will not satisfy the task and may cause failure.",
+            "why_it_happens": "The agent may skip the cleaning step or attempt to clean after placing, but the environment may not allow cleaning once the object is placed or may mark the task failed.",
+            "how_to_avoid": "Always clean the object at a sinkbasin before putting it in the final destination."
+          },
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "If the target object is not found after checking a reasonable number of locations, do not continue opening every remaining container; instead, reassess or hand off.",
+            "why_it_happens": "The agent may get stuck in a loop of opening cabinets/drawers, wasting steps and eventually failing due to timeout or supervisor failure.",
+            "how_to_avoid": "After checking a few likely locations, consider that the object may be in an unusual place or that the task may be impossible; report blocked or hand off rather than continuing indefinitely."
+          },
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Cleaning actions only work with a sinkbasin; using other receptacles like bathtubbasin or fridge will fail.",
+            "why_it_happens": "The agent may try alternative water sources or containers, but the environment only supports cleaning at sinkbasin.",
+            "how_to_avoid": "Always navigate to a sinkbasin before issuing a clean action."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Search for target object across common containers",
+            "principle": "When the target object is not in the first searched location, systematically check other likely containers (cabinets, drawers, countertops, fridge, diningtable, sinkbasin, coffeemachine, stoveburners) until the object is found.",
+            "when_to_apply": "During the search phase of a heat-and-place task when the target object is not immediately visible or is absent from the first checked location."
+          },
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Heat object using microwave",
+            "principle": "To heat an object, go to the microwave, open it if closed, put the object inside, then use the 'heat <object> with microwave 1' action. If the object is already in the microwave, take it first, then heat it while holding it.",
+            "when_to_apply": "After acquiring the target object and before placing it at the final destination in a heat-and-place task."
+          },
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "If a heat action fails, do not repeat the same action. Instead, verify the object is in the correct location (e.g., inside the microwave) and that you are holding it if required, then try a different heating appliance or adjust the object's position.",
+            "why_it_happens": "The heat action may fail if the object is not in the correct container, if the container is closed, or if the object is not held when required by the environment.",
+            "how_to_avoid": "Check the object's location and the container's state before heating. If heating fails, try opening the container, putting the object inside, or using an alternative appliance like a stoveburner."
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "If the target object is not in the first searched location, continue searching other plausible locations instead of declaring the task blocked or failed.",
+            "why_it_happens": "The object may be in another container or surface that has not yet been checked.",
+            "how_to_avoid": "Systematically search all likely containers and surfaces before concluding the object is unavailable."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Cooling workflow: locate target, cool with fridge, then place",
+            "principle": "For cooling tasks, first find the target object, take it, go to an open fridge, use the cool action with the fridge, then navigate to the final destination and put the object there.",
+            "when_to_apply": "When the goal is to cool an object and place it in a specified receptacle."
+          },
+          {
+            "skill_id": "skill_018",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "The fridge is not guaranteed to contain the target object; search other locations such as countertops, cabinets, dining tables, and shelves before concluding the object is unavailable.",
+            "why_it_happens": "Agents often check the fridge first because cooling requires a fridge, but the object may be elsewhere.",
+            "how_to_avoid": "After checking the fridge, systematically search other common object locations before declaring failure."
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Opening the fridge is not sufficient for cooling tasks; the agent must locate the target object, take it, cool it, and place it at the destination before handing off.",
+            "why_it_happens": "Agents may misinterpret the mission as only opening the fridge or may hand off prematurely after a partial step.",
+            "how_to_avoid": "Verify that the full cooling-and-placement sequence is complete before declaring success or handing off."
+          },
+          {
+            "skill_id": "skill_020",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "When the goal specifies a particular object type (e.g., cup, bowl), do not take or use a different but similar object type (e.g., mug) unless the environment explicitly treats them as equivalent.",
+            "why_it_happens": "Agents may generalize object categories and pick a nearby similar object.",
+            "how_to_avoid": "Match the exact object type requested in the goal; if only a similar type is available, continue searching or report the mismatch."
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_021",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Two-item placement: first place the first item, then take the second item.",
+            "principle": "In two-object placement tasks, after finding the first target item, first place it in the target container, then search for and take the second target item, and finally place the second item also in the target container.",
+            "when_to_apply": "When the task requires placing two items of the same type into the same target container, and the agent can carry only one item at a time."
+          },
+          {
+            "skill_id": "skill_022",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "In two-item placement tasks, when the agent already holds an item, trying to move to another location or pick up another item usually fails (returns \"Nothing happens\"), because the agent can carry only one item at a time.",
+            "why_it_happens": "The ALFWorld environment restricts the agent to holding only one item at a time; while holding an item, move or pick up operations are blocked.",
+            "how_to_avoid": "Before attempting to move or pick up the second item, first put the currently held item into the target container or a temporary location, free both hands, then continue."
+          },
+          {
+            "skill_id": "skill_023",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "In two-item placement tasks, if you search for target items only in one type of container (e.g., only search shelves or only search cabinets), you may not find the second item, causing task failure.",
+            "why_it_happens": "Target items may be scattered across different container types, such as counters, tables, shelves, cabinets, etc.",
+            "how_to_avoid": "Systematically search multiple types of containers and surfaces, including counters, tables, shelves, cabinets, drawers, etc., until both target items are found."
+          },
+          {
+            "skill_id": "skill_024",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "In two-item placement tasks, if the agent repeatedly declares HANDOFF without executing actual actions while already holding an item or after partially completing the task, handoff_loop_guard will terminate it and the task fails.",
+            "why_it_happens": "The agent may incorrectly believe the current state already satisfies the handoff condition, but the actual task is not yet complete, causing repeated handoff declarations without advancing the task.",
+            "how_to_avoid": "Declare HANDOFF only when the current subgoal is truly completed (e.g., the item has been picked up or placed), and after declaring it continue executing necessary follow-up actions to avoid repeated declarations."
+          }
+        ]
+      }
+    },
+    "Operation Worker": {
+      "general": [
+        {
+          "skill_id": "skill_001",
+          "version": 1,
+          "type": "Procedure or Local Strategy",
+          "title": "Open closed containers before placing inside",
+          "principle": "If the destination is a closed container, open it before attempting to put the held object inside.",
+          "when_to_apply": "When the destination is a cabinet, drawer, fridge, microwave, safe, or similar container and the observation indicates it is closed."
+        },
+        {
+          "skill_id": "skill_002",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "If a put action returns 'Nothing happens', verify current location and navigate to the destination before retrying the put.",
+          "why_it_happens": "The agent may have attempted to place an object without being at the destination location, causing the put action to fail silently.",
+          "how_to_avoid": "After a failed put, check whether the agent is at the destination; if not, go to the destination and then retry the put."
+        },
+        {
+          "skill_id": "skill_003",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "If an action fails (e.g., 'Nothing happens'), do not repeat it without changing state or approach; reassess and try a different action or location.",
+          "why_it_happens": "The agent may get stuck repeating the same invalid action, wasting steps and leading to failure or handoff loops.",
+          "how_to_avoid": "After a failed action, check inventory, location, and object states; try a different action or move to a different location."
+        },
+        {
+          "skill_id": "skill_004",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "Ensure the object being picked up or transformed matches the target object type; similar but different objects (e.g., cup vs. mug, towel vs. handtowel) will not satisfy the goal.",
+          "why_it_happens": "The agent may confuse similar objects or misread the observation, wasting time and causing task failure.",
+          "how_to_avoid": "Read the observation carefully and confirm the object name matches the goal before taking or transforming it."
+        },
+        {
+          "skill_id": "skill_005",
+          "version": 1,
+          "type": "Failure Lesson",
+          "description": "If the target object cannot be found after searching relevant locations, declare failure rather than continuing indefinitely.",
+          "why_it_happens": "The object may not exist in the environment or may be in an inaccessible location.",
+          "how_to_avoid": "Search likely containers and surfaces; if the object is not found, report failure."
+        }
+      ],
+      "task_specific": {
+        "简单取放": [
+          {
+            "skill_id": "skill_006",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Simple pick-and-place execution",
+            "principle": "For simple pick-and-place tasks, locate the target object, take it, navigate to the destination, and put it down.",
+            "when_to_apply": "When the goal is to move a single object to a specified destination and no cleaning, heating, cooling, or lighting is required."
+          }
+        ],
+        "台灯观察": [
+          {
+            "skill_id": "skill_007",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: first locate the furniture where the desklamp is, then carry the target object there.",
+            "principle": "In the desklamp observation task, do not directly try to go to desklamp; the desklamp is an object fixed to furniture. First find the furniture carrying the desklamp (e.g., desk, sidetable, dresser, coffeetable) through exploration or known location, then carry the target object to that furniture and use the desklamp.",
+            "when_to_apply": "When the target object has been obtained or is already in hand, and it needs to be placed under the desklamp for observation."
+          },
+          {
+            "skill_id": "skill_008",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: after reaching the furniture where the desklamp is, use the desklamp to complete observation.",
+            "principle": "After carrying the target object to the furniture where the desklamp is, execute use desklamp to complete the desklamp observation; there is no need to execute examine, use, or look on the target object to trigger observation.",
+            "when_to_apply": "When the target object is already carried and the agent is at the furniture where the desklamp is, and the task requires examine/look at the target object with/under the desklamp."
+          },
+          {
+            "skill_id": "skill_009",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: avoid repeatedly using examine/use/look on the target object without using the desklamp.",
+            "principle": "In desklamp observation tasks, repeatedly executing examine, use, or look on the target object usually does not trigger the success condition; the successful path is to reach the furniture where the desklamp is located and then use the desklamp. If multiple attempts have been ineffective, stop repeating and switch to finding/using the desklamp.",
+            "when_to_apply": "When the task requires look at/examine the target object under/with the desklamp, and directly performing examine/use/look on the target object returns \"Nothing happens\" or an ordinary description."
+          },
+          {
+            "skill_id": "skill_010",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Desklamp observation: do not attempt to pick up or move the desklamp.",
+            "principle": "The desklamp is a fixed object; take desklamp or go to desklamp is usually ineffective; treat the desklamp as a fixed interaction point on furniture, and complete the observation by going to the furniture where it is located and using it.",
+            "when_to_apply": "When the task involves the desklamp, and attempting take desklamp or go to desklamp returns \"Nothing happens\"."
+          }
+        ],
+        "清洗后放置": [
+          {
+            "skill_id": "skill_011",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Clean-then-place sequence for cleaning followed by placing",
+            "principle": "For clean-then-place goals, first acquire the target object, then go to a sinkbasin and clean it, then go to the destination and place it. If the destination is a closed container, open it before placing.",
+            "when_to_apply": "When the goal is to put a clean object at a destination and the object is not already clean."
+          },
+          {
+            "skill_id": "skill_012",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Do not clean with non-sinkbasin fixtures",
+            "principle": "Cleaning only works with a sinkbasin. Attempting to clean with a fridge, bathtubbasin, or other fixture produces 'Nothing happens' and wastes steps.",
+            "when_to_apply": "When holding an object that needs cleaning and choosing a cleaning location."
+          },
+          {
+            "skill_id": "skill_013",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Do not place into non-receptacle fixtures",
+            "principle": "Some fixtures such as toilets and coffeemachines are not valid placement receptacles. Repeated put attempts produce 'Nothing happens'; if the destination is invalid, report blocked rather than looping.",
+            "when_to_apply": "When the destination is a toilet, coffeemachine, or other fixture that rejects placement."
+          }
+        ],
+        "加热后放置": [
+          {
+            "skill_id": "skill_014",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Heat held object directly with microwave",
+            "principle": "When holding the target object and the microwave is open, use the direct heat action instead of placing the object inside first.",
+            "when_to_apply": "Task type heat then place; target object is held; microwave is open; goal requires heating the object."
+          },
+          {
+            "skill_id": "skill_015",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Repeatedly using 'use microwave' or 'heat object with microwave' while the object is inside the microwave can fail without changing state.",
+            "why_it_happens": "The environment may require the object to be held or the microwave to be open for the heat action to succeed.",
+            "how_to_avoid": "If heating fails, take the object out, ensure the microwave is open, and try the direct heat action while holding the object."
+          },
+          {
+            "skill_id": "skill_016",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "After heating, taking the object from the microwave may fail if the microwave is closed or the object is not inside.",
+            "why_it_happens": "The take action requires the object to be accessible inside an open microwave.",
+            "how_to_avoid": "Open the microwave before attempting to take the heated object, and verify the object is inside."
+          },
+          {
+            "skill_id": "skill_017",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Place heated object at destination",
+            "principle": "After heating and taking the object, go to the destination location and put the object there.",
+            "when_to_apply": "Task type heat then place; object is heated and held; destination is known."
+          }
+        ],
+        "冷却后放置": [
+          {
+            "skill_id": "skill_018",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Cool held object with open fridge",
+            "principle": "When the goal requires a cooled object, first acquire the object, then navigate to an open fridge while holding it, and use the cool command with the fridge.",
+            "when_to_apply": "Holding the target object and standing at an open fridge, with the goal requiring the object to be cool."
+          },
+          {
+            "skill_id": "skill_019",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Placing an object inside a fridge does not cool it; the cool command must be used while holding the object at the fridge.",
+            "why_it_happens": "The environment only changes an object's temperature through the explicit cool action, not through containment.",
+            "how_to_avoid": "After reaching the fridge with the object in hand, issue 'cool <object> with fridge' instead of putting the object into the fridge."
+          },
+          {
+            "skill_id": "skill_020",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "A put action fails silently if the destination is closed or the agent is not at the destination; open the destination and navigate to it before placing.",
+            "why_it_happens": "The environment requires the agent to be at an open receptacle to place an object.",
+            "how_to_avoid": "After cooling, go to the destination, open it if closed, then put the held object there."
+          },
+          {
+            "skill_id": "skill_021",
+            "version": 1,
+            "type": "Failure Lesson",
+            "description": "Cooling the object is not sufficient; the task is complete only after the cooled object is placed at the required destination.",
+            "why_it_happens": "The mission goal includes both cooling and placing, so declaring handoff after cooling alone leaves the task incomplete.",
+            "how_to_avoid": "After cooling, continue to the destination and place the object before declaring success."
+          }
+        ],
+        "双物品放置": [
+          {
+            "skill_id": "skill_022",
+            "version": 1,
+            "type": "Procedure or Local Strategy",
+            "title": "Two-item placement: sequential pickup, transport, and placement",
+            "principle": "For tasks requiring two identical or same-type objects to be placed at a destination, pick up one object, carry it to the destination, place it, then return for the second object and repeat.",
+            "when_to_apply": "When the goal is to put two objects of the same type at a target location and the agent cannot hold both simultaneously."
+          }
+        ]
+      }
+    }
+  },
+  "evidence_file_sha256": "sha256:3036feffb86454acbd3fa269740200c6c5b80cb1f24ea28f143beb943bc05772",
+  "live_repository_sha256": "sha256:b178fbb409f8db06f36e77aa121782a5914ce51c4daebb8f10eb152041ecdfaa"
+}

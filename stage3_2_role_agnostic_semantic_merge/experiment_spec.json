@@ -1,0 +1,45 @@
+{
+  "schema_version": "stage3_2.role_agnostic_semantic_merge_spec.v1",
+  "experiment_id": "v9-b1-role-agnostic-semantic-global-round1",
+  "round_index": 1,
+  "aggregation_model": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "seed": 1234,
+    "max_tokens": 16000
+  },
+  "input_policy": {
+    "initial_skills_are_empty_base_adds": true,
+    "expected_total_input_skills": 151,
+    "preserve_source_identity": true,
+    "semantic_input_deduplication_before_model": false
+  },
+  "output_policy": {
+    "role_partitions": false,
+    "buckets": [
+      "general",
+      "简单取放",
+      "台灯观察",
+      "清洗后放置",
+      "加热后放置",
+      "冷却后放置",
+      "双物品放置"
+    ],
+    "all_input_sources_must_be_accounted_for_exactly_once_per_bucket": true,
+    "output_count_must_not_exceed_input_count": true,
+    "maximum_skill_field_characters": 900,
+    "server_evaluation_set": null,
+    "client_downloads_are_byte_identical": true
+  },
+  "future_local_evolution_policy": {
+    "applies_from_round": 2,
+    "scope": "per_client_per_round",
+    "maximum_adds": "floor(applied_distinct_deletes / 3)",
+    "round1_bootstrap_exempt": true,
+    "delete_credit_shared_between_clients": false,
+    "delete_credit_carries_between_rounds": false,
+    "server_consolidation_creates_delete_credit": false
+  }
+}

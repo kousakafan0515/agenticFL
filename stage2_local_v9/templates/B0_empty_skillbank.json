@@ -1,0 +1,32 @@
+{
+  "bank_schema_version": "patchFL.role_repository.v3",
+  "experiment_id": "stage2-local-v9-v6-no-capacity-control",
+  "source_client": "A",
+  "target_client": "A",
+  "generation": 0,
+  "parent_bank": null,
+  "active_skillbanks": {
+    "Planner": {
+      "general": [],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [],
+        "清洗后放置": [],
+        "加热后放置": [],
+        "冷却后放置": [],
+        "双物品放置": []
+      }
+    },
+    "Executor": {
+      "general": [],
+      "task_specific": {
+        "简单取放": [],
+        "台灯观察": [],
+        "清洗后放置": [],
+        "加热后放置": [],
+        "冷却后放置": [],
+        "双物品放置": []
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "batch": 7,
+  "attempt": 1,
+  "input_ids": [
+    "T0091",
+    "T0092",
+    "T0093",
+    "T0094",
+    "T0095",
+    "T0096",
+    "T0097",
+    "T0098",
+    "T0099",
+    "T0100",
+    "T0101",
+    "T0102",
+    "T0103",
+    "T0104",
+    "T0105"
+  ],
+  "input_text_sha256": "sha256:92f5634ab20a59ea206220bcdf5252079fe0f3876570315f2228c8441f64235a",
+  "raw_response": "{\"translations\":[{\"id\":\"T0091\",\"english\":\"In a two-object placement task, after finding the first target object, first place it in the target container, then find and retrieve the second target object.\"},{\"id\":\"T0092\",\"english\":\"When the task requires placing two objects of the same type into the same target container, and the first object has already been found and picked up.\"},{\"id\":\"T0093\",\"english\":\"In a two-object placement task, if the place action is executed without first moving to the target container's location, the environment returns 'Nothing happens', making the action invalid and wasting steps.\"},{\"id\":\"T0094\",\"english\":\"The place action requires the agent to be at the same location as the target container; if not moved, the place command cannot take effect.\"},{\"id\":\"T0095\",\"english\":\"Before executing the place action, first confirm that you have reached the target container's location via 'go to', then execute the 'put' command.\"},{\"id\":\"T0096\",\"english\":\"In a two-object placement task, if already holding one object, directly attempting to pick up the second object usually fails and returns 'Nothing happens'.\"},{\"id\":\"T0097\",\"english\":\"The agent can usually hold only one object at a time; while holding one, it cannot pick up another.\"},{\"id\":\"T0098\",\"english\":\"Before picking up the second object, first place the object already held into the target container or a temporary placement point; after freeing the hands, then pick up the second object.\"},{\"id\":\"T0099\",\"english\":\"In a two-object placement task, if multiple containers have been opened but the target object has not been found, prioritize checking opened containers and visible surfaces (such as countertops and shelves), and avoid repeatedly visiting locations already confirmed to contain no target object.\"},{\"id\":\"T0100\",\"english\":\"Repeatedly visiting already checked locations wastes the action budget, causing the task to fail when the budget is exhausted.\"},{\"id\":\"T0101\",\"english\":\"Maintain a list of checked locations and prioritize checking unchecked opened containers and visible surfaces; if the target object is on a visible surface, pick it up directly.\"},{\"id\":\"T0102\",\"english\":\"In desklamp observation tasks, the desklamp is typically fixed to its surface. Do not dispatch a mission to take the desklamp; instead, dispatch a mission to go to the desklamp's location and use it (turn it on) while holding the target object.\"},{\"id\":\"T0103\",\"english\":\"The phrase 'under the desklamp' in desklamp observation goals does not guarantee the target object is physically under the lamp. If the object is not visible at the desklamp location, search other surfaces and containers before declaring failure. Dispatching repeated 'look under desklamp' missions when the object is elsewhere wastes steps and causes failure.\"},{\"id\":\"T0104\",\"english\":\"For clean-then-place tasks, decompose into: (1) locate and take the target object, (2) go to a sinkbasin and clean it, (3) verify the clean confirmation in the observation, (4) go to the destination and place it. Do not skip the clean step or assume cleaning succeeded without an explicit 'You clean the X' observation.\"},{\"id\":\"T0105\",\"english\":\"Any clean-then-place goal where the target object may be dirty and the destination is a fixed receptacle.\"}]}",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 2384,
+    "prompt_tokens": 874,
+    "total_tokens": 3258,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 1668,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 874
+  },
+  "model": "deepseek-flash",
+  "provider": "deepseek_official"
+}

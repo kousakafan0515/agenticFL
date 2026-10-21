@@ -1,0 +1,58 @@
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+**/secrets/
+*.pem
+*.key
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments, datasets, and temporary work
+/.tmp/
+/.venv-stage3-alfworld/
+/.agents/
+/.codex/
+/.aws/
+/alfworld_data/
+/_docx_review/
+/SkillAdaptor_MAS_collaboration_20260901/
+
+# Frozen pre-V10 workspaces and duplicate delivery/audit snapshots
+/audit_sources/
+/baseline_results_180/
+/blind_global_patchfl/
+/collaboration_round2_prompt_v2/
+/current_skillbanks/
+/deliverables/
+/originalFL/
+/skill_evolution/
+/skill_generation_results/
+/stage1/
+/stage2_local/
+/stage2_local_v2/
+/stage2_local_v3/
+/stage2_local_v4/
+/stage2_local_v5/
+/stage2_local_v6/
+/stage2_local_v7/
+/stage2_local_v8/
+/stage2_local_curriculum/
+/stage3_1_simple_aggregation/
+
+# V10 depends on V9 and Stage3.2 source, but not on their historical run copies.
+/stage2_local_v9/runs/
+/stage3_2_role_agnostic_semantic_merge/runs/
+/stage3_2_role_agnostic_semantic_merge/.tmp/
+
+# Only selected Stage3 federation dependency source is force-added to the baseline.
+/stage3_federation/
+
+# Root-level frozen binary/archive snapshots are not part of the V10 Git baseline.
+/*.zip
+/*.docx

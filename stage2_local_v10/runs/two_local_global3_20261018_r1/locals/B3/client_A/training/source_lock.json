@@ -1,0 +1,14 @@
+{
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "client": "A",
+  "phase": "training",
+  "generation": 3,
+  "manifest_file_sha256": "sha256:bf6e368f688ccdbe7f9d6d43809ba7571a17910f4ef44e7468d4229dca88cee9",
+  "manifest_content_hash": "sha256:c2d6a26c48aa8d145fcb9e5000fc4826a0eef95c6f6a464b8babcc3e76642e91",
+  "bank_file_sha256": "sha256:2c44e896545c26e5f6e932b4f1d94a00c52bf57014650cf72c10c8fb0b76c774",
+  "bank_live_repository_sha256": "sha256:77b25fb0ee1c2c3d39814fa52a8c4536690da9878565aa1ff88623bf2fc9234e",
+  "model": "qwen3.6-flash",
+  "temperature": 0,
+  "seed": 1234,
+  "thinking": false
+}

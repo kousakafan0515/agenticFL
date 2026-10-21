@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_03_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:b5182418966635122ae71bba6ddbfe4ceebc422f7dd081d66de237be2bcedc28",
+  "message_character_count": 131313,
+  "started_at_utc": "2026-10-19T03:56:18.316229+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a worker returns HANDOFF after placing an object, do not dispatch a redundant verification mission. In episode_052 the supervisor assigned a 'verify placement' mission after the put already succeeded, and the episode ended in supervisor_declared_failed. Treat a confirming put observation as terminal success.\", \"affected_skill_ids\": [\"G_008\", \"T3_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_052\"]},{\"recommendation\": \"For clean-then-place goals, the supervisor must ensure the cleaning stage actually runs before placement. In episode_050 and episode_059 the supervisor dispatched a put mission without any clean step, so the object was placed dirty and the episode failed. Always include an explicit clean mission between acquisition and placement.\", \"affected_skill_ids\": [\"T3_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_050\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_059\"]},{\"recommendation\": \"When a clean action returns 'Nothing happens' on a cloth/towel, stop retrying the same clean command. In episode_049 the worker looped clean towel 1 with sinkbasin 1 repeatedly and also retried failed puts and navigations, exhausting the budget. After one or two no-change cleans, reassess whether the object is cleanable and report blocked rather than looping.\", \"affected_skill_ids\": [\"T3_002\", \"T3_003\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_049\"]},{\"recommendation\": \"When a search mission exhausts plausible locations without finding the target, the supervisor should broaden the search scope or reassess feasibility rather than declaring failure after a narrow sweep. In episode_044 and episode_053 the kettle/pot was never found and the worker failed after checking surfaces and some containers; ensure all plausible closed containers are actually opened and inspected before concluding absence.\", \"affected_skill_ids\": [\"G_002\", \"T3_006\", \"G_006\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_044\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_053\"]},{\"recommendation\": \"Do not silently substitute a similar object type for the named target. In episode_052 the goal was a knife but the worker took butterknife 1 and cleaned/placed it; the episode failed. Search for the exact named type and only substitute a confirmed equivalent.\", \"affected_skill_ids\": [\"T3_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_052\"]},{\"recommendation\": \"When a destination fixture repeatedly rejects placement, reassess validity instead of looping. In episode_059 the mug was placed on coffeemachine 1 and the episode failed, consistent with coffeemachine being an invalid placement target. Prefer valid receptacles and report blocked if the named destination rejects placement.\", \"affected_skill_ids\": [\"T3_004\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_059\"]},{\"recommendation\": \"Search missions should prioritize open observable surfaces before opening many closed containers, and track checked locations. In episode_044 and episode_063 the worker opened many cabinets/drawers sequentially without finding the target; a surface-first, checked-location approach would reduce wasted steps and premature failure.\", \"affected_skill_ids\": [\"G_001\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_044\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_063\"]},{\"recommendation\": \"Successful episodes show the effective pattern: dispatch a search mission to take the named object, then a clean mission at sinkbasin, then a place mission that opens the destination if closed. Keep this three-stage decomposition and make each mission's RETURN WHEN condition an explicit observation predicate (holding, cleaned, placed).\", \"affected_skill_ids\": [\"T3_001\", \"G_007\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_043\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_045\", \"stage2-local-v10-role-partitioned-patch3/generation_05/client_C/episode_046\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 39120,
+    "completion_tokens": 1065,
+    "total_tokens": 40185
+  },
+  "completed_at_utc": "2026-10-19T03:56:23.778728+00:00"
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "stage2_local_v11.server_input.v1",
+  "experiment_id": "stage2-local-v11-role-partitioned-patch3",
+  "round_index": 1,
+  "input_mode": "three_open_b1_role_banks",
+  "inputs": {
+    "A": {
+      "bank_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_A\\B1_skillbank.json",
+      "bank_file_sha256": "sha256:84218a56b828fe08b81bd476c62d32950f61764b13390e957fd22c430bf24db4",
+      "validation_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_A\\B1_validation\\summary.json",
+      "validation_file_sha256": "sha256:c0d42f2b9a85bef92e1736bdf1255344a45dbece086edad1f932a6e239f50aa3",
+      "validation_source_lock_sha256": "sha256:ea016b0fb7ed0cfc128f6233e8adfecf0b29c8643f9b0c2f80d8bba342de040d",
+      "origin_kind": "imported_v9_seed_not_native_v11_B1",
+      "import_manifest_sha256": "sha256:86d4d34d4485ff354ee53ac479e120ea2d5c3c6a842bb3cf9afcc0d7759bf090",
+      "uploaded_role_skill_instances": 46
+    },
+    "B": {
+      "bank_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_B\\B1_skillbank.json",
+      "bank_file_sha256": "sha256:4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+      "validation_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_B\\B1_validation\\summary.json",
+      "validation_file_sha256": "sha256:ab95c3520441867272a0db6728114e507c7462c435f892e3b670520041595a7f",
+      "validation_source_lock_sha256": "sha256:42f10a7023dcd73304ff9fe41c6bf4669806bc6780998182f6882b21e73ca856",
+      "origin_kind": "imported_v9_seed_not_native_v11_B1",
+      "import_manifest_sha256": "sha256:5a3668fdd0c327d828ef4c9c1a8eb65a380dcf24939ed50553bd5e2a2ea43294",
+      "uploaded_role_skill_instances": 42
+    },
+    "C": {
+      "bank_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_C\\B1_skillbank.json",
+      "bank_file_sha256": "sha256:4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d",
+      "validation_path": "D:\\skillMAS\\stage2_local_v11\\runs\\imported_v9_b0_to_b1_20261018_r1\\client_C\\B1_validation\\summary.json",
+      "validation_file_sha256": "sha256:192f079af147e0b67682164a5844fda9906261591ef594d967b4429ad4ec1c52",
+      "validation_source_lock_sha256": "sha256:27db10d21e17ada01b6e5ada7940952a3a6b9be43d80d6be6fa401b02bac9e71",
+      "origin_kind": "imported_v9_seed_not_native_v11_B1",
+      "import_manifest_sha256": "sha256:3c2a4ffced2f7bf70ef68a8b5eea1b994e659244699419a18ddbe91badf25918",
+      "uploaded_role_skill_instances": 63
+    }
+  },
+  "input_skill_count": 151,
+  "input_rows_hash": "sha256:f1f7564f6b96da1e115709d9ea0838dad0044f784f8148cb83353f4ad0f74fac",
+  "buckets": {
+    "general": 36,
+    "简单取放": 2,
+    "台灯观察": 27,
+    "清洗后放置": 22,
+    "加热后放置": 23,
+    "冷却后放置": 22,
+    "双物品放置": 19
+  },
+  "model": "deepseek-flash",
+  "endpoint_origin": "https://api.deepseek.com",
+  "seed": 1234,
+  "max_tokens": 16000,
+  "server_evaluation": null
+}

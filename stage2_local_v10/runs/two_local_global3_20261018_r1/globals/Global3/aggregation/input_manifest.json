@@ -1,0 +1,74 @@
+{
+  "schema_version": "stage2_local_v10.server_input.v1",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "round_index": 3,
+  "source_generation": 6,
+  "input_mode": "complete_client_banks_with_role_provenance",
+  "inputs": {
+    "A": {
+      "bank_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/B6_skillbank.json",
+      "bank_file_sha256": "sha256:3666aa8a722428baa7e35b273bef428ce40d2231796a99a75b53839471c93ab8",
+      "validation_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_A/validation/summary.json",
+      "validation_file_sha256": "sha256:050eb6bc31f729553f7f8fdb3ce70e6ec625d8e5672dbdfd6d2645a7de3b9301",
+      "validation_source_lock_sha256": "sha256:04b5e2c6eb063c56f2091d3c76f503056b0b3fcdd76819f44e4ff1338a094d29",
+      "role_skill_count": {
+        "Planner": 40,
+        "Executor": 40
+      },
+      "uploaded_role_skill_instances": 80,
+      "legacy_b1_lineage_resolution": {
+        "count": 0,
+        "frozen_b1_bank_file_sha256": null
+      }
+    },
+    "B": {
+      "bank_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/B6_skillbank.json",
+      "bank_file_sha256": "sha256:bc71c47a7db9c86929eed15d8904a0f39d186a90489c5d17d641cf66d488aa18",
+      "validation_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_B/validation/summary.json",
+      "validation_file_sha256": "sha256:72eef9d7f8e8ab5eeeaa94d9148fd6fbf9f3b5d8bb1ddcd8c59bb1b2452f3507",
+      "validation_source_lock_sha256": "sha256:6993bfb255b2ff883f91698e99480af95056b8ee6acef756762835209966e880",
+      "role_skill_count": {
+        "Executor": 40,
+        "Critic": 40
+      },
+      "uploaded_role_skill_instances": 80,
+      "legacy_b1_lineage_resolution": {
+        "count": 0,
+        "frozen_b1_bank_file_sha256": null
+      }
+    },
+    "C": {
+      "bank_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/B6_skillbank.json",
+      "bank_file_sha256": "sha256:215b94614a039d3efafb08107cce3d7042e92ba9b1580cf5f64385c9fabc388c",
+      "validation_path": "/mnt/d/skillMAS/stage2_local_v10/runs/two_local_global3_20261018_r1/locals/B6/client_C/validation/summary.json",
+      "validation_file_sha256": "sha256:4d9919942af054f6ef865cac36b44eaffd90eb61dba486da5a9c6c9ac9a7ac15",
+      "validation_source_lock_sha256": "sha256:a2063462c0759773bfa6f2b047df81b3aa8a2832052754f477138fa919e4ccd5",
+      "role_skill_count": {
+        "Supervisor": 40,
+        "Search Worker": 40,
+        "Operation Worker": 40
+      },
+      "uploaded_role_skill_instances": 120,
+      "legacy_b1_lineage_resolution": {
+        "count": 0,
+        "frozen_b1_bank_file_sha256": null
+      }
+    }
+  },
+  "input_skill_count": 280,
+  "input_rows_hash": "sha256:bb603e28f6fc514ff8e715829ecafb05177566a2ea1819b940351a9907e63b36",
+  "buckets": {
+    "general": 56,
+    "简单取放": 7,
+    "台灯观察": 35,
+    "清洗后放置": 42,
+    "加热后放置": 49,
+    "冷却后放置": 28,
+    "双物品放置": 63
+  },
+  "model": "deepseek-flash",
+  "endpoint_origin": "https://api.deepseek.com",
+  "seed": 1234,
+  "max_tokens": 16000,
+  "server_evaluation": null
+}

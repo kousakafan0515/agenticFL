@@ -1,0 +1,23 @@
+{
+  "schema_version": "stage2_local_v10.local_round_controller.v1",
+  "client": "C",
+  "generation": 4,
+  "parent_kind": "independent",
+  "parent_bank_file_sha256": "sha256:337acc2f028beae177d74d76311c5a9c6b3cf0716317d307fb49de65767afffd",
+  "parent_validation_summary_sha256": "sha256:95260360a8bebd90abd4f1b94521946d5a4d4ae07559ededdd764a7ce7d815da",
+  "stop_after": "B4_validation",
+  "status": "complete",
+  "current_step": null,
+  "completed_steps": [
+    "training",
+    "teacher",
+    "validation"
+  ],
+  "started_at": "2026-10-18T16:35:17.033233+00:00",
+  "completed_at": "2026-10-18T17:59:04.787919+00:00",
+  "training_success": 101,
+  "validation_success": 108,
+  "output_bank_file_sha256": "sha256:e7d1d3515c88f4490901ea15ff89b08c97f26c2bde0bca78dd46b9167c7aad98",
+  "patch_file_sha256": "sha256:87c64a669f1c08ae9d686c3936e94c4e055e9423590820e606766b3729b47a29",
+  "validation_result_sha256": "sha256:fa5e49fc4c2679a51ab05cbe798d74e6d940528f36470037896136b5a689a2f3"
+}

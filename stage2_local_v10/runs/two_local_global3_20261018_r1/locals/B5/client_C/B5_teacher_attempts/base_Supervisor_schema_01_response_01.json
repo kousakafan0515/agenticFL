@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "base_Supervisor_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:d1708bdbb9f7b611c628803bbce2eeb38381d0082b88fe9fada838e7542bb536",
+  "message_character_count": 71758,
+  "started_at_utc": "2026-10-19T03:56:42.101413+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"operations\": []}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 19918,
+    "completion_tokens": 5,
+    "total_tokens": 19923
+  },
+  "completed_at_utc": "2026-10-19T03:56:42.616726+00:00"
+}

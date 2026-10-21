@@ -1,0 +1,28 @@
+{
+  "schema_version": "stage2_local_v9.teacher_response_attempt.v1",
+  "attempt_kind": "family_Supervisor_06_schema_01",
+  "response_attempt_within_call": 1,
+  "requested_model": "deepseek-flash",
+  "requested_max_tokens": 16000,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  },
+  "messages_sha256": "sha256:736e31bc0555b784628434748b19cc62a2f29e2e5ae401533c7cd7a547c3a74b",
+  "message_character_count": 94195,
+  "started_at_utc": "2026-10-18T15:25:16.209379+00:00",
+  "status": "parsed",
+  "response_model": "deepseek-flash",
+  "choice_count": 1,
+  "finish_reason": "stop",
+  "raw_model_output": "{\"findings\":[{\"recommendation\": \"When a search worker returns HANDOFF after taking an item, the supervisor should verify the item is actually held before dispatching a placement mission; in episode 118 the worker took soapbottle 2 but the subsequent search for the second bottle wandered through empty cabinets and basins, and the episode ended in worker_declared_failed. Track placed vs. held counts explicitly.\", \"affected_skill_ids\": [\"T6_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_118\"]}, {\"recommendation\": \"Avoid dispatching a search mission that names a specific receptacle already confirmed empty or that repeats a location just checked. In episode 120 the supervisor assigned 'go to shelf 1 and take alarmclock 2' after shelf 1 was already emptied, and the worker hit two 'Nothing happens' go-to-shelf-2 attempts before finding alarmclock 4 on shelf 4. Name the next unchecked plausible location instead.\", \"affected_skill_ids\": [\"T6_002\", \"T6_008\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_120\"]}, {\"recommendation\": \"When the first search location is empty, the supervisor should broaden the mission to multiple plausible surfaces/containers rather than re-issuing the same single-location search. In episode 121 the initial mission was 'go to shelf 1 and take soapbottle' and after empty shelves the worker eventually found soapbottle 2 in a garbagecan; the episode then ended in worker_parse_error, suggesting the mission text should be simpler and more systematic.\", \"affected_skill_ids\": [\"T6_002\", \"G_001\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_121\"]}, {\"recommendation\": \"Keep mission instructions short and unambiguous. Episode 132's search mission contained a long self-questioning monologue ('...I must re-evaluate if there is another newspaper...') that risks parse errors and confusion; a concise 'go to X and take a newspaper; if none, report and I will assign next location' is safer.\", \"affected_skill_ids\": [\"T6_009\", \"G_005\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_132\"]}, {\"recommendation\": \"Do not re-dispatch a placement mission for an object already placed, and do not dispatch a search for an object that is already in inventory. In episode 133 the supervisor repeatedly assigned 'go to armchair 1 and take creditcard 1' and 'put creditcard 1 in armchair 2' after the item had already been moved, producing a handoff_loop_guard failure. Maintain an explicit placed/held ledger across handoffs.\", \"affected_skill_ids\": [\"T6_001\", \"T6_009\", \"G_008\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_133\"]}, {\"recommendation\": \"When the destination is a closed container, the operation mission should instruct the worker to open it before putting. In episode 125 the worker first tried 'open drawer 1' from the dresser (Nothing happens), then navigated to drawer 1 and opened it successfully; the supervisor's mission should have included the go-then-open-then-put sequence explicitly.\", \"affected_skill_ids\": [\"T6_005\", \"G_003\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_125\"]}, {\"recommendation\": \"When both target instances are visible on the same surface, the supervisor can dispatch a single search mission that takes one, then a placement mission, then a second search mission naming the same surface. Episodes 119, 124, 127, 129, 130, 134 show this pattern succeeding; keep the per-item confirmation in the RETURN WHEN clause.\", \"affected_skill_ids\": [\"T6_001\", \"G_007\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_119\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_124\", \"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_134\"]}, {\"recommendation\": \"When a search mission returns HANDOFF without the item (e.g., empty location), the supervisor should assign a different unchecked location rather than repeating the same one. Episode 126 shows the supervisor correctly re-dispatching to cabinet 1 to retrieve the already-placed candle 1 and then to cabinet 2, but the earlier repeated 'go to countertop 1 and take candle 2' after countertop 1 was emptied wasted steps; prefer naming the next unchecked receptacle.\", \"affected_skill_ids\": [\"T6_002\", \"T6_008\", \"G_002\"], \"evidence_refs\": [\"stage2-local-v10-role-partitioned-patch3/generation_03/client_C/episode_126\"]}]}",
+  "model_reasoning": "",
+  "usage": {
+    "prompt_tokens": 26735,
+    "completion_tokens": 1163,
+    "total_tokens": 27898
+  },
+  "completed_at_utc": "2026-10-18T15:25:22.349994+00:00"
+}

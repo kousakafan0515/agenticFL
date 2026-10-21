@@ -1,0 +1,1055 @@
+{
+  "schema_version": "stage3_2.role_agnostic_semantic_global.v1",
+  "v10_protocol": "role_partitioned_local_to_role_agnostic_global.v1",
+  "experiment_id": "stage2-local-v10-role-partitioned-patch3",
+  "round_index": 3,
+  "aggregation_mode": "complete_role_banks_seven_bucket_semantic_merge",
+  "general": [
+    {
+      "global_skill_id": "G_001",
+      "type": "Procedure or Local Strategy",
+      "title": "Search observable surfaces before closed containers",
+      "principle": "When an object's location is unknown, locate it before manipulation. First check open, directly observable surfaces and common holding places such as tables, countertops, desks, dressers, shelves, beds, sofas, chairs, and other plausible visible surfaces; then open closed containers such as drawers, cabinets, fridges, and microwaves. Treat search as a broad multi-location search rather than assuming a named receptacle contains the target. If an early location is empty, broaden to other plausible unchecked locations. If the target or a needed fixture is already visible on a surface, go directly to that furniture instead of continuing unrelated container checks.",
+      "when_to_apply": "When the target location is unknown, when the first checked location is empty, or when the target or a required fixture is already visible on a surface.",
+      "source_skill_keys": [
+        "A/Planner/general/G_001",
+        "A/Executor/general/G_001",
+        "B/Executor/general/G_001",
+        "B/Critic/general/G_001",
+        "C/Supervisor/general/G_001",
+        "C/Search Worker/general/G_001",
+        "C/Operation Worker/general/G_001"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_001",
+        "A/Planner/general/G_001",
+        "B/Critic/general/G_001",
+        "B/Executor/general/G_001",
+        "C/Operation Worker/general/G_001",
+        "C/Search Worker/general/G_001",
+        "C/Supervisor/general/G_001"
+      ]
+    },
+    {
+      "global_skill_id": "G_002",
+      "type": "Failure Lesson",
+      "title": "Avoid repeated or incomplete search bookkeeping",
+      "description": "Failed searches often repeat the same empty surfaces or failed take attempts, revisit locations already confirmed empty, or conclude the object is unavailable before all plausible open surfaces and relevant containers have been checked.",
+      "why_it_happens": "Search may be treated as an unconstrained sequence without bookkeeping, so empty locations are revisited and plausible locations are missed; failure may also be declared after checking only a subset.",
+      "how_to_avoid": "Record each checked location and result. After a failed take or empty look, mark that location checked and move to another plausible unchecked location. Do not revisit confirmed empty surfaces unless the state changed. Open closed receptacles before treating them as searched, and prioritize locations by object type. If the object remains absent after relevant locations are exhausted, report failure rather than continuing indefinitely; do not declare blocked while plausible unchecked locations remain.",
+      "source_skill_keys": [
+        "A/Planner/general/G_002",
+        "A/Executor/general/G_002",
+        "B/Executor/general/G_002",
+        "B/Critic/general/G_002",
+        "C/Supervisor/general/G_002",
+        "C/Search Worker/general/G_002",
+        "C/Operation Worker/general/G_002"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_002",
+        "A/Planner/general/G_002",
+        "B/Critic/general/G_002",
+        "B/Executor/general/G_002",
+        "C/Operation Worker/general/G_002",
+        "C/Search Worker/general/G_002",
+        "C/Supervisor/general/G_002"
+      ]
+    },
+    {
+      "global_skill_id": "G_003",
+      "type": "Procedure or Local Strategy",
+      "title": "Open closed containers before access and verify destination openability",
+      "principle": "When a closed drawer, cabinet, safe, fridge, microwave, or similar container may hold the target or is the placement destination, navigate to it and open it before attempting to take from it or put into it. Closed containers cannot be inspected or used directly. Before placing, confirm the destination is already open or can be opened; if opening returns no change, treat it as non-openable and choose a valid open destination or surface. For non-openable fixtures, use only a go-then-put sequence.",
+      "when_to_apply": "When the target may be inside a closed container, or when the placement destination is closed or its openability is uncertain.",
+      "source_skill_keys": [
+        "A/Planner/general/G_003",
+        "A/Executor/general/G_003",
+        "B/Executor/general/G_003",
+        "B/Critic/general/G_003",
+        "C/Supervisor/general/G_003",
+        "C/Search Worker/general/G_003",
+        "C/Operation Worker/general/G_003"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_003",
+        "A/Planner/general/G_003",
+        "B/Critic/general/G_003",
+        "B/Executor/general/G_003",
+        "C/Operation Worker/general/G_003",
+        "C/Search Worker/general/G_003",
+        "C/Supervisor/general/G_003"
+      ]
+    },
+    {
+      "global_skill_id": "G_004",
+      "type": "Procedure or Local Strategy",
+      "title": "Position at the source receptacle before take and at the destination before put",
+      "principle": "A take action succeeds only when at the receptacle where the object is present, and a put action succeeds only when at the destination. When retrieving, first locate the object and position at its receptacle before taking. Once the target is held, travel directly to the specified destination and place it without unnecessary intermediate steps; if a put fails, verify current location and navigate to the destination before retrying.",
+      "when_to_apply": "When retrieving an object whose location is not current, when moving a held object to a destination, or after a failed put.",
+      "source_skill_keys": [
+        "A/Planner/general/G_004",
+        "A/Executor/general/G_004",
+        "B/Executor/general/G_004",
+        "B/Critic/general/G_004",
+        "C/Supervisor/general/G_004",
+        "C/Search Worker/general/G_004",
+        "C/Operation Worker/general/G_004"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_004",
+        "A/Planner/general/G_004",
+        "B/Critic/general/G_004",
+        "B/Executor/general/G_004",
+        "C/Operation Worker/general/G_004",
+        "C/Search Worker/general/G_004",
+        "C/Supervisor/general/G_004"
+      ]
+    },
+    {
+      "global_skill_id": "G_005",
+      "type": "Procedure or Local Strategy",
+      "title": "Use supported actions, exact identifiers, and matching object instances",
+      "principle": "Use only supported action forms: go to a location, take an object from a receptacle, put an object in or on a receptacle, open a container before accessing it, and use a fixture with its numbered instance when applicable. Refer to exact object and receptacle identifiers from observations, including instance numbers, and track the specific instance taken so later actions use the same one. Prefer navigating to locations, furniture, or receptacles rather than to a takeable object when the action form requires it. Do not use examine, look at, or open on non-container surfaces; open only applies to openable containers. Before taking or transforming, confirm the object name matches the goal, because similar types may not satisfy it. If many containers have been checked without success, reassess visible surfaces and the target description rather than continuing blind exhaustive checks.",
+      "when_to_apply": "Throughout object search, retrieval, and placement, especially when forming commands or when an action seems unsupported or ambiguous.",
+      "source_skill_keys": [
+        "A/Planner/general/G_005",
+        "A/Executor/general/G_005",
+        "B/Executor/general/G_005",
+        "B/Critic/general/G_005",
+        "C/Supervisor/general/G_005",
+        "C/Search Worker/general/G_005",
+        "C/Operation Worker/general/G_005"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_005",
+        "A/Planner/general/G_005",
+        "B/Critic/general/G_005",
+        "B/Executor/general/G_005",
+        "C/Operation Worker/general/G_005",
+        "C/Search Worker/general/G_005",
+        "C/Supervisor/general/G_005"
+      ]
+    },
+    {
+      "global_skill_id": "G_006",
+      "type": "Failure Lesson",
+      "title": "Change the approach after a no-change action result",
+      "description": "When an action such as go to, open, take, put, use, or clean returns no change, do not repeat the same command. Failed attempts can come from being at the wrong location, using an inexact or invalid identifier, targeting a closed or non-openable receptacle, or trying an inaccessible location.",
+      "why_it_happens": "The same invalid action may be retried without updating the inferred state, and a failed task segment may be reissued identically instead of changing the search location, object description, or strategy.",
+      "how_to_avoid": "After a no-change observation, re-check location, inventory, exact identifiers, and object or container state. Change at least one relevant condition: move to a different reachable location, open a closed container, use the specific instance id, or switch to another strategy. After one or two identical failures, stop retrying. If a task segment fails or returns without meeting its condition, do not repeat it unchanged; broaden the search or change the approach. Before declaring blocked, ensure every plausible closed container was actually opened and inspected, not merely approached, and avoid revisiting surfaces already confirmed empty.",
+      "source_skill_keys": [
+        "A/Planner/general/G_006",
+        "A/Executor/general/G_006",
+        "B/Executor/general/G_006",
+        "B/Critic/general/G_006",
+        "C/Supervisor/general/G_006",
+        "C/Search Worker/general/G_006",
+        "C/Operation Worker/general/G_006"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_006",
+        "A/Planner/general/G_006",
+        "B/Critic/general/G_006",
+        "B/Executor/general/G_006",
+        "C/Operation Worker/general/G_006",
+        "C/Search Worker/general/G_006",
+        "C/Supervisor/general/G_006"
+      ]
+    },
+    {
+      "global_skill_id": "G_007",
+      "type": "Procedure or Local Strategy",
+      "title": "Separate acquisition from operation with observable completion conditions",
+      "principle": "For tasks that require an object to be found and then manipulated, cleaned, heated, cooled, examined, or placed, split the task into an acquisition phase and an operation phase. The acquisition phase ends only when the target object is actually held, not merely seen and not merely because a container was opened. The operation phase ends only when the environment observation confirms the required final state, such as the object being at the destination, cleaned, heated, or cooled. Begin placement only after acquisition is confirmed by holding the target object. If a subsequent phase or handoff follows, report acquisition only after the take observation confirms holding and note any remaining operation.",
+      "when_to_apply": "When a goal requires an object to be acquired before it is used, transformed, or placed, and the object is not already held.",
+      "source_skill_keys": [
+        "A/Planner/general/G_007",
+        "A/Executor/general/G_007",
+        "B/Executor/general/G_007",
+        "B/Critic/general/G_007",
+        "C/Supervisor/general/G_007",
+        "C/Search Worker/general/G_007",
+        "C/Operation Worker/general/G_007"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_007",
+        "A/Planner/general/G_007",
+        "B/Critic/general/G_007",
+        "B/Executor/general/G_007",
+        "C/Operation Worker/general/G_007",
+        "C/Search Worker/general/G_007",
+        "C/Supervisor/general/G_007"
+      ]
+    },
+    {
+      "global_skill_id": "G_008",
+      "type": "Failure Lesson",
+      "title": "Verify goal state after critical actions and stop on confirmation",
+      "description": "Do not declare completion or stop based on an attempted action alone. After critical actions such as take, put, clean, heat, or cool, inspect the observation for the goal predicate. Declare success only when the observation confirms the required final state; declare failure only when the observation shows an invalid or blocked action, an unreachable object, or exhaustion of plausible locations. If the placement observation already confirms the goal, treat it as terminal and do not run a redundant verification step.",
+      "why_it_happens": "An action may be assumed successful without checking feedback, failure may be declared after a successful sequence, or an unnecessary verification step may be added after success, causing loops.",
+      "how_to_avoid": "After each critical action, compare the observation with the expected state. If the action failed, retry only after adjusting the approach; if it succeeded, stop issuing extra actions. Treat a confirming placement, cleaning, heating, or cooling observation as the terminal success condition. Do not declare completion before the final placement is confirmed; after confirmation, stop and do not send empty or inventory-only actions.",
+      "source_skill_keys": [
+        "A/Planner/general/G_008",
+        "A/Executor/general/G_008",
+        "B/Executor/general/G_008",
+        "B/Critic/general/G_008",
+        "C/Supervisor/general/G_008",
+        "C/Search Worker/general/G_008",
+        "C/Operation Worker/general/G_008"
+      ],
+      "upstream_source_skill_keys": [
+        "A/Executor/general/G_008",
+        "A/Planner/general/G_008",
+        "B/Critic/general/G_008",
+        "B/Executor/general/G_008",
+        "C/Operation Worker/general/G_008",
+        "C/Search Worker/general/G_008",
+        "C/Supervisor/general/G_008"
+      ]
+    }
+  ],
+  "task_specific": {
+    "简单取放": [
+      {
+        "global_skill_id": "T1_001",
+        "type": "Procedure or Local Strategy",
+        "title": "Simple pick-and-place procedure",
+        "principle": "For a simple pick-and-place goal, decompose the task into two ordered subtasks: first locate and take the target object, then move to the specified destination and put the object down. Keep the two steps sequential: do not begin the transfer until the object has been successfully taken, and do not release it until the destination has been reached.",
+        "when_to_apply": "When the goal is to move a single object to a specified destination and no additional state change such as cleaning, heating, cooling, or lighting is required. If the goal also requires such a state change, treat this procedure as only the transport portion and handle the extra requirement separately.",
+        "source_skill_keys": [
+          "A/Planner/简单取放/T1_001",
+          "A/Executor/简单取放/T1_001",
+          "B/Executor/简单取放/T1_001",
+          "B/Critic/简单取放/T1_001",
+          "C/Supervisor/简单取放/T1_001",
+          "C/Search Worker/简单取放/T1_001",
+          "C/Operation Worker/简单取放/T1_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/简单取放/T1_001",
+          "A/Planner/简单取放/T1_001",
+          "B/Critic/简单取放/T1_001",
+          "B/Executor/简单取放/T1_001",
+          "C/Operation Worker/简单取放/T1_001",
+          "C/Search Worker/简单取放/T1_001",
+          "C/Supervisor/简单取放/T1_001"
+        ]
+      }
+    ],
+    "台灯观察": [
+      {
+        "global_skill_id": "T2_001",
+        "type": "Procedure or Local Strategy",
+        "title": "台灯观察：在台灯所在家具处手持目标物并使用带编号台灯",
+        "principle": "先定位目标物与台灯。台灯通常固定在家具表面，不应作为可携带物或导航目标；观察到台灯后前往其所在家具。目标物不在台灯处时，先取得并携带到该家具；目标物已在台灯处时，确认其在手中再交互。到达后使用带实例编号的 use desklamp <id> 触发观察，不要使用裸名或复合语法。成功开启台灯即视为达到观察条件，不再追加 use/look/take/go。若已在该家具处取得目标物，不要重复 go to 同一家具。若 use 返回 Nothing happens，先核对当前家具观察中是否列出台灯；没有则改去列出台灯的其他家具，而不是原地重试。若放置目标物反复无变化，保持手持并直接 use desklamp <id>。",
+        "when_to_apply": "当任务要求 examine/look at 某物 with/under the desklamp，环境中存在可交互台灯，或到达台灯所在家具后需要触发观察时。",
+        "source_skill_keys": [
+          "A/Planner/台灯观察/T2_001",
+          "A/Executor/台灯观察/T2_001",
+          "B/Executor/台灯观察/T2_001",
+          "B/Critic/台灯观察/T2_001",
+          "C/Supervisor/台灯观察/T2_001",
+          "C/Search Worker/台灯观察/T2_001",
+          "C/Operation Worker/台灯观察/T2_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/台灯观察/T2_001",
+          "A/Planner/台灯观察/T2_001",
+          "B/Critic/台灯观察/T2_001",
+          "B/Executor/台灯观察/T2_001",
+          "C/Operation Worker/台灯观察/T2_001",
+          "C/Search Worker/台灯观察/T2_001",
+          "C/Supervisor/台灯观察/T2_001"
+        ]
+      },
+      {
+        "global_skill_id": "T2_002",
+        "type": "Failure Lesson",
+        "title": "不要拿取或导航到台灯",
+        "description": "失败轨迹中，take desklamp、go to desklamp 或反复 go to 台灯/桌面常返回 Nothing happens，浪费步骤并可能阻断后续观察；台灯是固定在家具上的交互点。",
+        "why_it_happens": "环境将台灯建模为固定光源或固定设备，只有承载台灯的家具可作为导航目标，台灯本身不能作为 take 或 go to 的目标。",
+        "how_to_avoid": "不要尝试拿取、移动或导航到台灯。先到达承载台灯的家具（如 desk、sidetable、dresser、coffeetable 等），已到达后直接使用带编号的 use desklamp <id>；已在台灯处时不要重复 go to 同一位置。",
+        "source_skill_keys": [
+          "A/Planner/台灯观察/T2_002",
+          "A/Executor/台灯观察/T2_002",
+          "B/Executor/台灯观察/T2_002",
+          "B/Critic/台灯观察/T2_002",
+          "C/Supervisor/台灯观察/T2_002",
+          "C/Search Worker/台灯观察/T2_002",
+          "C/Operation Worker/台灯观察/T2_002"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/台灯观察/T2_002",
+          "A/Planner/台灯观察/T2_002",
+          "B/Critic/台灯观察/T2_002",
+          "B/Executor/台灯观察/T2_002",
+          "C/Operation Worker/台灯观察/T2_002",
+          "C/Search Worker/台灯观察/T2_002",
+          "C/Supervisor/台灯观察/T2_002"
+        ]
+      },
+      {
+        "global_skill_id": "T2_003",
+        "type": "Failure Lesson",
+        "title": "不要用 examine 或复合语法替代台灯交互，放置不等于观察",
+        "description": "失败轨迹中，examine X with desklamp、examine 目标物、examine desklamp、examine 家具、裸名 use desklamp、use desklamp on X、use X on desklamp 常返回 There's nothing special about X 或 Nothing happens，不能替代观察条件。仅把目标物放到 desk 或 desklamp 上而不触发台灯交互，也会造成看似完成但未达成目标；若放置反复无变化，不应继续尝试放置。有效形式是使用观察到的带编号台灯实例，例如 use desklamp <id>。",
+        "why_it_happens": "环境不支持把台灯作为 examine 的工具参数，也不支持裸名或复合语法；examine 家具不提供有效信息，放置动作本身不触发观察成功条件，部分家具可能拒绝放置。",
+        "how_to_avoid": "将目标物定位并带到台灯所在家具后，使用观察到的带编号实例执行 use desklamp <id>。不要用 examine X with desklamp、examine 目标物/台灯/家具或复合 use 语法；无效语法后核对台灯实例名再重试，而不是反复 examine。若 put 到该家具反复无变化，保持手持并直接 use desklamp <id>。",
+        "source_skill_keys": [
+          "A/Planner/台灯观察/T2_003",
+          "A/Executor/台灯观察/T2_003",
+          "B/Executor/台灯观察/T2_003",
+          "B/Critic/台灯观察/T2_003",
+          "C/Supervisor/台灯观察/T2_003",
+          "C/Search Worker/台灯观察/T2_003",
+          "C/Operation Worker/台灯观察/T2_003"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/台灯观察/T2_003",
+          "A/Planner/台灯观察/T2_003",
+          "B/Critic/台灯观察/T2_003",
+          "B/Executor/台灯观察/T2_003",
+          "C/Operation Worker/台灯观察/T2_003",
+          "C/Search Worker/台灯观察/T2_003",
+          "C/Supervisor/台灯观察/T2_003"
+        ]
+      },
+      {
+        "global_skill_id": "T2_004",
+        "type": "Failure Lesson",
+        "title": "use 台灯无变化时先核对位置、实例名与手持状态",
+        "description": "若 use desklamp 返回 Nothing happens，通常说明当前不在台灯所在位置、当前家具观察中无台灯、使用裸名而非带编号实例，或目标物未取得、交互条件未满足；同一位置重复同一 use/examine/look 不会改变状态，连续一两次失败后应停止重复，避免循环或保护。若目标物无法放到台灯所在家具上，put 反复无变化也不应继续放置。",
+        "why_it_happens": "使用台灯要求与台灯所在家具同处，并满足实例名、手持目标物等条件；错误语法、错误位置或未持有目标物不会产生状态变化，空观察不是可重试信号。放置动作本身不触发观察条件。",
+        "how_to_avoid": "失败后先核对当前家具观察中是否列出 desklamp；没有则移动到列出台灯的其他家具，而不是重试同一 use。台灯在场时，确认目标物已取得或保持手持，改用带编号 use desklamp <id> 重试；仍无变化则改搜其他位置或声明无法完成，不要重复相同指令或回退到 examine。若 put 反复无变化，停止放置并保持手持直接使用台灯。",
+        "source_skill_keys": [
+          "A/Planner/台灯观察/T2_004",
+          "A/Executor/台灯观察/T2_004",
+          "B/Executor/台灯观察/T2_004",
+          "B/Critic/台灯观察/T2_004",
+          "C/Supervisor/台灯观察/T2_004",
+          "C/Search Worker/台灯观察/T2_004",
+          "C/Operation Worker/台灯观察/T2_004"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/台灯观察/T2_004",
+          "A/Planner/台灯观察/T2_004",
+          "B/Critic/台灯观察/T2_004",
+          "B/Executor/台灯观察/T2_004",
+          "C/Operation Worker/台灯观察/T2_004",
+          "C/Search Worker/台灯观察/T2_004",
+          "C/Supervisor/台灯观察/T2_004"
+        ]
+      },
+      {
+        "global_skill_id": "T2_005",
+        "type": "Procedure or Local Strategy",
+        "title": "台灯观察搜索：优先开放表面，再系统检查容器",
+        "principle": "搜索目标物或台灯时，优先检查与台灯相关的开放表面，如 desk、sidetable、床头柜、床、dresser、sofa、coffeetable、扶手椅、架子等；一旦观察到台灯，直接前往其所在家具并在需要时使用台灯，不继续遍历大量抽屉或无关容器。若合理开放表面未发现目标物，再按容器类型（drawer/cabinet）系统搜索，找到后返回台灯处。避免反复 look/examine 同一位置；无新信息时转向其他家具或容器。'under the desklamp' 不保证目标物或台灯在假定位置；假定位置不可见时应搜索其他表面和容器，若台灯实际在其他家具上，应前往该家具而不是反复检查原位置。",
+        "when_to_apply": "在台灯观察任务中寻找目标物或台灯，或已到达假定台灯位置但目标物/台灯不在该处、连续观察无新信息时。",
+        "source_skill_keys": [
+          "A/Planner/台灯观察/T2_005",
+          "A/Executor/台灯观察/T2_005",
+          "B/Executor/台灯观察/T2_005",
+          "B/Critic/台灯观察/T2_005",
+          "C/Supervisor/台灯观察/T2_005",
+          "C/Search Worker/台灯观察/T2_005",
+          "C/Operation Worker/台灯观察/T2_005"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/台灯观察/T2_005",
+          "A/Planner/台灯观察/T2_005",
+          "B/Critic/台灯观察/T2_005",
+          "B/Executor/台灯观察/T2_005",
+          "C/Operation Worker/台灯观察/T2_005",
+          "C/Search Worker/台灯观察/T2_005",
+          "C/Supervisor/台灯观察/T2_005"
+        ]
+      }
+    ],
+    "清洗后放置": [
+      {
+        "global_skill_id": "T3_001",
+        "type": "Procedure or Local Strategy",
+        "title": "Clean-then-place with verified cleaning",
+        "principle": "For a goal requiring a clean object to be placed, use separate stages: locate and acquire the named target; bring it to a compatible cleaning fixture, preferring a sinkbasin; clean it; verify from the observation that cleaning succeeded; then go to the destination, open it if closed, and place the object. Do not place before cleaning, and do not treat cleaning as complete without confirming evidence. If cleaning did not succeed, return to the cleaning stage before placement. If a transfer or handoff occurs after acquisition, record that cleaning is still required. Treat successful placement as the terminal condition.",
+        "when_to_apply": "When the goal is to put a clean object in or on a specified receptacle and the object is not already clean.",
+        "source_skill_keys": [
+          "A/Planner/清洗后放置/T3_001",
+          "A/Executor/清洗后放置/T3_001",
+          "B/Executor/清洗后放置/T3_001",
+          "B/Critic/清洗后放置/T3_001",
+          "C/Supervisor/清洗后放置/T3_001",
+          "C/Search Worker/清洗后放置/T3_001",
+          "C/Operation Worker/清洗后放置/T3_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/清洗后放置/T3_001",
+          "A/Planner/清洗后放置/T3_001",
+          "B/Critic/清洗后放置/T3_001",
+          "B/Executor/清洗后放置/T3_001",
+          "C/Operation Worker/清洗后放置/T3_001",
+          "C/Search Worker/清洗后放置/T3_001",
+          "C/Supervisor/清洗后放置/T3_001"
+        ]
+      },
+      {
+        "global_skill_id": "T3_002",
+        "type": "Failure Lesson",
+        "title": "Cleaning no-effect: verify position, held object, fixture, and cleanability",
+        "description": "A cleaning action may produce no effect when the target is not held, the actor is not actually at a valid cleaning fixture, the current location is not a cleaning fixture, or the object is unsuitable. A sinkbasin is reliably supported in observations; alternatives such as a bathtubbasin or fridge should not be assumed equivalent. Some objects, such as towels or cloth, may not support cleaning at a sinkbasin, and repeated attempts can keep failing. Repeating identical cleaning attempts wastes steps, and trying to take another object while still holding a failed object may also produce repeated no-ops.",
+        "why_it_happens": "The environment appears to validate that the target is held, that cleaning occurs at a compatible fixture, and that the object is cleanable; naming a fixture in a command does not substitute for being at it. Not every fixture or object supports cleaning.",
+        "how_to_avoid": "Hold the target and be at a sinkbasin before cleaning. If there is no effect, first verify that the actor is actually at the sinkbasin, then verify the held object and current location; try a different sinkbasin or confirm the object is cleanable. Treat a bathtubbasin as unverified and switch to a sinkbasin if cleaning fails. If the object type is likely non-cleanable, stop repeating cleaning; release it at a valid surface before trying another candidate, then try another cleanable candidate or report that the object is not cleanable. Do not loop on the same action.",
+        "source_skill_keys": [
+          "A/Planner/清洗后放置/T3_002",
+          "A/Planner/清洗后放置/T3_003",
+          "A/Executor/清洗后放置/T3_002",
+          "A/Executor/清洗后放置/T3_003",
+          "B/Executor/清洗后放置/T3_002",
+          "B/Executor/清洗后放置/T3_003",
+          "B/Critic/清洗后放置/T3_002",
+          "B/Critic/清洗后放置/T3_003",
+          "C/Supervisor/清洗后放置/T3_002",
+          "C/Supervisor/清洗后放置/T3_003",
+          "C/Search Worker/清洗后放置/T3_002",
+          "C/Search Worker/清洗后放置/T3_003",
+          "C/Operation Worker/清洗后放置/T3_002",
+          "C/Operation Worker/清洗后放置/T3_003"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/清洗后放置/T3_002",
+          "A/Executor/清洗后放置/T3_003",
+          "A/Planner/清洗后放置/T3_002",
+          "A/Planner/清洗后放置/T3_003",
+          "B/Critic/清洗后放置/T3_002",
+          "B/Critic/清洗后放置/T3_003",
+          "B/Executor/清洗后放置/T3_002",
+          "B/Executor/清洗后放置/T3_003",
+          "C/Operation Worker/清洗后放置/T3_002",
+          "C/Operation Worker/清洗后放置/T3_003",
+          "C/Search Worker/清洗后放置/T3_002",
+          "C/Search Worker/清洗后放置/T3_003",
+          "C/Supervisor/清洗后放置/T3_002",
+          "C/Supervisor/清洗后放置/T3_003"
+        ]
+      },
+      {
+        "global_skill_id": "T3_003",
+        "type": "Failure Lesson",
+        "title": "Placement failure: open, verify capacity, and avoid invalid destinations",
+        "description": "Placement can fail when the destination container is closed, has no available space, or is not a valid receptacle. Some fixtures, such as toilets or coffeemachines, may reject placement, and repeated put/open/use attempts on a coffeemachine can return no effect. An open action may also return no effect when the container is already open or not openable.",
+        "why_it_happens": "Containers may require opening or have capacity limits, and some fixtures are not valid placement targets. Repeating put or open without changing conditions can waste steps.",
+        "how_to_avoid": "Before placing, open a closed destination. If open returns no effect, do not retry it; treat it as already open or non-openable and proceed or reassess. Check space or availability when possible. If the destination is invalid or placement repeatedly has no effect, seek an alternative valid destination or report blocked rather than looping.",
+        "source_skill_keys": [
+          "A/Planner/清洗后放置/T3_004",
+          "A/Executor/清洗后放置/T3_004",
+          "B/Executor/清洗后放置/T3_004",
+          "B/Critic/清洗后放置/T3_004",
+          "C/Supervisor/清洗后放置/T3_004",
+          "C/Search Worker/清洗后放置/T3_004",
+          "C/Operation Worker/清洗后放置/T3_004"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/清洗后放置/T3_004",
+          "A/Planner/清洗后放置/T3_004",
+          "B/Critic/清洗后放置/T3_004",
+          "B/Executor/清洗后放置/T3_004",
+          "C/Operation Worker/清洗后放置/T3_004",
+          "C/Search Worker/清洗后放置/T3_004",
+          "C/Supervisor/清洗后放置/T3_004"
+        ]
+      },
+      {
+        "global_skill_id": "T3_004",
+        "type": "Failure Lesson",
+        "title": "Use the specified object type; do not silently substitute",
+        "description": "Goals specify an object type. Similar alternatives such as a mug for a cup, a pan for a pot, or a butterknife for a knife should not be silently substituted. A close synonym may be used only if the exact object is unavailable and the environment or observation explicitly treats it as equivalent, or the goal permits it; otherwise continue searching or report the mismatch. If the destination already contains a similar object, still acquire, clean, and place the correct target rather than swapping.",
+        "why_it_happens": "Generalizing categories can cause taking the wrong item and failing the task, while exact-name matching may miss an accepted synonym. Equivalence must be confirmed rather than assumed.",
+        "how_to_avoid": "Search first for the exact named type. If it is not found, do not swap in a different type by default; use only a confirmed equivalent. Confirm equivalence through explicit environmental or observational evidence or goal permission before substituting.",
+        "source_skill_keys": [
+          "A/Planner/清洗后放置/T3_005",
+          "A/Executor/清洗后放置/T3_005",
+          "B/Executor/清洗后放置/T3_005",
+          "B/Critic/清洗后放置/T3_005",
+          "C/Supervisor/清洗后放置/T3_005",
+          "C/Search Worker/清洗后放置/T3_005",
+          "C/Operation Worker/清洗后放置/T3_005"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/清洗后放置/T3_005",
+          "A/Planner/清洗后放置/T3_005",
+          "B/Critic/清洗后放置/T3_005",
+          "B/Executor/清洗后放置/T3_005",
+          "C/Operation Worker/清洗后放置/T3_005",
+          "C/Search Worker/清洗后放置/T3_005",
+          "C/Supervisor/清洗后放置/T3_005"
+        ]
+      },
+      {
+        "global_skill_id": "T3_005",
+        "type": "Failure Lesson",
+        "title": "Prioritized search with bounded backtracking",
+        "description": "Search should prioritize plausible locations but avoid opening every remaining container indefinitely or declaring blocked prematurely. Track checked locations and avoid revisiting confirmed-empty ones. After a reasonable set of likely locations has been checked—not merely one or two when many plausible ones remain—consider unusual placement or impossibility, then reassess or report blocked. Open surfaces such as stoveburners, countertops, and dining tables must be included, not only cabinets and drawers.",
+        "why_it_happens": "Item locations may follow regularities, but unusual placement or impossible tasks can occur. Unbounded search wastes steps and can cause timeout, while stopping too early can miss findable objects. Restricting search to closed containers misses objects placed on open surfaces.",
+        "how_to_avoid": "Prioritize likely locations by object type: food-related items in a fridge; dishes or utensils on a countertop, in a cabinet, or in a drawer; pots, kettles, or pans on stoveburners; cleaning supplies near a sinkbasin, countertop, or shelf. Keep a record of checked locations. After several likely locations fail, consider unusual placement or impossibility and reassess or report blocked rather than exhaustively opening all containers or stopping after only a couple of empty locations.",
+        "source_skill_keys": [
+          "A/Planner/清洗后放置/T3_006",
+          "A/Executor/清洗后放置/T3_006",
+          "B/Executor/清洗后放置/T3_006",
+          "B/Critic/清洗后放置/T3_006",
+          "C/Supervisor/清洗后放置/T3_006",
+          "C/Search Worker/清洗后放置/T3_006",
+          "C/Operation Worker/清洗后放置/T3_006"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/清洗后放置/T3_006",
+          "A/Planner/清洗后放置/T3_006",
+          "B/Critic/清洗后放置/T3_006",
+          "B/Executor/清洗后放置/T3_006",
+          "C/Operation Worker/清洗后放置/T3_006",
+          "C/Search Worker/清洗后放置/T3_006",
+          "C/Supervisor/清洗后放置/T3_006"
+        ]
+      }
+    ],
+    "加热后放置": [
+      {
+        "global_skill_id": "T4_001",
+        "type": "Procedure or Local Strategy",
+        "title": "先加热后放置的端到端流程",
+        "principle": "目标为先加热后放置时：定位并拿取目标物体；若已在手中则直接进入加热；前往微波炉，若关闭则打开；用观察确认可行的方式完成加热；持续跟踪同一物体实例。加热只是中间里程碑，只有物体已在目的地放置后才算完成。加热后，若物体确实被放入过微波炉，则取出；若加热是在手持状态下完成，则保持手持并直接前往目的地。前往最终目的地，必要时打开容器，将物体放入并确认放置。不要把加热成功当作任务完成，也不要无谓重启已完成的获取步骤。",
+        "when_to_apply": "任务要求先将物体加热，再放置到指定目的地时。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_001",
+          "A/Executor/加热后放置/T4_001",
+          "B/Executor/加热后放置/T4_001",
+          "B/Critic/加热后放置/T4_001",
+          "C/Supervisor/加热后放置/T4_001",
+          "C/Search Worker/加热后放置/T4_001",
+          "C/Operation Worker/加热后放置/T4_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_001",
+          "A/Planner/加热后放置/T4_001",
+          "B/Critic/加热后放置/T4_001",
+          "B/Executor/加热后放置/T4_001",
+          "C/Operation Worker/加热后放置/T4_001",
+          "C/Search Worker/加热后放置/T4_001",
+          "C/Supervisor/加热后放置/T4_001"
+        ]
+      },
+      {
+        "global_skill_id": "T4_002",
+        "type": "Procedure or Local Strategy",
+        "title": "微波加热的显式命令与状态切换恢复",
+        "principle": "使用微波炉前先打开，并通过观察确认已打开。优先使用明确指定物体与微波炉的加热形式，例如 heat <object> with microwave <id>；裸用 use <object> 或 use microwave 等通用形式可能返回 Nothing happens。加热时物体可被手持，也可被放入打开的微波炉中，应按当前观察确认实际状态。若手持加热返回 Nothing happens，可将物体放入打开的微波炉后重试；若微波炉内尝试失败，则取出物体、确认微波炉打开后改为手持重试；也可在放入并取回后再次手持尝试。首次失败后应改变物体位置或手持状态，不要重复完全相同的失败命令；切换后仍无确认时，可在两种状态间再切换一次。只有观察到明确加热成功后，才继续前往目的地。",
+        "when_to_apply": "目标物体需要用微波炉加热时，尤其是首次加热尝试失败或物体位于微波炉内时。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_002",
+          "A/Executor/加热后放置/T4_002",
+          "B/Executor/加热后放置/T4_002",
+          "B/Critic/加热后放置/T4_002",
+          "C/Supervisor/加热后放置/T4_002",
+          "C/Search Worker/加热后放置/T4_002",
+          "C/Operation Worker/加热后放置/T4_002"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_002",
+          "A/Planner/加热后放置/T4_002",
+          "B/Critic/加热后放置/T4_002",
+          "B/Executor/加热后放置/T4_002",
+          "C/Operation Worker/加热后放置/T4_002",
+          "C/Search Worker/加热后放置/T4_002",
+          "C/Supervisor/加热后放置/T4_002"
+        ]
+      },
+      {
+        "global_skill_id": "T4_003",
+        "type": "Failure Lesson",
+        "title": "未确认加热成功不得继续放置",
+        "description": "加热命令可能失败或返回 Nothing happens；把未确认的尝试当作成功，可能导致移动并放置仍然冷的物体。不能仅因物体被手持或被放入微波炉就推断加热成功。观察只显示微波炉被打开或物体仍被手持时，也不能判断为已放入或已加热。",
+        "why_it_happens": "只有当物体位置与微波炉状态合适时，加热才可能改变状态；命令已发出并不保证成功。缺少明确成功观测时，后续移动和放置会基于错误前提。",
+        "how_to_avoid": "在继续下一步前先核对实际观察状态（held 还是 in-container）。只有出现明确的加热成功观测后才继续，例如提示物体已被加热或其他可靠热状态确认。若未确认成功，应修正物体位置或手持状态后重新执行有效加热尝试，并再次验证，然后再移动物体。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_003",
+          "A/Executor/加热后放置/T4_003",
+          "B/Executor/加热后放置/T4_003",
+          "B/Critic/加热后放置/T4_003",
+          "C/Supervisor/加热后放置/T4_003",
+          "C/Search Worker/加热后放置/T4_003",
+          "C/Operation Worker/加热后放置/T4_003"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_003",
+          "A/Planner/加热后放置/T4_003",
+          "B/Critic/加热后放置/T4_003",
+          "B/Executor/加热后放置/T4_003",
+          "C/Operation Worker/加热后放置/T4_003",
+          "C/Search Worker/加热后放置/T4_003",
+          "C/Supervisor/加热后放置/T4_003"
+        ]
+      },
+      {
+        "global_skill_id": "T4_004",
+        "type": "Failure Lesson",
+        "title": "加热失败后避免盲目替换电器或接受未加热结果",
+        "description": "微波炉加热返回 Nothing happens 后，若无证据改用炉灶、烤面包机或其他电器，也可能失败或被阻止；基于假设的替换只会增加失败步骤。接受未加热物体的放置，或以普通降温/无加热动作代替热状态目标，也不能满足任务要求。",
+        "why_it_happens": "某些电器可能不支持加热目标物体，某些表面可能被占用，而且替代电器存在并不保证支持该物体。若没有确认热状态就认可放置，即使发出了动作，任务仍可能失败。",
+        "how_to_avoid": "先修正微波炉交互：检查是否打开，调整物体是手持还是放入其中，并在不重复完全相同失败命令的情况下重试。只有在当前观察明确显示某替代电器支持加热该物体且可用时，才使用其他电器；否则不要把炉灶或烤面包机当作盲目后备。不要把普通放置或无加热动作当作已确认热状态的替代。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_004",
+          "A/Executor/加热后放置/T4_004",
+          "B/Executor/加热后放置/T4_004",
+          "B/Critic/加热后放置/T4_004",
+          "C/Supervisor/加热后放置/T4_004",
+          "C/Search Worker/加热后放置/T4_004",
+          "C/Operation Worker/加热后放置/T4_004"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_004",
+          "A/Planner/加热后放置/T4_004",
+          "B/Critic/加热后放置/T4_004",
+          "B/Executor/加热后放置/T4_004",
+          "C/Operation Worker/加热后放置/T4_004",
+          "C/Search Worker/加热后放置/T4_004",
+          "C/Supervisor/加热后放置/T4_004"
+        ]
+      },
+      {
+        "global_skill_id": "T4_005",
+        "type": "Procedure or Local Strategy",
+        "title": "目标缺失时的系统搜索",
+        "principle": "当目标物体不在首个搜索位置时，继续系统检查其他可能容器和表面，例如橱柜、抽屉、台面、餐桌、炉灶、冰箱、水槽盆、咖啡机、边桌等。维护已检查位置记录，优先转向尚未检查且已打开的容器与可见表面，避免重复回到已确认空的位置或重复打开已打开的容器。不要仅因首个位置为空就宣布任务受阻或物体不存在。若连续几个容器为空，应扩大到开放表面和其他容器类型，而不是无限逐抽屉搜索；对盘碟类物体可优先查看餐桌、台面和边桌等开放表面，同时兼顾容器。经过合理范围的广泛搜索后，应重新评估而不是继续打开每一个剩余容器。",
+        "when_to_apply": "在先加热后放置任务的获取阶段，目标物体未立即出现或不在首个检查位置时。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_005",
+          "A/Executor/加热后放置/T4_005",
+          "B/Executor/加热后放置/T4_005",
+          "B/Critic/加热后放置/T4_005",
+          "C/Supervisor/加热后放置/T4_005",
+          "C/Search Worker/加热后放置/T4_005",
+          "C/Operation Worker/加热后放置/T4_005"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_005",
+          "A/Planner/加热后放置/T4_005",
+          "B/Critic/加热后放置/T4_005",
+          "B/Executor/加热后放置/T4_005",
+          "C/Operation Worker/加热后放置/T4_005",
+          "C/Search Worker/加热后放置/T4_005",
+          "C/Supervisor/加热后放置/T4_005"
+        ]
+      },
+      {
+        "global_skill_id": "T4_006",
+        "type": "Failure Lesson",
+        "title": "手持加热成功后不要误从微波炉取物",
+        "description": "当加热在物体被手持时成功，物体仍留在持有状态。此后尝试从微波炉取物可能返回 Nothing happens，因为该加热动作并未把物体放入微波炉；从微波炉取物失败意味着物体未在微波炉内，而不是需要再次取物。",
+        "why_it_happens": "手持状态下的加热成功并不一定移动物体进入微波炉，因此微波炉里没有可取的该物体。若按错误位置假设继续操作，就会产生无效取物步骤。",
+        "how_to_avoid": "在手持加热成功后，通过库存或手持状态确认物体仍在手中，然后前往目的地。除非物体确实被放入过微波炉，否则不要发出从微波炉取物的动作；若从微波炉取物返回 Nothing happens，应检查持有状态而非重复取物。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_006",
+          "A/Executor/加热后放置/T4_006",
+          "B/Executor/加热后放置/T4_006",
+          "B/Critic/加热后放置/T4_006",
+          "C/Supervisor/加热后放置/T4_006",
+          "C/Search Worker/加热后放置/T4_006",
+          "C/Operation Worker/加热后放置/T4_006"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_006",
+          "A/Planner/加热后放置/T4_006",
+          "B/Critic/加热后放置/T4_006",
+          "B/Executor/加热后放置/T4_006",
+          "C/Operation Worker/加热后放置/T4_006",
+          "C/Search Worker/加热后放置/T4_006",
+          "C/Supervisor/加热后放置/T4_006"
+        ]
+      },
+      {
+        "global_skill_id": "T4_007",
+        "type": "Failure Lesson",
+        "title": "避免加热与目的地之间的多余中间放置",
+        "description": "在加热与最终目的地之间插入额外台面或其他中间放置，会增加不必要的动作，并可能导致物体跟踪或最终放置失败。",
+        "why_it_happens": "任务可能被过度分解，即使目标只要求把加热后的物体移动到最终目的地，也引入了中间放置步骤。中间放置会改变物体位置并增加需要跟踪的状态。",
+        "how_to_avoid": "加热后，拿起或保持物体，直接前往最终目的地并在那里放置。只有在环境明确要求中间放置时，才添加此类步骤。",
+        "source_skill_keys": [
+          "A/Planner/加热后放置/T4_007",
+          "A/Executor/加热后放置/T4_007",
+          "B/Executor/加热后放置/T4_007",
+          "B/Critic/加热后放置/T4_007",
+          "C/Supervisor/加热后放置/T4_007",
+          "C/Search Worker/加热后放置/T4_007",
+          "C/Operation Worker/加热后放置/T4_007"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/加热后放置/T4_007",
+          "A/Planner/加热后放置/T4_007",
+          "B/Critic/加热后放置/T4_007",
+          "B/Executor/加热后放置/T4_007",
+          "C/Operation Worker/加热后放置/T4_007",
+          "C/Search Worker/加热后放置/T4_007",
+          "C/Supervisor/加热后放置/T4_007"
+        ]
+      }
+    ],
+    "冷却后放置": [
+      {
+        "global_skill_id": "T5_001",
+        "type": "Procedure or Local Strategy",
+        "title": "Cool the target and verify state before destination placement",
+        "principle": "Treat environment feedback as authority. Acquire the exact target and check current holdings so an already-held object is not re-taken. Go to the cooling location, open it if needed, and while holding the target there use the available explicit cooling interaction for the target and cooling container. If no explicit cooling action exists, use the available cooling interaction. Do not substitute placing the object inside and immediately re-taking it for cooling. Wait for a cooled-state confirmation; containment, brief placement, or a round-trip alone is not confirmation. After cooling succeeds while holding, proceed directly to the destination without an extra take-from-container step. Open the destination if closed, place the object, and confirm placement. Cooling is an intermediate checkpoint; do not signal completion at that point because final placement is also required.",
+        "when_to_apply": "When the goal requires an object to be brought to a cooled state and then placed at a specified destination.",
+        "source_skill_keys": [
+          "A/Planner/冷却后放置/T5_001",
+          "A/Executor/冷却后放置/T5_001",
+          "B/Executor/冷却后放置/T5_001",
+          "B/Critic/冷却后放置/T5_001",
+          "C/Supervisor/冷却后放置/T5_001",
+          "C/Search Worker/冷却后放置/T5_001",
+          "C/Operation Worker/冷却后放置/T5_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/冷却后放置/T5_001",
+          "A/Planner/冷却后放置/T5_001",
+          "B/Critic/冷却后放置/T5_001",
+          "B/Executor/冷却后放置/T5_001",
+          "C/Operation Worker/冷却后放置/T5_001",
+          "C/Search Worker/冷却后放置/T5_001",
+          "C/Supervisor/冷却后放置/T5_001"
+        ]
+      },
+      {
+        "global_skill_id": "T5_002",
+        "type": "Failure Lesson",
+        "title": "Do not confuse containment or a brief cooling attempt with confirmed cooled state",
+        "description": "An object found in or briefly placed inside a cooling container may not be in the required cooled state; cooling must be performed or verified explicitly before transport to the destination.",
+        "why_it_happens": "Location or containment can be mistaken for temperature state, and a round-trip may be assumed sufficient. The environment may change the relevant state only through an explicit cooling interaction.",
+        "how_to_avoid": "After opening the cooling container and holding the target, use the available cooling interaction and wait for cooled-state confirmation. Do not immediately retrieve an object just placed inside and treat it as cooled. If no confirmation appears, do not assume success; retry or report the unresolved state through the available feedback channel.",
+        "source_skill_keys": [
+          "A/Planner/冷却后放置/T5_002",
+          "A/Executor/冷却后放置/T5_002",
+          "B/Executor/冷却后放置/T5_002",
+          "B/Critic/冷却后放置/T5_002",
+          "C/Supervisor/冷却后放置/T5_002",
+          "C/Search Worker/冷却后放置/T5_002",
+          "C/Operation Worker/冷却后放置/T5_002"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/冷却后放置/T5_002",
+          "A/Planner/冷却后放置/T5_002",
+          "B/Critic/冷却后放置/T5_002",
+          "B/Executor/冷却后放置/T5_002",
+          "C/Operation Worker/冷却后放置/T5_002",
+          "C/Search Worker/冷却后放置/T5_002",
+          "C/Supervisor/冷却后放置/T5_002"
+        ]
+      },
+      {
+        "global_skill_id": "T5_003",
+        "type": "Procedure or Local Strategy",
+        "title": "Search likely locations first, then reassess feasibility",
+        "principle": "Search high-probability locations first: the cooling container, countertops, stove burners, dining table, cabinets, drawers, and shelves. Prefer visible surfaces before closed-container sweeps; open containers as needed and track visited locations. Reaching a closed container is not inspection: its contents remain unverified until opened. If the target is absent from the first expected location, continue a bounded search of plausible surfaces and containers rather than declaring failure. When found on an accessible surface, take it and proceed. If a reasonable broad search finds nothing, reassess feasibility or absence instead of checking unrelated receptacles. Do not repeat an identical broad search after obvious receptacles are exhausted; raise uncertainty when feasibility is doubtful.",
+        "when_to_apply": "When the target object is not immediately visible or is missing from its expected location, and many storage receptacles exist.",
+        "source_skill_keys": [
+          "A/Planner/冷却后放置/T5_003",
+          "A/Executor/冷却后放置/T5_003",
+          "B/Executor/冷却后放置/T5_003",
+          "B/Critic/冷却后放置/T5_003",
+          "C/Supervisor/冷却后放置/T5_003",
+          "C/Search Worker/冷却后放置/T5_003",
+          "C/Operation Worker/冷却后放置/T5_003"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/冷却后放置/T5_003",
+          "A/Planner/冷却后放置/T5_003",
+          "B/Critic/冷却后放置/T5_003",
+          "B/Executor/冷却后放置/T5_003",
+          "C/Operation Worker/冷却后放置/T5_003",
+          "C/Search Worker/冷却后放置/T5_003",
+          "C/Supervisor/冷却后放置/T5_003"
+        ]
+      },
+      {
+        "global_skill_id": "T5_004",
+        "type": "Failure Lesson",
+        "title": "Complete both cooling and final placement checkpoints",
+        "description": "Placing the object without cooling, stopping after opening the cooling container, or cooling without final placement leaves the goal incomplete. The goal requires both a cooled object and placement at the specified destination.",
+        "why_it_happens": "The goal can be misread as simple placement, or cooling can be treated as the whole mission. Declaring completion after a partial step, after repeated cooling failures, or when the cooled state was never confirmed also causes failure.",
+        "how_to_avoid": "Treat cooling and final placement as separate checkpoints. Include an explicit cooling step before placement when a cooled object is required, then continue to the destination and place the object. Do not declare success until both the cooled state and destination placement have been confirmed. If cooling repeatedly fails, do not signal completion on placement alone.",
+        "source_skill_keys": [
+          "A/Planner/冷却后放置/T5_004",
+          "A/Executor/冷却后放置/T5_004",
+          "B/Executor/冷却后放置/T5_004",
+          "B/Critic/冷却后放置/T5_004",
+          "C/Supervisor/冷却后放置/T5_004",
+          "C/Search Worker/冷却后放置/T5_004",
+          "C/Operation Worker/冷却后放置/T5_004"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/冷却后放置/T5_004",
+          "A/Planner/冷却后放置/T5_004",
+          "B/Critic/冷却后放置/T5_004",
+          "B/Executor/冷却后放置/T5_004",
+          "C/Operation Worker/冷却后放置/T5_004",
+          "C/Search Worker/冷却后放置/T5_004",
+          "C/Supervisor/冷却后放置/T5_004"
+        ]
+      }
+    ],
+    "双物品放置": [
+      {
+        "global_skill_id": "T6_001",
+        "type": "Procedure or Local Strategy",
+        "title": "Two-item sequential placement with per-item verification and placement tracking",
+        "principle": "Treat a two-item placement goal as two search-and-place cycles. For each cycle: locate and take one target object, navigate to the destination, open it if closed, place the object, and verify the placement from the observation before starting the next cycle. Track how many items are placed and which item was already placed; never take an already-placed item again. If a second take fails while an object is held, place the held object at the destination before returning for the second. If both instances are visible on the same surface or receptacle, place the first and then return to that same location for the second. If the final destination is temporarily unavailable, use only a safe recoverable holding location when necessary, then move both objects to the final destination afterward. Treat each placement as a checkpoint, not task completion.",
+        "when_to_apply": "When the goal requires placing two instances of the same object type at one target location and only one object can be carried at a time.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_001",
+          "A/Executor/双物品放置/T6_001",
+          "B/Executor/双物品放置/T6_001",
+          "B/Critic/双物品放置/T6_001",
+          "C/Supervisor/双物品放置/T6_001",
+          "C/Search Worker/双物品放置/T6_001",
+          "C/Operation Worker/双物品放置/T6_001"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_001",
+          "A/Planner/双物品放置/T6_001",
+          "B/Critic/双物品放置/T6_001",
+          "B/Executor/双物品放置/T6_001",
+          "C/Operation Worker/双物品放置/T6_001",
+          "C/Search Worker/双物品放置/T6_001",
+          "C/Supervisor/双物品放置/T6_001"
+        ]
+      },
+      {
+        "global_skill_id": "T6_002",
+        "type": "Procedure or Local Strategy",
+        "title": "Systematic broad search with checked-location tracking",
+        "principle": "When target objects are not immediately visible, search broadly rather than checking only one receptacle type. Inspect visible open surfaces such as counters, tables, shelves, sofas, and similar surfaces first, then check closed containers such as cabinets and drawers, opening them before inspecting or taking from inside. Continue across multiple location types until the required number of instances is found or a checked-location record shows no remaining unchecked likely locations. If both target instances are visible on the same surface, take one, place it, then return to that same surface for the second rather than wandering to unrelated containers. Treat an unreachable or no-change navigation target as unavailable and move to another candidate. Reassess feasibility after likely locations are exhausted, but do not conclude the task is blocked prematurely.",
+        "when_to_apply": "When one or both target objects are not visible and must be located in the environment.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_002",
+          "A/Executor/双物品放置/T6_002",
+          "B/Executor/双物品放置/T6_002",
+          "B/Critic/双物品放置/T6_002",
+          "C/Supervisor/双物品放置/T6_002",
+          "C/Search Worker/双物品放置/T6_002",
+          "C/Operation Worker/双物品放置/T6_002"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_002",
+          "A/Planner/双物品放置/T6_002",
+          "B/Critic/双物品放置/T6_002",
+          "B/Executor/双物品放置/T6_002",
+          "C/Operation Worker/双物品放置/T6_002",
+          "C/Search Worker/双物品放置/T6_002",
+          "C/Supervisor/双物品放置/T6_002"
+        ]
+      },
+      {
+        "global_skill_id": "T6_003",
+        "type": "Failure Lesson",
+        "title": "Single-item carry limit blocks a second take or movement",
+        "description": "Attempts to take a second object, or sometimes to move to another location, while already holding an object can return no effect. This blocks progress in two-item placement if the held object is not released first. A failed second take while an object is held should be diagnosed as the one-item carry limit, not as the second object being absent.",
+        "why_it_happens": "The environment commonly allows carrying only one object at a time, so take or movement actions may be rejected while inventory is occupied.",
+        "how_to_avoid": "Before taking the second object or moving to search elsewhere, put the held object into the final destination or into a safe recoverable temporary location. Confirm the hands are empty, then continue. When a take fails while holding an object, attribute it to occupied inventory and place the held object first rather than concluding the target is missing.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_003",
+          "A/Executor/双物品放置/T6_003",
+          "B/Executor/双物品放置/T6_003",
+          "B/Critic/双物品放置/T6_003",
+          "C/Supervisor/双物品放置/T6_003",
+          "C/Search Worker/双物品放置/T6_003",
+          "C/Operation Worker/双物品放置/T6_003"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_003",
+          "A/Planner/双物品放置/T6_003",
+          "B/Critic/双物品放置/T6_003",
+          "B/Executor/双物品放置/T6_003",
+          "C/Operation Worker/双物品放置/T6_003",
+          "C/Search Worker/双物品放置/T6_003",
+          "C/Supervisor/双物品放置/T6_003"
+        ]
+      },
+      {
+        "global_skill_id": "T6_004",
+        "type": "Failure Lesson",
+        "title": "Verify destination and placement before continuing",
+        "description": "A put action can produce no effect if issued before reaching the destination receptacle, or it can fail without the failure being noticed. Continuing to search for the second item after an unconfirmed first placement can leave the goal unsatisfied. When a put returns no change, first verify that the actor is actually at the destination before concluding the receptacle rejects placement; a subsequent go-to-destination followed by a retried put often succeeds. If the destination repeatedly rejects placement after the location cause is ruled out, reassess whether it is valid and report blocked rather than looping or abandoning the held object.",
+        "why_it_happens": "Placement requires being at the target container, and a successful put must be verified from the observation; otherwise the first item may still be held or not placed. Misattributing a location failure to receptacle type can lead to wrong alternative-destination actions, while some named destinations may be invalid or unreachable.",
+        "how_to_avoid": "Navigate to the destination before placing. After each put, inspect the observation to confirm success. If the put did not succeed, verify the current location, move to the target if needed, and retry before starting the next search or placement cycle. Do not switch to an alternative receptacle until the destination-location cause has been ruled out; if repeated rejection continues, reassess validity and report blocked.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_004",
+          "A/Executor/双物品放置/T6_004",
+          "B/Executor/双物品放置/T6_004",
+          "B/Critic/双物品放置/T6_004",
+          "C/Supervisor/双物品放置/T6_004",
+          "C/Search Worker/双物品放置/T6_004",
+          "C/Operation Worker/双物品放置/T6_004"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_004",
+          "A/Planner/双物品放置/T6_004",
+          "B/Critic/双物品放置/T6_004",
+          "B/Executor/双物品放置/T6_004",
+          "C/Operation Worker/双物品放置/T6_004",
+          "C/Search Worker/双物品放置/T6_004",
+          "C/Supervisor/双物品放置/T6_004"
+        ]
+      },
+      {
+        "global_skill_id": "T6_005",
+        "type": "Failure Lesson",
+        "title": "Open containers from the container location before access",
+        "description": "Attempting to put an object into, or take an object from, a closed cabinet, drawer, or similar container may produce no effect. Issuing open on an already-open container may also return no change and should not be retried. Issuing open on a container while standing at its parent furniture may return no change; the actor must navigate to the container itself first.",
+        "why_it_happens": "The environment requires the container to be open before its contents can be accessed or modified, reports no change when opening an already-open container, and validates open actions against the actor's current location being the container rather than its parent furniture.",
+        "how_to_avoid": "Navigate to the container itself, then open it with the appropriate open action. If it is already open, or if opening returns no change, proceed to take or place rather than retrying open. After opening, verify access before taking or placing. Do not issue open on a container from its parent furniture.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_005",
+          "A/Executor/双物品放置/T6_005",
+          "B/Executor/双物品放置/T6_005",
+          "B/Critic/双物品放置/T6_005",
+          "C/Supervisor/双物品放置/T6_005",
+          "C/Search Worker/双物品放置/T6_005",
+          "C/Operation Worker/双物品放置/T6_005"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_005",
+          "A/Planner/双物品放置/T6_005",
+          "B/Critic/双物品放置/T6_005",
+          "B/Executor/双物品放置/T6_005",
+          "C/Operation Worker/双物品放置/T6_005",
+          "C/Search Worker/双物品放置/T6_005",
+          "C/Supervisor/双物品放置/T6_005"
+        ]
+      },
+      {
+        "global_skill_id": "T6_006",
+        "type": "Failure Lesson",
+        "title": "Examine-style actions do not provide usable information",
+        "description": "Using an examine-style action on objects or locations is not supported and returns no useful information.",
+        "why_it_happens": "The available interaction set is limited to navigation, taking, putting, opening, and inventory-style operations; examining is not an effective substitute.",
+        "how_to_avoid": "Inspect a location by navigating to the receptacle and observing its contents. Pick up visible target objects with a take action from that receptacle.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_006",
+          "A/Executor/双物品放置/T6_006",
+          "B/Executor/双物品放置/T6_006",
+          "B/Critic/双物品放置/T6_006",
+          "C/Supervisor/双物品放置/T6_006",
+          "C/Search Worker/双物品放置/T6_006",
+          "C/Operation Worker/双物品放置/T6_006"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_006",
+          "A/Planner/双物品放置/T6_006",
+          "B/Critic/双物品放置/T6_006",
+          "B/Executor/双物品放置/T6_006",
+          "C/Operation Worker/双物品放置/T6_006",
+          "C/Search Worker/双物品放置/T6_006",
+          "C/Supervisor/双物品放置/T6_006"
+        ]
+      },
+      {
+        "global_skill_id": "T6_007",
+        "type": "Failure Lesson",
+        "title": "Avoid unsuitable temporary containers for held objects",
+        "description": "Placing an object into a non-target or unsuitable container such as a garbage can can make retrieval impossible or cause the overall two-item placement to fail.",
+        "why_it_happens": "Some containers may not accept objects cleanly, may change object state, or may not allow reliable retrieval; temporary storage is only safe if the object can be taken back.",
+        "how_to_avoid": "Prefer placing the first object directly into the final destination. If temporary holding is unavoidable, choose an open, stable, recoverable surface or container and avoid garbage cans or other likely irreversible containers.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_007",
+          "A/Executor/双物品放置/T6_007",
+          "B/Executor/双物品放置/T6_007",
+          "B/Critic/双物品放置/T6_007",
+          "C/Supervisor/双物品放置/T6_007",
+          "C/Search Worker/双物品放置/T6_007",
+          "C/Operation Worker/双物品放置/T6_007"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_007",
+          "A/Planner/双物品放置/T6_007",
+          "B/Critic/双物品放置/T6_007",
+          "B/Executor/双物品放置/T6_007",
+          "C/Operation Worker/双物品放置/T6_007",
+          "C/Search Worker/双物品放置/T6_007",
+          "C/Supervisor/双物品放置/T6_007"
+        ]
+      },
+      {
+        "global_skill_id": "T6_008",
+        "type": "Failure Lesson",
+        "title": "Prevent budget exhaustion through checked-location and feasibility discipline",
+        "description": "After several containers have been opened and no target found, repeatedly revisiting locations already confirmed empty, re-taking an already-placed instance, repeating a no-change navigation, or trying yet another receptacle after many failed put attempts can exhaust the action budget and cause failure. A held object whose put attempts fail across many receptacles may indicate an unplaceable object or an infeasible goal rather than a wrong receptacle. Do not assert a specific unseen location contains the target or that a failed action was transient without observed evidence. Do not declare failure before all plausible open surfaces and closed containers have actually been opened and inspected.",
+        "why_it_happens": "Searching without tracking checked locations and placed instances leads to redundant actions, while unchecked opened containers or visible surfaces may still contain the target. A no-change navigation indicates the target location is unreachable or invalid, so retrying it cannot help. Speculation about unseen contents or transient failures drives further wasted steps, and premature failure declaration leaves plausible locations unexamined.",
+        "how_to_avoid": "Maintain a list of checked locations and placed instances. Prioritize unchecked opened containers and visible surfaces; take a target directly if it is visible. Avoid revisiting a location confirmed to have no target or re-taking an already-placed object unless new evidence suggests otherwise. After one no-change navigation, choose a different unchecked location. Base advice on observed state rather than asserting unseen contents or transient failures. Before declaring blocked, ensure all plausible open surfaces and closed containers were actually opened and inspected. If every put attempt fails across many receptacles, stop suggesting new receptacles and reassess the held object's exact identifier and whether the destination accepts placement, considering the object unplaceable or the goal infeasible.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_008",
+          "A/Executor/双物品放置/T6_008",
+          "B/Executor/双物品放置/T6_008",
+          "B/Critic/双物品放置/T6_008",
+          "C/Supervisor/双物品放置/T6_008",
+          "C/Search Worker/双物品放置/T6_008",
+          "C/Operation Worker/双物品放置/T6_008"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_008",
+          "A/Planner/双物品放置/T6_008",
+          "B/Critic/双物品放置/T6_008",
+          "B/Executor/双物品放置/T6_008",
+          "C/Operation Worker/双物品放置/T6_008",
+          "C/Search Worker/双物品放置/T6_008",
+          "C/Supervisor/双物品放置/T6_008"
+        ]
+      },
+      {
+        "global_skill_id": "T6_009",
+        "type": "Failure Lesson",
+        "title": "Signal completion only after actual progress and avoid re-taking placed items",
+        "description": "Repeatedly declaring a subtask complete without executing the required next action can trigger a loop guard and terminate the episode before the two items are placed. Re-taking an already-placed item and re-placing it at a different instance of the destination can also trigger a guard.",
+        "why_it_happens": "The current state may be misread as satisfying the completion condition even though the actual goal or subgoal is unfinished, causing repeated signals instead of progress; alternatively, the destination instance may be confused, leading to re-taking a placed item.",
+        "how_to_avoid": "Signal completion only after the corresponding subgoal is actually achieved, such as an object being taken or placed. After signaling, continue with the necessary next action and avoid repeating the same completion signal without new progress. Track which destination instance is the goal; once an item is placed at the target, do not re-take it, and search for a second instance instead.",
+        "source_skill_keys": [
+          "A/Planner/双物品放置/T6_009",
+          "A/Executor/双物品放置/T6_009",
+          "B/Executor/双物品放置/T6_009",
+          "B/Critic/双物品放置/T6_009",
+          "C/Supervisor/双物品放置/T6_009",
+          "C/Search Worker/双物品放置/T6_009",
+          "C/Operation Worker/双物品放置/T6_009"
+        ],
+        "upstream_source_skill_keys": [
+          "A/Executor/双物品放置/T6_009",
+          "A/Planner/双物品放置/T6_009",
+          "B/Critic/双物品放置/T6_009",
+          "B/Executor/双物品放置/T6_009",
+          "C/Operation Worker/双物品放置/T6_009",
+          "C/Search Worker/双物品放置/T6_009",
+          "C/Supervisor/双物品放置/T6_009"
+        ]
+      }
+    ]
+  },
+  "capacity": {
+    "server_maximum_total_skills": null,
+    "current_total_skills": 39,
+    "future_client_local_policy": "per_role_add_lte_floor_distinct_delete_div_3"
+  },
+  "source_input": {
+    "uploaded_role_skill_instance_count": 280,
+    "uploaded_banks_sha256": "sha256:c2657e0e25d709639b84dff60e3c65803e87b3d87ce904d1be933aba1f76cde9",
+    "input_manifest_sha256": "sha256:32f2d58bd62bd34f271c9ef1d5638326b35100ec6e288c3c4c39479847d4becc"
+  },
+  "aggregation_model": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "endpoint_path": "/",
+    "model": "deepseek-flash",
+    "api_key_present": true,
+    "api_key_value_recorded": false
+  },
+  "server_evaluation": null,
+  "live_global_hash": "sha256:add27722e3464db2cf3cacfb1ea18d7c615d3826504217e3fd6f3f4326e6321c"
+}

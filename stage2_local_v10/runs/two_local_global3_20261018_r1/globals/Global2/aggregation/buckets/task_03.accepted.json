@@ -1,0 +1,99 @@
+{
+  "skills": [
+    {
+      "type": "Procedure or Local Strategy",
+      "title": "Clean-then-place sequence with verified cleaning",
+      "principle": "For a goal requiring a clean object to be placed, use separate stages: locate and acquire the named target; bring it to a compatible cleaning fixture, preferring a sinkbasin; clean it; verify from the observation that cleaning succeeded; then go to the destination, open it if closed, and place the object. Do not place before cleaning, and do not mark cleaning complete without confirming evidence. If cleaning did not succeed, return to the cleaning stage before placement. If transfer or handoff occurs after acquisition, record that cleaning is still required. Treat successful placement as the terminal condition.",
+      "when_to_apply": "When the goal is to put a clean object in or on a specified receptacle and the object is not already clean.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_001",
+        "A/Executor/清洗后放置/T3_001",
+        "B/Executor/清洗后放置/T3_001",
+        "B/Critic/清洗后放置/T3_001",
+        "C/Supervisor/清洗后放置/T3_001",
+        "C/Search Worker/清洗后放置/T3_001",
+        "C/Operation Worker/清洗后放置/T3_001"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Clean action returns no effect",
+      "description": "A clean action may produce no effect when the target is not held, the current location is not a valid cleaning fixture, or the object is unsuitable. Cleaning is reliably supported at a sinkbasin in observations; alternatives such as bathtubbasin or fridge should not be assumed equivalent. Repeated identical clean attempts waste steps. Trying to take another object while still holding the failed object may also produce repeated no-ops.",
+      "why_it_happens": "The environment appears to validate that the object is held and that cleaning occurs at a compatible fixture; not every fixture or object supports cleaning.",
+      "how_to_avoid": "Hold the target, navigate to a sinkbasin, then clean. If no effect, verify the held object and current location; try a different sinkbasin or confirm the object is cleanable. Treat bathtubbasin as unverified and switch to sinkbasin if it fails. After a failed clean, either try a different cleanable candidate after releasing the held object at a valid surface or report the object as not cleanable; do not loop on the same action.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_002",
+        "A/Executor/清洗后放置/T3_002",
+        "B/Executor/清洗后放置/T3_002",
+        "B/Critic/清洗后放置/T3_002",
+        "C/Supervisor/清洗后放置/T3_002",
+        "C/Search Worker/清洗后放置/T3_002",
+        "C/Operation Worker/清洗后放置/T3_002"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Object may be unsuitable for cleaning",
+      "description": "Some objects, such as towels or cloth, may not support the clean action at a sinkbasin; repeated clean attempts can keep failing. This may mean the object type is not cleanable or the selected object is not the intended cleanable item.",
+      "why_it_happens": "Not every object type supports cleaning, and the chosen item may not be the task's intended cleanable target.",
+      "how_to_avoid": "Before committing to an object, choose a likely cleanable candidate. If clean returns no effect after confirming the fixture and that the object is held, stop repeating clean; try another candidate or report that the object is not cleanable.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_003",
+        "A/Executor/清洗后放置/T3_003",
+        "B/Executor/清洗后放置/T3_003",
+        "B/Critic/清洗后放置/T3_003",
+        "C/Supervisor/清洗后放置/T3_003",
+        "C/Search Worker/清洗后放置/T3_003",
+        "C/Operation Worker/清洗后放置/T3_003"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Placement fails due to destination state or validity",
+      "description": "Placement can fail when the destination container is closed, has no available space, or is not a valid receptacle. Some fixtures, such as toilets or coffeemachines, may reject placement; repeated put/open/use on a coffeemachine can return no effect. An open action may also return no effect when the container is already open or not openable.",
+      "why_it_happens": "Containers may require opening or have capacity limits, and some fixtures are not valid placement targets; repeating put or open without changing conditions can waste steps.",
+      "how_to_avoid": "Before placing, open a closed destination. If open returns no effect, do not retry it; treat it as already open or non-openable and proceed or reassess. Check space or availability when possible. If the destination is invalid or put repeatedly has no effect, seek an alternative valid destination or report blocked rather than looping.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_004",
+        "A/Executor/清洗后放置/T3_004",
+        "B/Executor/清洗后放置/T3_004",
+        "B/Critic/清洗后放置/T3_004",
+        "C/Supervisor/清洗后放置/T3_004",
+        "C/Search Worker/清洗后放置/T3_004",
+        "C/Operation Worker/清洗后放置/T3_004"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Do not silently substitute a similar object",
+      "description": "Goals specify an object type. Similar alternatives such as mug for cup, pan for pot, or butterknife for knife should not be silently substituted. A close synonym may be used only if the exact object is unavailable and the environment or observation explicitly treats it as equivalent, or the goal permits it; otherwise continue searching or report the mismatch. If the destination already contains a similar object, still acquire, clean, and place the correct target rather than swapping.",
+      "why_it_happens": "Generalizing categories can cause taking the wrong item and failing the task, while exact-name matching may miss an accepted synonym; equivalence must be confirmed rather than assumed.",
+      "how_to_avoid": "Search first for the exact named type. If not found, do not swap in a different type by default; use only a confirmed equivalent. Confirm equivalence through explicit environmental or observational evidence or goal permission before substituting.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_005",
+        "A/Executor/清洗后放置/T3_005",
+        "B/Executor/清洗后放置/T3_005",
+        "B/Critic/清洗后放置/T3_005",
+        "C/Supervisor/清洗后放置/T3_005",
+        "C/Search Worker/清洗后放置/T3_005",
+        "C/Operation Worker/清洗后放置/T3_005"
+      ]
+    },
+    {
+      "type": "Failure Lesson",
+      "title": "Bound target search without premature blocking",
+      "description": "Search should prioritize plausible locations but avoid opening every remaining container indefinitely or declaring blocked prematurely. Track checked locations and avoid revisiting confirmed-empty ones. After a reasonable set of likely locations has been checked—not merely one or two when many plausible ones remain—consider unusual placement or impossibility, then reassess or report blocked.",
+      "why_it_happens": "Item locations may follow regularities, but unusual placement or impossible tasks can occur; unbounded search wastes steps and can cause timeout, while stopping too early can miss findable objects.",
+      "how_to_avoid": "Prioritize likely locations by object type: food-related items in fridge; dishes or utensils in countertop, cabinet, or drawer; cleaning supplies near sinkbasin, countertop, or shelf. Keep a record of checked locations. After several likely locations fail, consider unusual placement or impossibility and reassess or report blocked rather than exhaustively opening all containers or stopping after only a couple of empty locations.",
+      "source_skill_keys": [
+        "A/Planner/清洗后放置/T3_006",
+        "A/Executor/清洗后放置/T3_006",
+        "B/Executor/清洗后放置/T3_006",
+        "B/Critic/清洗后放置/T3_006",
+        "C/Supervisor/清洗后放置/T3_006",
+        "C/Search Worker/清洗后放置/T3_006",
+        "C/Operation Worker/清洗后放置/T3_006"
+      ]
+    }
+  ]
+}
