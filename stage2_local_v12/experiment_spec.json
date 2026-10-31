@@ -1,0 +1,39 @@
+{
+  "schema_version": "stage2_local_v12.self_contained_spec.v1",
+  "implementation_id": "stage2-local-v12-self-contained-v1",
+  "protocol_id": "stage2-local-v10-role-partitioned-patch3",
+  "relationship": "behavior-preserving self-contained migration of V10",
+  "clients": {
+    "A": ["Planner", "Executor"],
+    "B": ["Executor", "Critic"],
+    "C": ["Supervisor", "Search Worker", "Operation Worker"]
+  },
+  "task_execution": {
+    "model": "qwen3.6-flash",
+    "temperature": 0,
+    "seed": 1234,
+    "thinking": false,
+    "training_tasks_per_client_generation": 134,
+    "validation_tasks_per_client_bank": 134
+  },
+  "teacher": {
+    "provider": "deepseek_official",
+    "endpoint_origin": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "quota": "per role and round: ADD <= floor(distinct DELETE / 3)"
+  },
+  "federation": {
+    "upload": "complete multi-role SkillBank",
+    "server_output": "one role-agnostic General plus six task-specific bucket Global",
+    "downlink": "complete Global copied identically to every role",
+    "server_evaluation": null
+  },
+  "plan": [
+    "local_2", "aggregate_1", "validate_1",
+    "local_3", "local_4", "aggregate_2", "validate_2",
+    "local_5", "local_6", "aggregate_3", "validate_3"
+  ],
+  "stop_after": "Global3_three_client_validation",
+  "external_inputs": ["ALFWorld dataset root", "locked Python environment", "runtime API credentials"],
+  "excluded": ["V10 historical runs", "credentials", "virtual environments", "ALFWorld dataset copy"]
+}

@@ -1,0 +1,750 @@
+{
+  "schema_version": "stage2_local_v12.source_manifest.v1",
+  "implementation_id": "stage2-local-v12-self-contained-v1",
+  "protocol_id": "stage2-local-v10-role-partitioned-patch3",
+  "file_count": 106,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "68a38c8a0f24f35a53dce7088b2787864c6ed0a09da6b1cf6668f4d4899a87b3",
+      "bytes": 45,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "__init__.py",
+      "sha256": "064ad6a9d5c0b2975c03ee02298a51bd17d34775b8ed32cc213eb692e8ba8333",
+      "bytes": 193,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "assets/manifests/client_a_generation_01.json",
+      "sha256": "bf6e368f688ccdbe7f9d6d43809ba7571a17910f4ef44e7468d4229dca88cee9",
+      "bytes": 46611,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/artifacts/manifests/client_a_generation_01.json"
+    },
+    {
+      "path": "assets/manifests/client_b_generation_01.json",
+      "sha256": "a1940aed56c5648b46dc03a0cb3a5769a76a7b146825bd3760f99ea22147a8ce",
+      "bytes": 46651,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/artifacts/manifests/client_b_generation_01.json"
+    },
+    {
+      "path": "assets/manifests/client_c_generation_01.json",
+      "sha256": "fcce17dfeeac800fe76a47e3efcc1baee1238e4e36d16a8c6ebd20bbdb6b9535",
+      "bytes": 46651,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/artifacts/manifests/client_c_generation_01.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/evidence.json",
+      "sha256": "d8d73561f9381a58a62aa94d038b4c62326c7b458dbcbc8f84e5f24e61c560dd",
+      "bytes": 1423871,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/evidence.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/result.json",
+      "sha256": "4ad76369f56e0ca123e3659a85fa4b9213fb651b0aab59ce04558e71d6803214",
+      "bytes": 5426861,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/source_lock.json",
+      "sha256": "fbf828d905247d15b04976877b06e54f497a117a3447d831cd8eb5c04f9807f4",
+      "bytes": 478,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/summary.json",
+      "sha256": "0d25924059ffee8fbdd14fffaf83ce40fdb47ddb7e13199d5fa78b4b9a484572",
+      "bytes": 391,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_training/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/result.json",
+      "sha256": "b1e4f25e696d6fe7ac565afbc8410e85b1538bdf3d0f2e642272aa1df26eb428",
+      "bytes": 5282009,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/source_lock.json",
+      "sha256": "8a5ea3523125810e011bb1fd21f7a02342b95268bed25409afae564a6f3f7fbc",
+      "bytes": 480,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/summary.json",
+      "sha256": "fa344aeddb1f8525d3a953e36ba8fea24de2293d1509842d58f75a1dadb0216e",
+      "bytes": 280,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B0_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.json",
+      "sha256": "84218a56b828fe08b81bd476c62d32950f61764b13390e957fd22c430bf24db4",
+      "bytes": 29462,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_skillbank.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_teacher_record.checkpoint.json",
+      "sha256": "b3c63b2faec0e1bb93c213b07b1cdf791ea60ed1d10cb0bdecf53458d7b08a19",
+      "bytes": 374973,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_teacher_record.checkpoint.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_teacher_record.json",
+      "sha256": "96f9134c676597338b3b0227f5f84ceefa784c06697765dad0e7cf1dc0e9ada1",
+      "bytes": 252979,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_teacher_record.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/result.json",
+      "sha256": "c2fb233f03f6456584c96f1eccdec141305e36dd08d0aa526cbff0ad488457e5",
+      "bytes": 6908254,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/source_lock.json",
+      "sha256": "ea016b0fb7ed0cfc128f6233e8adfecf0b29c8643f9b0c2f80d8bba342de040d",
+      "bytes": 618,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/summary.json",
+      "sha256": "c0d42f2b9a85bef92e1736bdf1255344a45dbece086edad1f932a6e239f50aa3",
+      "bytes": 280,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/B1_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_A/import_manifest.json",
+      "sha256": "ddee47837191efa38ad00ea5e5e2e21de44bb3b323633d9c6f15a0906adc4917",
+      "bytes": 2446,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_A/import_manifest.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/evidence.json",
+      "sha256": "a7c11e02d8f30c477af4ed2dc4bfc0b0932a269f05245fab02102c5a6514391e",
+      "bytes": 1868842,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/evidence.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/result.json",
+      "sha256": "eaaed08bd53b7835f4830ec083aedb0faea209c3d1833f0442211c7e440d1dba",
+      "bytes": 15383810,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/source_lock.json",
+      "sha256": "1438453933bfc7b944cb9b67d967146b21d80a0acd7efe3602b259b33d3e9643",
+      "bytes": 487,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/summary.json",
+      "sha256": "61bee4a25e83532a05cfe0e8e71a3b75d8958eb1c3c38ccb5db17ae4cd42434c",
+      "bytes": 379,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_training/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/result.json",
+      "sha256": "728e09ea9820e432223e29b219c26f2b49bbbd751a1fda7199375154c08bd6a9",
+      "bytes": 14820055,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/source_lock.json",
+      "sha256": "d58747f09536295661ae19cf653f527e51a05f77cda00f936cbd61f06ca2bf58",
+      "bytes": 489,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/summary.json",
+      "sha256": "18e05625fb0d5957049a8eb754512da71f0189b23fcd09704ae8d709b7532fa5",
+      "bytes": 280,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B0_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json",
+      "sha256": "4e42c1ff6d63a913279fe9405f67b753bebb42c98a4c78fe2c03d08d6f80a1b1",
+      "bytes": 25733,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_skillbank.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_teacher_record.checkpoint.json",
+      "sha256": "49db59b64b52d6634bb6f25617e3f6227664b5f788a882dcafd15d3a5784a143",
+      "bytes": 507814,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_teacher_record.checkpoint.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_teacher_record.json",
+      "sha256": "bc268c05aedd733a25f94281cc8d16750783cf225529e368ef960b4590623f9a",
+      "bytes": 381896,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_teacher_record.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/result.json",
+      "sha256": "fe3a3e969bde5db9021fb680046a78a7ca7f5be18ac4d2bb08834d18e6be9f38",
+      "bytes": 9355319,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/source_lock.json",
+      "sha256": "42f10a7023dcd73304ff9fe41c6bf4669806bc6780998182f6882b21e73ca856",
+      "bytes": 627,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/summary.json",
+      "sha256": "ab95c3520441867272a0db6728114e507c7462c435f892e3b670520041595a7f",
+      "bytes": 281,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/B1_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_B/import_manifest.json",
+      "sha256": "a2c36b91e031140fd048295d0d3c18c002d64dec80fb81e73a67e6b5ff1582d7",
+      "bytes": 2455,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_B/import_manifest.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/evidence.json",
+      "sha256": "3036feffb86454acbd3fa269740200c6c5b80cb1f24ea28f143beb943bc05772",
+      "bytes": 1599885,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/evidence.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/result.json",
+      "sha256": "f570c9a97f454a1cf4bde26931ff86bca821bce43acf118ba78fe136fd127c25",
+      "bytes": 13852739,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/source_lock.json",
+      "sha256": "123f80b1f65e4aa32a6a6b6a6095a4c528577468d2b277dc8466309931957acd",
+      "bytes": 487,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/summary.json",
+      "sha256": "06c61944edc5d355e6df9c7f5bb1299b019d712108152186e4e6e04f05ddee48",
+      "bytes": 379,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_training/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/result.json",
+      "sha256": "e84d79f2f483ceb8f5bcd999fde4c52a0f4e04509604d9ea1b307ad5257f7878",
+      "bytes": 15003862,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/source_lock.json",
+      "sha256": "9b30fcd01cadffad749279ef499d8c358c81dddb1b1cfde26029380dc345911f",
+      "bytes": 489,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/summary.json",
+      "sha256": "9661fa7534164d3252e4f1461cd8e82292b2cb402e4dedf2818208891efe2fb7",
+      "bytes": 280,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B0_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.json",
+      "sha256": "4702aeac4b6b7b759b1868d124ec8209616806eb16e3a0f2fbc3eacbc006da5d",
+      "bytes": 41613,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_skillbank.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_teacher_record.checkpoint.json",
+      "sha256": "50b022ea7668f13f5173585c3fae946b33bd173179bbe93050fcef769d75597a",
+      "bytes": 737194,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_teacher_record.checkpoint.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_teacher_record.json",
+      "sha256": "7cae048fafe3399dda142dbc68a9de2a4d2747102a71263eaa9715d2b4e0c1c0",
+      "bytes": 554474,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_teacher_record.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/result.json",
+      "sha256": "0819399c6390f9ecaf0c8cb43ff53b37c703f39eff1de841d8890c03f49ab718",
+      "bytes": 11391365,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/result.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/source_lock.json",
+      "sha256": "27db10d21e17ada01b6e5ada7940952a3a6b9be43d80d6be6fa401b02bac9e71",
+      "bytes": 627,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/source_lock.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/summary.json",
+      "sha256": "192f079af147e0b67682164a5844fda9906261591ef594d967b4429ad4ec1c52",
+      "bytes": 281,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/B1_validation/summary.json"
+    },
+    {
+      "path": "assets/seeds/imported_v9_b0_to_b1_20261018_r1/client_C/import_manifest.json",
+      "sha256": "dfd702a1264e4b69f7c50ddc6d682c26f9d222f5c5463b120ba9db65740119af",
+      "bytes": 2493,
+      "relationship": "byte-identical frozen seed",
+      "source": "stage2_local_v10/runs/imported_v9_b0_to_b1_20261018_r1/client_C/import_manifest.json"
+    },
+    {
+      "path": "assets/templates/client_a_B0_empty_skillbank.json",
+      "sha256": "ee7d1341f002a595c8b5d9f7537bb5e54fc2d1f13f91721cdb659797794577e3",
+      "bytes": 535,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/templates/client_a_B0_empty_skillbank.json"
+    },
+    {
+      "path": "assets/templates/client_b_B0_empty_skillbank.json",
+      "sha256": "d8051d7ad86588eb4d0d38b5a27e9460544d1c6592c0cd9ed3799f3e15751994",
+      "bytes": 571,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/templates/client_b_B0_empty_skillbank.json"
+    },
+    {
+      "path": "assets/templates/client_c_B0_empty_skillbank.json",
+      "sha256": "eaddca0ba6c45b418adef28da045af87b32e7033cd985de3565cc0226d1d383d",
+      "bytes": 752,
+      "relationship": "byte-identical frozen asset",
+      "source": "stage2_local_v10/templates/client_c_B0_empty_skillbank.json"
+    },
+    {
+      "path": "clients/__init__.py",
+      "sha256": "899c7344479dd4b46b78c50a2a74ae21cf770172a6ac65a9cae5a743801a9803",
+      "bytes": 77,
+      "relationship": "adapted internal copy",
+      "source": "client_code/__init__.py"
+    },
+    {
+      "path": "clients/alfworld_client_a.py",
+      "sha256": "b29a34adf042aee4f0c399b1c3b89ea8f4df82b3dfa24cefb288659870201489",
+      "bytes": 46846,
+      "relationship": "adapted internal copy",
+      "source": "client_code/alfworld_client_a.py"
+    },
+    {
+      "path": "clients/alfworld_client_b.py",
+      "sha256": "f3ac7bed3ad736204dcceb3a3cb3ab92b7f5a515e88d4d09c9fb66e9cd4d31e0",
+      "bytes": 29412,
+      "relationship": "adapted internal copy",
+      "source": "client_code/alfworld_client_b.py"
+    },
+    {
+      "path": "clients/alfworld_client_c.py",
+      "sha256": "75a635ccf57d229b40258eb77af1d6b343161c4e1f7c137c74f0ce03bf86e0a8",
+      "bytes": 31881,
+      "relationship": "adapted internal copy",
+      "source": "client_code/alfworld_client_c.py"
+    },
+    {
+      "path": "clients/alfworld_p0.py",
+      "sha256": "cf84aafb1d1a9444e6d145b3db9e8c1467e4c1bcc64e76bd5227c203fc2e6da3",
+      "bytes": 36625,
+      "relationship": "adapted internal copy",
+      "source": "client_code/alfworld_p0.py"
+    },
+    {
+      "path": "clients/skillbank_loader.py",
+      "sha256": "0daba7cdeaac4554a4945215497cba8addd4a1a89cb378121d6ade2299b7af9c",
+      "bytes": 39027,
+      "relationship": "adapted internal copy",
+      "source": "client_code/skillbank_loader.py"
+    },
+    {
+      "path": "evolution/__init__.py",
+      "sha256": "7c03bbd392337eea588c2dac42acee5392023a487bd0b2152420cc88fde74f38",
+      "bytes": 62,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/bootstrap_b1.py",
+      "sha256": "0bec957c680ad21808436c82cc4455b6691dbf168f880597a6f05b344b913217",
+      "bytes": 564,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/bootstrap_bank_a.py",
+      "sha256": "4d950bb40ae545f13cf316e65d70f65ee443ec2d1d3ec4fb4c15778bff2d097b",
+      "bytes": 29346,
+      "relationship": "static materialization",
+      "source": "stage2_local_v10.bootstrap_b1.v10_source"
+    },
+    {
+      "path": "evolution/bootstrap_bank_b.py",
+      "sha256": "7803827b9ddcf10610aecda6ab7fd1444e5e4426efae2f6cec56fdb097fcce18",
+      "bytes": 29451,
+      "relationship": "static materialization",
+      "source": "stage2_local_v10.bootstrap_b1.v10_source"
+    },
+    {
+      "path": "evolution/bootstrap_bank_c.py",
+      "sha256": "2e5c53895b8eb49dee4eb2e9f38aea5900180958908dedb968f7f3fd6f9247b6",
+      "bytes": 29663,
+      "relationship": "static materialization",
+      "source": "stage2_local_v10.bootstrap_b1.v10_source"
+    },
+    {
+      "path": "evolution/capacity_policy.py",
+      "sha256": "b155963dbc1b588377d6c7dfb1329eb0ff686a4ac1df4a4a8533339ba16c20b4",
+      "bytes": 4407,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/local_round2_evolver.py",
+      "sha256": "07d143bd2888132e5b15c8316f9d39e2af8273063ee8db27decc9d234b3ba2b1",
+      "bytes": 39864,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/patch_evolver.py",
+      "sha256": "ed803b20e90bca7bd2f9650acf8d5d31530e4a819120cef6cfb37e4e1b160b52",
+      "bytes": 56710,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/role_evolver.py",
+      "sha256": "8c69cd8a8ab13bc68bf388894c32c1b22c6a0dbeb2953abaf5b4aaaa2d9d54f9",
+      "bytes": 29720,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "evolution/teacher_api.py",
+      "sha256": "b3db82529eb94292d2556fe47332d5b641d5c1ff9556d16bcf54251b1c6e9851",
+      "bytes": 1173,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "experiment_spec.json",
+      "sha256": "89b6d57699b95be48b8e39588b07bbd006da933bbc18fd608c1aa30801bed588",
+      "bytes": 1513,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/__init__.py",
+      "sha256": "577dd0a78bffc50b51f09d576fbfa988f0511f4872cf287d3cfb97952be2b30a",
+      "bytes": 74,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/aggregation_api.py",
+      "sha256": "7bdaee90b529b60672f524e6b6348dabda582ac1af41e24cd9c60f9c7d8e984e",
+      "bytes": 7791,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/client_global_validation.py",
+      "sha256": "571eb9b265bb6198b4b0f4363c1fe8ed1e82c930f76add3436d3f7615712b0bf",
+      "bytes": 10629,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/downlink.py",
+      "sha256": "c9f3bfda99e93fa7d1f14cf3d73b3e5edcbd724704a974d8f13c23da6c3f5552",
+      "bytes": 4417,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/round1_aggregate.py",
+      "sha256": "209504d834ce36b8c1a230274ca8f10a6867a6b568493ed7d07617983a38ca4c",
+      "bytes": 24765,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/round2_aggregate.py",
+      "sha256": "5094bc9a34dce1ee0fccd06ba57f6af6fcdd48a0a752d1e2aed837a47f48fd14",
+      "bytes": 18116,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/run_global_validation.py",
+      "sha256": "9eadc807454e05735614533e8d2acb9dd0a4aece0a5228ec79bc79502299c883",
+      "bytes": 7221,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "federation/server_aggregate.py",
+      "sha256": "c68c9c89fb32a1a8b70c5a82f2eb51f4be8a41bfbdf66f3ed281a6797131864a",
+      "bytes": 19174,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/__init__.py",
+      "sha256": "c6f5e8042600524db13fc8dfe875df828d14864fb4b49336682c1dccbcc1884e",
+      "bytes": 72,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/import_v9_b1.py",
+      "sha256": "b39365cc0d8467e8b928f43a4d6cb2d9f27bba7b492d66bd3bc5ac379315b845",
+      "bytes": 6025,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/materialize_assets.py",
+      "sha256": "3ea45e8a9e85f7b1f176314444d07337a955510a16c01b803199455ab68eb98a",
+      "bytes": 2817,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/run_federated_round.py",
+      "sha256": "4fae85b2edfc199a3410a2d9e090576a9323baaa7c5d2e30a60b0b3336d9fbaf",
+      "bytes": 8959,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/run_independent_to_b5.py",
+      "sha256": "cfcafc302ee89b84a9ba2a0165eb4712e700754801f3f06a5f25af7364a93ac2",
+      "bytes": 5702,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/run_local_round.py",
+      "sha256": "ec4d1aba122c1735b29c4ae6352c1cdb8a24aaded01e81a4286ef00eb1db4d17",
+      "bytes": 10366,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/run_to_b1.py",
+      "sha256": "84b7a845c793f2e3e78957103805bcb74425a3fefbc0f10ef394a9f071933dfc",
+      "bytes": 6288,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "orchestration/run_two_local_to_global3.py",
+      "sha256": "ef7971ce6ca55fafb62d519d846659271681ca036e32d316ffd93fd8136ee951",
+      "bytes": 14597,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "provenance/__init__.py",
+      "sha256": "1ae2e5e5c1bb9c930340dbc4f07a14daf247e232059178ecfdf8664ee5cd4eed",
+      "bytes": 71,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "provenance/build_source_manifest.py",
+      "sha256": "26af4f073bee067525edd03e1b95306ad6be948406be87253940a4e278c94e8e",
+      "bytes": 2493,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "provenance/materialize_static_runners.py",
+      "sha256": "6b7e043e6574ea4f879236794c52a1d6c141b29fd8390548884af2082d8def15",
+      "bytes": 2525,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "README.md",
+      "sha256": "db33e985f28482c8fe46681d34f439192d9d733549f2f606d30a62c6c3869e8f",
+      "bytes": 4069,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "runs/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "runtime/__init__.py",
+      "sha256": "d0ed3f5b1f4f9c137e059dbc58ef0789bda7d8173794ad3dfca9dbe8c0bb7574",
+      "bytes": 68,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/__init__.py"
+    },
+    {
+      "path": "runtime/banks.py",
+      "sha256": "567965cd254df0125e51c084042cea6e8c3afb560d6ec00d3375a023307e0f80",
+      "bytes": 4635,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/banks.py"
+    },
+    {
+      "path": "runtime/local_operations.py",
+      "sha256": "1be5cb218cdd37963db9d1f4acd6cb96b09c97ccb94ca34a697996490d213bcf",
+      "bytes": 6686,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/local_operations.py"
+    },
+    {
+      "path": "runtime/paired_evaluator.py",
+      "sha256": "730a679cac9145d0ebd650a0fef20bd86ae474f73e45f2091e6e6d2dca87afe4",
+      "bytes": 8613,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/paired_evaluator.py"
+    },
+    {
+      "path": "runtime/phase_runner_a.py",
+      "sha256": "65d059a82a3c0aaf92b3ea908ca7bfe886f4f0822e1ec7956ffd3a5c5be97158",
+      "bytes": 13784,
+      "relationship": "static materialization",
+      "source": "v6 phase runner plus audited v9 client overlay"
+    },
+    {
+      "path": "runtime/phase_runner_b.py",
+      "sha256": "18c8b62f5f651aa1cf1a502bb250c3b2d8af519c7db1b45a8c3a5161fc1e4801",
+      "bytes": 13784,
+      "relationship": "static materialization",
+      "source": "v6 phase runner plus audited v9 client overlay"
+    },
+    {
+      "path": "runtime/phase_runner_c.py",
+      "sha256": "0cd5628295421f103a94dab27332620cd2b691a6d8688273a24af5db17076d5a",
+      "bytes": 13784,
+      "relationship": "static materialization",
+      "source": "v6 phase runner plus audited v9 client overlay"
+    },
+    {
+      "path": "runtime/runtime_adapter.py",
+      "sha256": "2c4cbe8e7a6dcae4601961766793438e8fdf7f7d157ace09d199bac671c2d54f",
+      "bytes": 8718,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/runtime_adapter.py"
+    },
+    {
+      "path": "runtime/server_selector.py",
+      "sha256": "9197deff3d2d06889836356c93633484ce5860969a1decccfe2ceb2b9dd78958",
+      "bytes": 9444,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/server_selector.py"
+    },
+    {
+      "path": "runtime/training_runner.py",
+      "sha256": "7a4f960bc4f58d41410055da79f42f62e4fc8c04551ab035a3104e461d1f6cee",
+      "bytes": 12984,
+      "relationship": "adapted internal copy",
+      "source": "originalFL/training_runner.py"
+    },
+    {
+      "path": "RUNTIME_DEPENDENCIES.md",
+      "sha256": "28bf7d713891c76abae64bd93521423f53048d86adebad55723a90cc2cea7ef7",
+      "bytes": 1015,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "sha256": "d9212fdaf0801204aa810b009b893e651fcab9d1f7ef17f90c464b20b4705450",
+      "bytes": 76,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "scripts/analyze_global_harm.py",
+      "sha256": "93281a3d0533f289847fcb84c328908d7a9a9c796d4d67ec47092df3c20bfe0a",
+      "bytes": 11868,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "scripts/audit_global2_resume.py",
+      "sha256": "20bbf25cd9456692990bbfa27dfbd4a249bd01b2daa1f5f4005175c5f1687d3f",
+      "bytes": 6042,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "scripts/repair_global3_cooling_principle.py",
+      "sha256": "04b9493d5c34f566a99355262f232dd02711f45d0caebcccaf25671bc6d51b5a",
+      "bytes": 7078,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "8ceab669203c424bbbfc371a4c79795c1896fb8e1b7de8fa9344c8bb9266f3c0",
+      "bytes": 36,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "tests/test_self_contained.py",
+      "sha256": "d39f0c809df5c390ee266ad72e07a695f66a3444867395e9842818e4290f4bd4",
+      "bytes": 3633,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    },
+    {
+      "path": "tests/test_v10_protocol.py",
+      "sha256": "67f6dcdf8a5a0ee8a294a18edfed44d59f5fd7d268dfb56dd057101eb536c5ec",
+      "bytes": 24860,
+      "relationship": "V12 migration source",
+      "source": "see D-127 and file history"
+    }
+  ]
+}
